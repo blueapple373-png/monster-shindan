@@ -177,7 +177,7 @@ export default function App() {
                 {tops.map(key=>(
   <img
     key={key}
-    src="/KAKO.png"
+    src={monsters[key].img}
     alt={monsters[key].name}
     style={{
       width:110,
