@@ -53,11 +53,11 @@ function DiamondChart({ scores, maxScore }) {
   });
   const toPath = pts => pts.map((p,i)=>`${i===0?"M":"L"}${p.x},${p.y}`).join(" ")+"Z";
   const guides = [0.25,0.5,0.75,1.0].map(ratio=>dirs.map(d=>({ x:cx+d.dx*r*ratio, y:cy+d.dy*r*ratio })));
-  const labelPos = [
-    { x:cx, y:cy-r-14, anchor:"middle" },
-    { x:cx+r+14, y:cy+4, anchor:"start" },
-    { x:cx, y:cy+r+18, anchor:"middle" },
-    { x:cx-r-14, y:cy+4, anchor:"end" },
+ const labelPos = [
+  { x:cx, y:cy-r-18, anchor:"middle" },
+  { x:cx+r+16, y:cy, anchor:"middle" },
+  { x:cx, y:cy+r+22, anchor:"middle" },
+  { x:cx-r-16, y:cy, anchor:"middle" },
   ];
   return (
    <svg
