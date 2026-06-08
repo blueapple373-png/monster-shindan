@@ -44,7 +44,7 @@ const getTopMonsters = (scores) => {
 };
 
 function DiamondChart({ scores, maxScore }) {
-  const size = 240, cx = 120, cy = 120, r = 78;
+  const size = 240, cx = 132, cy = 120, r = 78;
   const dirs = [{ dx:0,dy:-1 },{ dx:1,dy:0 },{ dx:0,dy:1 },{ dx:-1,dy:0 }];
   const outer = dirs.map(d => ({ x: cx+d.dx*r, y: cy+d.dy*r }));
   const inner = ORDER.map((key,i) => {
