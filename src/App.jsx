@@ -174,9 +174,19 @@ export default function App() {
                   {isMultiple ? "あなたの脳の住人（同率）" : "あなたの脳の住人"}
                 </div>
                 <div style={{ display:"flex", justifyContent:"center", gap:8, marginBottom:8 }}>
-                  {tops.map(key=>(
-                    <span key={key} style={{ fontSize: isMultiple ? 48 : 60 }}>{monsters[key].emoji}</span>
-                  ))}
+                {tops.map(key=>(
+  <img
+    key={key}
+    src={monsters[key].img}
+    alt={monsters[key].name}
+    style={{
+      width:110,
+      height:110,
+      objectFit:"contain",
+      display:"block"
+    }}
+  />
+))}
                 </div>
                 {isMultiple ? (
                   <div>
