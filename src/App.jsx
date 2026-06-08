@@ -60,7 +60,12 @@ function DiamondChart({ scores, maxScore }) {
     { x:cx-r-14, y:cy+4, anchor:"end" },
   ];
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+   <svg
+  width={size}
+  height={size}
+  viewBox={`0 0 ${size} ${size}`}
+  style={{ display:"block", margin:"0 auto" }}
+>
       {guides.map((pts,gi)=>(
         <polygon key={gi} points={pts.map(p=>`${p.x},${p.y}`).join(" ")} fill="none" stroke="#E0E0E8" strokeWidth={gi===3?1.5:0.8}/>
       ))}
