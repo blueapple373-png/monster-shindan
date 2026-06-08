@@ -20,10 +20,10 @@ const questions = [
 ];
 
 const monsters = {
-  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", imgTreat: "/FUAN-Treat.png", fuki: "/FUAN-Fuki.png", num: "/01.png", desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を戻す練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。" },
-  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", imgTreat: "/KAKO-Treat.png", fuki: "/KAKO-Fuki.png", num: "/02.png", desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。" },
-  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", imgTreat: "/HITEI-Treat.png", fuki: "/HITEI-Fuki.png", num: "/03.png", desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。" },
-  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png", imgTreat: "/JISEKI-Treat.png", fuki: "/JISEKI-Fuki.png", num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。" },
+  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を戻す練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。" },
+  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。" },
+  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。" },
+  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。" },
 };
 
 const ORDER = ["fuander", "kako", "jiko", "jisekin"];
@@ -113,7 +113,7 @@ export default function App() {
             <div style={{ display:"flex", justifyContent:"center", gap:12, marginBottom:32, flexWrap:"wrap" }}>
               {Object.values(monsters).map(m=>(
                 <div key={m.name} style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:16, padding:"12px 16px", textAlign:"center", minWidth:90 }}>
-                 <img src={m.img} alt={m.name} style={{width:56, height:56, objectFit:"contain"}} />
+                  <div style={{ fontSize:28 }}><img src={m.img} /></div>
                   <div style={{ fontSize:12, fontWeight:700, color:m.color, marginTop:4 }}>{m.name}</div>
                 </div>
               ))}
@@ -219,7 +219,7 @@ export default function App() {
                 return (
                   <div key={key}>
                     <div style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:20, padding:24, marginBottom:16 }}>
-                      <div style={{ fontSize:13, fontWeight:700, color:m.color, marginBottom:8 }}>{m.emoji} {m.name}</div>
+                      <div style={{ fontSize:13, fontWeight:700, color:m.color, marginBottom:8 }}><img src={m.img} /> {m.name}</div>
                       <p style={{ color:"#2D2D3A", fontSize:14, lineHeight:1.8, margin:0 }}>{m.desc}</p>
                     </div>
                     <div style={{ background:"white", borderRadius:20, padding:24, marginBottom:16, boxShadow:"0 4px 20px rgba(0,0,0,0.05)" }}>
