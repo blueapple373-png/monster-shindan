@@ -112,19 +112,9 @@ export default function App() {
             <p style={{ color:"#6B6B80", fontSize:14, lineHeight:1.8, marginBottom:32 }}>16問の質問に答えると、<br/>あなたのネガティブパターンを<br/>引き起こしやすいモンスターが分かります。</p>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:20, marginBottom:32 }}>
   {Object.values(monsters).map(m=>(
-    <div key={m.name} style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:16, padding:"14px 16px", textAlign:"center", boxSizing:"border-box" }}>
-      <img
-        src={m.img}
-        alt={m.name}
-        style={{
-          width:"90px",
-          height:"90px",
-          objectFit:"contain",
-          display:"block",
-          margin:"0 auto 6px"
-        }}
-      />
-      <div style={{ fontSize:12, fontWeight:700, color:m.color, marginTop:4 }}>{m.name}</div>
+    <div key={m.name} style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:16, padding:"8px 12px", textAlign:"center", boxSizing:"border-box" }}>
+      <img src={m.img} alt={m.name} style={{ width:96, height:96, objectFit:"contain", display:"block", margin:"0 auto 2px" }} />
+      <div style={{ fontSize:12, fontWeight:700, color:m.color, marginTop:0 }}>{m.name}</div>
     </div>
   ))}
 </div>
