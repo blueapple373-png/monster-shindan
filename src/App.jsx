@@ -79,7 +79,7 @@ function DiamondChart({ scores, maxScore }) {
     href={monsters[key].num}
     xlinkHref={monsters[key].num}
     x={labelPos[i].x - 10}
-    y={labelPos[i].y - 10}
+    y={labelPos[i].y - 0}
     width="20"
     height="20"
     preserveAspectRatio="xMidYMid meet"
