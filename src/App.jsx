@@ -219,7 +219,28 @@ export default function App() {
                 return (
                   <div key={key}>
                     <div style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:20, padding:24, marginBottom:16 }}>
-                      <div style={{ fontSize:13, fontWeight:700, color:m.color, marginBottom:8 }}><img src={m.img} /> {m.name}</div>
+                      <div
+  style={{
+    fontSize:13,
+    fontWeight:700,
+    color:m.color,
+    marginBottom:8,
+    display:"flex",
+    alignItems:"center",
+    gap:8
+  }}
+>
+  <img
+    src={m.img}
+    alt={m.name}
+    style={{
+      width:40,
+      height:40,
+      objectFit:"contain"
+    }}
+  />
+  {m.name}
+</div>
                       <p style={{ color:"#2D2D3A", fontSize:14, lineHeight:1.8, margin:0 }}>{m.desc}</p>
                     </div>
                     <div style={{ background:"white", borderRadius:20, padding:24, marginBottom:16, boxShadow:"0 4px 20px rgba(0,0,0,0.05)" }}>
