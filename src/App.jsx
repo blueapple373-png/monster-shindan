@@ -110,7 +110,7 @@ export default function App() {
             <div style={{ fontSize:56, marginBottom:8 }}>🧠</div>
             <h1 style={{ fontSize:22, fontWeight:800, color:"#2D2D3A", marginBottom:8, lineHeight:1.4 }}>あなたの脳の住人は<br/>どのモンスター？</h1>
             <p style={{ color:"#6B6B80", fontSize:14, lineHeight:1.8, marginBottom:32 }}>16問の質問に答えると、<br/>あなたのネガティブパターンを<br/>引き起こしやすいモンスターが分かります。</p>
-            <div style={{ display:"flex", justifyContent:"center", gap:12, marginBottom:32, flexWrap:"wrap" }}>
+            <div style={{ <div   style={{     display:"grid",     gridTemplateColumns:"repeat(2, 140px)",     gap:16,     justifyContent:"center",     marginBottom:32   }} > }}>
               {Object.values(monsters).map(m=>(
                 <div key={m.name} style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:16, padding:"12px 16px", textAlign:"center", minWidth:90 }}>
                   <div style={{ fontSize:28 }}><img   src={m.img}   alt={m.name}   style={{     width: 56,     height: 56,     objectFit: "contain",     display: "block",     margin: "0 auto"   }} /></div>
