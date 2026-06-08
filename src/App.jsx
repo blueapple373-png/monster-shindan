@@ -113,7 +113,7 @@ export default function App() {
        <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:20, marginBottom:32 }}>
   {Object.values(monsters).map(m=>(
     <div key={m.name} style={{ background:m.bg, border:`2px solid ${m.color}30`, borderRadius:16, padding:"12px 16px", textAlign:"center", boxSizing:"border-box" }}>
-      <img src={m.img} alt={m.name} style={{ width:65, height:65, objectFit:"contain", display:"block", margin:"0 auto" }} />
+      <img src={m.img} alt={m.name} style={{ width:50, height:50, objectFit:"contain", display:"block", margin:"0 auto" }} />
       <div style={{ fontSize:12, fontWeight:700, color:m.color, marginTop:4 }}>{m.name}</div>
     </div>
   ))}
