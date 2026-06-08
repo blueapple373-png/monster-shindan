@@ -68,18 +68,18 @@ function DiamondChart({ scores, maxScore }) {
         <line key={i} x1={cx} y1={cy} x2={cx+d.dx*r} y2={cy+d.dy*r} stroke="#D0D0DC" strokeWidth={0.8}/>
       ))}
       <path d={toPath(inner)} fill="rgba(155,142,196,0.35)" stroke="#9B8EC4" strokeWidth={1.5}/>
-      {ORDER.map((key,i)=>(
-       {ORDER.map((key,i)=>(
+     {ORDER.map((key,i)=>(
   <image
     key={key}
     href={monsters[key].num}
+    xlinkHref={monsters[key].num}
     x={labelPos[i].x - 12}
     y={labelPos[i].y - 12}
     width="24"
     height="24"
+    preserveAspectRatio="xMidYMid meet"
   />
 ))}
-      ))}
     </svg>
   );
 }
