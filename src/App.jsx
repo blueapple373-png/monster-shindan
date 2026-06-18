@@ -294,7 +294,22 @@ export default function App() {
               })}
 
               <button onClick={()=>{ setStep("intro"); setAnswers({}); setCurrent(0); setMbti(""); }} style={{ width:"100%", background:"linear-gradient(135deg,#9B8EC4,#E07070)", color:"white", border:"none", borderRadius:50, padding:"16px", fontSize:15, fontWeight:700, cursor:"pointer", marginTop:8 }}>もう一度診断する</button>
-            </div>
+          <a href="/lp" style={{
+  display:"block",
+  width:"100%",
+  background:"linear-gradient(135deg,#9B8EC4,#E07070)",
+  color:"white",
+  border:"none",
+  borderRadius:50,
+  padding:"16px",
+  fontSize:15,
+  fontWeight:700,
+  textAlign:"center",
+  textDecoration:"none",
+  marginTop:12,
+}}>
+  4週間プログラムの詳細を見る →
+</a>  </div>
           );
         })()}
       </div>
