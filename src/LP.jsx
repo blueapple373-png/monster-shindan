@@ -50,6 +50,7 @@ export default function LP() {
     ? OFFER_CONFIG.founding
     : OFFER_CONFIG.general;
   const [open, setOpen] = useState(null);
+  const [bioOpen, setBioOpen] = useState(false);
   const faqs = [
     {
       q: "毎日課題をこなせるか不安です",
@@ -518,6 +519,105 @@ export default function LP() {
               </span>
             </div>
           ))}
+        </div>
+      </section>
+      {/* 自己紹介 */}
+      <section style={{ background: "#FDFCFF", padding: "64px 24px" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <p
+            style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: "#9B8EC4",
+              letterSpacing: 2,
+              textAlign: "center",
+              marginBottom: 12,
+            }}
+          >
+            ABOUT
+          </p>
+          <h2
+            style={{
+              fontSize: 20,
+              fontWeight: 800,
+              marginBottom: 32,
+              textAlign: "center",
+            }}
+          >
+            私について
+          </h2>
+          <div
+            style={{
+              background: "#F8F7FF",
+              borderRadius: 16,
+              padding: "28px 28px",
+              marginBottom: 20,
+            }}
+          >
+            <p style={{ fontSize: 15, lineHeight: 2, color: "#2D2D3A", margin: "0 0 16px" }}>
+              私は、感情に振り回されない強い人になったわけではありません。
+              <br />
+              不安や自己否定があっても、人生を完全には止めず、
+              少しずつ戻る方法を探してきた人です。
+            </p>
+            <p style={{ fontSize: 15, lineHeight: 2, color: "#4A4A5A", margin: "0 0 16px" }}>
+              離婚、子育て、転職、夢の挫折、人間関係の悩みを経験しながら、
+              自分の感情と行動を観察し、心理学や脳の仕組みを学んできました。
+            </p>
+            <p style={{ fontSize: 15, lineHeight: 2, color: "#4A4A5A", margin: 0 }}>
+              MINAMI MINDLABでは、苦しみを完全に克服する方法ではなく、
+              止まってしまった後に日常へ戻るための考え方と実践方法を届けています。
+            </p>
+          </div>
+          {bioOpen && (
+            <div
+              style={{
+                fontSize: 15,
+                lineHeight: 2,
+                color: "#4A4A5A",
+                marginBottom: 20,
+              }}
+            >
+              {[
+                "はじめまして。MINAMIです。",
+                "私は現在、会社員として働きながら、感情に振り回されて日常が止まってしまう人のための講座とコミュニティを準備しています。",
+                "42歳、離婚経験があり、年子の娘と息子を育ててきました。これまで、百貨店、菓子製造、カフェ、保険営業、派遣社員など、さまざまな仕事を経験しました。現在は仕事を続けながら、COBOLやJavaなどのIT分野も学んでいます。",
+                "一つの道をまっすぐ進んできた人生ではありません。夢を諦めたこともあります。仕事を何度も変えました。結婚生活も終わりました。",
+                "周囲が経験や実績を積み重ねているように見える中で、私は長い間、「自分には何もない」「今から始めても遅い」と感じていました。",
+                "人間関係や恋愛でも、不安や自己否定に強く影響されてきました。相手の言葉や態度が気になって、頭の中がそのことでいっぱいになる。何も手につかなくなり、家事や勉強、仕事まで止まってしまう。",
+                "頭では「考えても仕方がない」と分かっているのに、感情が追いつかない。心理学の知識を得ても、自分の反応を理解しても、同じことでまた苦しくなる。そんな経験を何度も繰り返してきました。",
+                "私は、つらい時に「考えすぎだよ」「気にしなければいい」と言われても、あまり納得できませんでした。なぜ、こんなに反応してしまうのか。何が引き金になっているのか。理解しているのに、なぜ行動を変えられないのか。止まってしまった後、どうすれば日常に戻れるのか。",
+                "私は、自分の感情や行動を観察し、心理学や脳の仕組みを調べながら、長い間こうした問いを考えてきました。",
+                "その中で気づいたのは、苦しくならない人になることを目指すほど、苦しくなった自分を責めてしまうということでした。不安を完全になくす。自己否定を克服する。過去の傷をすべて癒やす。それができるまで人生を始められないとしたら、私はいつまでも動けません。",
+                "だから今は、感情をなくす方法ではなく、感情に飲み込まれた後に戻る方法を考えています。不安になってもいい。自己否定してもいい。何もできない日があってもいい。ただ、そのまま何日も人生が止まり続けるのではなく、少しだけ生活に戻る。何もできない自分を責め続けるのではなく、今できる小さな行動を選ぶ。",
+                "私は、感情に振り回されない強い人になったわけではありません。今でも揺れることはあります。理解していても、うまくできない日があります。それでも以前より、何が起きているのかを整理し、止まった後に戻るための方法を持てるようになりました。",
+                "私は、人生の正解を教える人でも、すべてを克服した成功者でもありません。自分自身の体験を観察し、そこで見つけた仕組みを、同じように止まってしまう人が使える言葉や方法に翻訳する人でありたいと思っています。",
+              ].map((para, i) => (
+                <p key={i} style={{ marginBottom: 16 }}>
+                  {para}
+                </p>
+              ))}
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={() => setBioOpen(!bioOpen)}
+            style={{
+              display: "block",
+              width: "100%",
+              background: "none",
+              border: "1px solid #D0C8E8",
+              borderRadius: 50,
+              padding: "12px 24px",
+              fontSize: 14,
+              color: "#9B8EC4",
+              fontWeight: 700,
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            {bioOpen ? "閉じる ▲" : "もっと読む ▼"}
+          </button>
         </div>
       </section>
       {/* 創設メンバー説明 */}
