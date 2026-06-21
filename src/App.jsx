@@ -26,6 +26,29 @@ const monsters = {
   jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png",imgTreat:"/JISEKI-Treat.png",num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。", bridge: "ジセキンが強いと、自分の範囲を超えたことまで背負い込み、身動きが取れなくなります。4週間プログラムでは、責任の境界線を一緒に引き直していきます。" },
 };
 
+// 同率2体の組み合わせごとの橋渡し文（順不同で引けるよう両方向のキーを用意）
+const comboBridges = {
+  "fuander,kako": "フアンダーが未来を心配し始めると、カコノキズが過去の痛みを呼び起こし、今のことなのか過去のことなのか分からないまま不安だけが膨らみます。4週間プログラムでは、この連鎖がどこから始まるのかを一緒に見分けます。",
+  "fuander,jiko": "フアンダーが不安を強めると、ジコヒテイが「だからお前はダメなんだ」と追い打ちをかけ、動けない時間が長引きやすくなります。4週間プログラムでは、その連鎖が始まる瞬間を見分け、早い段階で抜け出すルートを一緒に作ります。",
+  "fuander,jisekin": "フアンダーが心配を始めると、ジセキンが「全部自分のせいだ」と引き取り、身動きが取れなくなります。4週間プログラムでは、不安と自責が連動する手前で踏みとどまる方法を整理します。",
+  "kako,jiko": "カコノキズが過去の痛みを引き戻すと、ジコヒテイがそれを「今のあなたの欠陥」として責め立て、二重に苦しくなります。4週間プログラムでは、過去と評価を切り離す練習をします。",
+  "kako,jisekin": "カコノキズが過去を呼び起こすと、ジセキンがその痛みまで自分の責任として背負い込んでしまいます。4週間プログラムでは、過去の出来事と今の責任を分けて見る練習をします。",
+  "jiko,jisekin": "ジコヒテイが自分を否定し、ジセキンがすべてを背負い込むと、抜け出し口のない自己批判が続きます。4週間プログラムでは、その連鎖を断ち切る最初の一歩を一緒に探します。",
+};
+
+function getBridgeText(tops) {
+  if (tops.length === 1) return monsters[tops[0]].bridge;
+  if (tops.length === 2) {
+    const key1 = tops.join(",");
+    const key2 = [...tops].reverse().join(",");
+    if (comboBridges[key1]) return comboBridges[key1];
+    if (comboBridges[key2]) return comboBridges[key2];
+  }
+  // 3体以上同率、またはペア未定義時の汎用フォールバック
+  const names = tops.map(k => monsters[k].name).join("・");
+  return `${names}が同時に動くと、原因も止まり方も入り混じり、自分でも何が起きているのか分かりにくくなります。4週間プログラムでは、それぞれの動き方を切り分けて、自分専用の復帰ルートを一緒に整理します。`;
+}
+
 const ORDER = ["fuander", "kako", "jiko", "jisekin"];
 
 const mbtiMap = {
@@ -297,6 +320,7 @@ export default function App() {
 
           {(() => {
             const primary = monsters[tops[0]];
+            const bridgeText = getBridgeText(tops);
             return (
               <div style={{
                 background: primary.bg,
@@ -309,7 +333,7 @@ export default function App() {
                   診断結果からのご案内
                 </div>
                 <p style={{ fontSize:14, lineHeight:1.9, color:"#2D2D3A", margin:0 }}>
-                  {primary.bridge}
+                  {bridgeText}
                 </p>
               </div>
             );
