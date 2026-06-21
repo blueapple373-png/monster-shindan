@@ -2,18 +2,9 @@ import { useState } from "react";
 // 創設メンバー募集中は true
 // 一般募集へ切り替える時は false
 const IS_FOUNDING_MEMBER = true;
-/*
-  必ず確認してください。
-  founding:
-  19,800円のStripe支払いリンク
-  general:
-  29,800円のStripe支払いリンク
-  現在のgeneral用URLが39,800円の商品に紐づいている場合は、
-  Stripeで29,800円の価格・支払いリンクを作成して差し替えてください。
-*/
 const STRIPE_URLS = {
   founding: "https://buy.stripe.com/28E5kE1ftdtL5Ongyd4wM05",
-  general: "https://buy.stripe.com/dRmeVeaQ31L3ekT81H4wM04",
+  general: "https://buy.stripe.com/fZubJ2gancpH4Kj1Dj4wM06",
 };
 const OFFER_CONFIG = {
   founding: {
