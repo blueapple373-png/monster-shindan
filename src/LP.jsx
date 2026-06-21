@@ -1,7 +1,7 @@
 import { useState } from "react";
 // 創設メンバー募集中は true
 // 一般募集へ切り替える時は false
-const IS_FOUNDING_MEMBER = false;
+const IS_FOUNDING_MEMBER = true;
 const STRIPE_URLS = {
   founding: "https://buy.stripe.com/28E5kE1ftdtL5Ongyd4wM05",
   general: "https://buy.stripe.com/fZubJ2gancpH4Kj1Dj4wM06",
