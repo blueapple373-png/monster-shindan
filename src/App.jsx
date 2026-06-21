@@ -20,10 +20,10 @@ const questions = [
 ];
 
 const monsters = {
-  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", imgTreat:"/FUAN-Treat.png",num: "/01.png",desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を戻す練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。" },
-  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", imgTreat:"/KAKO-Treat.png",num: "/02.png",desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。" },
-  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", imgTreat:"/HITEI-Treat.png",num: "/03.png",desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。" },
-  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png",imgTreat:"/JISEKI-Treat.png",num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。" },
+  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", imgTreat:"/FUAN-Treat.png",num: "/01.png",desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を戻す練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。", bridge: "フアンダーが暴走すると、何かが起きる前から動けなくなります。4週間プログラムでは、不安が立ち上がる兆候と、その手前で踏みとどまる方法を一緒に整理します。" },
+  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", imgTreat:"/KAKO-Treat.png",num: "/02.png",desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。", bridge: "カコノキズが反応すると、今の出来事のはずなのに過去の痛みごと引き戻されます。4週間プログラムでは、その混同が起きる瞬間を見分け、今に戻るルートを作ります。" },
+  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", imgTreat:"/HITEI-Treat.png",num: "/03.png",desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。", bridge: "ジコヒテイが強く出ると、できなかったことばかりが目に入り、止まった自分をさらに責めてしまいます。4週間プログラムでは、その悪循環を断ち切る最初の一歩を一緒に探します。" },
+  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png",imgTreat:"/JISEKI-Treat.png",num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。", bridge: "ジセキンが強いと、自分の範囲を超えたことまで背負い込み、身動きが取れなくなります。4週間プログラムでは、責任の境界線を一緒に引き直していきます。" },
 };
 
 const ORDER = ["fuander", "kako", "jiko", "jisekin"];
@@ -294,6 +294,27 @@ export default function App() {
               })}
 
               <button onClick={()=>{ setStep("intro"); setAnswers({}); setCurrent(0); setMbti(""); }} style={{ width:"100%", background:"linear-gradient(135deg,#9B8EC4,#E07070)", color:"white", border:"none", borderRadius:50, padding:"16px", fontSize:15, fontWeight:700, cursor:"pointer", marginTop:8 }}>もう一度診断する</button>
+
+          {(() => {
+            const primary = monsters[tops[0]];
+            return (
+              <div style={{
+                background: primary.bg,
+                border: `2px solid ${primary.color}30`,
+                borderRadius: 20,
+                padding: 24,
+                marginTop: 20,
+              }}>
+                <div style={{ fontSize:13, fontWeight:700, color:primary.color, marginBottom:10 }}>
+                  診断結果からのご案内
+                </div>
+                <p style={{ fontSize:14, lineHeight:1.9, color:"#2D2D3A", margin:0 }}>
+                  {primary.bridge}
+                </p>
+              </div>
+            );
+          })()}
+
           <a href="/lp" style={{
   display:"block",
   width:"calc(100% - 32px)",
