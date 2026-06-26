@@ -782,26 +782,31 @@ function NewsPage() {
 }
 
 function ContactPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    window.alert("プレビュー版のため送信されません。公開時にフォームへ接続します。");
-  };
-
   return (
     <Layout>
       <Breadcrumb current="お問い合わせ" />
       <main>
         <Hero eyebrow="CONTACT" title="お問い合わせ">
           <p className="hero-copy">
-            内容に応じて項目を選択してください。プレビュー版では送信されません。
+            内容に応じて項目を選択し、必要事項をご入力ください。
           </p>
         </Hero>
         <section className="section white">
           <div className="container article-card standalone">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              className="contact-form"
+              action="https://formsubmit.co/blueapple373@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="MINAMI MINDLAB公式サイトからのお問い合わせ" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://monster-shindan.vercel.app/thanks" />
+              <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。内容を確認のうえ、必要に応じてご連絡いたします。" />
+              <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ display: "none" }} />
+
               <label>
                 <span>お問い合わせ種別</span>
-                <select defaultValue="個人向けサービスについて">
+                <select name="お問い合わせ種別" defaultValue="個人向けサービスについて" required>
                   <option>個人向けサービスについて</option>
                   <option>法人・福利厚生について</option>
                   <option>提携・共同検証について</option>
@@ -811,28 +816,59 @@ function ContactPage() {
               </label>
               <label>
                 <span>お名前</span>
-                <input type="text" placeholder="例：山田 花子" />
+                <input name="お名前" type="text" placeholder="例：山田 花子" required />
               </label>
               <label>
                 <span>会社・団体名</span>
-                <input type="text" placeholder="法人・団体の場合" />
+                <input name="会社・団体名" type="text" placeholder="法人・団体の場合" />
               </label>
               <label>
                 <span>メールアドレス</span>
-                <input type="email" placeholder="example@example.com" />
+                <input name="email" type="email" placeholder="example@example.com" required />
               </label>
               <label>
                 <span>お問い合わせ内容</span>
-                <textarea placeholder="目的、対象人数、実施時期、料金・契約条件などをご記入ください。" />
+                <textarea
+                  name="お問い合わせ内容"
+                  placeholder="目的、対象人数、実施時期、料金・契約条件などをご記入ください。"
+                  required
+                />
               </label>
               <div className="form-notice">
                 営業・掲載サービスのご案内は、正式な会社名、サービス名、料金、
                 契約期間、解約条件、実績資料を添えてください。
               </div>
               <button className="button primary" type="submit">
-                入力内容を確認する
+                送信する
               </button>
             </form>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+}
+
+function ThanksPage() {
+  return (
+    <Layout>
+      <Breadcrumb current="送信完了" />
+      <main>
+        <Hero eyebrow="THANK YOU" title="お問い合わせを受け付けました">
+          <p className="hero-copy">
+            送信ありがとうございます。内容を確認のうえ、必要に応じてご連絡します。
+          </p>
+        </Hero>
+        <section className="section white">
+          <div className="container article-card standalone">
+            <h2>送信が完了しました</h2>
+            <p>
+              ご入力いただいたメールアドレスにも受付確認メールが届きます。
+              届かない場合は、迷惑メールフォルダもご確認ください。
+            </p>
+            <div className="hero-actions">
+              <a className="button primary" href={siteLinks.home}>公式ホームへ戻る</a>
+            </div>
           </div>
         </section>
       </main>
@@ -863,8 +899,13 @@ function PrivacyPage() {
             <p>サービス提供、連絡、本人確認、品質改善、安全管理、法令対応のために利用します。</p>
             <h3>第三者提供</h3>
             <p>法令に基づく場合を除き、本人の同意なく第三者へ提供しません。</p>
+            <h3>お問い合わせフォームの外部送信サービス</h3>
+            <p>
+              お問い合わせフォームの送信にはFormSubmitを利用します。入力された内容は、
+              メール送信および迷惑送信対策のため同サービスを経由します。
+            </p>
             <h3>問い合わせ窓口</h3>
-            <p>正式なメールアドレス確定後に掲載します。</p>
+            <p>blueapple373@gmail.com</p>
           </article>
         </section>
       </main>
@@ -887,7 +928,7 @@ function TokushohoPage() {
                   <tr><th>販売事業者</th><td>CACHE-CACHE</td></tr>
                   <tr><th>運営責任者</th><td>岡本 南美</td></tr>
                   <tr><th>所在地</th><td>正式公開前に法令・決済事業者の要件を確認して確定します。</td></tr>
-                  <tr><th>連絡先</th><td>正式な問い合わせ先へ差し替えます。</td></tr>
+                  <tr><th>連絡先</th><td>blueapple373@gmail.com</td></tr>
                   <tr><th>販売価格</th><td>各商品・申込みページに税込価格を表示します。</td></tr>
                   <tr><th>支払方法・時期</th><td>各商品・申込みページに表示します。</td></tr>
                   <tr><th>役務の提供時期</th><td>各商品・申込みページに表示します。</td></tr>
@@ -914,6 +955,7 @@ export default function Site({ path }) {
     "/profile": ProfilePage,
     "/news": NewsPage,
     "/contact": ContactPage,
+    "/thanks": ThanksPage,
     "/privacy": PrivacyPage,
     "/tokushoho": TokushohoPage,
   };
