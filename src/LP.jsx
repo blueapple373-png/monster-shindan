@@ -96,6 +96,9 @@ export default function LP() {
         color: "#2D2D3A",
       }}
     >
+      <div style={{ maxWidth: 1040, margin: "0 auto", padding: "18px 20px 0" }}>
+        <a href="/" style={{ color: "#6B6B80", fontSize: 13, textDecoration: "none" }}>← MINAMI MINDLAB公式サイトへ</a>
+      </div>
       {/* ヒーロー */}
       <section
         style={{

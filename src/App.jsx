@@ -138,6 +138,7 @@ export default function App() {
   return (
     <div style={{ minHeight:"100vh", background:"linear-gradient(135deg,#FDF6FF 0%,#EFF6FF 50%,#FFF5F5 100%)", fontFamily:"'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif", display:"flex", alignItems:"center", justifyContent:"center", padding:"24px 16px" }}>
       <div style={{ width:"100%", maxWidth:520 }}>
+        <a href="/" style={{ display:"inline-block", color:"#6B6B80", fontSize:13, textDecoration:"none", marginBottom:18 }}>← MINAMI MINDLAB公式サイトへ</a>
 
         {step==="intro" && (
           <div style={{ textAlign:"center" }}>
