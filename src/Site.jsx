@@ -4,7 +4,7 @@ import "./site.css";
 const BASE = "";
 
 const siteLinks = {
-  home: BASE,
+  home: "/",
   about: `${BASE}/about`,
   services: `${BASE}/services`,
   monsters: `${BASE}/monsters`,
