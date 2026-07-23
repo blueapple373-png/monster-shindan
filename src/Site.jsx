@@ -942,9 +942,9 @@ function PrivacyPage() {
 
             <h3>決済サービス</h3>
             <p>
-              クレジットカード決済にはSquareを利用します。
+              クレジットカード決済にはStripeを利用します。
               クレジットカード情報および決済に必要な情報は、
-              Squareのシステムにより処理されます。
+              Stripeのシステムにより処理されます。
               当方は、サービス提供および取引管理に必要な範囲で、
               決済状況や取引情報を確認します。
             </p>
@@ -965,7 +965,7 @@ function PrivacyPage() {
             </p>
             <p>
               ただし、本ポリシーに記載した利用目的の達成に必要な範囲で、
-              FormSubmit、Square、Vercel等の外部事業者に
+              FormSubmit、Stripe、Vercel等の外部事業者に
               個人情報の取扱いを委託する場合があります。
             </p>
 
@@ -1063,7 +1063,7 @@ function TokushohoPage() {
       </tr>
       <tr>
         <th>支払方法</th>
-        <td>Squareによるクレジットカード決済</td>
+        <td>Stripeによるクレジットカード決済</td>
       </tr>
       <tr>
         <th>支払時期</th>
