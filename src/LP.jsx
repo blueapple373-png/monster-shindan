@@ -49,7 +49,7 @@ export default function LP() {
     },
     {
       q: "オンラインで完結しますか？",
-      a: "はい。個別面談・グループ会はZoom、日常のやりとりはDiscordで行います。",
+      a: "はい。個別面談、日常のやりとりは基本的にDiscordで行います。個別面談でのカメラ使用は任意です。",
     },
     {
       q: "途中で継続が難しくなった場合は？",
@@ -776,9 +776,9 @@ export default function LP() {
           >
             募集人数：{offer.capacityLabel}
             <br />
-            開催期間：［　年　月　日〜　月　日］
+            開催期間：参加者確定後に日程を調整し、開始日をご案内します
             <br />
-            開催方法：Zoom・Discord
+            開催方法：Discord
           </p>
           <p
             style={{
