@@ -626,3 +626,16 @@ body { margin: 0; }
   .article-card { padding: 25px 21px; }
   .legal-table th { width: 140px; }
 }
+.privacy-policy h2 {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-policy h3 {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
