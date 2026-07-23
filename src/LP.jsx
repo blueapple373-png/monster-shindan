@@ -901,18 +901,15 @@ function PriceBlock({ offer, dark = false }) {
           （税込）
         </span>
       </div>
-      <div
-        style={{
-          fontSize: 13,
-          color: dark ? "#C0B8D8" : "#8A8A98",
-          marginTop: 6,
-        }}
-      >
-        一括払い、または
-        <br />
-        {formatYen(offer.installmentAmount)}円
-        ×{offer.installmentCount}回
-      </div>
+<div
+  style={{
+    fontSize: 13,
+    color: dark ? "#C0B8D8" : "#8A8A98",
+    marginTop: 6,
+  }}
+>
+  一括払い
+</div>
     </div>
   );
 }
