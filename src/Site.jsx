@@ -943,8 +943,83 @@ function TokushohoPage() {
   );
 }
 
+const pageMeta = {
+  "/": {
+    title: "MINAMI MINDLAB｜止まったあとに戻る方法をつくる",
+    description:
+      "MINAMI MINDLABは、不安、自己否定、自責などで日常が止まりそうなとき、自分を責めずに戻るための仕組みを開発しています。",
+    robots: "index, follow",
+  },
+  "/about": {
+    title: "MINAMI MINDLABとは｜MINAMI MINDLAB",
+    description:
+      "感情をなくすのではなく、反応を理解し、Treatし、日常へ戻る方法をつくるMINAMI MINDLABの活動方針をご紹介します。",
+    robots: "index, follow",
+  },
+  "/services": {
+    title: "サービス・取り組み｜MINAMI MINDLAB",
+    description:
+      "モンスター診断、4週間プログラム、Treatアプリなど、MINAMI MINDLABが提供・開発しているサービスをご案内します。",
+    robots: "index, follow",
+  },
+  "/monsters": {
+    title: "4体のネガティブモンスター｜MINAMI MINDLAB",
+    description:
+      "不安、過去の傷、自己否定、自責という4つの反応を、ネガティブモンスターとして理解するためのページです。",
+    robots: "index, follow",
+  },
+  "/app": {
+    title: "Treatアプリ｜MINAMI MINDLAB",
+    description:
+      "感情が強くなったその場で開き、自分を責める前に小さなTreatを選ぶためのアプリを開発しています。",
+    robots: "index, follow",
+  },
+  "/business": {
+    title: "法人・団体・提携事業者の方へ｜MINAMI MINDLAB",
+    description:
+      "福利厚生、試験導入、研修、共同検証、掲載・提携など、法人・団体向けの取り組みをご案内します。",
+    robots: "index, follow",
+  },
+  "/profile": {
+    title: "運営者 岡本南美について｜MINAMI MINDLAB",
+    description:
+      "MINAMI MINDLAB運営者・岡本南美の活動背景と、止まったあとに戻る方法を仕組みにする理由をご紹介します。",
+    robots: "index, follow",
+  },
+  "/news": {
+    title: "お知らせ・開発状況｜MINAMI MINDLAB",
+    description:
+      "サービス募集、アプリ開発、ネガティブモンスターの設計など、MINAMI MINDLABの更新情報を掲載しています。",
+    robots: "index, follow",
+  },
+  "/contact": {
+    title: "お問い合わせ｜MINAMI MINDLAB",
+    description:
+      "個人向けサービス、法人・福利厚生、提携、共同検証、取材などに関するお問い合わせはこちらから。",
+    robots: "index, follow",
+  },
+  "/thanks": {
+    title: "送信完了｜MINAMI MINDLAB",
+    description: "お問い合わせの送信が完了しました。",
+    robots: "noindex, follow",
+  },
+  "/privacy": {
+    title: "プライバシーポリシー｜MINAMI MINDLAB",
+    description:
+      "MINAMI MINDLABにおける個人情報の取得、利用目的、管理方法についてご案内します。",
+    robots: "index, follow",
+  },
+  "/tokushoho": {
+    title: "特定商取引法に基づく表記｜MINAMI MINDLAB",
+    description:
+      "MINAMI MINDLABおよびCACHE-CACHEの特定商取引法に基づく表記です。",
+    robots: "index, follow",
+  },
+};
+
 export default function Site({ path }) {
   const normalized = path.replace(/\/$/, "") || "/";
+
   const routes = {
     "/": HomePage,
     "/about": AboutPage,
@@ -961,5 +1036,40 @@ export default function Site({ path }) {
   };
 
   const Page = routes[normalized] || HomePage;
+  const meta = pageMeta[normalized] || pageMeta["/"];
+
+  useEffect(() => {
+    document.title = meta.title;
+
+    let descriptionTag = document.querySelector('meta[name="description"]');
+    if (!descriptionTag) {
+      descriptionTag = document.createElement("meta");
+      descriptionTag.setAttribute("name", "description");
+      document.head.appendChild(descriptionTag);
+    }
+    descriptionTag.setAttribute("content", meta.description);
+
+    let robotsTag = document.querySelector('meta[name="robots"]');
+    if (!robotsTag) {
+      robotsTag = document.createElement("meta");
+      robotsTag.setAttribute("name", "robots");
+      document.head.appendChild(robotsTag);
+    }
+    robotsTag.setAttribute("content", meta.robots);
+
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement("link");
+      canonicalTag.setAttribute("rel", "canonical");
+      document.head.appendChild(canonicalTag);
+    }
+
+    const canonicalPath = normalized === "/" ? "/" : normalized;
+    canonicalTag.setAttribute(
+      "href",
+      `https://monster-shindan.vercel.app${canonicalPath}`
+    );
+  }, [normalized, meta.title, meta.description, meta.robots]);
+
   return <Page />;
 }
