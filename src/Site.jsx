@@ -921,21 +921,78 @@ function TokushohoPage() {
         <Hero eyebrow="LEGAL" title="特定商取引法に基づく表記" />
         <section className="section white">
           <div className="container">
-            <div className="draft-label">公開前の仮案</div>
-            <div className="table-wrap">
-              <table className="legal-table">
-                <tbody>
-                  <tr><th>販売事業者</th><td>CACHE-CACHE</td></tr>
-                  <tr><th>運営責任者</th><td>岡本 南美</td></tr>
-                  <tr><th>所在地</th><td>正式公開前に法令・決済事業者の要件を確認して確定します。</td></tr>
-                  <tr><th>連絡先</th><td>blueapple373@gmail.com</td></tr>
-                  <tr><th>販売価格</th><td>各商品・申込みページに税込価格を表示します。</td></tr>
-                  <tr><th>支払方法・時期</th><td>各商品・申込みページに表示します。</td></tr>
-                  <tr><th>役務の提供時期</th><td>各商品・申込みページに表示します。</td></tr>
-                  <tr><th>キャンセル・返金</th><td>各商品・申込みページおよび利用規約に表示します。</td></tr>
-                </tbody>
-              </table>
-            </div>
+           <div className="table-wrap">
+  <table className="legal-table">
+    <tbody>
+      <tr>
+        <th>販売事業者</th>
+        <td>岡本 南美（屋号：CACHE-CACHE）</td>
+      </tr>
+      <tr>
+        <th>運営責任者</th>
+        <td>岡本 南美</td>
+      </tr>
+      <tr>
+        <th>所在地・電話番号</th>
+        <td>
+          お客様からご請求があった場合、申込みの意思決定前に遅滞なく
+          電子メールで開示いたします。お問い合わせフォームよりご請求ください。
+        </td>
+      </tr>
+      <tr>
+        <th>連絡先</th>
+        <td>blueapple373@gmail.com</td>
+      </tr>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          各サービス紹介ページまたは申込ページに、消費税込みの価格を表示します。
+        </td>
+      </tr>
+      <tr>
+        <th>販売価格以外の必要料金</th>
+        <td>
+          商品代金以外に、当方へお支払いいただく追加料金はありません。
+          インターネット接続料金、通信料金等はお客様のご負担となります。
+        </td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td>Squareによるクレジットカード決済</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>
+          お申込み時に決済されます。
+          定期購入サービスは、各申込ページに表示された周期で決済されます。
+        </td>
+      </tr>
+      <tr>
+        <th>サービスの提供時期</th>
+        <td>
+          原則として決済完了後、直ちに提供を開始します。
+          開始日が定められているサービスは、各サービス紹介ページまたは
+          申込ページに表示します。
+        </td>
+      </tr>
+      <tr>
+        <th>キャンセル・返金</th>
+        <td>
+          サービスの性質上、提供開始後のお客様都合によるキャンセル・返金は
+          お受けしておりません。当方の責めに帰すべき事由がある場合を除きます。
+          定期購入サービスの解約方法、申出期限、更新条件は、
+          各サービス紹介ページおよび申込時の最終確認画面に表示します。
+        </td>
+      </tr>
+      <tr>
+        <th>申込期間</th>
+        <td>
+          申込期間を設ける場合は、各サービス紹介ページまたは申込ページに表示します。
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
           </div>
         </section>
       </main>
