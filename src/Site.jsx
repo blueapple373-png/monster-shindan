@@ -760,7 +760,85 @@ function NewsList({ compact = false }) {
     </div>
   );
 }
+function BlogPage() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const response = await fetch("/api/blogs");
+
+        if (!response.ok) {
+          throw new Error("ブログ記事を取得できませんでした。");
+        }
+
+        const data = await response.json();
+        setPosts(data.contents || []);
+      } catch (err) {
+        console.error(err);
+        setError("ブログ記事を読み込めませんでした。");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPosts();
+  }, []);
+
+  return (
+    <Layout>
+      <Breadcrumb current="ブログ" />
+
+      <main>
+        <Hero eyebrow="BLOG" title="ブログ">
+          <p className="hero-copy">
+            感情が大きく動いたあとに、日常へ戻るための考え方やヒントをお届けします。
+          </p>
+        </Hero>
+
+        <section className="section white">
+          <div className="container">
+            {loading && <p>記事を読み込んでいます...</p>}
+
+            {error && <p>{error}</p>}
+
+            {!loading && !error && posts.length === 0 && (
+              <p>まだ記事はありません。</p>
+            )}
+
+            <div className="news-list">
+              {posts.map((post) => (
+                <article className="news-item" key={post.id}>
+                  <div className="news-date">
+                    {post.publishedAt
+                      ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
+                      : ""}
+                  </div>
+
+                  {post.category?.name && (
+                    <div className="news-category">
+                      {post.category.name}
+                    </div>
+                  )}
+
+                  <div>
+                    <strong>
+                      <a href={`/blog/${post.id}`}>
+                        {post.title}
+                      </a>
+                    </strong>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+}
 function NewsPage() {
   return (
     <Layout>
@@ -1154,6 +1232,12 @@ const pageMeta = {
       "サービス募集、アプリ開発、ネガティブモンスターの設計など、MINAMI MINDLABの更新情報を掲載しています。",
     robots: "index, follow",
   },
+  "/blog": {
+  title: "ブログ｜MINAMI MINDLAB",
+  description:
+    "不安や自己否定などで日常が止まりそうなときに、自分を責めず、少しずつ戻るための考え方やヒントを掲載しています。",
+  robots: "index, follow",
+},
   "/contact": {
     title: "お問い合わせ｜MINAMI MINDLAB",
     description:
@@ -1191,6 +1275,7 @@ export default function Site({ path }) {
     "/business": BusinessPage,
     "/profile": ProfilePage,
     "/news": NewsPage,
+    "/blog": BlogPage,
     "/contact": ContactPage,
     "/thanks": ThanksPage,
     "/privacy": PrivacyPage,
