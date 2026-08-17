@@ -303,6 +303,11 @@ body { margin: 0; }
 }
 
 .statement-box { padding: 38px; }
+.box-copy {
+  margin-bottom: 16px;
+  color: #566078;
+}
+.box-copy:last-of-type { margin-bottom: 0; }
 .statement-list {
   display: grid;
   gap: 17px;
