@@ -73,10 +73,10 @@ const serviceCards = [
   {
     number: "03",
     title: "Treatアプリ",
-    text: "反応が強くなったその場で開き、モンスターと自分をTreatするアプリを開発しています。",
-    status: "開発中",
+    text: "診断で見えた反応を、日常の中で扱うためのサポート機能です。",
+    status: "プログラム内で提供",
     href: siteLinks.app,
-    cta: "開発内容を見る",
+    cta: "Treatアプリを見る",
   },
   {
     number: "04",
@@ -324,9 +324,9 @@ function HomePage() {
                 <div className="section-kicker">FIRST STEP</div>
                 <h2>まずは無料診断から。</h2>
                 <p className="lead">
-                  現在は、無料のモンスター診断を公開しています。
-                  4週間プログラム、Treatアプリ、学習コンテンツ、Discordコミュニティは、
-                  実際に続けられる形にするため準備を進めています。
+                  無料のモンスター診断を入口に、4週間プログラム、Treatアプリ、
+                  学習コンテンツ、Discordコミュニティへつながる流れを用意しています。
+                  まずは今の自分に強く出やすい反応を知るところから始められます。
                 </p>
               </div>
               <a className="text-link" href={siteLinks.services}>
@@ -390,20 +390,25 @@ function HomePage() {
             </div>
             <div>
               <div className="section-kicker">TREAT APP</div>
-              <h2>感情が強くなった、その場で使えるアプリへ。</h2>
+              <h2>診断で見えた反応を、日常で扱える形へ。</h2>
               <p className="lead">
-                知識を学ぶだけではなく、実際に手が止まりそうになった場面で開き、
-                自分を責め続ける前にTreatできるアプリを開発しています。
+                モンスター診断で分かった反応を、実際に気持ちが強くなった場面で
+                扱いやすくするためのTreatアプリを用意しています。
+                自分を責め続ける前に、マイモンスターをTreatしながら
+                次の小さな行動を選ぶための機能です。
               </p>
               <ul className="feature-list">
-                <li>反応の強まりに気づく</li>
-                <li>モンスターをTreatする</li>
-                <li>自分にできる小さなTreatを選ぶ</li>
-                <li>戻るための記録を残す</li>
+                <li>診断結果と日常の反応をつなぐ</li>
+                <li>感情が強くなった場面で開く</li>
+                <li>マイモンスターをTreatする</li>
+                <li>自分にできる小さな対処を選ぶ</li>
               </ul>
+              <p className="access-note">
+                Treatアプリは、無料診断後に案内するプログラム内で利用できます。
+              </p>
               <div className="hero-actions">
                 <a className="button secondary" href={siteLinks.app}>
-                  Treatアプリについて
+                  Treatアプリの内容を見る
                 </a>
               </div>
             </div>
@@ -548,7 +553,8 @@ function ServicesPage() {
       <main>
         <Hero eyebrow="SERVICES" title="サービス・取り組み">
           <p className="hero-copy">
-            現在利用できるサービスと、開発中の取り組みを分けてご案内します。
+            無料診断を入口に、個人向けプログラム、Treatアプリ、
+            学習コンテンツ、法人・提携向けの取り組みをご案内します。
           </p>
         </Hero>
         <section className="section white">
@@ -620,8 +626,8 @@ function AppPage() {
       <main>
         <Hero eyebrow="TREAT APP" title="感情が強くなった、その場で使う。">
           <p className="hero-copy">
-            知識を思い出せないときでも、開いて、気づいて、Treatし、
-            次の小さな行動へ移るためのアプリです。
+            診断で見えたマイモンスターを通して、今起きている反応に気づき、
+            自分を責め続ける前に小さな対処を選ぶためのアプリです。
           </p>
         </Hero>
         <section className="section white">
@@ -637,15 +643,16 @@ function AppPage() {
               <div className="section-kicker">CORE EXPERIENCE</div>
               <h2>暴走状態から、少し落ち着いた状態へ。</h2>
               <p className="lead">
-                Treat画面を開くと、選択中のマイモンスターが高ぶった状態で表示されます。
-                クッキーをあげると短いアニメーションを経て、
-                同じモンスターが少し落ち着いた状態へ変化します。
+                Treatアプリを開くと、選択中のマイモンスターが反応の高ぶった状態で
+                表示されます。クッキーをあげると、同じモンスターが少し落ち着いた
+                状態へ変化します。これは感情を消すためではなく、次の小さな行動へ
+                移るための体験です。
               </p>
               <ul className="feature-list">
                 <li>現在の反応に気づく</li>
-                <li>モンスターにクッキーをあげる</li>
+                <li>マイモンスターをTreatする</li>
                 <li>自分にできるTreatを選ぶ</li>
-                <li>日常へ戻る小さな行動を選ぶ</li>
+                <li>次の行動を決める</li>
                 <li>Treat記録を残す</li>
               </ul>
             </div>
@@ -653,13 +660,11 @@ function AppPage() {
         </section>
         <section className="section lavender">
           <div className="container article-card standalone">
-            <h2>現在の開発状況</h2>
+            <h2>Treatアプリの利用について</h2>
             <p>
-              診断アプリは公開済みです。Treatアプリの中核体験、
-              4体それぞれの暴走状態／Treat後の表現、記録機能、提供条件を順次整えています。
-            </p>
-            <p>
-              開発中の内容は、試験提供の結果や安全性の確認に応じて変更されます。
+              Treatアプリは、無料診断後に案内するプログラム内で利用できます。
+              診断だけで終わらせず、日常の中で反応を扱う練習につなげるための
+              サポート機能です。
             </p>
           </div>
         </section>
@@ -1227,7 +1232,7 @@ const pageMeta = {
   "/": {
     title: "MINAMI MINDLAB｜止まったあとに戻る方法をつくる",
     description:
-      "MINAMI MINDLABは、不安、自己否定、自責などで日常が止まりそうなとき、自分を責めずに戻るための仕組みを開発しています。",
+      "MINAMI MINDLABは、不安、自己否定、自責などで日常が止まりそうなとき、自分を責めずに次の小さな行動を選ぶための場所です。",
     robots: "index, follow",
   },
   "/about": {
@@ -1239,7 +1244,7 @@ const pageMeta = {
   "/services": {
     title: "サービス・取り組み｜MINAMI MINDLAB",
     description:
-      "モンスター診断、4週間プログラム、Treatアプリなど、MINAMI MINDLABが提供・開発しているサービスをご案内します。",
+      "モンスター診断、4週間プログラム、Treatアプリなど、MINAMI MINDLABのサービスをご案内します。",
     robots: "index, follow",
   },
   "/monsters": {
@@ -1251,7 +1256,7 @@ const pageMeta = {
   "/app": {
     title: "Treatアプリ｜MINAMI MINDLAB",
     description:
-      "感情が強くなったその場で開き、自分を責める前に小さなTreatを選ぶためのアプリを開発しています。",
+      "感情が強くなったその場で開き、自分を責める前に小さなTreatを選ぶためのアプリです。",
     robots: "index, follow",
   },
   "/business": {
