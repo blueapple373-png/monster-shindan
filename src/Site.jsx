@@ -874,6 +874,158 @@ function BlogPage() {
     </Layout>
   );
 }
+
+function BlogArticlePage({ id }) {
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadPost() {
+      try {
+        const response = await fetch(
+          `/api/blogs?id=${encodeURIComponent(id)}`
+        );
+
+        if (response.status === 404) {
+          throw new Error("NOT_FOUND");
+        }
+
+        if (!response.ok) {
+          throw new Error("FETCH_ERROR");
+        }
+
+        const data = await response.json();
+        setPost(data);
+      } catch (err) {
+        console.error(err);
+
+        if (err.message === "NOT_FOUND") {
+          setError("記事が見つかりませんでした。");
+        } else {
+          setError("記事を読み込めませんでした。");
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPost();
+  }, [id]);
+
+  useEffect(() => {
+    if (!post) return;
+
+    document.title = `${post.title}｜MINAMI MINDLAB`;
+
+    const temp = document.createElement("div");
+    temp.innerHTML = post.content || "";
+
+    const fallbackDescription = (temp.textContent || "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 140);
+
+    const description =
+      post.seoDescription?.trim() ||
+      fallbackDescription ||
+      "MINAMI MINDLABのブログ記事です。";
+
+    const descriptionTag =
+      document.querySelector('meta[name="description"]');
+
+    if (descriptionTag) {
+      descriptionTag.setAttribute("content", description);
+    }
+  }, [post]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <Breadcrumb current="ブログ" />
+        <main>
+          <section className="section white">
+            <div className="container">
+              <p>記事を読み込んでいます...</p>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <Layout>
+        <Breadcrumb current="ブログ" />
+        <main>
+          <section className="section white">
+            <div className="container article-card standalone">
+              <h1>記事を表示できませんでした</h1>
+              <p>{error}</p>
+              <a className="text-link" href="/blog">
+                ブログ一覧へ戻る →
+              </a>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
+  const publishedDate = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
+    : "";
+
+  return (
+    <Layout>
+      <Breadcrumb current="ブログ" />
+
+      <main>
+        <Hero eyebrow="BLOG" title={post.title}>
+          <p className="hero-copy">
+            {publishedDate}
+            {post.category?.name
+              ? `　${post.category.name}`
+              : ""}
+          </p>
+        </Hero>
+
+        <section className="section white">
+          <div className="container">
+            <article className="article-card standalone">
+              {post.eyecatch?.url && (
+                <img
+                  src={post.eyecatch.url}
+                  alt={post.title}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    marginBottom: "2rem",
+                  }}
+                />
+              )}
+
+              <div
+                className="blog-content"
+                dangerouslySetInnerHTML={{
+                  __html: post.content || "",
+                }}
+              />
+            </article>
+
+            <p style={{ marginTop: "2rem" }}>
+              <a className="text-link" href="/blog">
+                ← ブログ一覧へ戻る
+              </a>
+            </p>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+}
+
 function NewsPage() {
   return (
     <Layout>
