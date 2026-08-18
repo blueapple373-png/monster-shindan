@@ -392,23 +392,13 @@ function HomePage() {
               <div className="section-kicker">TREAT APP</div>
               <h2>診断で見えた反応を、日常で扱える形へ。</h2>
               <p className="lead">
-                モンスター診断で分かった反応を、実際に気持ちが強くなった場面で
-                扱いやすくするためのTreatアプリを用意しています。
-                自分を責め続ける前に、マイモンスターをTreatしながら
-                次の小さな行動を選ぶための機能です。
-              </p>
-              <ul className="feature-list">
-                <li>診断結果と日常の反応をつなぐ</li>
-                <li>感情が強くなった場面で開く</li>
-                <li>マイモンスターをTreatする</li>
-                <li>自分にできる小さな対処を選ぶ</li>
-              </ul>
-              <p className="access-note">
-                Treatアプリは、無料診断後に案内するプログラム内で利用できます。
+                Treatアプリは、モンスター診断で見えた反応を、
+                日常の中で扱うためのサポート機能です。
+                無料診断後に案内するプログラム内で利用できます。
               </p>
               <div className="hero-actions">
                 <a className="button secondary" href={siteLinks.app}>
-                  Treatアプリの内容を見る
+                  Treatアプリを見る
                 </a>
               </div>
             </div>
