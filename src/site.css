@@ -1,16 +1,16 @@
 :root {
   --ink: #20263c;
   --sub: #555e71;
-  --lavender: #8b82bd;
-  --lavender-dark: #63599b;
-  --lavender-pale: #f4f2fb;
+  --lavender: #9a85c8;
+  --lavender-dark: #6656a4;
+  --lavender-pale: #f0ebf8;
   --rose: #cf7482;
-  --rose-pale: #fff5f6;
+  --rose-pale: #f8f1f7;
   --beige: #fbfaf8;
   --white: #ffffff;
-  --line: #e3deea;
-  --shadow: 0 14px 34px rgba(32, 38, 60, 0.07);
-  --radius: 8px;
+  --line: #e1d7ee;
+  --shadow: 0 18px 42px rgba(51, 44, 82, 0.07);
+  --radius: 18px;
   --max: 1180px;
 }
 
@@ -21,7 +21,7 @@ body { margin: 0; }
 .mindlab-site {
   min-height: 100vh;
   color: var(--ink);
-  background: var(--beige);
+  background: var(--lavender-pale);
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
     "Yu Gothic", "Noto Sans JP", sans-serif;
   line-height: 1.85;
@@ -136,7 +136,7 @@ body { margin: 0; }
   border: 1px solid rgba(99, 89, 155, 0.28);
   border-radius: 8px;
   color: var(--lavender-dark);
-  background: rgba(255, 255, 255, 0.56);
+  background: rgba(255, 255, 255, 0.72);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
@@ -332,7 +332,7 @@ body { margin: 0; }
   width: 54px;
   height: 54px;
   margin-bottom: 18px;
-  border-radius: 8px;
+  border-radius: 14px;
   color: var(--lavender-dark);
   background: var(--lavender-pale);
   font-weight: 900;
@@ -439,10 +439,15 @@ body { margin: 0; }
 }
 
 .feature-list li {
-  padding: 15px 19px;
-  border-left: 4px solid var(--lavender);
-  border-radius: 8px;
+  padding: 15px 20px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
   background: #fff;
+  font-weight: 700;
+}
+
+.feature-list li::before {
+  content: none;
 }
 
 .access-note {
