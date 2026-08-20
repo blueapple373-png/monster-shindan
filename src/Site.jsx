@@ -1317,8 +1317,15 @@ export default function Site({ path }) {
     "/tokushoho": TokushohoPage,
   };
 
-  const Page = routes[normalized] || HomePage;
-  const meta = pageMeta[normalized] || pageMeta["/"];
+ const blogArticleMatch = normalized.match(
+  /^\/blog\/([A-Za-z0-9_-]+)$/
+);
+
+const Page = routes[normalized] || HomePage;
+
+const meta = blogArticleMatch
+  ? pageMeta["/blog"]
+  : pageMeta[normalized] || pageMeta["/"];
 
   useEffect(() => {
     document.title = meta.title;
@@ -1353,5 +1360,9 @@ export default function Site({ path }) {
     );
   }, [normalized, meta.title, meta.description, meta.robots]);
 
-  return <Page />;
+if (blogArticleMatch) {
+  return <BlogArticlePage id={blogArticleMatch[1]} />;
+}
+
+return <Page />;
 }
