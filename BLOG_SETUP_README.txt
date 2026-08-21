@@ -1,6 +1,8 @@
 MINAMI MINDLAB ブログ連携メモ
 
 このZIPは以下を含みます。
+- ヘッダー・モバイルメニュー・フッターに「ブログ」導線
+- ホームページに最新ブログ3件を表示
 - microCMS記事一覧: /blog
 - microCMS個別記事: /blog/{記事ID}
 - Vercel Function: /api/blogs と /api/blogs?id={記事ID}

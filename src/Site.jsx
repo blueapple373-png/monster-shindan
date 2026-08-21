@@ -12,6 +12,7 @@ const siteLinks = {
   business: `${BASE}/business`,
   profile: `${BASE}/profile`,
   news: `${BASE}/news`,
+  blog: `${BASE}/blog`,
   contact: `${BASE}/contact`,
   privacy: `${BASE}/privacy`,
   tokushoho: `${BASE}/tokushoho`,
@@ -117,6 +118,7 @@ function Header() {
             <a href={siteLinks.monsters}>モンスター</a>
             <a href={siteLinks.business}>法人・提携</a>
             <a href={siteLinks.profile}>運営者</a>
+            <a href={siteLinks.blog}>ブログ</a>
             <a className="header-cta" href={siteLinks.contact}>
               お問い合わせ
             </a>
@@ -142,6 +144,7 @@ function Header() {
           <a href={siteLinks.business}>法人・提携</a>
           <a href={siteLinks.profile}>運営者</a>
           <a href={siteLinks.news}>お知らせ</a>
+          <a href={siteLinks.blog}>ブログ</a>
           <a href={siteLinks.contact}>お問い合わせ</a>
         </nav>
       </header>
@@ -180,6 +183,7 @@ function Footer() {
               <strong>運営情報</strong>
               <a href={siteLinks.profile}>運営者について</a>
               <a href={siteLinks.news}>お知らせ</a>
+              <a href={siteLinks.blog}>ブログ</a>
               <a href={siteLinks.contact}>お問い合わせ</a>
               <a href={siteLinks.privacy}>プライバシーポリシー</a>
               <a href={siteLinks.tokushoho}>特定商取引法に基づく表記</a>
@@ -452,6 +456,8 @@ function HomePage() {
             <NewsList compact />
           </div>
         </section>
+
+        <HomeBlogPreview />
 
         <section className="section white">
           <div className="container profile-summary">
@@ -795,6 +801,101 @@ function NewsList({ compact = false }) {
     </div>
   );
 }
+function HomeBlogPreview() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadLatestPosts() {
+      try {
+        const response = await fetch("/api/blogs");
+
+        if (!response.ok) {
+          throw new Error("ブログ記事を取得できませんでした。");
+        }
+
+        const data = await response.json();
+        setPosts((data.contents || []).slice(0, 3));
+      } catch (err) {
+        console.error(err);
+        setError("最新記事を読み込めませんでした。");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadLatestPosts();
+  }, []);
+
+  return (
+    <section className="section rose blog-home-section">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-kicker">BLOG</div>
+            <h2>止まったあとに戻るためのヒント</h2>
+            <p className="lead">
+              不安や自己否定で目の前のことが手につかなくなったときに、
+              自分を責め続けず、日常へ戻るための考え方を掲載しています。
+            </p>
+          </div>
+          <a className="text-link" href={siteLinks.blog}>
+            ブログ一覧を見る →
+          </a>
+        </div>
+
+        {loading && (
+          <p className="blog-preview-status">最新記事を読み込んでいます...</p>
+        )}
+
+        {error && (
+          <div className="blog-preview-status">
+            <p>{error}</p>
+            <a className="text-link" href={siteLinks.blog}>
+              ブログ一覧を見る →
+            </a>
+          </div>
+        )}
+
+        {!loading && !error && posts.length === 0 && (
+          <div className="blog-preview-status">
+            <p>記事を準備中です。</p>
+            <a className="text-link" href={siteLinks.blog}>
+              ブログ一覧を見る →
+            </a>
+          </div>
+        )}
+
+        {!loading && !error && posts.length > 0 && (
+          <div className="blog-preview-grid">
+            {posts.map((post) => (
+              <article className="blog-preview-card" key={post.id}>
+                <div className="blog-preview-meta">
+                  <span className="blog-preview-date">
+                    {post.publishedAt
+                      ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
+                      : ""}
+                  </span>
+                  {post.category?.name && (
+                    <span className="news-category">{post.category.name}</span>
+                  )}
+                </div>
+                <h3>
+                  <a href={`/blog/${post.id}`}>{post.title}</a>
+                </h3>
+                <a className="text-link" href={`/blog/${post.id}`}>
+                  記事を読む →
+                </a>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -874,6 +975,158 @@ function BlogPage() {
     </Layout>
   );
 }
+
+function BlogArticlePage({ id }) {
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadPost() {
+      try {
+        const response = await fetch(
+          `/api/blogs?id=${encodeURIComponent(id)}`
+        );
+
+        if (response.status === 404) {
+          throw new Error("NOT_FOUND");
+        }
+
+        if (!response.ok) {
+          throw new Error("FETCH_ERROR");
+        }
+
+        const data = await response.json();
+        setPost(data);
+      } catch (err) {
+        console.error(err);
+
+        if (err.message === "NOT_FOUND") {
+          setError("記事が見つかりませんでした。");
+        } else {
+          setError("記事を読み込めませんでした。");
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPost();
+  }, [id]);
+
+  useEffect(() => {
+    if (!post) return;
+
+    document.title = `${post.title}｜MINAMI MINDLAB`;
+
+    const temp = document.createElement("div");
+    temp.innerHTML = post.content || "";
+
+    const fallbackDescription = (temp.textContent || "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 140);
+
+    const description =
+      post.seoDescription?.trim() ||
+      fallbackDescription ||
+      "MINAMI MINDLABのブログ記事です。";
+
+    const descriptionTag =
+      document.querySelector('meta[name="description"]');
+
+    if (descriptionTag) {
+      descriptionTag.setAttribute("content", description);
+    }
+  }, [post]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <Breadcrumb current="ブログ" />
+        <main>
+          <section className="section white">
+            <div className="container">
+              <p>記事を読み込んでいます...</p>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <Layout>
+        <Breadcrumb current="ブログ" />
+        <main>
+          <section className="section white">
+            <div className="container article-card standalone">
+              <h1>記事を表示できませんでした</h1>
+              <p>{error}</p>
+              <a className="text-link" href="/blog">
+                ブログ一覧へ戻る →
+              </a>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    );
+  }
+
+  const publishedDate = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
+    : "";
+
+  return (
+    <Layout>
+      <Breadcrumb current="ブログ" />
+
+      <main>
+        <Hero eyebrow="BLOG" title={post.title}>
+          <p className="hero-copy">
+            {publishedDate}
+            {post.category?.name
+              ? `　${post.category.name}`
+              : ""}
+          </p>
+        </Hero>
+
+        <section className="section white">
+          <div className="container">
+            <article className="article-card standalone">
+              {post.eyecatch?.url && (
+                <img
+                  src={post.eyecatch.url}
+                  alt={post.title}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    marginBottom: "2rem",
+                  }}
+                />
+              )}
+
+              <div
+                className="blog-content"
+                dangerouslySetInnerHTML={{
+                  __html: post.content || "",
+                }}
+              />
+            </article>
+
+            <p style={{ marginTop: "2rem" }}>
+              <a className="text-link" href="/blog">
+                ← ブログ一覧へ戻る
+              </a>
+            </p>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+}
+
 function NewsPage() {
   return (
     <Layout>

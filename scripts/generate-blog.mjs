@@ -171,6 +171,7 @@ function createArticleBody(post) {
   const eyecatch = post.eyecatch?.url || "";
 
   return `
+    <div class="mindlab-site">
     <main>
       <section class="page-hero compact">
         <div class="hero-inner">
@@ -202,6 +203,7 @@ function createArticleBody(post) {
         </div>
       </section>
     </main>
+    </div>
   `;
 }
 
@@ -241,6 +243,7 @@ function createBlogIndexBody() {
     .join("");
 
   return `
+    <div class="mindlab-site">
     <main>
       <section class="page-hero compact">
         <div class="hero-inner">
@@ -260,6 +263,7 @@ function createBlogIndexBody() {
         </div>
       </section>
     </main>
+    </div>
   `;
 }
 
