@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import LP from './LP.jsx'
 import Site from './Site.jsx'
+import './blog.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 
