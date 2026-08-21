@@ -600,7 +600,7 @@ function MonstersPage() {
                 </article>
               ))}
             </div>
-            <article className="article-card standalone">
+            <article className="article-card standalone wide">
               <h2>倒すためのキャラクターではありません</h2>
               <p>
                 ネガティブモンスターは、悪者や敵として扱うものではありません。
@@ -698,7 +698,7 @@ function BusinessPage() {
                 <p>アプリ、学習プログラム、コミュニティの試験運用や共同検証について相談できます。</p>
               </article>
             </div>
-            <article className="article-card standalone">
+            <article className="article-card standalone wide">
               <h2>現在の提供方針</h2>
               <p>
                 法人向けサービスを一律の完成パッケージとして販売しているわけではありません。
