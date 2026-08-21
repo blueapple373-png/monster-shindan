@@ -605,6 +605,7 @@ body { margin: 0; }
 .article-card h3 { margin-top: 32px; }
 .article-card li { margin-bottom: 8px; }
 .article-card.standalone { max-width: 920px; margin: 34px auto 0; }
+.article-card.standalone.wide { max-width: none; }
 
 .contact-form { display: grid; gap: 18px; }
 .contact-form label { display: grid; grid-template-columns: 180px 1fr; gap: 18px; }
