@@ -1,0 +1,151 @@
+/* Blog article layout overrides */
+
+main:has(.blog-content) > .page-hero.compact {
+  padding: 44px 24px 36px;
+}
+
+main:has(.blog-content) > .page-hero.compact .hero-inner {
+  max-width: 1080px;
+}
+
+main:has(.blog-content) > .page-hero.compact h1 {
+  max-width: 980px;
+  margin-top: 14px;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+main:has(.blog-content) > .page-hero.compact .hero-copy {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+main:has(.blog-content) > .section.white {
+  padding-top: 48px;
+}
+
+main:has(.blog-content) .article-card.standalone {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+main:has(.blog-content) .article-card.standalone > img {
+  display: block;
+  width: min(100%, 920px) !important;
+  height: auto !important;
+  max-height: 560px;
+  margin: 0 0 42px !important;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+main:has(.blog-content) .blog-content {
+  max-width: 900px;
+  margin: 0;
+  color: #374057;
+  font-size: 17px;
+  line-height: 2;
+}
+
+main:has(.blog-content) .blog-content p {
+  margin: 0 0 1.6em;
+}
+
+main:has(.blog-content) .blog-content h2 {
+  margin: 3.2rem 0 1.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.5;
+}
+
+main:has(.blog-content) .blog-content h3 {
+  margin: 2.4rem 0 0.9rem;
+  font-size: clamp(21px, 2.4vw, 26px);
+  line-height: 1.55;
+}
+
+main:has(.blog-content) .blog-content img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 900px);
+  height: auto;
+  max-height: 680px;
+  margin: 34px 0;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+main:has(.blog-content) .blog-content figure {
+  margin: 34px 0;
+}
+
+main:has(.blog-content) .blog-content figure img {
+  margin: 0;
+}
+
+main:has(.blog-content) .blog-content figcaption {
+  margin-top: 10px;
+  color: var(--sub);
+  font-size: 13px;
+}
+
+main:has(.blog-content) .blog-content ul,
+main:has(.blog-content) .blog-content ol {
+  margin: 1.2rem 0 1.8rem;
+  padding-left: 1.6em;
+}
+
+main:has(.blog-content) .blog-content blockquote {
+  margin: 2rem 0;
+  padding: 18px 22px;
+  border-left: 4px solid var(--lavender);
+  background: #f8f6fc;
+}
+
+@media (max-width: 640px) {
+  main:has(.blog-content) > .page-hero.compact {
+    padding: 34px 20px 30px;
+  }
+
+  main:has(.blog-content) > .page-hero.compact h1 {
+    margin-top: 12px;
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  main:has(.blog-content) > .section.white {
+    padding-top: 34px;
+  }
+
+  main:has(.blog-content) .article-card.standalone {
+    padding: 0;
+  }
+
+  main:has(.blog-content) .article-card.standalone > img {
+    margin-bottom: 30px !important;
+    border-radius: 12px;
+  }
+
+  main:has(.blog-content) .blog-content {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  main:has(.blog-content) .blog-content h2 {
+    margin-top: 2.7rem;
+  }
+
+  main:has(.blog-content) .blog-content img,
+  main:has(.blog-content) .blog-content figure {
+    margin-top: 26px;
+    margin-bottom: 26px;
+  }
+}
