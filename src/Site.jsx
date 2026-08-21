@@ -287,7 +287,7 @@ function HomePage() {
                 <li>返信がないだけで、仕事や家事が手につかなくなる</li>
                 <li>子どもに強く言ったあと、ずっと自分を責めてしまう</li>
                 <li>失敗や過去のことを思い出して、次の行動に移れない</li>
-                <li>大丈夫だと分かっていても、不安が何度も戻ってくる</li>
+                <li>大丈夫だと分かっていても、不安が何度も湧いてくる</li>
               </ul>
             </div>
           </div>
@@ -487,7 +487,7 @@ function AboutPage() {
       <main>
         <Hero eyebrow="ABOUT" title="MINAMI MINDLABとは">
           <p className="hero-copy">
-            感情をなくすのではなく、反応を理解し、Treatし、日常へ戻る方法をつくるための活動です。
+            感情をなくすのではなく、反応を理解し、Treatし、日常を止めすぎないための活動です。
           </p>
         </Hero>
         <section className="section white">
@@ -501,7 +501,7 @@ function AboutPage() {
             <article className="article-card">
               <section id="mission">
                 <div className="section-kicker">MISSION</div>
-                <h2>揺れても、自分を責めずに戻れるように。</h2>
+                <h2>止まりやすい日も、自分を責めずに扱えるように。</h2>
                 <p>
                   不安や自己否定が強くなると、目の前の家事、仕事、勉強、
                   人との関わりまで止まることがあります。
@@ -517,7 +517,7 @@ function AboutPage() {
                 <ul>
                   <li><strong>知る：</strong>今どの反応が強く出ているのかを整理する</li>
                   <li><strong>Treatする：</strong>感情を消そうとせず、今できる対処を選ぶ</li>
-                  <li><strong>戻る：</strong>完璧に元気になる前でも、最小の行動を選ぶ</li>
+                  <li><strong>再開する：</strong>完璧に元気になる前でも、最小の行動を選ぶ</li>
                 </ul>
               </section>
               <section id="scope">
@@ -690,7 +690,7 @@ function BusinessPage() {
               <article className="info-card">
                 <div className="card-number">B</div>
                 <h3>研修・ワークショップ</h3>
-                <p>自動反応の外在化、止まったあとの戻り方などを扱うオンライン形式を検討します。</p>
+                <p>自動反応の外在化、止まったあとの立て直し方などを扱うオンライン形式を検討します。</p>
               </article>
               <article className="info-card">
                 <div className="card-number">C</div>
@@ -730,7 +730,7 @@ function ProfilePage() {
       <main>
         <Hero eyebrow="FOUNDER" title="運営者について">
           <p className="hero-copy">
-            完璧に克服した人としてではなく、揺れたあとに戻る方法を言葉と仕組みに変える立場から活動しています。
+            完璧に克服した人としてではなく、止まったあとに立て直す方法を言葉と仕組みに変える立場から活動しています。
           </p>
         </Hero>
         <section className="section white">
@@ -746,7 +746,7 @@ function ProfilePage() {
               </p>
               <p>
                 心理学や脳の仕組みを学び、自分の反応や行動を観察する中で、
-                感情をなくすことより、感情に飲み込まれたあとに戻る方法が必要だと考えるようになりました。
+                感情をなくすことより、感情に飲み込まれたあとに立て直す方法が必要だと考えるようになりました。
               </p>
               <p>
                 MINAMI MINDLABでは、自分自身の経験から見つけた仕組みを、
@@ -834,10 +834,10 @@ function HomeBlogPreview() {
         <div className="section-head">
           <div>
             <div className="section-kicker">BLOG</div>
-            <h2>止まったあとに戻るためのヒント</h2>
+            <h2>止まったあとを扱うヒント</h2>
             <p className="lead">
               不安や自己否定で目の前のことが手につかなくなったときに、
-              自分を責め続けず、日常へ戻るための考え方を掲載しています。
+              自分を責め続けず、次の小さな行動を選ぶための考え方を掲載しています。
             </p>
           </div>
           <a className="text-link" href={siteLinks.blog}>
@@ -930,7 +930,7 @@ function BlogPage() {
       <main>
         <Hero eyebrow="BLOG" title="ブログ">
           <p className="hero-copy">
-            感情が大きく動いたあとに、日常へ戻るための考え方やヒントをお届けします。
+            感情が大きく動いたあとに、次の小さな行動を選ぶための考え方やヒントをお届けします。
           </p>
         </Hero>
 
@@ -1473,7 +1473,7 @@ function TokushohoPage() {
 
 const pageMeta = {
   "/": {
-    title: "MINAMI MINDLAB｜止まったあとに戻る方法をつくる",
+    title: "MINAMI MINDLAB｜止まりやすい日を、扱える形にする",
     description:
       "MINAMI MINDLABは、不安、自己否定、自責などで日常が止まりそうなとき、自分を責めずに次の小さな行動を選ぶための場所です。",
     robots: "index, follow",
@@ -1481,7 +1481,7 @@ const pageMeta = {
   "/about": {
     title: "MINAMI MINDLABとは｜MINAMI MINDLAB",
     description:
-      "感情をなくすのではなく、反応を理解し、Treatし、日常へ戻る方法をつくるMINAMI MINDLABの活動方針をご紹介します。",
+      "感情をなくすのではなく、反応を理解し、Treatし、日常を止めすぎないMINAMI MINDLABの活動方針をご紹介します。",
     robots: "index, follow",
   },
   "/services": {
@@ -1511,7 +1511,7 @@ const pageMeta = {
   "/profile": {
     title: "運営者 岡本南美について｜MINAMI MINDLAB",
     description:
-      "MINAMI MINDLAB運営者・岡本南美の活動背景と、止まったあとに戻る方法を仕組みにする理由をご紹介します。",
+      "MINAMI MINDLAB運営者・岡本南美の活動背景と、止まったあとに立て直す方法を仕組みにする理由をご紹介します。",
     robots: "index, follow",
   },
   "/news": {
@@ -1523,7 +1523,7 @@ const pageMeta = {
   "/blog": {
   title: "ブログ｜MINAMI MINDLAB",
   description:
-    "不安や自己否定などで日常が止まりそうなときに、自分を責めず、少しずつ戻るための考え方やヒントを掲載しています。",
+    "不安や自己否定などで日常が止まりそうなときに、自分を責めず、次の小さな行動を選ぶための考え方やヒントを掲載しています。",
   robots: "index, follow",
 },
   "/contact": {
