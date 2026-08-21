@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://monster-shindan.vercel.app/sitemap.xml
