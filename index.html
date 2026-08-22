@@ -179,14 +179,17 @@
         top: 176px;
         right: 92px;
         color: rgba(156, 128, 101, 0.72);
+        font-family: var(--serif);
         gap: 8px;
       }
 
       .hero-rail-link i {
         order: 4;
+        width: 2px;
         height: 245px;
         margin-top: 16px;
         background: rgba(184, 150, 116, 0.58);
+        clip-path: polygon(50% 0, 100% 8px, 100% calc(100% - 8px), 50% 100%, 0 calc(100% - 8px), 0 8px);
       }
 
       .hero-rail-link span {
@@ -206,7 +209,26 @@
         order: 3;
         color: rgba(156, 128, 101, 0.72);
         font-size: 13px;
+        font-weight: 400;
         text-transform: lowercase;
+      }
+
+      .site-footer {
+        color: #f7f1e8;
+        background: #2f2923;
+      }
+
+      .footer-brand small {
+        color: rgba(218, 199, 178, 0.78);
+      }
+
+      .footer-copy,
+      .footer-nav a {
+        color: rgba(247, 241, 232, 0.72);
+      }
+
+      .footer-bottom {
+        color: rgba(218, 199, 178, 0.68);
       }
 
       @media (max-width: 960px) {
