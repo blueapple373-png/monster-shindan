@@ -31,36 +31,44 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <style id="home-hero-hotfix">
+      .editorial-hero {
+        background: #fbf9f5;
+      }
+
       .editorial-hero h1 {
         max-width: none;
-        font-size: clamp(34px, 3.2vw, 46px);
-        line-height: 1.72;
-        letter-spacing: 0.03em;
+        font-size: 34px;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
         white-space: nowrap;
       }
 
       .editorial-hero-inner {
-        grid-template-columns: minmax(560px, 0.95fr) minmax(380px, 1.05fr);
-        max-width: 1320px;
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - 152px);
+        max-width: 1080px;
       }
 
       .editorial-hero-copy {
+        position: relative;
+        z-index: 2;
         min-width: 0;
       }
 
       .editorial-hero::before {
         background:
-          radial-gradient(ellipse at 78% 60%, rgba(190, 222, 209, 0.18), transparent 42%),
-          radial-gradient(ellipse at 86% 70%, rgba(216, 117, 130, 0.12), transparent 38%),
-          radial-gradient(ellipse at 72% 78%, rgba(167, 151, 207, 0.11), transparent 40%),
-          radial-gradient(ellipse at 70% 54%, rgba(202, 174, 132, 0.08), transparent 44%);
-        filter: blur(34px);
-        opacity: 0.92;
+          radial-gradient(circle at 82% 88%, rgba(124, 111, 168, 0.18), transparent 28%),
+          radial-gradient(circle at 76% 76%, rgba(189, 91, 84, 0.16), transparent 24%),
+          radial-gradient(circle at 88% 63%, rgba(79, 143, 108, 0.14), transparent 22%),
+          radial-gradient(circle at 0% 8%, rgba(63, 127, 151, 0.12), transparent 19%);
+        filter: blur(72px);
+        opacity: 1;
       }
 
       .editorial-hero::after {
         background:
-          linear-gradient(90deg, rgba(255, 254, 250, 0) 0 46%, rgba(255, 254, 250, 0.52) 74%, rgba(255, 254, 250, 0.1) 100%);
+          linear-gradient(90deg, rgba(251, 249, 245, 0.34) 0%, rgba(251, 249, 245, 0.08) 52%, rgba(251, 249, 245, 0) 100%);
       }
 
       .hero-geometry-stage::before {
@@ -72,9 +80,7 @@
       }
 
       .hero-geometry-stage {
-        min-height: 520px;
-        overflow: visible;
-        background: transparent;
+        display: none !important;
       }
 
       .root-lines {
