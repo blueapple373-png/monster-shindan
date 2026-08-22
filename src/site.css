@@ -1218,13 +1218,13 @@ body { margin: 0; }
 }
 
 .editorial-hero h1 {
-  max-width: 620px;
+  max-width: 760px;
   color: #292521;
   font-family: var(--serif);
-  font-size: clamp(46px, 6vw, 76px);
+  font-size: clamp(40px, 4vw, 58px);
   font-weight: 500;
-  line-height: 1.58;
-  letter-spacing: 0.16em;
+  line-height: 1.72;
+  letter-spacing: 0.1em;
 }
 
 .editorial-hero .hero-accent {
@@ -1346,6 +1346,7 @@ body { margin: 0; }
 
 .root-lines {
   position: absolute;
+  display: none;
   right: 13%;
   bottom: 9%;
   z-index: 2;
