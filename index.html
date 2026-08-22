@@ -101,6 +101,38 @@
         top: 22px;
       }
 
+      .mobile-nav {
+        position: absolute;
+        top: 98px;
+        right: 64px;
+        left: auto;
+        z-index: 20;
+        width: min(330px, calc(100vw - 48px));
+        padding: 22px 24px;
+        gap: 0;
+        border: 1px solid rgba(190, 160, 126, 0.22);
+        background: rgba(255, 254, 250, 0.92);
+        box-shadow: 0 28px 70px rgba(84, 71, 58, 0.12);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-nav.open {
+        display: grid;
+      }
+
+      .mobile-nav a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(190, 160, 126, 0.16);
+        color: rgba(41, 37, 33, 0.88);
+        font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+      }
+
+      .mobile-nav a:last-child {
+        border-bottom: 0;
+      }
+
       .editorial-hero {
         min-height: 100vh;
         padding: 0 46px;
@@ -267,7 +299,7 @@
       @media (max-width: 960px) {
         .editorial-hero-inner {
           grid-template-columns: 1fr;
-          padding: 90px 0 0;
+          padding: 190px 0 0;
         }
 
         .editorial-hero h1 {
@@ -316,6 +348,138 @@
         color: rgba(104, 89, 76, 0.66) !important;
         font-size: 16px !important;
         letter-spacing: 0.12em !important;
+      }
+
+      @media (max-width: 640px) {
+        .site-header {
+          z-index: 50;
+        }
+
+        .header-inner {
+          min-height: 104px;
+          padding: 0 24px;
+          align-items: center;
+        }
+
+        .brand {
+          max-width: 230px;
+          font-size: 14px;
+          line-height: 1.2;
+          letter-spacing: 0.16em;
+          white-space: nowrap;
+        }
+
+        .brand small {
+          margin-top: 8px;
+          font-size: 8px;
+          letter-spacing: 0.1em;
+          white-space: nowrap;
+        }
+
+        .brand-credit {
+          gap: 6px;
+        }
+
+        .brand-credit img {
+          width: 14px;
+          height: 14px;
+        }
+
+        .menu-button {
+          width: 42px;
+          height: 32px;
+          flex: 0 0 auto;
+          transform: translate(0, 0);
+        }
+
+        .menu-button::before,
+        .menu-button::after {
+          right: 4px;
+          width: 31px;
+          height: 1.3px;
+        }
+
+        .mobile-nav {
+          top: 86px;
+          right: 18px;
+          width: min(300px, calc(100vw - 36px));
+          padding: 18px 20px;
+        }
+
+        .mobile-nav a {
+          padding: 11px 0;
+          font-size: 14px;
+        }
+
+        .editorial-hero {
+          min-height: 100svh;
+          padding: 0 28px;
+          overflow: hidden;
+        }
+
+        .editorial-hero-inner {
+          min-height: 100svh;
+          padding: 170px 0 0;
+        }
+
+        .editorial-hero h1 {
+          max-width: 330px;
+          font-size: clamp(30px, 9.2vw, 36px);
+          line-height: 1.72;
+          letter-spacing: 0.05em;
+          white-space: normal;
+        }
+
+        .hero-copy {
+          max-width: 300px;
+          margin-top: 36px;
+          font-size: 16px !important;
+          line-height: 2.05 !important;
+          letter-spacing: 0.13em !important;
+        }
+
+        .hero-text-link {
+          margin-top: 68px;
+          font-size: 17px;
+          letter-spacing: 0.13em;
+        }
+
+        .hero-text-link::after {
+          width: 132px;
+        }
+
+        .editorial-hero::before {
+          background:
+            radial-gradient(ellipse at 69% 52%, rgba(171, 202, 227, 0.22), transparent 34%),
+            radial-gradient(ellipse at 82% 68%, rgba(222, 135, 154, 0.24), transparent 34%),
+            radial-gradient(ellipse at 62% 74%, rgba(241, 206, 161, 0.16), transparent 40%),
+            radial-gradient(ellipse at 86% 58%, rgba(178, 221, 215, 0.2), transparent 38%);
+          filter: blur(30px);
+        }
+
+        .editorial-hero::after {
+          right: -270px;
+          bottom: -210px;
+          width: 520px;
+          border-color: rgba(190, 160, 126, 0.34);
+        }
+
+        .hero-rail-link {
+          display: none;
+        }
+
+        body:not(:has(.editorial-hero)) .header-inner {
+          min-height: 78px;
+          padding: 0 22px;
+        }
+
+        body:not(:has(.editorial-hero)) .menu-button {
+          transform: translate(0, 0);
+        }
+
+        body:not(:has(.editorial-hero)) .page-hero.compact h1 {
+          font-size: clamp(30px, 8.4vw, 38px);
+        }
       }
     </style>
   </body>
