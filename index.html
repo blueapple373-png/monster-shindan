@@ -74,9 +74,31 @@
       }
 
       .menu-button {
+        position: relative;
+        width: 48px;
+        height: 34px;
+        transform: translate(-22px, 3px);
         color: #292521;
-        font-size: 34px;
+        font-size: 0;
         font-weight: 300;
+      }
+
+      .menu-button::before,
+      .menu-button::after {
+        content: "";
+        position: absolute;
+        right: 6px;
+        width: 34px;
+        height: 1.4px;
+        background: #292521;
+      }
+
+      .menu-button::before {
+        top: 11px;
+      }
+
+      .menu-button::after {
+        top: 22px;
       }
 
       .editorial-hero {
@@ -115,10 +137,11 @@
       .editorial-hero::before {
         inset: 0;
         background:
-          radial-gradient(ellipse at 84% 82%, rgba(216, 117, 130, 0.22), transparent 30%),
-          radial-gradient(ellipse at 75% 69%, rgba(202, 174, 132, 0.19), transparent 34%),
-          radial-gradient(ellipse at 94% 74%, rgba(167, 151, 207, 0.14), transparent 27%),
-          radial-gradient(ellipse at 86% 58%, rgba(190, 222, 209, 0.1), transparent 30%);
+          radial-gradient(ellipse at 83% 80%, rgba(216, 117, 130, 0.23), transparent 30%),
+          radial-gradient(ellipse at 72% 68%, rgba(202, 174, 132, 0.17), transparent 34%),
+          radial-gradient(ellipse at 94% 75%, rgba(167, 151, 207, 0.16), transparent 28%),
+          radial-gradient(ellipse at 82% 56%, rgba(130, 177, 205, 0.13), transparent 30%),
+          radial-gradient(ellipse at 89% 61%, rgba(190, 222, 209, 0.16), transparent 31%);
         filter: blur(52px);
         opacity: 1;
       }
@@ -133,7 +156,9 @@
         border-radius: 50%;
         background:
           radial-gradient(ellipse at 70% 75%, rgba(216, 117, 130, 0.18), transparent 28%),
-          radial-gradient(ellipse at 58% 62%, rgba(202, 174, 132, 0.12), transparent 36%),
+          radial-gradient(ellipse at 56% 62%, rgba(202, 174, 132, 0.12), transparent 36%),
+          radial-gradient(ellipse at 64% 48%, rgba(130, 177, 205, 0.1), transparent 34%),
+          radial-gradient(ellipse at 78% 58%, rgba(190, 222, 209, 0.12), transparent 35%),
           rgba(255, 254, 250, 0.22);
         opacity: 0.9;
       }
