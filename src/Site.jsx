@@ -113,14 +113,11 @@ function Header() {
             <small>operated by CACHE-CACHE</small>
           </a>
           <nav className="desktop-nav" aria-label="メインナビゲーション">
-            <a href={siteLinks.about}>MINAMI MINDLABとは</a>
             <a href={siteLinks.services}>サービス</a>
-            <a href={siteLinks.monsters}>モンスター</a>
-            <a href={siteLinks.business}>法人・提携</a>
-            <a href={siteLinks.profile}>運営者</a>
             <a href={siteLinks.blog}>ブログ</a>
-            <a className="header-cta" href={siteLinks.contact}>
-              お問い合わせ
+            <a href={siteLinks.about}>MINAMI MINDLABとは</a>
+            <a className="header-cta" href={siteLinks.diagnosis}>
+              無料診断
             </a>
           </nav>
           <button
@@ -234,244 +231,43 @@ function HomePage() {
   return (
     <Layout>
       <main>
-        <section className="page-hero home-hero">
-          <div className="hero-inner home-hero-grid">
-            <div>
-              <span className="eyebrow">MINAMI MINDLAB OFFICIAL SITE</span>
-              <h1>
-                不安や自己否定で、
-                <br />
-                <span className="hero-accent">目の前のことが手につかなくなる人</span>
-                へ。
-              </h1>
-              <p className="hero-copy">
-                MINAMI MINDLABは、感情をなくす場所ではありません。
-                自分の中で起きている反応を診断で知り、今できる小さな対処を選びながら、
-                少しずつ生活を立て直すための場所です。
-              </p>
-              <div className="hero-actions">
-                <a className="button primary" href={siteLinks.diagnosis}>
-                  無料でモンスター診断を受ける
-                </a>
-                <a className="button secondary" href={siteLinks.about}>
-                  MINAMI MINDLABとは
-                </a>
-              </div>
-            </div>
-            <div className="hero-monsters" aria-label="ネガティブモンスター">
-              {monsterData.map((monster, index) => (
-                <div className={`hero-monster hero-monster-${index + 1}`} key={monster.name}>
-                  <img src={monster.image} alt={monster.name} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section white">
-          <div className="container brand-statement">
-            <div>
-              <div className="section-kicker">FOR YOU</div>
-              <h2>
-                頭では分かっているのに、
-                <br />
-                気持ちが切り替わらないとき。
-              </h2>
-              <p className="lead">
-                それは、あなたが弱いからとは限りません。
-                不安・過去の傷・自己否定・自責の反応が強く出ているだけかもしれません。
-              </p>
-            </div>
-            <div className="statement-box">
-              <ul className="statement-list">
-                <li>返信がないだけで、仕事や家事が手につかなくなる</li>
-                <li>子どもに強く言ったあと、ずっと自分を責めてしまう</li>
-                <li>失敗や過去のことを思い出して、次の行動に移れない</li>
-                <li>大丈夫だと分かっていても、不安が何度も湧いてくる</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="section white">
-          <div className="container brand-statement">
-            <div>
-              <div className="section-kicker">MONSTER DIAGNOSIS</div>
-              <h2>
-                今、強く出やすい反応を知る。
-              </h2>
-              <p className="lead">
-                モンスター診断では、不安・過去の傷・自己否定・自責のうち、
-                今のあなたに強く出やすい反応を整理します。
-              </p>
-            </div>
-            <div className="statement-box">
-              <p className="box-copy">
-                これは、性格を決めつけるための診断ではありません。
-                自分を責め続けないために、今起きている反応を少し外に出して見るためのものです。
-              </p>
-              <p className="box-copy">
-                モンスターは、集めるためのキャラクターではなく、
-                感情を扱いやすくするための目印です。
-              </p>
-              <a className="text-link" href={siteLinks.about}>
-                MINAMI MINDLABについて詳しく見る →
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="section lavender">
-          <div className="container">
-            <div className="section-head">
+        <section className="page-hero home-hero editorial-hero">
+          <a className="hero-rail-link" href={siteLinks.diagnosis}>
+            <span>01</span>
+            <i aria-hidden="true" />
+            <strong>Observe</strong>
+          </a>
+          <div className="hero-inner editorial-hero-inner">
+            <div className="editorial-hero-copy">
               <div>
-                <div className="section-kicker">FIRST STEP</div>
-                <h2>まずは無料診断から。</h2>
-                <p className="lead">
-                  無料のモンスター診断を入口に、4週間プログラム、Treatアプリ、
-                  学習コンテンツ、Discordコミュニティへつながる流れを用意しています。
-                  まずは今の自分に強く出やすい反応を知るところから始められます。
+                <span className="eyebrow">MINAMI MINDLAB</span>
+                <h1>
+                  止まりやすい日を、
+                  <br />
+                  <span className="hero-accent">扱える形にする。</span>
+                </h1>
+              </div>
+              <div className="editorial-hero-side">
+                <p className="hero-copy">
+                  感情をなくすのではなく、扱える形にする。
                 </p>
-              </div>
-              <a className="text-link" href={siteLinks.services}>
-                サービス一覧を見る →
-              </a>
-            </div>
-            <div className="card-grid three">
-              {serviceCards.slice(0, 3).map((service) => (
-                <article className="info-card" key={service.title}>
-                  <div className="card-number">{service.number}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  <span className="status-label">{service.status}</span>
-                  <a className="text-link" href={service.href}>
-                    {service.cta} →
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section white">
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <div className="section-kicker">NEGATIVE MONSTERS</div>
-                <h2>4体のネガティブモンスター</h2>
-                <p className="lead">
-                  4体は、感情をキャラクター化して遊ぶためではなく、
-                  自分の中で起きている反応を見分けやすくするための分類です。
-                </p>
-              </div>
-              <a className="text-link" href={siteLinks.monsters}>
-                4体について詳しく見る →
-              </a>
-            </div>
-            <div className="monster-grid">
-              {monsterData.map((monster) => (
-                <article className="monster-card" key={monster.name}>
-                  <div className="monster-image-wrap">
-                    <img src={monster.image} alt={monster.name} />
-                  </div>
-                  <span className="monster-english">{monster.english}</span>
-                  <h3>{monster.name}</h3>
-                  <p>{monster.label}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section rose">
-          <div className="container split">
-            <div className="phone-mockup" aria-label="Treatアプリ画面イメージ">
-              <div className="phone-screen">
-                <div className="phone-label">今日のマイモンスター</div>
-                <img src="/FUAN-Treat.png" alt="Treat後のフアンダー" />
-                <div className="cookie-button">クッキーをあげる</div>
-              </div>
-            </div>
-            <div>
-              <div className="section-kicker">TREAT APP</div>
-              <h2>診断で見えた反応を、日常で扱える形へ。</h2>
-              <p className="lead">
-                Treatアプリは、モンスター診断で見えた反応を、
-                日常の中で扱うためのサポート機能です。
-                無料診断後に案内するプログラム内で利用できます。
-              </p>
-              <div className="hero-actions">
-                <a className="button secondary" href={siteLinks.app}>
-                  Treatアプリを見る
+                <a className="hero-text-link" href={siteLinks.diagnosis}>
+                  診断をはじめる
+                  <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="section white">
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <div className="section-kicker">TWO ENTRANCES</div>
-                <h2>個人の方へ・法人の方へ</h2>
+            <div className="hero-visual-stage hero-geometry-stage" aria-hidden="true">
+              <div className="root-lines">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
               </div>
-            </div>
-            <div className="route-grid">
-              <article className="route-card individual">
-                <h3>個人の方へ</h3>
-                <p>
-                  モンスター診断、4週間プログラム、今後のコミュニティなど、
-                  現在利用できる入口をご案内します。
-                </p>
-                <a className="text-link" href={siteLinks.services}>
-                  個人向けサービスを見る →
-                </a>
-              </article>
-              <article className="route-card business">
-                <h3>法人・団体・提携事業者の方へ</h3>
-                <p>
-                  福利厚生、試験導入、共同検証、研修、取材、掲載・提携について
-                  ご相談いただけます。
-                </p>
-                <a className="text-link" href={siteLinks.business}>
-                  法人・提携について見る →
-                </a>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="section lavender">
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <div className="section-kicker">NEWS</div>
-                <h2>お知らせ</h2>
-              </div>
-              <a className="text-link" href={siteLinks.news}>
-                一覧を見る →
-              </a>
-            </div>
-            <NewsList compact />
-          </div>
-        </section>
-
-        <HomeBlogPreview />
-
-        <section className="section white">
-          <div className="container profile-summary">
-            <div className="profile-placeholder">PROFILE IMAGE</div>
-            <div>
-              <div className="section-kicker">FOUNDER</div>
-              <h2>運営者について</h2>
-              <p className="lead">
-                感情に振り回されない強い人になったのではなく、
-                不安や自己否定があっても、目の前のことを少しずつ再開する方法を探してきました。
-              </p>
-              <a className="text-link" href={siteLinks.profile}>
-                岡本 南美のプロフィールを見る →
-              </a>
             </div>
           </div>
         </section>
