@@ -31,23 +31,64 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <style id="home-hero-hotfix">
+      .site-header {
+        position: absolute;
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .header-inner {
+        max-width: none;
+        min-height: 116px;
+        padding: 0 46px;
+      }
+
+      .brand {
+        color: #292521;
+        font-family: var(--serif);
+        font-size: 25px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+
+      .brand small {
+        margin-top: 10px;
+        color: rgba(157, 134, 111, 0.82);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+      }
+
+      .menu-button {
+        color: #292521;
+        font-size: 34px;
+        font-weight: 300;
+      }
+
       .editorial-hero {
-        background: #fbf9f5;
+        min-height: 100vh;
+        padding: 0 46px;
+        background: #fffefa;
       }
 
       .editorial-hero h1 {
         max-width: none;
-        font-size: 34px;
-        line-height: 1.5;
-        letter-spacing: 0.01em;
+        color: rgba(41, 37, 33, 0.96);
+        font-size: clamp(44px, 3.45vw, 54px);
+        font-weight: 500;
+        line-height: 1.72;
+        letter-spacing: 0.1em;
         white-space: nowrap;
       }
 
       .editorial-hero-inner {
         display: flex;
         align-items: center;
-        min-height: calc(100vh - 152px);
-        max-width: 1080px;
+        min-height: 100vh;
+        max-width: none;
+        padding: 100px 0 0 66px;
       }
 
       .editorial-hero-copy {
@@ -57,18 +98,29 @@
       }
 
       .editorial-hero::before {
+        inset: 0;
         background:
-          radial-gradient(circle at 82% 88%, rgba(124, 111, 168, 0.18), transparent 28%),
-          radial-gradient(circle at 76% 76%, rgba(189, 91, 84, 0.16), transparent 24%),
-          radial-gradient(circle at 88% 63%, rgba(79, 143, 108, 0.14), transparent 22%),
-          radial-gradient(circle at 0% 8%, rgba(63, 127, 151, 0.12), transparent 19%);
-        filter: blur(72px);
+          radial-gradient(ellipse at 84% 82%, rgba(216, 117, 130, 0.22), transparent 30%),
+          radial-gradient(ellipse at 75% 69%, rgba(202, 174, 132, 0.19), transparent 34%),
+          radial-gradient(ellipse at 94% 74%, rgba(167, 151, 207, 0.14), transparent 27%),
+          radial-gradient(ellipse at 86% 58%, rgba(190, 222, 209, 0.1), transparent 30%);
+        filter: blur(52px);
         opacity: 1;
       }
 
       .editorial-hero::after {
+        inset: auto;
+        right: -150px;
+        bottom: -190px;
+        width: min(930px, 62vw);
+        aspect-ratio: 1;
+        border: 1px solid rgba(190, 160, 126, 0.42);
+        border-radius: 50%;
         background:
-          linear-gradient(90deg, rgba(251, 249, 245, 0.34) 0%, rgba(251, 249, 245, 0.08) 52%, rgba(251, 249, 245, 0) 100%);
+          radial-gradient(ellipse at 70% 75%, rgba(216, 117, 130, 0.18), transparent 28%),
+          radial-gradient(ellipse at 58% 62%, rgba(202, 174, 132, 0.12), transparent 36%),
+          rgba(255, 254, 250, 0.22);
+        opacity: 0.9;
       }
 
       .hero-geometry-stage::before {
@@ -87,9 +139,40 @@
         display: none !important;
       }
 
+      .hero-copy {
+        margin-top: 46px;
+        color: rgba(104, 89, 76, 0.66) !important;
+        font-size: 17px !important;
+        letter-spacing: 0.2em !important;
+      }
+
+      .hero-text-link {
+        margin-top: 56px;
+        color: rgba(41, 37, 33, 0.88);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+      }
+
+      .hero-text-link::after {
+        background: rgba(104, 89, 76, 0.58);
+      }
+
+      .hero-rail-link {
+        top: 176px;
+        right: 58px;
+        color: rgba(104, 89, 76, 0.62);
+      }
+
+      .hero-rail-link i {
+        height: 370px;
+        background: rgba(190, 160, 126, 0.52);
+      }
+
       @media (max-width: 960px) {
         .editorial-hero-inner {
           grid-template-columns: 1fr;
+          padding: 90px 0 0;
         }
 
         .editorial-hero h1 {
