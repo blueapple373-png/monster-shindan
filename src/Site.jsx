@@ -223,14 +223,6 @@ function Hero({ eyebrow, title, children, compact = true }) {
   );
 }
 
-function Breadcrumb({ current }) {
-  return (
-    <div className="breadcrumb">
-      <a href={siteLinks.home}>HOME</a> / {current}
-    </div>
-  );
-}
-
 function HomePage() {
   return (
     <Layout>
@@ -283,7 +275,6 @@ function HomePage() {
 function AboutPage() {
   return (
     <Layout>
-      <Breadcrumb current="MINAMI MINDLABとは" />
       <main>
         <Hero eyebrow="ABOUT" title="MINAMI MINDLABとは">
           <p className="hero-copy">
@@ -345,7 +336,6 @@ function AboutPage() {
 function ServicesPage() {
   return (
     <Layout>
-      <Breadcrumb current="サービス" />
       <main>
         <Hero eyebrow="SERVICES" title="サービス・取り組み">
           <p className="hero-copy">
@@ -378,7 +368,6 @@ function ServicesPage() {
 function MonstersPage() {
   return (
     <Layout>
-      <Breadcrumb current="ネガティブモンスター" />
       <main>
         <Hero eyebrow="NEGATIVE MONSTERS" title="4体のネガティブモンスター">
           <p className="hero-copy">
@@ -418,7 +407,6 @@ function MonstersPage() {
 function AppPage() {
   return (
     <Layout>
-      <Breadcrumb current="Treatアプリ" />
       <main>
         <Hero eyebrow="TREAT APP" title="感情が強くなった、その場で使う。">
           <p className="hero-copy">
@@ -472,7 +460,6 @@ function AppPage() {
 function BusinessPage() {
   return (
     <Layout>
-      <Breadcrumb current="法人・団体・提携事業者の皆さまへ" />
       <main>
         <Hero eyebrow="FOR ORGANIZATIONS" title="法人・団体・提携事業者の皆さまへ">
           <p className="hero-copy">
@@ -526,7 +513,6 @@ function BusinessPage() {
 function ProfilePage() {
   return (
     <Layout>
-      <Breadcrumb current="運営者について" />
       <main>
         <Hero eyebrow="FOUNDER" title="運営者について">
           <p className="hero-copy">
@@ -725,7 +711,6 @@ function BlogPage() {
 
   return (
     <Layout>
-      <Breadcrumb current="ブログ" />
 
       <main>
         <Hero eyebrow="BLOG" title="ブログ">
@@ -843,7 +828,6 @@ function BlogArticlePage({ id }) {
   if (loading) {
     return (
       <Layout>
-        <Breadcrumb current="ブログ" />
         <main>
           <section className="section white">
             <div className="container">
@@ -858,7 +842,6 @@ function BlogArticlePage({ id }) {
   if (error || !post) {
     return (
       <Layout>
-        <Breadcrumb current="ブログ" />
         <main>
           <section className="section white">
             <div className="container article-card standalone">
@@ -880,7 +863,6 @@ function BlogArticlePage({ id }) {
 
   return (
     <Layout>
-      <Breadcrumb current="ブログ" />
 
       <main>
         <Hero eyebrow="BLOG" title={post.title}>
@@ -930,7 +912,6 @@ function BlogArticlePage({ id }) {
 function NewsPage() {
   return (
     <Layout>
-      <Breadcrumb current="お知らせ" />
       <main>
         <Hero eyebrow="NEWS" title="お知らせ・開発状況">
           <p className="hero-copy">
@@ -950,7 +931,6 @@ function NewsPage() {
 function ContactPage() {
   return (
     <Layout>
-      <Breadcrumb current="お問い合わせ" />
       <main>
         <Hero eyebrow="CONTACT" title="お問い合わせ">
           <p className="hero-copy">
@@ -1018,7 +998,6 @@ function ContactPage() {
 function ThanksPage() {
   return (
     <Layout>
-      <Breadcrumb current="送信完了" />
       <main>
         <Hero eyebrow="THANK YOU" title="お問い合わせを受け付けました">
           <p className="hero-copy">
@@ -1045,7 +1024,6 @@ function ThanksPage() {
 function PrivacyPage() {
   return (
     <Layout>
-      <Breadcrumb current="プライバシーポリシー" />
       <main>
         <Hero eyebrow="PRIVACY" title="プライバシーポリシー" />
 
@@ -1187,7 +1165,6 @@ function PrivacyPage() {
 function TokushohoPage() {
   return (
     <Layout>
-      <Breadcrumb current="特定商取引法に基づく表記" />
       <main>
         <Hero eyebrow="LEGAL" title="特定商取引法に基づく表記" />
         <section className="section white">
