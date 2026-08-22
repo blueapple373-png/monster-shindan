@@ -179,11 +179,34 @@
         top: 176px;
         right: 92px;
         color: rgba(156, 128, 101, 0.72);
+        gap: 8px;
       }
 
       .hero-rail-link i {
+        order: 4;
         height: 245px;
+        margin-top: 16px;
         background: rgba(184, 150, 116, 0.58);
+      }
+
+      .hero-rail-link span {
+        color: rgba(91, 65, 44, 0.82);
+      }
+
+      .hero-rail-link span::after {
+        content: "/";
+        display: block;
+        margin-top: 10px;
+        color: rgba(156, 128, 101, 0.72);
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      .hero-rail-link strong {
+        order: 3;
+        color: rgba(156, 128, 101, 0.72);
+        font-size: 13px;
+        text-transform: lowercase;
       }
 
       @media (max-width: 960px) {
