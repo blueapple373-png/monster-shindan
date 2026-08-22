@@ -110,11 +110,14 @@
       .editorial-hero h1 {
         max-width: none;
         color: rgba(41, 37, 33, 0.96);
+        font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
         font-size: clamp(44px, 3.45vw, 54px);
-        font-weight: 500;
+        font-weight: 400;
         line-height: 1.72;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         white-space: nowrap;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: geometricPrecision;
       }
 
       .editorial-hero-inner {
@@ -137,12 +140,12 @@
       .editorial-hero::before {
         inset: 0;
         background:
-          radial-gradient(ellipse at 79% 76%, rgba(222, 135, 154, 0.2), transparent 31%),
-          radial-gradient(ellipse at 68% 69%, rgba(241, 206, 161, 0.17), transparent 37%),
-          radial-gradient(ellipse at 86% 63%, rgba(178, 221, 215, 0.2), transparent 36%),
-          radial-gradient(ellipse at 75% 54%, rgba(171, 202, 227, 0.16), transparent 34%),
-          radial-gradient(ellipse at 58% 64%, rgba(194, 176, 218, 0.12), transparent 38%);
-        filter: blur(38px);
+          radial-gradient(ellipse at 79% 76%, rgba(222, 135, 154, 0.25), transparent 30%),
+          radial-gradient(ellipse at 68% 69%, rgba(241, 206, 161, 0.21), transparent 36%),
+          radial-gradient(ellipse at 86% 63%, rgba(178, 221, 215, 0.25), transparent 35%),
+          radial-gradient(ellipse at 75% 54%, rgba(171, 202, 227, 0.2), transparent 33%),
+          radial-gradient(ellipse at 58% 64%, rgba(194, 176, 218, 0.15), transparent 37%);
+        filter: blur(34px);
         opacity: 0.98;
       }
 
@@ -155,11 +158,11 @@
         border: 1px solid rgba(190, 160, 126, 0.42);
         border-radius: 50%;
         background:
-          radial-gradient(ellipse at 72% 76%, rgba(222, 135, 154, 0.16), transparent 30%),
-          radial-gradient(ellipse at 55% 73%, rgba(241, 206, 161, 0.14), transparent 37%),
-          radial-gradient(ellipse at 76% 52%, rgba(178, 221, 215, 0.17), transparent 36%),
-          radial-gradient(ellipse at 62% 50%, rgba(171, 202, 227, 0.13), transparent 35%),
-          radial-gradient(ellipse at 50% 61%, rgba(194, 176, 218, 0.1), transparent 42%),
+          radial-gradient(ellipse at 72% 76%, rgba(222, 135, 154, 0.2), transparent 29%),
+          radial-gradient(ellipse at 55% 73%, rgba(241, 206, 161, 0.17), transparent 36%),
+          radial-gradient(ellipse at 76% 52%, rgba(178, 221, 215, 0.21), transparent 35%),
+          radial-gradient(ellipse at 62% 50%, rgba(171, 202, 227, 0.16), transparent 34%),
+          radial-gradient(ellipse at 50% 61%, rgba(194, 176, 218, 0.13), transparent 41%),
           rgba(255, 254, 250, 0.36);
         opacity: 0.92;
       }
@@ -202,7 +205,7 @@
       }
 
       .hero-rail-link {
-        top: 176px;
+        top: 128px;
         right: 92px;
         color: rgba(156, 128, 101, 0.72);
         font-family: var(--serif);
