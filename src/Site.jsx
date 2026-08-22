@@ -110,7 +110,11 @@ function Header() {
         <div className="header-inner">
           <a className="brand" href={siteLinks.home}>
             MINAMI MINDLAB
-            <small>operated by CACHE-CACHE</small>
+            <small className="brand-credit">
+              <span>operated by</span>
+              <img src="/cache-cache-mark.svg" alt="" aria-hidden="true" />
+              <span>CACHE-CACHE</span>
+            </small>
           </a>
           <nav className="desktop-nav" aria-label="メインナビゲーション">
             <a href={siteLinks.services}>サービス</a>
