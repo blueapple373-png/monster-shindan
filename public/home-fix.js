@@ -66,10 +66,10 @@
         .hero-mobile-links,
         .mindlab-injected-links {
           display: grid !important;
-          gap: 0 !important;
-          width: min(330px, 100%) !important;
+          gap: 12px !important;
+          width: fit-content !important;
           max-width: 100% !important;
-          margin-top: 42px !important;
+          margin-top: 40px !important;
         }
 
         .hero-mobile-links::after,
@@ -86,29 +86,29 @@
         .hero-mobile-links a,
         .mindlab-injected-links a {
           display: grid !important;
-          grid-template-columns: 38px 1fr !important;
-          gap: 18px !important;
+          grid-template-columns: 24px auto 24px !important;
+          gap: 14px !important;
           align-items: center !important;
           justify-content: stretch !important;
           aspect-ratio: auto !important;
           min-height: 0 !important;
-          padding: 14px 0 !important;
+          padding: 4px 0 !important;
           border-bottom: 0 !important;
           border-radius: 0 !important;
           background: transparent !important;
           box-shadow: none !important;
           color: rgba(41, 37, 33, 0.76) !important;
           font-family: var(--serif) !important;
-          font-size: 15px !important;
+          font-size: 14px !important;
           font-weight: 500 !important;
-          letter-spacing: 0.1em !important;
+          letter-spacing: 0.12em !important;
           text-align: left !important;
           white-space: nowrap !important;
         }
 
         .hero-mobile-links a + a,
         .mindlab-injected-links a + a {
-          border-top: 1px solid rgba(157, 134, 111, 0.16) !important;
+          border-top: 0 !important;
         }
 
         .hero-mobile-links a::before,
@@ -138,8 +138,23 @@
 
         .hero-mobile-links a::after,
         .mindlab-injected-links a::after {
-          content: none !important;
-          display: none !important;
+          content: "" !important;
+          display: block !important;
+          width: 20px !important;
+          height: 1px !important;
+          background: rgba(157, 134, 111, 0.42) !important;
+          transform: scaleY(0.55) !important;
+          transform-origin: center !important;
+        }
+
+        .hero-mobile-links a:nth-of-type(2)::after,
+        .mindlab-injected-links a:nth-of-type(2)::after {
+          width: 14px !important;
+        }
+
+        .hero-mobile-links a:nth-of-type(3)::after,
+        .mindlab-injected-links a:nth-of-type(3)::after {
+          width: 24px !important;
         }
 
         .home-journal,
