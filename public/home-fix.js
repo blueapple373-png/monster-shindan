@@ -48,8 +48,10 @@
     const rail = document.querySelector(".editorial-hero .hero-rail-link");
     if (!rail) return false;
 
-    rail.href = "/about#mission";
-    rail.setAttribute("aria-label", "めざすことへ");
+    if (rail.getAttribute("href") !== "/about#mission") rail.href = "/about#mission";
+    if (rail.getAttribute("aria-label") !== "めざすことへ") {
+      rail.setAttribute("aria-label", "めざすことへ");
+    }
 
     const number = rail.querySelector("span");
     if (number && number.textContent !== "01") number.textContent = "01";
@@ -63,10 +65,10 @@
   }
 
   function ensurePageHomeRails() {
-    let found = false;
+    const heroes = document.querySelectorAll(".page-hero.compact");
+    if (!heroes.length) return false;
 
-    document.querySelectorAll(".page-hero.compact").forEach((hero) => {
-      found = true;
+    heroes.forEach((hero) => {
       let rail = hero.querySelector(".hero-rail-link");
 
       if (!rail) {
@@ -80,33 +82,39 @@
           <strong>Home</strong>
         `;
         hero.appendChild(rail);
-      } else if (!hero.classList.contains("editorial-hero")) {
+        return;
+      }
+
+      if (!hero.classList.contains("editorial-hero")) {
         rail.classList.add("page-home-rail");
-        rail.href = "/";
-        rail.setAttribute("aria-label", "ホームへ戻る");
+        if (rail.getAttribute("href") !== "/") rail.href = "/";
+        if (rail.getAttribute("aria-label") !== "ホームへ戻る") {
+          rail.setAttribute("aria-label", "ホームへ戻る");
+        }
         const number = rail.querySelector("span");
-        if (number) number.textContent = "00";
+        if (number && number.textContent !== "00") number.textContent = "00";
         const label = rail.querySelector("strong");
-        if (label) label.textContent = "Home";
+        if (label && label.textContent !== "Home") label.textContent = "Home";
       }
     });
 
-    return found;
+    return true;
   }
 
   function installGlobalPageFixes() {
     normalizeMissionCopy();
-    if (isHome) ensureHomeRail();
-    else ensurePageHomeRails();
+    return isHome ? ensureHomeRail() : ensurePageHomeRails();
   }
 
   if (!isHome) {
-    installGlobalPageFixes();
-
-    const observer = new MutationObserver(() => {
-      installGlobalPageFixes();
-    });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    let pageAttempts = 0;
+    function waitForPageRender() {
+      const ready = installGlobalPageFixes();
+      if (ready || pageAttempts > 120) return;
+      pageAttempts += 1;
+      requestAnimationFrame(waitForPageRender);
+    }
+    waitForPageRender();
     return;
   }
 
@@ -322,7 +330,7 @@
 
     const mainLink = document.querySelector(".hero-text-link");
     if (mainLink) {
-      mainLink.href = "/about#mission";
+      if (mainLink.getAttribute("href") !== "/about#mission") mainLink.href = "/about#mission";
       if (mainLink.textContent.trim() !== "めざすこと") {
         mainLink.textContent = "めざすこと";
       }
