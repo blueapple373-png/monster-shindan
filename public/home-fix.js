@@ -29,10 +29,17 @@ function applyMindlabDisplayFix() {
       .hero-rail-link { pointer-events: none; }
       .home-journal { display: none; }
       @media (max-width: 640px) {
+        .editorial-hero {
+          min-height: auto !important;
+          padding-bottom: 34px !important;
+        }
+        .hero-mobile-links {
+          margin-top: 36px !important;
+        }
         .home-journal {
           display: block;
           margin-top: -1px;
-          padding: 34px 28px 58px;
+          padding: 28px 28px 50px;
           background:
             radial-gradient(ellipse at 84% 0%, rgba(171, 202, 227, 0.12), transparent 38%),
             radial-gradient(ellipse at 86% 48%, rgba(222, 135, 154, 0.12), transparent 42%),
