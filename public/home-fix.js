@@ -166,6 +166,20 @@
           opacity: 0.95 !important;
         }
 
+        main::after {
+          content: "" !important;
+          position: absolute !important;
+          top: 56svh !important;
+          left: -14vw !important;
+          width: 70vw !important;
+          height: 70vw !important;
+          z-index: 0 !important;
+          pointer-events: none !important;
+          border: 1px solid rgba(194, 160, 116, 0.18) !important;
+          border-radius: 50% !important;
+          background: transparent !important;
+        }
+
         main > * {
           position: relative !important;
           z-index: 1 !important;
