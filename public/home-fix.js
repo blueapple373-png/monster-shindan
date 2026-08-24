@@ -13,12 +13,33 @@
 
       @media (max-width: 640px) {
         main {
+          position: relative !important;
+          overflow: hidden !important;
           background:
-            radial-gradient(ellipse at 82% 36%, rgba(171, 202, 227, 0.15), transparent 54%),
-            radial-gradient(ellipse at 80% 52%, rgba(222, 135, 154, 0.13), transparent 52%),
-            radial-gradient(ellipse at 64% 42%, rgba(190, 222, 209, 0.10), transparent 46%),
-            radial-gradient(ellipse at 58% 64%, rgba(228, 196, 154, 0.08), transparent 46%),
+            radial-gradient(ellipse at 84% 34%, rgba(171, 202, 227, 0.22), transparent 54%),
+            radial-gradient(ellipse at 82% 55%, rgba(222, 135, 154, 0.18), transparent 54%),
+            radial-gradient(ellipse at 62% 45%, rgba(190, 222, 209, 0.16), transparent 48%),
+            radial-gradient(ellipse at 54% 68%, rgba(228, 196, 154, 0.12), transparent 48%),
             #fffefa !important;
+        }
+
+        main::before {
+          content: "" !important;
+          position: absolute !important;
+          inset: 0 !important;
+          z-index: 0 !important;
+          pointer-events: none !important;
+          background:
+            conic-gradient(from 214deg at 76% 45%, transparent 0deg, rgba(171, 202, 227, 0.10) 34deg, transparent 74deg, rgba(222, 135, 154, 0.09) 126deg, transparent 168deg, rgba(190, 222, 209, 0.08) 228deg, transparent 288deg, rgba(228, 196, 154, 0.07) 328deg, transparent 360deg),
+            radial-gradient(ellipse at 72% 38%, rgba(255, 254, 250, 0) 0 34%, rgba(255, 254, 250, 0.62) 47%, rgba(255, 254, 250, 0) 66%),
+            radial-gradient(ellipse at 78% 58%, rgba(255, 254, 250, 0) 0 30%, rgba(255, 254, 250, 0.5) 46%, rgba(255, 254, 250, 0) 64%) !important;
+          filter: blur(18px) !important;
+          opacity: 0.95 !important;
+        }
+
+        main > * {
+          position: relative !important;
+          z-index: 1 !important;
         }
 
         .editorial-hero {
