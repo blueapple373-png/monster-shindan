@@ -64,7 +64,10 @@
           display: none !important;
         }
 
-        .hero-mobile-links,
+        .hero-mobile-links {
+          display: none !important;
+        }
+
         .mindlab-injected-links {
           display: block !important;
           position: absolute !important;
@@ -75,22 +78,11 @@
           margin-top: 0 !important;
         }
 
-        .hero-mobile-links::after,
         .mindlab-injected-links::after {
           content: none !important;
           display: none !important;
         }
 
-        .hero-mobile-links a[href="/blog"],
-        .hero-mobile-links a[href="https://monster-shindan.vercel.app/blog"],
-        .hero-mobile-links a[href="/diagnosis"],
-        .hero-mobile-links a[href="https://monster-shindan.vercel.app/diagnosis"],
-        .hero-mobile-links a[href="/services"],
-        .hero-mobile-links a[href="https://monster-shindan.vercel.app/services"] {
-          display: none !important;
-        }
-
-        .hero-mobile-links a,
         .mindlab-injected-links a {
           display: inline-flex !important;
           gap: 0 !important;
@@ -114,31 +106,30 @@
           white-space: nowrap !important;
         }
 
-        .hero-mobile-links a span,
         .mindlab-injected-links a span {
           display: inline-block !important;
           padding-bottom: 5px !important;
           border-bottom: 1px solid rgba(139, 116, 94, 0.38) !important;
         }
 
-        .hero-mobile-links a + a,
         .mindlab-injected-links a + a {
           border-top: 0 !important;
         }
 
-        .hero-mobile-links a::before,
         .mindlab-injected-links a::before {
           content: none !important;
           display: none !important;
         }
 
-        .hero-mobile-links a::after,
         .mindlab-injected-links a::after {
           content: none !important;
           display: none !important;
         }
 
-        .home-journal,
+        .home-journal:not(.mindlab-injected-journal) {
+          display: none !important;
+        }
+
         .mindlab-injected-journal {
           display: block !important;
           margin-top: 0 !important;
@@ -267,24 +258,12 @@
     const heroInner = document.querySelector(".editorial-hero-inner");
     if (!hero || !heroInner) return;
 
-    if (!document.querySelector(".mindlab-injected-links")) {
-      const existingLinks = document.querySelector(".hero-mobile-links");
-      if (existingLinks) {
-        existingLinks.querySelectorAll('a[href="/blog"], a[href="https://monster-shindan.vercel.app/blog"], a[href="/diagnosis"], a[href="https://monster-shindan.vercel.app/diagnosis"], a[href="/services"], a[href="https://monster-shindan.vercel.app/services"]').forEach((link) => link.remove());
-        existingLinks.querySelectorAll("a").forEach((link) => {
-          if (!link.querySelector("span")) {
-            link.innerHTML = `<span>${link.textContent.trim()}</span>`;
-          }
-        });
-      } else {
-        heroInner.appendChild(buildMobileLinks());
-      }
-    }
+    document.querySelectorAll(".mindlab-injected-links").forEach((node) => node.remove());
+    heroInner.appendChild(buildMobileLinks());
 
-    if (!document.querySelector(".mindlab-injected-journal")) {
-      const post = await getLatestPost();
-      hero.insertAdjacentElement("afterend", buildJournal(post));
-    }
+    document.querySelectorAll(".mindlab-injected-journal").forEach((node) => node.remove());
+    const post = await getLatestPost();
+    hero.insertAdjacentElement("afterend", buildJournal(post));
   }
 
   if (document.readyState === "loading") {
