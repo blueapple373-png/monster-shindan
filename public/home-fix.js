@@ -42,7 +42,7 @@ function applyMindlabDisplayFix() {
           display: block !important;
           width: min(304px, 100%) !important;
           height: 104px !important;
-          margin-top: 34px !important;
+          margin-top: 76px !important;
           background:
             linear-gradient(rgba(139, 116, 94, 0.24), rgba(139, 116, 94, 0.24)) left top / 100% 1px no-repeat,
             linear-gradient(rgba(139, 116, 94, 0.22), rgba(139, 116, 94, 0.22)) left 48px / 100% 1px no-repeat,
@@ -169,17 +169,15 @@ function applyMindlabDisplayFix() {
       <a href="${siteLinks.mission}">めざすこと</a>
       <a href="${siteLinks.diagnosis}">診断する</a>
       <a href="${siteLinks.services}">サービス</a>
-      <a href="${siteLinks.blog}">ブログ</a>
     `;
     side.appendChild(nav);
   }
 
   const heroMobileLinks = document.querySelector(".hero-mobile-links");
-  if (heroMobileLinks && !heroMobileLinks.querySelector(`a[href="${siteLinks.blog}"]`)) {
-    const blogLink = document.createElement("a");
-    blogLink.href = siteLinks.blog;
-    blogLink.textContent = "ブログ";
-    heroMobileLinks.appendChild(blogLink);
+  if (heroMobileLinks) {
+    heroMobileLinks
+      .querySelectorAll(`a[href="${siteLinks.blog}"]`)
+      .forEach((blogLink) => blogLink.remove());
   }
 
   const main = document.querySelector(".editorial-hero")?.parentElement;
