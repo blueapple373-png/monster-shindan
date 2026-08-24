@@ -6,6 +6,18 @@
     const globalStyle = document.createElement("style");
     globalStyle.id = globalStyleId;
     globalStyle.textContent = `
+      .footer-top {
+        grid-template-columns: 1fr !important;
+      }
+
+      .footer-top > div:not(.footer-nav) {
+        display: none !important;
+      }
+
+      .footer-nav {
+        width: 100% !important;
+      }
+
       body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
         top: 36px !important;
         right: max(32px, calc((100vw - var(--max)) / 2 + 24px)) !important;
@@ -327,6 +339,14 @@
     const hero = document.querySelector(".editorial-hero");
     const side = document.querySelector(".editorial-hero-side") || document.querySelector(".editorial-hero-copy");
     if (!hero || !side) return false;
+
+    const subcopy = document.querySelector(".editorial-hero-side .hero-copy");
+    if (
+      subcopy &&
+      subcopy.textContent.trim() !== "感情をなくすのではなく、起きている反応を知る。"
+    ) {
+      subcopy.textContent = "感情をなくすのではなく、起きている反応を知る。";
+    }
 
     const mainLink = document.querySelector(".hero-text-link");
     if (mainLink) {
