@@ -20,7 +20,8 @@ function escapeHtml(value) {
 }
 
 function applyMindlabDisplayFix() {
-  const styleId = "mindlab-display-fix-style";
+  const styleId = "mindlab-display-fix-style-v2";
+  document.querySelectorAll("#mindlab-display-fix-style").forEach((node) => node.remove());
   if (!document.getElementById(styleId)) {
     const style = document.createElement("style");
     style.id = styleId;
@@ -178,6 +179,11 @@ function applyMindlabDisplayFix() {
     heroMobileLinks
       .querySelectorAll(`a[href="${siteLinks.blog}"]`)
       .forEach((blogLink) => blogLink.remove());
+    heroMobileLinks
+      .querySelectorAll("a")
+      .forEach((link) => {
+        if (link.textContent.trim() === "ブログ") link.remove();
+      });
   }
 
   const main = document.querySelector(".editorial-hero")?.parentElement;
@@ -221,9 +227,14 @@ let attempts = 0;
 function retryApply() {
   applyMindlabDisplayFix();
   attempts += 1;
-  if (attempts < 20) {
+  if (attempts < 240) {
     window.requestAnimationFrame(retryApply);
   }
 }
 
 retryApply();
+
+new MutationObserver(() => applyMindlabDisplayFix()).observe(document.body, {
+  childList: true,
+  subtree: true,
+});
