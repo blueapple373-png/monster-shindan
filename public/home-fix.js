@@ -37,6 +37,17 @@ function applyMindlabDisplayFix() {
           margin-top: 36px !important;
           gap: 10px !important;
         }
+        .hero-mobile-links::after {
+          content: "" !important;
+          display: block !important;
+          width: min(304px, 100%) !important;
+          height: 104px !important;
+          margin-top: 34px !important;
+          background:
+            linear-gradient(rgba(139, 116, 94, 0.24), rgba(139, 116, 94, 0.24)) left top / 100% 1px no-repeat,
+            linear-gradient(rgba(139, 116, 94, 0.22), rgba(139, 116, 94, 0.22)) left 48px / 100% 1px no-repeat,
+            linear-gradient(rgba(139, 116, 94, 0.2), rgba(139, 116, 94, 0.2)) left 96px / 38% 1px no-repeat !important;
+        }
         .hero-mobile-links a {
           min-height: 32px !important;
           padding: 0 !important;
@@ -55,8 +66,11 @@ function applyMindlabDisplayFix() {
         .home-journal {
           display: block;
           margin-top: -1px;
-          padding: 20px 28px 50px;
-          background: #fffefa;
+          padding: 8px 28px 50px;
+          background:
+            radial-gradient(ellipse at 84% -18%, rgba(190, 222, 209, 0.1), transparent 44%),
+            radial-gradient(ellipse at 78% 10%, rgba(216, 117, 130, 0.08), transparent 48%),
+            #fffefa;
         }
         .home-journal-kicker {
           color: rgba(157, 134, 111, 0.78);
