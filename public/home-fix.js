@@ -104,6 +104,14 @@ function applyMindlabDisplayFix() {
     }
   }
 
+  document.querySelectorAll("a, h1, h2, h3, p, li").forEach((node) => {
+    if (node.childElementCount === 0) {
+      node.textContent = node.textContent
+        .replaceAll("目指すこと", "めざすこと")
+        .replaceAll("目指すのは", "めざすのは");
+    }
+  });
+
   const rail = document.querySelector(".hero-rail-link");
   if (rail) {
     rail.removeAttribute("href");
