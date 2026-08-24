@@ -218,8 +218,8 @@
           align-items: center !important;
           justify-content: flex-start !important;
           min-height: 28px !important;
-          padding: 0 !important;
-          border-bottom: 0 !important;
+          padding: 0 0 5px !important;
+          border-bottom: 1px solid rgba(139, 116, 94, 0.44) !important;
           color: rgba(41, 37, 33, 0.76) !important;
           font-family: var(--serif) !important;
           font-size: 14px !important;
