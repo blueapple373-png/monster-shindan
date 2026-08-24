@@ -66,7 +66,7 @@
         .hero-mobile-links,
         .mindlab-injected-links {
           display: grid !important;
-          gap: 12px !important;
+          gap: 0 !important;
           width: fit-content !important;
           max-width: 100% !important;
           margin-top: 40px !important;
@@ -79,27 +79,30 @@
         }
 
         .hero-mobile-links a[href="/blog"],
-        .hero-mobile-links a[href="https://monster-shindan.vercel.app/blog"] {
+        .hero-mobile-links a[href="https://monster-shindan.vercel.app/blog"],
+        .hero-mobile-links a[href="/diagnosis"],
+        .hero-mobile-links a[href="https://monster-shindan.vercel.app/diagnosis"],
+        .hero-mobile-links a[href="/services"],
+        .hero-mobile-links a[href="https://monster-shindan.vercel.app/services"] {
           display: none !important;
         }
 
         .hero-mobile-links a,
         .mindlab-injected-links a {
-          display: grid !important;
-          grid-template-columns: 24px auto 58px !important;
-          gap: 14px !important;
+          display: inline-flex !important;
+          gap: 0 !important;
           align-items: center !important;
-          justify-content: stretch !important;
+          justify-content: flex-start !important;
           aspect-ratio: auto !important;
           min-height: 0 !important;
-          padding: 4px 0 !important;
-          border-bottom: 0 !important;
+          padding: 0 0 6px !important;
+          border-bottom: 1px solid rgba(139, 116, 94, 0.44) !important;
           border-radius: 0 !important;
           background: transparent !important;
           box-shadow: none !important;
-          color: rgba(41, 37, 33, 0.76) !important;
+          color: rgba(41, 37, 33, 0.78) !important;
           font-family: var(--serif) !important;
-          font-size: 14px !important;
+          font-size: 13px !important;
           font-weight: 500 !important;
           letter-spacing: 0.12em !important;
           text-align: left !important;
@@ -113,55 +116,14 @@
 
         .hero-mobile-links a::before,
         .mindlab-injected-links a::before {
-          color: rgba(157, 134, 111, 0.7) !important;
-          font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-            "Yu Gothic", "Noto Sans JP", sans-serif !important;
-          font-size: 10px !important;
-          font-weight: 600 !important;
-          letter-spacing: 0.16em !important;
-        }
-
-        .hero-mobile-links a:nth-of-type(1)::before,
-        .mindlab-injected-links a:nth-of-type(1)::before {
-          content: "01" !important;
-        }
-
-        .hero-mobile-links a:nth-of-type(2)::before,
-        .mindlab-injected-links a:nth-of-type(2)::before {
-          content: "02" !important;
-        }
-
-        .hero-mobile-links a:nth-of-type(3)::before,
-        .mindlab-injected-links a:nth-of-type(3)::before {
-          content: "03" !important;
+          content: none !important;
+          display: none !important;
         }
 
         .hero-mobile-links a::after,
         .mindlab-injected-links a::after {
-          content: "" !important;
-          display: block !important;
-          width: 58px !important;
-          height: 15px !important;
-          background:
-            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.38) 47% 53%, transparent 54% 100%) left bottom / 16px 15px no-repeat,
-            linear-gradient(rgba(157, 134, 111, 0.38), rgba(157, 134, 111, 0.38)) 12px bottom / 42px 1px no-repeat !important;
-          transform: none !important;
-        }
-
-        .hero-mobile-links a:nth-of-type(2)::after,
-        .mindlab-injected-links a:nth-of-type(2)::after {
-          width: 48px !important;
-          background:
-            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.36) 47% 53%, transparent 54% 100%) left bottom / 15px 14px no-repeat,
-            linear-gradient(rgba(157, 134, 111, 0.36), rgba(157, 134, 111, 0.36)) 11px bottom / 34px 1px no-repeat !important;
-        }
-
-        .hero-mobile-links a:nth-of-type(3)::after,
-        .mindlab-injected-links a:nth-of-type(3)::after {
-          width: 64px !important;
-          background:
-            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.38) 47% 53%, transparent 54% 100%) left bottom / 17px 15px no-repeat,
-            linear-gradient(rgba(157, 134, 111, 0.38), rgba(157, 134, 111, 0.38)) 13px bottom / 48px 1px no-repeat !important;
+          content: none !important;
+          display: none !important;
         }
 
         .home-journal,
@@ -235,8 +197,6 @@
     nav.setAttribute("aria-label", "主要リンク");
     [
       ["めざすこと", "/about"],
-      ["診断する", "/diagnosis"],
-      ["サービス", "/services"],
     ].forEach(([label, href]) => {
       const link = document.createElement("a");
       link.href = href;
@@ -294,7 +254,7 @@
     if (!document.querySelector(".mindlab-injected-links")) {
       const existingLinks = document.querySelector(".hero-mobile-links");
       if (existingLinks) {
-        existingLinks.querySelectorAll('a[href="/blog"], a[href="https://monster-shindan.vercel.app/blog"]').forEach((link) => link.remove());
+        existingLinks.querySelectorAll('a[href="/blog"], a[href="https://monster-shindan.vercel.app/blog"], a[href="/diagnosis"], a[href="https://monster-shindan.vercel.app/diagnosis"], a[href="/services"], a[href="https://monster-shindan.vercel.app/services"]').forEach((link) => link.remove());
       } else {
         heroInner.appendChild(buildMobileLinks());
       }
