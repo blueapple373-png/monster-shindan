@@ -19,13 +19,21 @@
         }
 
         .site-header .header-inner {
+          display: flex !important;
+          justify-content: space-between !important;
+          gap: 18px !important;
           min-height: 92px !important;
           padding: 0 26px !important;
           align-items: center !important;
         }
 
         .site-header .brand {
-          max-width: 260px !important;
+          display: inline-flex !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          max-width: calc(100vw - 128px) !important;
+          min-width: 0 !important;
+          overflow: hidden !important;
           color: #252238 !important;
           font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
             "Yu Gothic", "Noto Sans JP", sans-serif !important;
@@ -33,14 +41,16 @@
           font-weight: 800 !important;
           letter-spacing: 0.14em !important;
           line-height: 1.18 !important;
-          white-space: nowrap !important;
+          white-space: normal !important;
         }
 
         .site-header .brand-credit {
-          display: inline-flex !important;
+          display: flex !important;
           align-items: center !important;
           gap: 6px !important;
           margin-top: 8px !important;
+          max-width: 100% !important;
+          overflow: hidden !important;
           color: rgba(139, 116, 94, 0.62) !important;
           font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
             "Yu Gothic", "Noto Sans JP", sans-serif !important;
@@ -58,6 +68,11 @@
           letter-spacing: inherit !important;
         }
 
+        .site-header .brand-credit span:last-child {
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+        }
+
         .site-header .brand-credit img {
           display: inline-block !important;
           width: 14px !important;
@@ -69,6 +84,8 @@
         }
 
         .site-header .menu-button {
+          flex: 0 0 42px !important;
+          margin-left: auto !important;
           width: 42px !important;
           height: 42px !important;
           padding: 0 !important;
@@ -151,19 +168,22 @@
         }
 
         .mindlab-injected-links {
-          display: block !important;
-          margin: 42px 0 46px !important;
+          display: grid !important;
+          gap: 34px !important;
+          width: min(100%, 340px) !important;
+          margin: 42px 0 58px !important;
           position: relative !important;
           z-index: 4 !important;
         }
 
         .mindlab-injected-links a {
-          display: inline-flex !important;
+          display: grid !important;
+          grid-template-columns: minmax(0, 1fr) 34px !important;
           align-items: center !important;
           gap: 16px !important;
-          padding-bottom: 8px !important;
+          min-height: 26px !important;
+          padding: 0 !important;
           border: 0 !important;
-          border-bottom: 1px solid rgba(139, 116, 94, 0.42) !important;
           border-radius: 0 !important;
           background: transparent !important;
           box-shadow: none !important;
@@ -177,9 +197,11 @@
 
         .mindlab-injected-links a::after {
           content: "->" !important;
+          display: block !important;
           color: rgba(139, 116, 94, 0.62) !important;
           font-family: var(--serif) !important;
           letter-spacing: 0 !important;
+          text-align: right !important;
         }
 
         .home-journal:not(.mindlab-injected-journal) {
@@ -268,7 +290,12 @@
 
     if (brand) {
       Object.assign(brand.style, {
-        maxWidth: "260px",
+        display: "inline-flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        maxWidth: "calc(100vw - 128px)",
+        minWidth: "0",
+        overflow: "hidden",
         color: "#252238",
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif',
@@ -276,16 +303,18 @@
         fontWeight: "800",
         letterSpacing: "0.14em",
         lineHeight: "1.18",
-        whiteSpace: "nowrap",
+        whiteSpace: "normal",
       });
     }
 
     if (credit) {
       Object.assign(credit.style, {
-        display: "inline-flex",
+        display: "flex",
         alignItems: "center",
         gap: "6px",
         marginTop: "8px",
+        maxWidth: "100%",
+        overflow: "hidden",
         color: "rgba(139, 116, 94, 0.62)",
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif',
@@ -314,11 +343,16 @@
     const nav = document.createElement("nav");
     nav.className = "mindlab-injected-links";
     nav.setAttribute("aria-label", "主要リンク");
-
-    const link = document.createElement("a");
-    link.href = "/about#mission";
-    link.textContent = "めざすこと";
-    nav.appendChild(link);
+    [
+      ["めざすこと", "/about#mission"],
+      ["診断する", "/diagnosis"],
+      ["サービス", "/services"],
+    ].forEach(([label, href]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      nav.appendChild(link);
+    });
 
     return nav;
   }
@@ -356,8 +390,8 @@
       };
     } catch (_error) {
       return {
-        title: "最新記事を読む",
-        date: "BLOG",
+        title: "（サンプル）まずはこの記事を開きましょう",
+        date: "2026/8/5",
         url: "/blog",
       };
     }
