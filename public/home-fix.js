@@ -225,16 +225,19 @@ function applyMindlabDisplayFix() {
 
 let attempts = 0;
 function retryApply() {
-  applyMindlabDisplayFix();
+  try {
+    applyMindlabDisplayFix();
+  } catch (err) {
+    console.warn("MINAMI MINDLAB display fix skipped", err);
+  }
   attempts += 1;
-  if (attempts < 240) {
+  if (attempts < 60) {
     window.requestAnimationFrame(retryApply);
   }
 }
 
-retryApply();
-
-new MutationObserver(() => applyMindlabDisplayFix()).observe(document.body, {
-  childList: true,
-  subtree: true,
-});
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", retryApply, { once: true });
+} else {
+  retryApply();
+}
