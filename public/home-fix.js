@@ -66,11 +66,10 @@
         .hero-mobile-links,
         .mindlab-injected-links {
           display: grid !important;
-          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-          gap: 8px !important;
-          width: 100% !important;
+          gap: 0 !important;
+          width: min(330px, 100%) !important;
           max-width: 100% !important;
-          margin-top: 40px !important;
+          margin-top: 42px !important;
         }
 
         .hero-mobile-links::after,
@@ -86,28 +85,55 @@
 
         .hero-mobile-links a,
         .mindlab-injected-links a {
-          display: flex !important;
+          display: grid !important;
+          grid-template-columns: 38px 1fr !important;
+          gap: 18px !important;
           align-items: center !important;
-          justify-content: center !important;
-          aspect-ratio: 1 / 1 !important;
+          justify-content: stretch !important;
+          aspect-ratio: auto !important;
           min-height: 0 !important;
-          padding: 0 8px !important;
+          padding: 14px 0 !important;
           border-bottom: 0 !important;
-          border: 1px solid rgba(157, 134, 111, 0.2) !important;
-          border-radius: 999px !important;
-          background:
-            radial-gradient(circle at 55% 58%, rgba(255, 254, 250, 0.5), transparent 62%),
-            rgba(255, 254, 250, 0.08) !important;
-          box-shadow:
-            inset 0 0 30px rgba(157, 134, 111, 0.05),
-            0 20px 46px rgba(157, 134, 111, 0.055) !important;
+          border-radius: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
           color: rgba(41, 37, 33, 0.76) !important;
           font-family: var(--serif) !important;
-          font-size: 12px !important;
+          font-size: 15px !important;
           font-weight: 500 !important;
-          letter-spacing: 0.08em !important;
-          text-align: center !important;
+          letter-spacing: 0.1em !important;
+          text-align: left !important;
           white-space: nowrap !important;
+        }
+
+        .hero-mobile-links a + a,
+        .mindlab-injected-links a + a {
+          border-top: 1px solid rgba(157, 134, 111, 0.16) !important;
+        }
+
+        .hero-mobile-links a::before,
+        .mindlab-injected-links a::before {
+          color: rgba(157, 134, 111, 0.7) !important;
+          font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+            "Yu Gothic", "Noto Sans JP", sans-serif !important;
+          font-size: 10px !important;
+          font-weight: 600 !important;
+          letter-spacing: 0.16em !important;
+        }
+
+        .hero-mobile-links a:nth-of-type(1)::before,
+        .mindlab-injected-links a:nth-of-type(1)::before {
+          content: "01" !important;
+        }
+
+        .hero-mobile-links a:nth-of-type(2)::before,
+        .mindlab-injected-links a:nth-of-type(2)::before {
+          content: "02" !important;
+        }
+
+        .hero-mobile-links a:nth-of-type(3)::before,
+        .mindlab-injected-links a:nth-of-type(3)::before {
+          content: "03" !important;
         }
 
         .hero-mobile-links a::after,
