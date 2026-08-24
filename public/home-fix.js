@@ -18,6 +18,19 @@
         width: 100% !important;
       }
 
+      .footer-nav > div:first-child strong::after {
+        content: "止まりやすい日を、扱える形にする。";
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 18px;
+        color: rgba(255, 250, 241, 0.56);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.7;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
       body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
         top: 36px !important;
         right: max(32px, calc((100vw - var(--max)) / 2 + 24px)) !important;
@@ -37,6 +50,10 @@
       }
 
       @media (max-width: 640px) {
+        .footer-nav > div:first-child strong::after {
+          display: none !important;
+        }
+
         body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
           display: none !important;
         }
