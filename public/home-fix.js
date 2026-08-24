@@ -1,5 +1,114 @@
 (() => {
-  if (location.pathname !== "/" && location.pathname !== "") return;
+  const isHome = location.pathname === "/" || location.pathname === "";
+
+  const globalStyleId = "mindlab-page-rail-fix";
+  if (!document.getElementById(globalStyleId)) {
+    const globalStyle = document.createElement("style");
+    globalStyle.id = globalStyleId;
+    globalStyle.textContent = `
+      body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
+        top: 36px !important;
+        right: max(32px, calc((100vw - var(--max)) / 2 + 24px)) !important;
+        gap: 8px !important;
+      }
+
+      body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail i {
+        height: 92px !important;
+        margin-top: 10px !important;
+      }
+
+      @media (max-width: 960px) {
+        body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
+          top: 34px !important;
+          right: 24px !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
+          display: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(globalStyle);
+  }
+
+  function normalizeMissionCopy() {
+    document.querySelectorAll("a, h1, h2, h3, p, li").forEach((node) => {
+      if (node.childElementCount === 0) {
+        const next = node.textContent
+          .replaceAll("目指すこと", "めざすこと")
+          .replaceAll("目指すのは", "めざすのは");
+        if (next !== node.textContent) node.textContent = next;
+      }
+    });
+  }
+
+  function ensureHomeRail() {
+    const rail = document.querySelector(".editorial-hero .hero-rail-link");
+    if (!rail) return false;
+
+    rail.href = "/about#mission";
+    rail.setAttribute("aria-label", "めざすことへ");
+
+    const number = rail.querySelector("span");
+    if (number && number.textContent !== "01") number.textContent = "01";
+
+    const label = rail.querySelector("strong");
+    if (label && label.textContent.toLowerCase() !== "mission") {
+      label.textContent = "Mission";
+    }
+
+    return true;
+  }
+
+  function ensurePageHomeRails() {
+    let found = false;
+
+    document.querySelectorAll(".page-hero.compact").forEach((hero) => {
+      found = true;
+      let rail = hero.querySelector(".hero-rail-link");
+
+      if (!rail) {
+        rail = document.createElement("a");
+        rail.className = "hero-rail-link page-home-rail";
+        rail.href = "/";
+        rail.setAttribute("aria-label", "ホームへ戻る");
+        rail.innerHTML = `
+          <span>00</span>
+          <i aria-hidden="true"></i>
+          <strong>Home</strong>
+        `;
+        hero.appendChild(rail);
+      } else if (!hero.classList.contains("editorial-hero")) {
+        rail.classList.add("page-home-rail");
+        rail.href = "/";
+        rail.setAttribute("aria-label", "ホームへ戻る");
+        const number = rail.querySelector("span");
+        if (number) number.textContent = "00";
+        const label = rail.querySelector("strong");
+        if (label) label.textContent = "Home";
+      }
+    });
+
+    return found;
+  }
+
+  function installGlobalPageFixes() {
+    normalizeMissionCopy();
+    if (isHome) ensureHomeRail();
+    else ensurePageHomeRails();
+  }
+
+  if (!isHome) {
+    installGlobalPageFixes();
+
+    const observer = new MutationObserver(() => {
+      installGlobalPageFixes();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    return;
+  }
 
   const styleId = "mindlab-mobile-home-fix";
   if (!document.getElementById(styleId)) {
@@ -204,7 +313,9 @@
     return new Date(value).toLocaleDateString("ja-JP");
   }
 
-  function install() {
+  function installHome() {
+    installGlobalPageFixes();
+
     const hero = document.querySelector(".editorial-hero");
     const side = document.querySelector(".editorial-hero-side") || document.querySelector(".editorial-hero-copy");
     if (!hero || !side) return false;
@@ -212,7 +323,9 @@
     const mainLink = document.querySelector(".hero-text-link");
     if (mainLink) {
       mainLink.href = "/about#mission";
-      mainLink.textContent = "めざすこと";
+      if (mainLink.textContent.trim() !== "めざすこと") {
+        mainLink.textContent = "めざすこと";
+      }
     }
 
     let mobileLinks = document.querySelector(".hero-mobile-links, .mindlab-injected-links");
@@ -220,7 +333,14 @@
       mobileLinks = buildMobileLinks();
       side.appendChild(mobileLinks);
     } else {
-      mobileLinks.innerHTML = '<a href="/about#mission">めざすこと</a>';
+      const links = mobileLinks.querySelectorAll("a");
+      if (
+        links.length !== 1 ||
+        links[0].textContent.trim() !== "めざすこと" ||
+        !links[0].getAttribute("href")?.endsWith("/about#mission")
+      ) {
+        mobileLinks.innerHTML = '<a href="/about#mission">めざすこと</a>';
+      }
     }
 
     if (!document.querySelector(".home-journal")) {
@@ -244,12 +364,10 @@
     return true;
   }
 
-  let attempts = 0;
-  function waitForRender() {
-    if (install() || attempts > 120) return;
-    attempts += 1;
-    requestAnimationFrame(waitForRender);
-  }
+  installHome();
 
-  waitForRender();
+  const observer = new MutationObserver(() => {
+    installHome();
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
 })();
