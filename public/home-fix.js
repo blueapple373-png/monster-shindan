@@ -86,7 +86,7 @@
         .hero-mobile-links a,
         .mindlab-injected-links a {
           display: grid !important;
-          grid-template-columns: 24px auto 24px !important;
+          grid-template-columns: 24px auto 58px !important;
           gap: 14px !important;
           align-items: center !important;
           justify-content: stretch !important;
@@ -140,21 +140,28 @@
         .mindlab-injected-links a::after {
           content: "" !important;
           display: block !important;
-          width: 20px !important;
-          height: 1px !important;
-          background: rgba(157, 134, 111, 0.42) !important;
-          transform: scaleY(0.55) !important;
-          transform-origin: center !important;
+          width: 58px !important;
+          height: 15px !important;
+          background:
+            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.38) 47% 53%, transparent 54% 100%) left bottom / 16px 15px no-repeat,
+            linear-gradient(rgba(157, 134, 111, 0.38), rgba(157, 134, 111, 0.38)) 12px bottom / 42px 1px no-repeat !important;
+          transform: none !important;
         }
 
         .hero-mobile-links a:nth-of-type(2)::after,
         .mindlab-injected-links a:nth-of-type(2)::after {
-          width: 14px !important;
+          width: 48px !important;
+          background:
+            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.36) 47% 53%, transparent 54% 100%) left bottom / 15px 14px no-repeat,
+            linear-gradient(rgba(157, 134, 111, 0.36), rgba(157, 134, 111, 0.36)) 11px bottom / 34px 1px no-repeat !important;
         }
 
         .hero-mobile-links a:nth-of-type(3)::after,
         .mindlab-injected-links a:nth-of-type(3)::after {
-          width: 24px !important;
+          width: 64px !important;
+          background:
+            linear-gradient(132deg, transparent 0 46%, rgba(157, 134, 111, 0.38) 47% 53%, transparent 54% 100%) left bottom / 17px 15px no-repeat,
+            linear-gradient(rgba(157, 134, 111, 0.38), rgba(157, 134, 111, 0.38)) 13px bottom / 48px 1px no-repeat !important;
         }
 
         .home-journal,
@@ -258,47 +265,50 @@
     return section;
   }
 
-  function formatDate(value) {
-    if (!value) return "";
-    return new Date(value).toLocaleDateString("ja-JP");
+  async function getLatestPost() {
+    try {
+      const response = await fetch(`/posts.json?ts=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) throw new Error("posts unavailable");
+      const posts = await response.json();
+      const post = Array.isArray(posts) && posts[0];
+      if (!post) throw new Error("empty posts");
+      return {
+        title: post.title || "最新記事を読む",
+        date: post.date || "2026/8/5",
+        url: post.url || (post.slug ? `/blog/${post.slug}` : "/blog"),
+      };
+    } catch (_error) {
+      return {
+        title: "（サンプル）まずはこの記事を開きましょう",
+        date: "2026/8/5",
+        url: "/blog",
+      };
+    }
   }
 
-  function install() {
+  async function mount() {
     const hero = document.querySelector(".editorial-hero");
-    const side = document.querySelector(".editorial-hero-side") || document.querySelector(".editorial-hero-copy");
-    if (!hero || !side) return false;
+    const heroInner = document.querySelector(".editorial-hero-inner");
+    if (!hero || !heroInner) return;
 
-    if (!document.querySelector(".hero-mobile-links") && !document.querySelector(".mindlab-injected-links")) {
-      side.appendChild(buildMobileLinks());
+    if (!document.querySelector(".mindlab-injected-links")) {
+      const existingLinks = document.querySelector(".hero-mobile-links");
+      if (existingLinks) {
+        existingLinks.querySelectorAll('a[href="/blog"], a[href="https://monster-shindan.vercel.app/blog"]').forEach((link) => link.remove());
+      } else {
+        heroInner.appendChild(buildMobileLinks());
+      }
     }
 
-    if (!document.querySelector(".home-journal")) {
-      const fallback = { date: "BLOG", title: "ブログを見る", url: "/blog" };
-      hero.insertAdjacentElement("afterend", buildJournal(fallback));
-
-      fetch("/api/blogs")
-        .then((response) => (response.ok ? response.json() : null))
-        .then((data) => {
-          const post = data && data.contents && data.contents[0];
-          if (!post) return;
-          const item = document.querySelector(".mindlab-injected-journal .home-journal-item");
-          if (!item) return;
-          item.href = `/blog/${post.id}`;
-          item.querySelector("time").textContent = formatDate(post.publishedAt);
-          item.querySelector("span").textContent = post.title;
-        })
-        .catch(() => {});
+    if (!document.querySelector(".mindlab-injected-journal")) {
+      const post = await getLatestPost();
+      hero.insertAdjacentElement("afterend", buildJournal(post));
     }
-
-    return true;
   }
 
-  let attempts = 0;
-  function waitForRender() {
-    if (install() || attempts > 120) return;
-    attempts += 1;
-    requestAnimationFrame(waitForRender);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mount, { once: true });
+  } else {
+    mount();
   }
-
-  waitForRender();
 })();
