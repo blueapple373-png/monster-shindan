@@ -35,15 +35,28 @@ function applyMindlabDisplayFix() {
         }
         .hero-mobile-links {
           margin-top: 36px !important;
+          gap: 10px !important;
+        }
+        .hero-mobile-links a {
+          min-height: 32px !important;
+          padding: 0 !important;
+          border-bottom: 0 !important;
+          color: rgba(41, 37, 33, 0.76) !important;
+          font-size: 14px !important;
+        }
+        .hero-mobile-links a::after {
+          content: "→" !important;
+          width: auto !important;
+          height: auto !important;
+          background: transparent !important;
+          color: rgba(139, 116, 94, 0.62) !important;
+          font-size: 13px !important;
         }
         .home-journal {
           display: block;
           margin-top: -1px;
-          padding: 28px 28px 50px;
-          background:
-            radial-gradient(ellipse at 84% 0%, rgba(171, 202, 227, 0.12), transparent 38%),
-            radial-gradient(ellipse at 86% 48%, rgba(222, 135, 154, 0.12), transparent 42%),
-            #fffefa;
+          padding: 20px 28px 50px;
+          background: #fffefa;
         }
         .home-journal-kicker {
           color: rgba(157, 134, 111, 0.78);
@@ -142,8 +155,17 @@ function applyMindlabDisplayFix() {
       <a href="${siteLinks.mission}">めざすこと</a>
       <a href="${siteLinks.diagnosis}">診断する</a>
       <a href="${siteLinks.services}">サービス</a>
+      <a href="${siteLinks.blog}">ブログ</a>
     `;
     side.appendChild(nav);
+  }
+
+  const heroMobileLinks = document.querySelector(".hero-mobile-links");
+  if (heroMobileLinks && !heroMobileLinks.querySelector(`a[href="${siteLinks.blog}"]`)) {
+    const blogLink = document.createElement("a");
+    blogLink.href = siteLinks.blog;
+    blogLink.textContent = "ブログ";
+    heroMobileLinks.appendChild(blogLink);
   }
 
   const main = document.querySelector(".editorial-hero")?.parentElement;
