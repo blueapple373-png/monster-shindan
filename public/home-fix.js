@@ -173,16 +173,10 @@
     const nav = document.createElement("nav");
     nav.className = "mindlab-injected-links";
     nav.setAttribute("aria-label", "主要リンク");
-    [
-      ["めざすこと", "/about"],
-      ["診断する", "/diagnosis"],
-      ["サービス", "/services"],
-    ].forEach(([label, href]) => {
-      const link = document.createElement("a");
-      link.href = href;
-      link.textContent = label;
-      nav.appendChild(link);
-    });
+    const link = document.createElement("a");
+    link.href = "/about#mission";
+    link.textContent = "めざすこと";
+    nav.appendChild(link);
     return nav;
   }
 
@@ -215,8 +209,18 @@
     const side = document.querySelector(".editorial-hero-side") || document.querySelector(".editorial-hero-copy");
     if (!hero || !side) return false;
 
-    if (!document.querySelector(".hero-mobile-links") && !document.querySelector(".mindlab-injected-links")) {
-      side.appendChild(buildMobileLinks());
+    const mainLink = document.querySelector(".hero-text-link");
+    if (mainLink) {
+      mainLink.href = "/about#mission";
+      mainLink.textContent = "めざすこと";
+    }
+
+    let mobileLinks = document.querySelector(".hero-mobile-links, .mindlab-injected-links");
+    if (!mobileLinks) {
+      mobileLinks = buildMobileLinks();
+      side.appendChild(mobileLinks);
+    } else {
+      mobileLinks.innerHTML = '<a href="/about#mission">めざすこと</a>';
     }
 
     if (!document.querySelector(".home-journal")) {
