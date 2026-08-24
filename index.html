@@ -30,6 +30,533 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="/home-fix.js?v=20260824-8" defer></script>
+    <style id="home-hero-hotfix">
+      .site-header {
+        position: absolute;
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .header-inner {
+        max-width: none;
+        min-height: 116px;
+        padding: 0 46px;
+      }
+
+      .brand {
+        color: #292521;
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+
+      .brand small {
+        margin-top: 6px;
+        color: rgba(157, 134, 111, 0.82);
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-credit {
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .brand-credit img {
+        width: 16px;
+        height: 16px;
+        opacity: 0.72;
+      }
+
+      .menu-button {
+        position: relative;
+        width: 40px;
+        height: 34px;
+        transform: translate(-40px, 3px);
+        color: #292521;
+        font-size: 0;
+        font-weight: 300;
+      }
+
+      .menu-button::before,
+      .menu-button::after {
+        content: "";
+        position: absolute;
+        right: 7px;
+        width: 26px;
+        height: 1.4px;
+        background: #292521;
+      }
+
+      .menu-button::before {
+        top: 11px;
+      }
+
+      .menu-button::after {
+        top: 22px;
+      }
+
+      .mobile-nav {
+        position: absolute;
+        top: 98px;
+        right: 64px;
+        left: auto;
+        z-index: 20;
+        width: min(330px, calc(100vw - 48px));
+        padding: 22px 24px;
+        gap: 0;
+        border: 1px solid rgba(190, 160, 126, 0.22);
+        background: rgba(255, 254, 250, 0.92);
+        box-shadow: 0 28px 70px rgba(84, 71, 58, 0.12);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-nav.open {
+        display: grid;
+      }
+
+      .mobile-nav a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(190, 160, 126, 0.16);
+        color: rgba(41, 37, 33, 0.88);
+        font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+      }
+
+      .mobile-nav a:last-child {
+        border-bottom: 0;
+      }
+
+      .editorial-hero {
+        min-height: 100vh;
+        padding: 0 46px;
+        background: #fffefa;
+      }
+
+      .editorial-hero h1 {
+        max-width: none;
+        color: rgba(41, 37, 33, 0.96);
+        font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+        font-size: clamp(44px, 3.45vw, 54px);
+        font-weight: 400;
+        line-height: 1.72;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: geometricPrecision;
+      }
+
+      .editorial-hero-inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 100vh;
+        max-width: none;
+        margin: 0;
+        padding: 42vh 0 0 66px;
+      }
+
+      .editorial-hero-copy {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+      }
+
+      .editorial-hero::before {
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 79% 76%, rgba(222, 135, 154, 0.25), transparent 30%),
+          radial-gradient(ellipse at 68% 69%, rgba(241, 206, 161, 0.21), transparent 36%),
+          radial-gradient(ellipse at 86% 63%, rgba(178, 221, 215, 0.25), transparent 35%),
+          radial-gradient(ellipse at 75% 54%, rgba(171, 202, 227, 0.2), transparent 33%),
+          radial-gradient(ellipse at 58% 64%, rgba(194, 176, 218, 0.15), transparent 37%);
+        filter: blur(34px);
+        opacity: 0.98;
+      }
+
+      .editorial-hero::after {
+        inset: auto;
+        right: -108px;
+        bottom: -190px;
+        width: min(930px, 62vw);
+        aspect-ratio: 1;
+        border: 1px solid rgba(190, 160, 126, 0.42);
+        border-radius: 50%;
+        background:
+          radial-gradient(ellipse at 72% 76%, rgba(222, 135, 154, 0.2), transparent 29%),
+          radial-gradient(ellipse at 55% 73%, rgba(241, 206, 161, 0.17), transparent 36%),
+          radial-gradient(ellipse at 76% 52%, rgba(178, 221, 215, 0.21), transparent 35%),
+          radial-gradient(ellipse at 62% 50%, rgba(171, 202, 227, 0.16), transparent 34%),
+          radial-gradient(ellipse at 50% 61%, rgba(194, 176, 218, 0.13), transparent 41%),
+          rgba(255, 254, 250, 0.36);
+        opacity: 0.92;
+      }
+
+      .hero-geometry-stage::before {
+        display: none !important;
+      }
+
+      .hero-geometry-stage::after {
+        display: none !important;
+      }
+
+      .hero-geometry-stage {
+        display: none !important;
+      }
+
+      .root-lines {
+        display: none !important;
+      }
+
+      .hero-copy {
+        margin-top: 46px;
+        color: rgba(104, 89, 76, 0.66) !important;
+        font-size: 17px !important;
+        letter-spacing: 0.2em !important;
+      }
+
+      .hero-text-link {
+        margin-top: 56px;
+        color: rgba(61, 49, 41, 0.86);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+      }
+
+      .hero-text-link::after {
+        right: auto;
+        width: 86px;
+        background: rgba(139, 116, 94, 0.62);
+      }
+
+      .hero-mobile-links {
+        display: none;
+      }
+
+      .hero-rail-link {
+        top: 128px;
+        right: 92px;
+        color: rgba(156, 128, 101, 0.72);
+        font-family: var(--serif);
+        gap: 8px;
+      }
+
+      .hero-rail-link i {
+        order: 4;
+        width: 1.2px !important;
+        height: 245px;
+        margin-top: 16px;
+        background: rgba(184, 150, 116, 0.58);
+        clip-path: polygon(50% 0, 100% 8px, 100% calc(100% - 8px), 50% 100%, 0 calc(100% - 8px), 0 8px);
+      }
+
+      .hero-rail-link span {
+        color: rgba(91, 65, 44, 0.82);
+      }
+
+      .hero-rail-link span::after {
+        content: "/";
+        display: block;
+        margin-top: 10px;
+        color: rgba(156, 128, 101, 0.72);
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      .hero-rail-link strong {
+        order: 3;
+        color: rgba(156, 128, 101, 0.72);
+        font-size: 13px;
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+
+      .site-footer {
+        color: #fffaf1;
+        background: #6f6256;
+      }
+
+      .footer-top {
+        border-bottom-color: rgba(255, 250, 241, 0.22);
+      }
+
+      .footer-brand small {
+        color: rgba(255, 250, 241, 0.68);
+      }
+
+      .footer-copy,
+      .footer-nav a {
+        color: rgba(255, 250, 241, 0.78);
+      }
+
+      .footer-bottom {
+        color: rgba(255, 250, 241, 0.62);
+      }
+
+      @media (max-width: 960px) {
+        .editorial-hero-inner {
+          grid-template-columns: 1fr;
+          padding: 190px 0 0;
+        }
+
+        .editorial-hero h1 {
+          font-size: clamp(31px, 8vw, 42px);
+          white-space: normal;
+        }
+      }
+
+      body:not(:has(.editorial-hero)) .site-header {
+        position: sticky;
+        background: rgba(255, 254, 250, 0.92);
+        box-shadow: none;
+        backdrop-filter: blur(12px);
+      }
+
+      body:not(:has(.editorial-hero)) .header-inner {
+        min-height: 86px;
+        padding: 0 44px;
+      }
+
+      body:not(:has(.editorial-hero)) .menu-button {
+        transform: translate(-8px, 0);
+      }
+
+      body:not(:has(.editorial-hero)) .page-hero.compact {
+        padding: 58px 24px 62px;
+        border: 0;
+        background:
+          radial-gradient(ellipse at 12% 20%, rgba(167, 151, 207, 0.1), transparent 34%),
+          radial-gradient(ellipse at 86% 8%, rgba(216, 117, 130, 0.14), transparent 30%),
+          linear-gradient(180deg, rgba(255, 254, 250, 0.98) 0%, rgba(255, 250, 250, 0.82) 100%);
+      }
+
+      body:not(:has(.editorial-hero)) .page-hero.compact h1 {
+        font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+        font-size: clamp(34px, 4.4vw, 48px);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        line-height: 1.48;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body:not(:has(.editorial-hero)) .page-hero .hero-copy {
+        max-width: 760px;
+        margin-top: 18px;
+        color: rgba(104, 89, 76, 0.66) !important;
+        font-size: 16px !important;
+        letter-spacing: 0.12em !important;
+      }
+
+      body:not(:has(.editorial-hero)) .section.white {
+        background: linear-gradient(180deg, rgba(255, 254, 250, 0.72), #fffefa);
+      }
+
+      body:not(:has(.editorial-hero)) .news-list {
+        border-top: 0;
+      }
+
+      body:not(:has(.editorial-hero)) .news-item {
+        border-bottom-color: rgba(157, 134, 111, 0.16);
+      }
+
+      body:not(:has(.editorial-hero)) .article-card,
+      body:not(:has(.editorial-hero)) .blog-preview-card,
+      body:not(:has(.editorial-hero)) .side-nav {
+        border-color: rgba(157, 134, 111, 0.14);
+      }
+
+      @media (max-width: 640px) {
+        .site-header {
+          z-index: 50;
+        }
+
+        .header-inner {
+          min-height: 104px;
+          padding: 0 24px;
+          align-items: center;
+        }
+
+        .brand {
+          max-width: 230px;
+          font-size: 14px;
+          line-height: 1.2;
+          letter-spacing: 0.16em;
+          white-space: nowrap;
+        }
+
+        .brand small {
+          margin-top: 8px;
+          font-size: 8px;
+          letter-spacing: 0.1em;
+          white-space: nowrap;
+        }
+
+        .brand-credit {
+          gap: 6px;
+        }
+
+        .brand-credit img {
+          width: 14px;
+          height: 14px;
+        }
+
+        .menu-button {
+          width: 36px;
+          height: 32px;
+          flex: 0 0 auto;
+          transform: translate(0, 0);
+        }
+
+        .menu-button::before,
+        .menu-button::after {
+          right: 5px;
+          width: 26px;
+          height: 1.3px;
+        }
+
+        .mobile-nav {
+          top: 86px;
+          right: 18px;
+          width: min(300px, calc(100vw - 36px));
+          padding: 18px 20px;
+        }
+
+        .mobile-nav a {
+          padding: 11px 0;
+          font-size: 14px;
+        }
+
+        .editorial-hero {
+          min-height: 100svh;
+          padding: 0 28px;
+          overflow: hidden;
+        }
+
+        .editorial-hero-inner {
+          min-height: 100svh;
+          padding: 170px 0 0;
+        }
+
+        .editorial-hero h1 {
+          max-width: 330px;
+          font-size: clamp(27px, 7.8vw, 31px);
+          line-height: 1.78;
+          letter-spacing: 0.045em;
+          white-space: normal;
+        }
+
+        .hero-copy {
+          max-width: 286px;
+          margin-top: 36px;
+          font-size: 14px !important;
+          line-height: 2 !important;
+          letter-spacing: 0.1em !important;
+        }
+
+        .hero-text-link {
+          display: none;
+        }
+
+        .hero-text-link::after {
+          right: auto;
+          width: 74px;
+        }
+
+        .hero-mobile-links {
+          display: grid;
+          gap: 14px;
+          width: min(280px, 100%);
+          margin-top: 50px;
+        }
+
+        .hero-mobile-links a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 0 11px;
+          border-bottom: 1px solid rgba(139, 116, 94, 0.36);
+          color: rgba(41, 37, 33, 0.88);
+          font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+        }
+
+        .hero-mobile-links a::after {
+          content: "";
+          width: 34px;
+          height: 1px;
+          background: rgba(139, 116, 94, 0.58);
+        }
+
+        .editorial-hero::before {
+          background:
+            radial-gradient(ellipse at 72% 58%, rgba(171, 202, 227, 0.28), transparent 35%),
+            radial-gradient(ellipse at 84% 72%, rgba(222, 135, 154, 0.27), transparent 36%),
+            radial-gradient(ellipse at 58% 78%, rgba(241, 206, 161, 0.2), transparent 42%),
+            radial-gradient(ellipse at 86% 48%, rgba(178, 221, 215, 0.25), transparent 38%),
+            radial-gradient(ellipse at 42% 70%, rgba(194, 176, 218, 0.16), transparent 40%);
+          filter: blur(26px);
+        }
+
+        .editorial-hero::after {
+          display: none;
+        }
+
+        .hero-rail-link {
+          display: none;
+        }
+
+        body:not(:has(.editorial-hero)) .header-inner {
+          min-height: 78px;
+          padding: 0 22px;
+        }
+
+        body:not(:has(.editorial-hero)) .menu-button {
+          transform: translate(0, 0);
+        }
+
+        body:not(:has(.editorial-hero)) .page-hero.compact h1 {
+          font-size: clamp(30px, 8.4vw, 38px);
+        }
+
+        .site-footer {
+          padding: 42px 28px 28px;
+        }
+
+        .footer-top {
+          gap: 34px;
+          padding-bottom: 28px;
+        }
+
+        .footer-brand,
+        .footer-nav strong {
+          font-size: 17px;
+          letter-spacing: 0.08em;
+        }
+
+        .footer-brand small {
+          font-size: 9px;
+        }
+
+        .footer-copy,
+        .footer-nav a {
+          font-size: 13px;
+          line-height: 1.9;
+        }
+
+        .footer-nav {
+          gap: 26px;
+        }
+      }
+    </style>
+    <script type="module" src="/home-fix.js"></script>
   </body>
 </html>
