@@ -2,6 +2,26 @@
   var style = document.createElement("style");
   style.textContent = `
     @media (max-width: 640px) {
+      .site-header .brand-credit {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-top: 6px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+      }
+      .site-header .brand-credit span {
+        display: inline !important;
+      }
+      .site-header .brand-credit img {
+        display: inline-block !important;
+        width: 14px !important;
+        height: 14px !important;
+        min-width: 14px !important;
+        max-width: 14px !important;
+        object-fit: contain !important;
+        flex: 0 0 14px !important;
+      }
       .mindlab-site main {
         overflow: hidden !important;
         background:
