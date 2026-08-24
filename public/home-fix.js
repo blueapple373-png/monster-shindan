@@ -57,6 +57,7 @@
         .editorial-hero-inner {
           min-height: auto !important;
           padding-bottom: 0 !important;
+          position: relative !important;
         }
 
         .hero-text-link {
@@ -65,11 +66,13 @@
 
         .hero-mobile-links,
         .mindlab-injected-links {
-          display: grid !important;
-          gap: 0 !important;
-          width: fit-content !important;
-          max-width: 100% !important;
-          margin-top: 40px !important;
+          display: block !important;
+          position: absolute !important;
+          top: 390px !important;
+          right: -44px !important;
+          width: 156px !important;
+          height: 156px !important;
+          margin-top: 0 !important;
         }
 
         .hero-mobile-links::after,
@@ -92,13 +95,15 @@
           display: inline-flex !important;
           gap: 0 !important;
           align-items: center !important;
-          justify-content: flex-start !important;
-          aspect-ratio: auto !important;
+          justify-content: center !important;
+          width: 156px !important;
+          height: 156px !important;
+          aspect-ratio: 1 / 1 !important;
           min-height: 0 !important;
-          padding: 0 0 6px !important;
-          border-bottom: 1px solid rgba(139, 116, 94, 0.44) !important;
-          border-radius: 0 !important;
-          background: transparent !important;
+          padding: 0 !important;
+          border: 1px solid rgba(139, 116, 94, 0.22) !important;
+          border-radius: 50% !important;
+          background: rgba(255, 254, 250, 0.16) !important;
           box-shadow: none !important;
           color: rgba(41, 37, 33, 0.78) !important;
           font-family: var(--serif) !important;
@@ -107,6 +112,13 @@
           letter-spacing: 0.12em !important;
           text-align: left !important;
           white-space: nowrap !important;
+        }
+
+        .hero-mobile-links a span,
+        .mindlab-injected-links a span {
+          display: inline-block !important;
+          padding-bottom: 5px !important;
+          border-bottom: 1px solid rgba(139, 116, 94, 0.38) !important;
         }
 
         .hero-mobile-links a + a,
@@ -186,6 +198,10 @@
           font-size: 13px !important;
           letter-spacing: 0.12em !important;
         }
+
+        .site-footer .footer-top > div:first-child {
+          display: none !important;
+        }
       }
     `;
     document.head.appendChild(style);
@@ -200,7 +216,7 @@
     ].forEach(([label, href]) => {
       const link = document.createElement("a");
       link.href = href;
-      link.textContent = label;
+      link.innerHTML = `<span>${label}</span>`;
       nav.appendChild(link);
     });
     return nav;
@@ -255,6 +271,11 @@
       const existingLinks = document.querySelector(".hero-mobile-links");
       if (existingLinks) {
         existingLinks.querySelectorAll('a[href="/blog"], a[href="https://monster-shindan.vercel.app/blog"], a[href="/diagnosis"], a[href="https://monster-shindan.vercel.app/diagnosis"], a[href="/services"], a[href="https://monster-shindan.vercel.app/services"]').forEach((link) => link.remove());
+        existingLinks.querySelectorAll("a").forEach((link) => {
+          if (!link.querySelector("span")) {
+            link.innerHTML = `<span>${link.textContent.trim()}</span>`;
+          }
+        });
       } else {
         heroInner.appendChild(buildMobileLinks());
       }
