@@ -69,6 +69,8 @@
           gap: 24px !important;
           width: min(304px, 100%) !important;
           margin-top: 44px !important;
+          position: relative !important;
+          isolation: isolate !important;
         }
 
         .hero-mobile-links::after,
@@ -95,6 +97,36 @@
           font-size: 14px !important;
           font-weight: 500 !important;
           letter-spacing: 0.12em !important;
+          position: relative !important;
+          isolation: isolate !important;
+        }
+
+        .hero-mobile-links a::before,
+        .mindlab-injected-links a::before {
+          content: "" !important;
+          position: absolute !important;
+          left: -22px !important;
+          top: 50% !important;
+          z-index: -1 !important;
+          width: 128px !important;
+          height: 128px !important;
+          border-radius: 50% !important;
+          transform: translateY(-50%) !important;
+          background: radial-gradient(circle, rgba(139, 116, 94, 0.075) 0%, rgba(139, 116, 94, 0.035) 44%, transparent 72%) !important;
+          filter: blur(1px) !important;
+          pointer-events: none !important;
+        }
+
+        .hero-mobile-links a:nth-child(2)::before,
+        .mindlab-injected-links a:nth-child(2)::before {
+          left: 58px !important;
+          background: radial-gradient(circle, rgba(171, 202, 227, 0.10) 0%, rgba(171, 202, 227, 0.04) 44%, transparent 72%) !important;
+        }
+
+        .hero-mobile-links a:nth-child(3)::before,
+        .mindlab-injected-links a:nth-child(3)::before {
+          left: 118px !important;
+          background: radial-gradient(circle, rgba(222, 135, 154, 0.095) 0%, rgba(222, 135, 154, 0.038) 44%, transparent 72%) !important;
         }
 
         .hero-mobile-links a::after,
