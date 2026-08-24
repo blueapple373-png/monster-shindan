@@ -75,7 +75,7 @@
 
       .menu-button {
         position: relative;
-        width: 48px;
+        width: 40px;
         height: 34px;
         transform: translate(-40px, 3px);
         color: #292521;
@@ -87,8 +87,8 @@
       .menu-button::after {
         content: "";
         position: absolute;
-        right: 6px;
-        width: 34px;
+        right: 7px;
+        width: 26px;
         height: 1.4px;
         background: #292521;
       }
@@ -224,7 +224,6 @@
 
       .hero-text-link {
         margin-top: 56px;
-        gap: 11px;
         color: rgba(61, 49, 41, 0.86);
         font-size: 18px;
         font-weight: 500;
@@ -233,8 +232,12 @@
 
       .hero-text-link::after {
         right: auto;
-        width: 138px;
+        width: 86px;
         background: rgba(139, 116, 94, 0.62);
+      }
+
+      .hero-mobile-links {
+        display: none;
       }
 
       .hero-rail-link {
@@ -405,7 +408,7 @@
         }
 
         .menu-button {
-          width: 42px;
+          width: 36px;
           height: 32px;
           flex: 0 0 auto;
           transform: translate(0, 0);
@@ -413,8 +416,8 @@
 
         .menu-button::before,
         .menu-button::after {
-          right: 4px;
-          width: 31px;
+          right: 5px;
+          width: 26px;
           height: 1.3px;
         }
 
@@ -458,15 +461,39 @@
         }
 
         .hero-text-link {
-          margin-top: 62px;
-          gap: 11px;
-          font-size: 15px;
-          letter-spacing: 0.12em;
+          display: none;
         }
 
         .hero-text-link::after {
           right: auto;
-          width: 104px;
+          width: 74px;
+        }
+
+        .hero-mobile-links {
+          display: grid;
+          gap: 14px;
+          width: min(280px, 100%);
+          margin-top: 50px;
+        }
+
+        .hero-mobile-links a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 0 11px;
+          border-bottom: 1px solid rgba(139, 116, 94, 0.36);
+          color: rgba(41, 37, 33, 0.88);
+          font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+        }
+
+        .hero-mobile-links a::after {
+          content: "";
+          width: 34px;
+          height: 1px;
+          background: rgba(139, 116, 94, 0.58);
         }
 
         .editorial-hero::before {
