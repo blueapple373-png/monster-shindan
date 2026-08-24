@@ -12,9 +12,25 @@
       }
 
       @media (max-width: 640px) {
+        main {
+          background:
+            radial-gradient(ellipse at 82% 36%, rgba(171, 202, 227, 0.15), transparent 54%),
+            radial-gradient(ellipse at 80% 52%, rgba(222, 135, 154, 0.13), transparent 52%),
+            radial-gradient(ellipse at 64% 42%, rgba(190, 222, 209, 0.10), transparent 46%),
+            radial-gradient(ellipse at 58% 64%, rgba(228, 196, 154, 0.08), transparent 46%),
+            #fffefa !important;
+        }
+
         .editorial-hero {
           min-height: auto !important;
           padding-bottom: 42px !important;
+          background: transparent !important;
+        }
+
+        .editorial-hero::before,
+        .editorial-hero::after {
+          content: none !important;
+          display: none !important;
         }
 
         .editorial-hero-inner {
@@ -76,22 +92,7 @@
           margin-top: 0 !important;
           position: relative !important;
           padding: 42px 28px 54px !important;
-          background:
-            radial-gradient(ellipse at 70% -30%, rgba(171, 202, 227, 0.13), transparent 52%),
-            radial-gradient(ellipse at 82% 24%, rgba(222, 135, 154, 0.11), transparent 52%),
-            radial-gradient(ellipse at 58% 6%, rgba(190, 222, 209, 0.09), transparent 42%),
-            #fffefa !important;
-        }
-
-        .home-journal::before,
-        .mindlab-injected-journal::before {
-          content: "" !important;
-          position: absolute !important;
-          top: 18px !important;
-          left: 28px !important;
-          width: 72px !important;
-          height: 1px !important;
-          background: rgba(139, 116, 94, 0.42) !important;
+          background: transparent !important;
         }
 
         .home-journal-inner {
