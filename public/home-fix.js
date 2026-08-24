@@ -2,16 +2,32 @@
   var style = document.createElement("style");
   style.textContent = `
     @media (max-width: 640px) {
+      .site-header .brand {
+        color: #252238 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.14em !important;
+        line-height: 1.18 !important;
+      }
       .site-header .brand-credit {
         display: inline-flex !important;
         align-items: center !important;
         gap: 6px !important;
-        margin-top: 6px !important;
+        margin-top: 8px !important;
+        color: rgba(139, 116, 94, 0.64) !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.16em !important;
         line-height: 1 !important;
         white-space: nowrap !important;
       }
       .site-header .brand-credit span {
         display: inline !important;
+        color: inherit !important;
+        font: inherit !important;
+        letter-spacing: inherit !important;
       }
       .site-header .brand-credit img {
         display: inline-block !important;
@@ -32,6 +48,7 @@
           #fffefa !important;
       }
       .editorial-hero {
+        position: relative !important;
         min-height: auto !important;
         padding: 38px 20px 74px !important;
         background: transparent !important;
@@ -47,40 +64,40 @@
         display: none !important;
       }
       .editorial-hero-inner {
-        position: relative !important;
+        position: static !important;
       }
       .hero-mobile-links {
-        position: absolute;
-        top: 256px;
-        right: -62px;
-        z-index: 2;
-        display: block;
-        width: 158px;
-        height: 158px;
+        position: absolute !important;
+        top: 520px !important;
+        right: -58px !important;
+        z-index: 5 !important;
+        display: block !important;
+        width: 154px !important;
+        height: 154px !important;
       }
       .hero-mobile-links a {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 158px;
-        height: 158px;
-        border: 1px solid rgba(139, 116, 94, 0.20);
-        border-radius: 50%;
-        background: rgba(255, 254, 250, 0.16);
-        color: rgba(41, 37, 33, 0.76);
-        font-family: var(--serif);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-decoration: none;
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 154px !important;
+        height: 154px !important;
+        border: 1px solid rgba(139, 116, 94, 0.20) !important;
+        border-radius: 50% !important;
+        background: rgba(255, 254, 250, 0.16) !important;
+        color: rgba(41, 37, 33, 0.76) !important;
+        font-family: var(--serif) !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.12em !important;
+        text-decoration: none !important;
       }
       .hero-mobile-links a::after {
         content: "";
         position: absolute;
-        right: 30px;
-        bottom: 48px;
-        width: 78px;
+        right: 28px;
+        bottom: 47px;
+        width: 74px;
         height: 1px;
         background: rgba(139, 116, 94, 0.40);
       }
@@ -152,14 +169,15 @@
     var hero = document.querySelector(".home-hero");
     if (!hero) return;
 
-    var copy = hero.querySelector(".editorial-hero-copy");
-    if (copy && !copy.querySelector(".hero-mobile-links")) {
-      var links = document.createElement("div");
-      links.className = "hero-mobile-links";
-      links.setAttribute("aria-label", "主要リンク");
-      links.innerHTML = '<a href="/about#mission">めざすこと</a>';
-      copy.appendChild(links);
-    }
+    hero.querySelectorAll(".hero-mobile-links").forEach(function (node) {
+      node.remove();
+    });
+
+    var links = document.createElement("div");
+    links.className = "hero-mobile-links";
+    links.setAttribute("aria-label", "主要リンク");
+    links.innerHTML = '<a href="/about#mission">めざすこと</a>';
+    hero.appendChild(links);
 
     if (!document.querySelector(".home-journal")) {
       var journal = document.createElement("section");
