@@ -74,12 +74,24 @@
         .mindlab-injected-journal {
           display: block !important;
           margin-top: 0 !important;
-          padding: 18px 28px 54px !important;
+          position: relative !important;
+          padding: 42px 28px 54px !important;
           background:
-            radial-gradient(ellipse at 72% -16%, rgba(171, 202, 227, 0.13), transparent 48%),
+            radial-gradient(ellipse at 70% -30%, rgba(171, 202, 227, 0.13), transparent 52%),
             radial-gradient(ellipse at 82% 24%, rgba(222, 135, 154, 0.11), transparent 52%),
             radial-gradient(ellipse at 58% 6%, rgba(190, 222, 209, 0.09), transparent 42%),
             #fffefa !important;
+        }
+
+        .home-journal::before,
+        .mindlab-injected-journal::before {
+          content: "" !important;
+          position: absolute !important;
+          top: 18px !important;
+          left: 28px !important;
+          width: 72px !important;
+          height: 1px !important;
+          background: rgba(139, 116, 94, 0.42) !important;
         }
 
         .home-journal-inner {
