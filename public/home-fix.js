@@ -66,11 +66,10 @@
         .hero-mobile-links,
         .mindlab-injected-links {
           display: grid !important;
-          gap: 24px !important;
-          width: min(304px, 100%) !important;
-          margin-top: 44px !important;
-          position: relative !important;
-          isolation: isolate !important;
+          gap: 22px !important;
+          width: fit-content !important;
+          max-width: 100% !important;
+          margin-top: 42px !important;
         }
 
         .hero-mobile-links::after,
@@ -88,7 +87,7 @@
         .mindlab-injected-links a {
           display: flex !important;
           align-items: center !important;
-          justify-content: space-between !important;
+          justify-content: flex-start !important;
           min-height: 28px !important;
           padding: 0 !important;
           border-bottom: 0 !important;
@@ -97,46 +96,12 @@
           font-size: 14px !important;
           font-weight: 500 !important;
           letter-spacing: 0.12em !important;
-          position: relative !important;
-          isolation: isolate !important;
-        }
-
-        .hero-mobile-links a::before,
-        .mindlab-injected-links a::before {
-          content: "" !important;
-          position: absolute !important;
-          left: -22px !important;
-          top: 50% !important;
-          z-index: -1 !important;
-          width: 128px !important;
-          height: 128px !important;
-          border-radius: 50% !important;
-          transform: translateY(-50%) !important;
-          background: radial-gradient(circle, rgba(139, 116, 94, 0.075) 0%, rgba(139, 116, 94, 0.035) 44%, transparent 72%) !important;
-          filter: blur(1px) !important;
-          pointer-events: none !important;
-        }
-
-        .hero-mobile-links a:nth-child(2)::before,
-        .mindlab-injected-links a:nth-child(2)::before {
-          left: 58px !important;
-          background: radial-gradient(circle, rgba(171, 202, 227, 0.10) 0%, rgba(171, 202, 227, 0.04) 44%, transparent 72%) !important;
-        }
-
-        .hero-mobile-links a:nth-child(3)::before,
-        .mindlab-injected-links a:nth-child(3)::before {
-          left: 118px !important;
-          background: radial-gradient(circle, rgba(222, 135, 154, 0.095) 0%, rgba(222, 135, 154, 0.038) 44%, transparent 72%) !important;
         }
 
         .hero-mobile-links a::after,
         .mindlab-injected-links a::after {
-          content: "→" !important;
-          width: auto !important;
-          height: auto !important;
-          background: transparent !important;
-          color: rgba(139, 116, 94, 0.62) !important;
-          font-size: 13px !important;
+          content: none !important;
+          display: none !important;
         }
 
         .home-journal,
