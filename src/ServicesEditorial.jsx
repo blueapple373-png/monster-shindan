@@ -200,12 +200,12 @@ function Hero() {
 
 function Icon({ type }) {
   const common = {
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 1.4,
+    strokeWidth: 1.45,
     strokeLinecap: "round",
     strokeLinejoin: "round",
     "aria-hidden": true,
@@ -214,9 +214,11 @@ function Icon({ type }) {
   if (type === "diagnosis") {
     return (
       <svg {...common}>
-        <circle cx="12" cy="12" r="6.5" />
-        <path d="M9 10.5h.01M15 10.5h.01M9.5 14c1.3 1 3.7 1 5 0" />
-        <path d="M8 6.5 6.7 4.8M16 6.5l1.3-1.7" />
+        <path d="M7.1 9.2 7.7 5.1l3 1.35c.43-.1.87-.15 1.3-.15.44 0 .88.05 1.31.15l3-1.35.59 4.1v4.03c0 3.03-2.13 5.27-4.9 5.27s-4.9-2.24-4.9-5.27z" />
+        <circle cx="9.9" cy="11.75" r=".72" fill="currentColor" stroke="none" />
+        <circle cx="14.1" cy="11.75" r=".72" fill="currentColor" stroke="none" />
+        <path d="M10.25 14.1c.5.65 1.08.97 1.75.97s1.25-.32 1.75-.97" />
+        <path d="M11.15 13.15 12 13.65l.85-.5" />
       </svg>
     );
   }
@@ -224,8 +226,12 @@ function Icon({ type }) {
   if (type === "program") {
     return (
       <svg {...common}>
-        <rect x="5" y="6" width="14" height="13" rx="1.5" />
-        <path d="M8 4v4M16 4v4M5 10h14M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16h.01M12 16h.01" />
+        <rect x="4.7" y="6.4" width="14.6" height="12.2" rx="2.7" />
+        <path d="M8 4.65v3.3M16 4.65v3.3M4.7 9.7h14.6" />
+        <circle cx="8.2" cy="13.15" r=".72" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="13.15" r=".72" fill="currentColor" stroke="none" />
+        <circle cx="15.8" cy="13.15" r=".72" fill="currentColor" stroke="none" />
+        <path d="m10.55 16.1 1 1 2-2.15" />
       </svg>
     );
   }
@@ -233,8 +239,10 @@ function Icon({ type }) {
   if (type === "app") {
     return (
       <svg {...common}>
-        <rect x="7.5" y="3.5" width="9" height="17" rx="2" />
-        <path d="M10.5 6h3M11.5 17.5h1" />
+        <rect x="7.15" y="3.65" width="9.7" height="16.7" rx="2.65" />
+        <path d="M10.4 6.05h3.2" />
+        <path d="m12 9.25.7 1.45 1.6.23-1.15 1.13.27 1.58L12 12.9l-1.42.74.27-1.58-1.15-1.13 1.6-.23z" />
+        <path d="M11.35 17.55h1.3" />
       </svg>
     );
   }
@@ -242,16 +250,21 @@ function Icon({ type }) {
   if (type === "learning") {
     return (
       <svg {...common}>
-        <path d="M4.5 5.5h6.2c1 0 1.8.8 1.8 1.8v11.2c-.5-.8-1.4-1.3-2.4-1.3H4.5z" />
-        <path d="M19.5 5.5h-6.2c-1 0-1.8.8-1.8 1.8v11.2c.5-.8 1.4-1.3 2.4-1.3h5.6z" />
+        <path d="M4.4 6.25c2.72-.55 4.95-.25 6.62 1.02.62.47.98 1.18.98 1.95v9.03c-1.62-1.36-4.14-1.73-7.6-.88z" />
+        <path d="M19.6 6.25c-2.72-.55-4.95-.25-6.62 1.02-.62.47-.98 1.18-.98 1.95v9.03c1.62-1.36 4.14-1.73 7.6-.88z" />
+        <path d="M12 9.15v9.1" />
+        <path d="M7.15 9.45c.98-.08 1.83.05 2.55.4M14.3 9.85c.72-.35 1.57-.48 2.55-.4" />
       </svg>
     );
   }
 
   return (
     <svg {...common}>
-      <path d="M5.5 7.5h13v8.5a2 2 0 0 1-2 2h-5l-3.5 2v-2H7.5a2 2 0 0 1-2-2z" />
-      <path d="M8.5 11h.01M12 11h.01M15.5 11h.01" />
+      <path d="M6.2 6.45h9.9a2.65 2.65 0 0 1 2.65 2.65v5.45a2.65 2.65 0 0 1-2.65 2.65h-4.45l-3.15 2.15.62-2.15H7.9a2.65 2.65 0 0 1-2.65-2.65V9.1A2.65 2.65 0 0 1 7.9 6.45z" />
+      <path d="M8.2 4.65h7.1a2.15 2.15 0 0 1 2.04 1.47" opacity=".55" />
+      <circle cx="9.05" cy="11.7" r=".72" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="11.7" r=".72" fill="currentColor" stroke="none" />
+      <circle cx="14.95" cy="11.7" r=".72" fill="currentColor" stroke="none" />
     </svg>
   );
 }
