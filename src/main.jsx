@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import LP from './LP.jsx'
 import Site from './Site.jsx'
+import ServicesEditorial from './ServicesEditorial.jsx'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 
@@ -11,6 +12,8 @@ if (path === '/lp') {
   Page = LP
 } else if (path === '/diagnosis') {
   Page = App
+} else if (path === '/services') {
+  Page = ServicesEditorial
 } else {
   Page = () => <Site path={path} />
 }
