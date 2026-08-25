@@ -1,0 +1,72 @@
+/* Shared marble tuning for MINAMI MINDLAB pages.
+   Keep the palette and placement, but raise contrast slightly so the marble reads on desktop. */
+
+.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(167, 151, 207, 0.22), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(216, 117, 130, 0.20), transparent 28%),
+    radial-gradient(circle at 22% 82%, rgba(160, 198, 219, 0.19), transparent 30%),
+    linear-gradient(180deg, #fffaf7 0%, #fbf8f4 42%, #fffafa 100%);
+}
+
+/* Standard inner-page heroes (ABOUT / APP / BUSINESS / PROFILE / NEWS / BLOG etc.).
+   HOME keeps its own editorial hero treatment. */
+.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact {
+  background:
+    radial-gradient(circle at 10% 22%, rgba(167, 151, 207, 0.22), transparent 34%),
+    radial-gradient(circle at 86% 12%, rgba(216, 117, 130, 0.20), transparent 32%),
+    radial-gradient(circle at 82% 72%, rgba(190, 222, 209, 0.14), transparent 34%),
+    linear-gradient(135deg, #fffefd 0%, #f8f3fb 52%, #fff5f2 100%);
+}
+
+/* Editorial service page: same marble language, slightly more visible than before. */
+.services-editorial-page main {
+  background:
+    radial-gradient(ellipse at 83% 27%, rgba(179, 216, 217, 0.14), transparent 31%),
+    radial-gradient(ellipse at 73% 39%, rgba(220, 157, 154, 0.12), transparent 34%),
+    radial-gradient(ellipse at 60% 27%, rgba(195, 182, 220, 0.10), transparent 36%),
+    #fffefa;
+}
+
+.services-editorial-page .services-page-hero {
+  background: transparent !important;
+}
+
+/* Monster explainer page: match the service page's restrained marble intensity. */
+.monsters-editorial-page main {
+  background:
+    radial-gradient(ellipse at 83% 14%, rgba(220, 122, 130, 0.11), transparent 31%),
+    radial-gradient(ellipse at 61% 23%, rgba(159, 149, 207, 0.10), transparent 36%),
+    radial-gradient(ellipse at 86% 58%, rgba(190, 222, 209, 0.08), transparent 34%),
+    #fffefa;
+}
+
+.monsters-editorial-page .monsters-page-hero {
+  background: transparent !important;
+}
+
+@media (max-width: 640px) {
+  /* Mobile needs slightly less contrast because the fields occupy more of the viewport. */
+  .mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact {
+    background:
+      radial-gradient(circle at 10% 22%, rgba(167, 151, 207, 0.18), transparent 36%),
+      radial-gradient(circle at 88% 12%, rgba(216, 117, 130, 0.16), transparent 34%),
+      radial-gradient(circle at 84% 76%, rgba(190, 222, 209, 0.11), transparent 36%),
+      linear-gradient(135deg, #fffefd 0%, #f9f5fb 52%, #fff6f3 100%);
+  }
+
+  .services-editorial-page main {
+    background:
+      radial-gradient(ellipse at 86% 22%, rgba(179, 216, 217, 0.11), transparent 34%),
+      radial-gradient(ellipse at 78% 43%, rgba(220, 157, 154, 0.10), transparent 37%),
+      radial-gradient(ellipse at 58% 26%, rgba(195, 182, 220, 0.08), transparent 39%),
+      #fffefa;
+  }
+
+  .monsters-editorial-page main {
+    background:
+      radial-gradient(ellipse at 86% 12%, rgba(220, 122, 130, 0.09), transparent 34%),
+      radial-gradient(ellipse at 62% 24%, rgba(159, 149, 207, 0.08), transparent 38%),
+      #fffefa;
+  }
+}
