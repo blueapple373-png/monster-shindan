@@ -266,13 +266,15 @@ function ServiceCompanion({ item }) {
         <span className="service-companion-label">{item.label}</span>
         <h4>{item.title}</h4>
         <p>{item.description}</p>
-        <span className="service-entry-status" data-tone="included">
-          {item.status}
-        </span>
+        <div className="service-companion-meta">
+          <span className="service-entry-status" data-tone="included">
+            {item.status}
+          </span>
+          <a className="service-companion-link" href={item.href}>
+            {item.cta} <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
-      <a className="service-companion-link" href={item.href}>
-        {item.cta} <span aria-hidden="true">→</span>
-      </a>
     </div>
   );
 }
@@ -287,16 +289,18 @@ function ServiceItem({ item }) {
         {item.marker && <span className="service-entry-marker">{item.marker}</span>}
         <h3>{item.title}</h3>
         <p>{item.description}</p>
-        <span className="service-entry-status" data-tone={item.statusTone || "neutral"}>
-          {item.status}
-        </span>
+        <div className="service-entry-meta">
+          <span className="service-entry-status" data-tone={item.statusTone || "neutral"}>
+            {item.status}
+          </span>
+          {item.href && (
+            <a className="service-entry-link" href={item.href}>
+              {item.cta} <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </div>
+        {item.companion && <ServiceCompanion item={item.companion} />}
       </div>
-      {item.href && (
-        <a className="service-entry-link" href={item.href}>
-          {item.cta} <span aria-hidden="true">→</span>
-        </a>
-      )}
-      {item.companion && <ServiceCompanion item={item.companion} />}
     </article>
   );
 }
@@ -351,18 +355,21 @@ function ServicesEditorial() {
               ))}
             </div>
 
-            <aside className="parallel-track" aria-label="法人・団体向け">
-              <div className="parallel-track-mark" aria-hidden="true">✦</div>
-              <div className="parallel-track-label">PARALLEL TRACK</div>
-              <h2>法人・団体向け</h2>
-              <p>
-                福利厚生、少人数導入、研修、共同検証、掲載・提携などを個別にご相談いただけます。
-              </p>
-              <span className="parallel-track-status">個別相談</span>
-              <a href={links.business}>
-                法人向けを見る <span aria-hidden="true">→</span>
-              </a>
-            </aside>
+            <section className="parallel-track" aria-label="法人・団体向け">
+              <div className="parallel-track-copy">
+                <div className="parallel-track-label">PARALLEL TRACK</div>
+                <h2>法人・団体向け</h2>
+                <p>
+                  福利厚生、少人数導入、研修、共同検証、掲載・提携などを個別にご相談いただけます。
+                </p>
+              </div>
+              <div className="parallel-track-meta">
+                <span className="parallel-track-status">個別相談</span>
+                <a href={links.business}>
+                  法人向けを見る <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </section>
           </div>
         </section>
       </main>
