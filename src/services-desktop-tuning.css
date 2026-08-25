@@ -122,8 +122,7 @@
     max-width: 440px;
   }
 
-  /* Main journey and parallel service track begin on the same top baseline.
-     Their bottoms are intentionally allowed to end at different heights. */
+  /* Main journey and business service begin on the same top baseline. */
   .services-editorial-page .services-editorial-inner {
     align-items: start;
   }
@@ -132,10 +131,47 @@
     align-self: start;
   }
 
+  /* Treat the business area as another service, not a separate parallel business. */
   .services-editorial-page .parallel-track {
     align-self: start !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    padding: 4px 0 8px 66px !important;
+    border-left-color: rgba(157, 134, 111, 0.10);
     transform: none;
+  }
+
+  .services-editorial-page .parallel-track::before {
+    top: 0;
+    left: 23px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .services-editorial-page .parallel-track-label {
+    display: none;
+  }
+
+  .services-editorial-page .parallel-track h2 {
+    margin: 0;
+    color: #2b3347;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.045em;
+  }
+
+  .services-editorial-page .parallel-track p {
+    max-width: 150px;
+    margin: 5px 0 0;
+    color: rgba(78, 82, 99, 0.72);
+    font-size: 11.2px;
+    line-height: 1.82;
+    letter-spacing: 0.025em;
+  }
+
+  .services-editorial-page .parallel-track-meta {
+    margin-top: 10px;
   }
 }
