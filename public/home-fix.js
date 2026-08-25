@@ -32,14 +32,14 @@
       }
 
       body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
-        top: 36px !important;
-        right: max(32px, calc((100vw - var(--max)) / 2 + 24px)) !important;
+        top: 128px !important;
+        right: 92px !important;
         gap: 8px !important;
       }
 
       body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail i {
-        height: 92px !important;
-        margin-top: 10px !important;
+        height: 245px !important;
+        margin-top: 16px !important;
       }
 
       @media (max-width: 960px) {
