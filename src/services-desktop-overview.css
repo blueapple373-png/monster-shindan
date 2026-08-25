@@ -1,16 +1,96 @@
 @media (min-width: 961px) {
+  .services-editorial-page {
+    --max: 1260px;
+    --services-ink: #273047;
+    --services-copy: rgba(67, 72, 91, 0.72);
+    --services-muted: rgba(112, 101, 93, 0.68);
+    --services-accent: #7d70ba;
+    --services-accent-soft: #8b7bc3;
+    --services-rule: rgba(124, 112, 103, 0.16);
+    --services-rule-soft: rgba(124, 112, 103, 0.13);
+  }
+
+  .services-editorial-page main {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 83% 27%, rgba(179, 216, 217, 0.10), transparent 31%),
+      radial-gradient(ellipse at 73% 39%, rgba(220, 157, 154, 0.09), transparent 34%),
+      radial-gradient(ellipse at 60% 27%, rgba(195, 182, 220, 0.07), transparent 36%),
+      #fffefa;
+  }
+
   .services-editorial-page .services-page-hero {
-    padding-bottom: 24px !important;
+    position: relative;
+    padding: 145px 24px 22px !important;
+    background: transparent !important;
+  }
+
+  .services-editorial-page .services-page-hero::after {
+    content: "";
+    position: absolute;
+    top: -128px;
+    right: -112px;
+    width: 640px;
+    height: 640px;
+    border: 1px solid rgba(190, 160, 126, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .services-editorial-page .services-page-hero .hero-inner {
+    max-width: var(--max);
+  }
+
+  .services-editorial-page .services-page-hero .eyebrow {
+    position: relative;
+    padding: 0 0 0 14px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #7867b4;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+  }
+
+  .services-editorial-page .services-page-hero .eyebrow::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 0;
+    width: 2px;
+    background: #7565b5;
+  }
+
+  .services-editorial-page .services-page-hero h1 {
+    margin: 12px 0 0;
+    color: #283047;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 39px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.10em;
+  }
+
+  .services-editorial-page .services-page-hero .hero-copy {
+    max-width: 640px;
+    margin-top: 22px;
+    color: rgba(112, 101, 93, 0.68) !important;
+    font-size: 12.5px !important;
+    line-height: 2.05;
+    letter-spacing: 0.095em !important;
   }
 
   .services-editorial-page .services-editorial-section {
-    padding: 0 24px 46px;
+    padding: 4px 24px 72px;
   }
 
   .services-editorial-page .services-editorial-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 232px;
-    column-gap: clamp(36px, 3.8vw, 58px);
+    grid-template-columns: minmax(0, 1fr) 250px;
+    column-gap: 42px;
     align-items: stretch;
     width: 100%;
     max-width: var(--max);
@@ -23,7 +103,6 @@
     min-width: 0;
   }
 
-  /* The axis connects the steps, but never runs through the numbers. */
   .services-editorial-page .services-journey::before {
     content: none;
     display: none;
@@ -32,46 +111,64 @@
   .services-editorial-page .service-step {
     position: relative;
     display: grid;
-    grid-template-columns: 84px 150px minmax(0, 1fr);
-    column-gap: clamp(18px, 1.8vw, 26px);
+    grid-template-columns: 78px 225px minmax(0, 1fr);
+    column-gap: 22px;
     align-items: start;
-    padding: 16px 0 18px;
+    min-height: 0;
+    padding: 20px 0 18px;
     border: 0;
   }
 
   .services-editorial-page .service-step:first-child {
-    padding-top: 14px;
-    border: 0;
+    padding-top: 12px;
   }
 
-  /* Only a clean connector between 01→02 and 02→03. */
-  .services-editorial-page .service-step:not(:last-child)::before {
+  .services-editorial-page .service-step + .service-step::before {
     content: "";
     position: absolute;
-    z-index: 0;
-    top: 56px;
-    bottom: 14px;
-    left: 31px;
-    width: 1px;
-    background: rgba(147, 132, 205, 0.36);
+    top: 0;
+    left: 49px;
+    right: 0;
+    height: 1px;
+    background: rgba(124, 112, 103, 0.14);
   }
 
-  .services-editorial-page .service-step::after {
-    content: none !important;
-    display: none !important;
+  .services-editorial-page .service-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 65px;
+    bottom: -1px;
+    left: 23px;
+    width: 1px;
+    background: rgba(132, 115, 188, 0.27);
   }
 
   .services-editorial-page .step-number {
     position: relative;
     z-index: 1;
     align-self: start;
-    color: #887bc1;
+    color: #8172bc;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 43px;
     font-weight: 400;
     line-height: 1;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.04em;
     opacity: 1;
+  }
+
+  .services-editorial-page .step-number::after {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 101px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8776bd;
+  }
+
+  .services-editorial-page .service-step:last-child .step-number::after {
+    top: 84px;
   }
 
   .services-editorial-page .step-intro {
@@ -81,24 +178,22 @@
   }
 
   .services-editorial-page .step-intro h2 {
-    margin: 0 0 10px;
-    color: var(--services-ink);
-    font-family: var(--serif);
-    font-size: 27px;
+    margin: -1px 0 12px;
+    color: #2c3449;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 30px;
     font-weight: 400;
     line-height: 1.35;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.10em;
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 150px;
+    max-width: 220px;
     margin: 0;
-    color: var(--services-muted);
-    font-size: 12px;
-    line-height: 1.85;
-    letter-spacing: 0.03em;
-    word-break: normal;
-    overflow-wrap: break-word;
+    color: rgba(93, 91, 101, 0.70);
+    font-size: 11.5px;
+    line-height: 1.9;
+    letter-spacing: 0.055em;
   }
 
   .services-editorial-page .step-items {
@@ -111,119 +206,113 @@
   .services-editorial-page .service-entry,
   .services-editorial-page .service-entry.has-companion {
     display: grid;
-    grid-template-columns: 46px minmax(0, 1fr);
-    column-gap: 17px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    column-gap: 18px;
     align-items: start;
     min-height: 0;
-    padding: 6px 0 10px;
+    padding: 2px 0 8px;
     border: 0;
   }
 
   .services-editorial-page .service-entry + .service-entry {
-    margin-top: 4px;
-    padding-top: 8px;
-    border: 0;
+    margin-top: 1px;
+    padding-top: 9px;
   }
 
-  .services-editorial-page .service-entry:last-child {
-    border: 0;
-  }
-
-  /* Softer, friendlier icon badges. */
   .services-editorial-page .service-entry-icon {
     display: grid;
     place-items: center;
-    width: 42px;
-    height: 42px;
+    width: 47px;
+    height: 47px;
     margin: 0;
-    border: 0;
-    border-radius: 48% 52% 46% 54% / 54% 47% 53% 46%;
-    color: #796bb4;
-    background: linear-gradient(145deg, rgba(238, 233, 250, 0.96), rgba(250, 243, 244, 0.86));
-    box-shadow: 0 7px 18px rgba(117, 107, 173, 0.08);
+    border: 1px solid rgba(135, 119, 188, 0.16);
+    border-radius: 50%;
+    color: #8170bd;
+    background: rgba(255, 255, 255, 0.38);
+    box-shadow: none;
   }
 
   .services-editorial-page .service-entry-icon svg {
     width: 19px;
     height: 19px;
-    stroke-width: 1.55;
+    stroke-width: 1.35;
   }
 
-  /* Copy on the left, status/actions on one consistent right rail. */
   .services-editorial-page .service-entry-copy {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
-    column-gap: clamp(24px, 2.5vw, 38px);
+    grid-template-columns: minmax(0, 1fr) 205px;
+    column-gap: 24px;
     min-width: 0;
   }
 
-  .services-editorial-page .service-entry-marker,
+  .services-editorial-page .service-entry-marker {
+    display: none;
+  }
+
   .services-editorial-page .service-entry-copy h3,
   .services-editorial-page .service-entry-copy > p {
     grid-column: 1;
   }
 
-  .services-editorial-page .service-entry-marker {
-    margin: 0 0 5px;
-    font-size: 10px;
-  }
-
   .services-editorial-page .service-entry-copy h3 {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.45;
+    color: #2b3347;
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.045em;
   }
 
   .services-editorial-page .service-entry-copy > p {
-    max-width: 465px;
+    max-width: 410px;
     margin: 5px 0 0;
-    font-size: 12.5px;
+    color: rgba(78, 82, 99, 0.72);
+    font-size: 11.2px;
     line-height: 1.82;
+    letter-spacing: 0.025em;
   }
 
   .services-editorial-page .service-entry-meta {
     grid-column: 2;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 3;
     align-self: center;
-    justify-self: stretch;
+    justify-self: end;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 14px;
+    gap: 0;
     margin: 0;
     white-space: nowrap;
   }
 
-  .services-editorial-page .service-entry-status {
-    margin: 0;
-    color: var(--services-status);
-    font-size: 10.5px;
+  .services-editorial-page .service-entry-status,
+  .services-editorial-page .service-companion-meta .service-entry-status {
+    display: none;
   }
 
   .services-editorial-page .service-entry-link,
   .services-editorial-page .service-companion-link,
   .services-editorial-page .parallel-track a {
     margin: 0;
-    color: var(--services-accent) !important;
+    padding: 0;
+    border: 0;
+    color: #7c6fba !important;
+    font-size: 11px;
     font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.035em;
     white-space: nowrap;
   }
 
-  .services-editorial-page .service-entry-link,
-  .services-editorial-page .service-companion-link {
-    font-size: 11.5px;
-  }
-
-  /* Treat stays subordinate, but shares the same visual axis as the other services. */
   .services-editorial-page .service-companion {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 46px minmax(0, 1fr);
-    column-gap: 17px;
-    width: calc(100% + 63px);
-    margin: 10px 0 0 -63px;
-    padding: 7px 0 0;
+    grid-template-columns: 52px minmax(0, 1fr);
+    column-gap: 18px;
+    width: calc(100% + 70px);
+    margin: 12px 0 0 -70px;
+    padding: 8px 0 0;
     border: 0;
   }
 
@@ -235,176 +324,185 @@
   .services-editorial-page .service-companion-icon {
     display: grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
-    margin: 2px 0 0 5px;
-    border: 0;
-    border-radius: 48% 52% 46% 54% / 54% 47% 53% 46%;
-    color: rgba(117, 107, 173, 0.82);
-    background: rgba(241, 238, 251, 0.82);
+    width: 47px;
+    height: 47px;
+    margin: 0;
+    border: 1px solid rgba(135, 119, 188, 0.16);
+    border-radius: 50%;
+    color: #8170bd;
+    background: rgba(255, 255, 255, 0.38);
   }
 
   .services-editorial-page .service-companion-icon svg {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
   }
 
   .services-editorial-page .service-companion-copy {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
-    column-gap: clamp(24px, 2.5vw, 38px);
+    grid-template-columns: minmax(0, 1fr) 205px;
+    column-gap: 24px;
     min-width: 0;
   }
 
-  .services-editorial-page .service-companion-label,
+  .services-editorial-page .service-companion-label {
+    display: none;
+  }
+
   .services-editorial-page .service-companion-copy h4,
   .services-editorial-page .service-companion-copy > p {
     grid-column: 1;
   }
 
-  .services-editorial-page .service-companion-label {
-    margin: 0 0 3px;
-    font-size: 9.5px;
-  }
-
   .services-editorial-page .service-companion-copy h4 {
     margin: 0;
-    font-size: 14px;
-    line-height: 1.45;
+    color: #2b3347;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.045em;
   }
 
   .services-editorial-page .service-companion-copy > p {
-    max-width: 445px;
-    margin: 4px 0 0;
-    font-size: 11.5px;
-    line-height: 1.78;
+    max-width: 405px;
+    margin: 5px 0 0;
+    color: rgba(78, 82, 99, 0.72);
+    font-size: 11.2px;
+    line-height: 1.82;
+    letter-spacing: 0.025em;
   }
 
   .services-editorial-page .service-companion-meta {
     grid-column: 2;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 3;
     align-self: center;
-    justify-self: stretch;
+    justify-self: end;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 14px;
+    gap: 0;
     margin: 0;
     white-space: nowrap;
   }
 
-  /* The organization track closes at the same baseline as the individual journey. */
   .services-editorial-page .parallel-track {
     position: relative;
     align-self: end;
     display: block;
-    margin: 0;
-    padding: 54px 0 12px 28px;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 1px solid var(--services-rule);
+    margin: 0 0 13px;
+    padding: 72px 0 8px 35px;
+    border: 0;
+    border-left: 1px solid rgba(157, 134, 111, 0.18);
   }
 
   .services-editorial-page .parallel-track::before {
     content: "✦";
     position: absolute;
-    top: 10px;
-    left: 28px;
+    top: 9px;
+    left: 34px;
     display: grid;
     place-items: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid rgba(157, 134, 111, 0.22);
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(157, 134, 111, 0.21);
     border-radius: 50%;
-    color: rgba(157, 134, 111, 0.70);
-    font-size: 12px;
+    color: rgba(157, 134, 111, 0.68);
+    font-size: 13px;
+    line-height: 1;
   }
 
   .services-editorial-page .parallel-track-label {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    color: #7d70ba;
     font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.18em;
   }
 
   .services-editorial-page .parallel-track h2 {
-    margin: 0 0 12px;
+    margin: 0 0 13px;
+    color: #2c3449;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
     font-size: 25px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
   }
 
   .services-editorial-page .parallel-track p {
     max-width: 205px;
     margin: 0;
-    font-size: 12.5px;
-    line-height: 1.88;
+    color: rgba(93, 91, 101, 0.70);
+    font-size: 11.5px;
+    line-height: 1.9;
+    letter-spacing: 0.035em;
   }
 
   .services-editorial-page .parallel-track-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 14px;
+    display: block;
+    margin-top: 19px;
     padding: 0;
   }
 
-  .services-editorial-page .parallel-track a {
-    font-size: 11.5px;
+  .services-editorial-page .parallel-track-status {
+    display: none;
   }
 }
 
 @media (min-width: 961px) and (max-width: 1240px) {
+  .services-editorial-page {
+    --max: 1120px;
+  }
+
   .services-editorial-page .services-editorial-inner {
-    grid-template-columns: minmax(0, 1fr) 206px;
+    grid-template-columns: minmax(0, 1fr) 220px;
     column-gap: 28px;
   }
 
   .services-editorial-page .service-step {
-    grid-template-columns: 76px 142px minmax(0, 1fr);
-    column-gap: 18px;
+    grid-template-columns: 72px 185px minmax(0, 1fr);
+    column-gap: 16px;
   }
 
-  .services-editorial-page .service-step:not(:last-child)::before {
-    left: 28px;
+  .services-editorial-page .service-step + .service-step::before {
+    left: 42px;
+  }
+
+  .services-editorial-page .service-step:not(:last-child)::after {
+    left: 21px;
   }
 
   .services-editorial-page .step-number {
-    font-size: 40px;
+    font-size: 39px;
   }
 
   .services-editorial-page .step-intro h2 {
-    font-size: 26px;
+    font-size: 27px;
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 142px;
-    font-size: 11.5px;
+    max-width: 180px;
+    font-size: 11px;
   }
 
   .services-editorial-page .service-entry-copy,
   .services-editorial-page .service-companion-copy {
-    grid-template-columns: minmax(0, 1fr) 190px;
-    column-gap: 18px;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    column-gap: 16px;
   }
 
-  .services-editorial-page .service-entry-copy > p {
-    font-size: 11.8px;
-  }
-
+  .services-editorial-page .service-entry-copy > p,
   .services-editorial-page .service-companion-copy > p {
-    font-size: 11px;
-  }
-
-  .services-editorial-page .service-entry-meta,
-  .services-editorial-page .service-companion-meta {
-    gap: 10px;
+    font-size: 10.8px;
   }
 
   .services-editorial-page .parallel-track {
-    padding-left: 22px;
+    padding-left: 28px;
   }
 
   .services-editorial-page .parallel-track::before {
-    left: 22px;
+    left: 27px;
   }
 }
