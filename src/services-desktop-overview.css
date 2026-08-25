@@ -1,191 +1,291 @@
 @media (min-width: 961px) {
   .services-editorial-page .services-page-hero {
-    padding-bottom: 26px !important;
+    padding-bottom: 24px !important;
   }
 
   .services-editorial-page .services-editorial-section {
-    padding: 0 24px 48px;
+    padding: 0 24px 46px;
   }
 
   .services-editorial-page .services-editorial-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 238px;
-    column-gap: 44px;
+    grid-template-columns: minmax(0, 1fr) 232px;
+    column-gap: clamp(34px, 3.4vw, 52px);
     align-items: start;
+    width: 100%;
     max-width: var(--max);
+    margin: 0 auto;
   }
 
   .services-editorial-page .services-journey {
+    position: relative;
     width: 100%;
     min-width: 0;
   }
 
+  /* One uninterrupted journey axis. No dots or junction markers. */
   .services-editorial-page .services-journey::before {
-    top: 46px;
-    bottom: 50px;
-    left: 27px;
+    content: "";
+    position: absolute;
+    top: 38px;
+    bottom: 42px;
+    left: 31px;
     width: 1px;
-    filter: none;
     background: rgba(159, 149, 207, 0.34);
+    filter: none;
   }
 
   .services-editorial-page .service-step {
+    position: relative;
     display: grid;
-    grid-template-columns: 76px 158px minmax(0, 1fr);
-    column-gap: 26px;
+    grid-template-columns: 84px 150px minmax(0, 1fr);
+    column-gap: clamp(18px, 1.8vw, 26px);
     align-items: start;
-    padding: 18px 0 20px;
-    border-bottom: 1px solid var(--services-rule-soft);
+    padding: 16px 0 18px;
+    border: 0;
   }
 
   .services-editorial-page .service-step:first-child {
-    padding-top: 16px;
+    padding-top: 14px;
     border-top: 1px solid var(--services-rule-soft);
+  }
+
+  /* Step separators begin at the service column so they never cut the axis. */
+  .services-editorial-page .service-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: calc(84px + 150px + 2 * clamp(18px, 1.8vw, 26px));
+    height: 1px;
+    background: var(--services-rule-soft);
   }
 
   .services-editorial-page .service-step + .service-step::before {
     content: none;
   }
 
-  .services-editorial-page .service-step:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    left: 24px;
-    bottom: -3px;
-    z-index: 2;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #8f82c8;
-    box-shadow: 0 0 0 4px rgba(251, 248, 244, 0.96);
-  }
-
   .services-editorial-page .step-number {
+    position: relative;
+    z-index: 1;
     align-self: start;
     color: rgba(122, 105, 182, 0.86);
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 44px;
+    font-size: 43px;
+    font-weight: 400;
     line-height: 1;
     letter-spacing: 0.01em;
   }
 
   .services-editorial-page .step-intro {
     align-self: start;
+    min-width: 0;
     padding-top: 0;
   }
 
   .services-editorial-page .step-intro h2 {
-    margin: 0 0 12px;
-    font-size: 28px;
+    margin: 0 0 10px;
+    color: var(--services-ink);
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 400;
     line-height: 1.35;
     letter-spacing: 0.07em;
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 152px;
+    max-width: 150px;
     margin: 0;
+    color: var(--services-muted);
     font-size: 12px;
     line-height: 1.85;
-    letter-spacing: 0.035em;
+    letter-spacing: 0.03em;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
   .services-editorial-page .step-items {
     grid-column: 3;
     width: 100%;
+    min-width: 0;
     margin: 0;
   }
 
-  .services-editorial-page .service-entry {
+  .services-editorial-page .service-entry,
+  .services-editorial-page .service-entry.has-companion {
+    display: grid;
     grid-template-columns: 42px minmax(0, 1fr);
     column-gap: 16px;
-    padding: 8px 0 10px;
-    border-top: 0;
-    border-bottom: 0;
+    align-items: start;
+    min-height: 0;
+    padding: 7px 0 9px;
+    border: 0;
   }
 
+  /* No internal rules between services; the step itself owns the separator. */
   .services-editorial-page .service-entry + .service-entry {
-    margin-top: 8px;
-    padding-top: 14px;
-    border-top: 1px solid var(--services-rule-soft);
+    margin-top: 3px;
+    padding-top: 8px;
+    border: 0;
   }
 
   .services-editorial-page .service-entry:last-child {
-    border-bottom: 0;
+    border: 0;
   }
 
   .services-editorial-page .service-entry-icon {
+    display: grid;
+    place-items: center;
     width: 40px;
     height: 40px;
+    margin: 0;
     border: 1px solid rgba(159, 149, 207, 0.28);
+    border-radius: 50%;
+    color: var(--services-accent);
     background: rgba(255, 254, 250, 0.44);
   }
 
+  /* Content stays left; status + action become one stable right-hand rail. */
+  .services-editorial-page .service-entry-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(176px, max-content);
+    column-gap: clamp(18px, 2vw, 30px);
+    min-width: 0;
+  }
+
+  .services-editorial-page .service-entry-marker,
+  .services-editorial-page .service-entry-copy h3,
+  .services-editorial-page .service-entry-copy > p {
+    grid-column: 1;
+  }
+
   .services-editorial-page .service-entry-marker {
-    margin-bottom: 5px;
+    margin: 0 0 5px;
     font-size: 10px;
   }
 
   .services-editorial-page .service-entry-copy h3 {
+    margin: 0;
     font-size: 16px;
     line-height: 1.45;
   }
 
   .services-editorial-page .service-entry-copy > p {
-    max-width: 430px;
-    margin-top: 5px;
+    max-width: 470px;
+    margin: 5px 0 0;
     font-size: 12.5px;
     line-height: 1.82;
   }
 
-  .services-editorial-page .service-entry-meta,
-  .services-editorial-page .service-companion-meta {
-    gap: 10px 16px;
-    margin-top: 8px;
+  .services-editorial-page .service-entry-meta {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: center;
+    justify-self: end;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin: 0;
+    white-space: nowrap;
   }
 
   .services-editorial-page .service-entry-status {
+    margin: 0;
     font-size: 10.5px;
   }
 
   .services-editorial-page .service-entry-link,
   .services-editorial-page .service-companion-link {
+    margin: 0;
     font-size: 11.5px;
+    white-space: nowrap;
   }
 
+  /* Treat remains subordinate by scale/label only — no box, rule or side rail. */
   .services-editorial-page .service-companion {
-    grid-template-columns: 32px minmax(0, 1fr);
-    column-gap: 12px;
-    margin: 12px 0 0 18px;
-    padding: 12px 0 0 16px;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 16px;
+    width: calc(100% + 58px);
+    margin: 10px 0 0 -58px;
+    padding: 8px 0 0;
+    border: 0;
+  }
+
+  .services-editorial-page .service-companion::before {
+    content: none;
+    display: none;
   }
 
   .services-editorial-page .service-companion-icon {
+    display: grid;
+    place-items: center;
     width: 30px;
     height: 30px;
+    margin: 0 0 0 5px;
+    border: 1px solid rgba(159, 149, 207, 0.24);
+    border-radius: 50%;
+    color: rgba(122, 105, 182, 0.72);
+    background: transparent;
+  }
+
+  .services-editorial-page .service-companion-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(176px, max-content);
+    column-gap: clamp(18px, 2vw, 30px);
+    min-width: 0;
+  }
+
+  .services-editorial-page .service-companion-label,
+  .services-editorial-page .service-companion-copy h4,
+  .services-editorial-page .service-companion-copy > p {
+    grid-column: 1;
   }
 
   .services-editorial-page .service-companion-label {
-    margin-bottom: 3px;
+    margin: 0 0 3px;
     font-size: 9.5px;
   }
 
   .services-editorial-page .service-companion-copy h4 {
+    margin: 0;
     font-size: 14px;
+    line-height: 1.45;
   }
 
-  .services-editorial-page .service-companion-copy p {
-    max-width: 420px;
-    margin-top: 4px;
+  .services-editorial-page .service-companion-copy > p {
+    max-width: 450px;
+    margin: 4px 0 0;
     font-size: 11.5px;
     line-height: 1.78;
   }
 
+  .services-editorial-page .service-companion-meta {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: center;
+    justify-self: end;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* Parallel track sits lower, around the 02/03 zone, and does not compete with 01. */
   .services-editorial-page .parallel-track {
     position: relative;
     display: block;
-    margin-top: 124px;
-    padding: 54px 0 30px 28px;
+    margin-top: 214px;
+    padding: 54px 0 28px 28px;
     border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
     border-left: 1px solid var(--services-rule);
   }
 
@@ -205,17 +305,18 @@
   }
 
   .services-editorial-page .parallel-track-label {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     font-size: 10px;
   }
 
   .services-editorial-page .parallel-track h2 {
+    margin: 0 0 12px;
     font-size: 25px;
   }
 
   .services-editorial-page .parallel-track p {
     max-width: 205px;
-    margin-top: 11px;
+    margin: 0;
     font-size: 12.5px;
     line-height: 1.88;
   }
@@ -236,42 +337,57 @@
 
 @media (min-width: 961px) and (max-width: 1240px) {
   .services-editorial-page .services-editorial-inner {
-    grid-template-columns: minmax(0, 1fr) 210px;
-    column-gap: 30px;
+    grid-template-columns: minmax(0, 1fr) 206px;
+    column-gap: 28px;
   }
 
   .services-editorial-page .service-step {
-    grid-template-columns: 66px 138px minmax(0, 1fr);
+    grid-template-columns: 76px 146px minmax(0, 1fr);
     column-gap: 18px;
   }
 
   .services-editorial-page .services-journey::before {
-    left: 23px;
+    left: 27px;
   }
 
   .services-editorial-page .service-step:not(:last-child)::after {
-    left: 20px;
+    left: calc(76px + 146px + 36px);
   }
 
   .services-editorial-page .step-number {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .services-editorial-page .step-intro h2 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 134px;
-    font-size: 11px;
+    max-width: 146px;
+    font-size: 11.5px;
+  }
+
+  .services-editorial-page .service-entry-copy,
+  .services-editorial-page .service-companion-copy {
+    grid-template-columns: minmax(0, 1fr) minmax(158px, max-content);
+    column-gap: 16px;
   }
 
   .services-editorial-page .service-entry-copy > p {
     font-size: 11.8px;
   }
 
+  .services-editorial-page .service-companion-copy > p {
+    font-size: 11px;
+  }
+
+  .services-editorial-page .service-entry-meta,
+  .services-editorial-page .service-companion-meta {
+    gap: 10px;
+  }
+
   .services-editorial-page .parallel-track {
-    margin-top: 112px;
+    margin-top: 196px;
     padding-left: 22px;
   }
 
