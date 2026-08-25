@@ -7,6 +7,7 @@ import ServicesEditorial from './ServicesEditorial.jsx'
 import MonstersEditorial from './MonstersEditorial.jsx'
 import './services-desktop-overview.css'
 import './services-desktop-tuning.css'
+import './monsters-simplify.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 
