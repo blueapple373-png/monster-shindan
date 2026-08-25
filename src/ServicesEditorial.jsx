@@ -26,10 +26,12 @@ const steps = [
     items: [
       {
         key: "diagnosis",
+        marker: "はじめての方はここから",
         title: "モンスター診断",
         description:
           "不安・過去の傷・自己否定・自責のうち、今の自分に強く出やすい反応を整理します。",
         status: "公開中",
+        statusTone: "active",
         href: links.diagnosis,
         cta: "無料で診断を受ける",
       },
@@ -38,7 +40,7 @@ const steps = [
   {
     number: "02",
     title: "扱う",
-    description: "日常の中で、感情とうまくつきあう練習を。",
+    description: "分かった反応を、実生活の中で扱う練習へ。",
     items: [
       {
         key: "program",
@@ -46,24 +48,26 @@ const steps = [
         description:
           "実生活を材料に、感情に飲み込まれたあとも自分を責め続けないための練習をします。",
         status: "診断結果からご案内",
+        statusTone: "guided",
         href: links.diagnosis,
         cta: "まずモンスター診断を受ける",
-      },
-      {
-        key: "app",
-        title: "Treatアプリ",
-        description:
-          "診断で見えた反応を、日常の中で扱うためのサポート機能です。",
-        status: "プログラム内で提供",
-        href: links.app,
-        cta: "Treatアプリを見る",
+        companion: {
+          key: "app",
+          label: "実践サポート",
+          title: "Treatアプリ",
+          description:
+            "4週間プログラムの実践を、日常の中で支えるツールです。診断で見えた反応に合わせて、今できる対処を選ぶ手助けをします。",
+          status: "プログラム内で提供",
+          href: links.app,
+          cta: "Treatアプリを見る",
+        },
       },
     ],
   },
   {
     number: "03",
     title: "続ける",
-    description: "気づきを、習慣に。ひとりで抱え込まない環境で。",
+    description: "一度理解して終わらず、日常の中で続けていく。",
     items: [
       {
         key: "learning",
@@ -71,6 +75,7 @@ const steps = [
         description:
           "感情が強くなる仕組み、境界線、セルフケアなどを、短く学べる形でまとめています。",
         status: "再設計中",
+        statusTone: "pending",
       },
       {
         key: "discord",
@@ -78,6 +83,7 @@ const steps = [
         description:
           "アウトプット、定型チェックイン、雑談、日常の小さな出来事を共有する場です。",
         status: "試験運用に向けて調整中",
+        statusTone: "pending",
       },
     ],
   },
@@ -250,22 +256,47 @@ function Icon({ type }) {
   );
 }
 
+function ServiceCompanion({ item }) {
+  return (
+    <div className="service-companion">
+      <div className="service-companion-icon" aria-hidden="true">
+        <Icon type={item.key} />
+      </div>
+      <div className="service-companion-copy">
+        <span className="service-companion-label">{item.label}</span>
+        <h4>{item.title}</h4>
+        <p>{item.description}</p>
+        <span className="service-entry-status" data-tone="included">
+          {item.status}
+        </span>
+      </div>
+      <a className="service-companion-link" href={item.href}>
+        {item.cta} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  );
+}
+
 function ServiceItem({ item }) {
   return (
-    <article className="service-entry">
-      <div className="service-entry-icon">
+    <article className={`service-entry ${item.companion ? "has-companion" : ""}`}>
+      <div className="service-entry-icon" aria-hidden="true">
         <Icon type={item.key} />
       </div>
       <div className="service-entry-copy">
+        {item.marker && <span className="service-entry-marker">{item.marker}</span>}
         <h3>{item.title}</h3>
         <p>{item.description}</p>
-        <span className="service-entry-status">{item.status}</span>
+        <span className="service-entry-status" data-tone={item.statusTone || "neutral"}>
+          {item.status}
+        </span>
       </div>
       {item.href && (
         <a className="service-entry-link" href={item.href}>
           {item.cta} <span aria-hidden="true">→</span>
         </a>
       )}
+      {item.companion && <ServiceCompanion item={item.companion} />}
     </article>
   );
 }
