@@ -19,7 +19,7 @@
 
 .monsters-editorial-page .monster-chapter-head {
   display: grid;
-  grid-template-columns: 90px minmax(0, 310px) minmax(0, 1fr);
+  grid-template-columns: 90px minmax(0, 365px) minmax(0, 1fr);
   column-gap: 18px;
   align-items: start;
 }
@@ -97,6 +97,32 @@
   background: transparent;
 }
 
+/* Keep the final CTA editorial: text link, not a generic pill button. */
+.monsters-editorial-page .monster-diagnosis-button {
+  min-height: 0;
+  padding: 0 0 3px;
+  border: 0;
+  border-bottom: 1px solid rgba(117, 107, 173, 0.30);
+  border-radius: 0;
+  color: #756bad !important;
+  background: transparent;
+  box-shadow: none;
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1.65;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.monsters-editorial-page .monster-diagnosis-button:hover {
+  transform: none;
+  color: #685ca4 !important;
+  border-color: rgba(117, 107, 173, 0.72);
+  background: transparent;
+  box-shadow: none;
+}
+
 @media (min-width: 961px) {
   .monsters-editorial-page .monsters-page-hero {
     padding-bottom: 34px;
@@ -105,7 +131,7 @@
 
 @media (max-width: 1080px) {
   .monsters-editorial-page .monster-chapter-head {
-    grid-template-columns: 76px minmax(0, 285px) minmax(0, 1fr);
+    grid-template-columns: 76px minmax(0, 330px) minmax(0, 1fr);
   }
 
   .monsters-editorial-page .monster-chapter-number {
@@ -183,5 +209,12 @@
   .monsters-editorial-page .monster-diagnosis-cta {
     margin-top: 4px;
     padding: 24px 0 8px;
+  }
+
+  .monsters-editorial-page .monster-diagnosis-button {
+    width: fit-content;
+    justify-self: start;
+    white-space: normal;
+    text-align: left;
   }
 }
