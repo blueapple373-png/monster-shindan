@@ -51,17 +51,14 @@ const monsters = [
 
 const usageSteps = [
   {
-    number: "01",
     title: "気づく",
     text: "まず、今どの反応が強くなっているのかを見つけます。",
   },
   {
-    number: "02",
     title: "切り分ける",
     text: "「私はダメ」ではなく、「今はこの反応が出ている」と自分全体から切り分けます。",
   },
   {
-    number: "03",
     title: "扱う",
     text: "反応に飲み込まれたまま結論を出さず、その場でできる小さな対処を選びます。",
   },
@@ -154,6 +151,19 @@ function Footer() {
   );
 }
 
+function ChapterHeader({ number, label, title, titleId, children }) {
+  return (
+    <div className="monster-chapter-head">
+      <div className="monster-chapter-number" aria-hidden="true">{number}</div>
+      <div className="monster-chapter-intro">
+        <span>{label}</span>
+        <h2 id={titleId}>{title}</h2>
+      </div>
+      <div className="monster-chapter-copy">{children}</div>
+    </div>
+  );
+}
+
 function MonstersEditorial() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -176,20 +186,17 @@ function MonstersEditorial() {
 
         <section className="monster-system-section">
           <div className="container monsters-container">
-            <section className="monster-purpose" aria-labelledby="monster-purpose-title">
-              <div className="monster-section-heading">
-                <span>01 / PURPOSE</span>
-                <h2 id="monster-purpose-title">何に使うのか</h2>
+            <section className="monster-purpose monster-chapter" aria-labelledby="monster-purpose-title">
+              <ChapterHeader number="01" label="PURPOSE" title="何に使うのか" titleId="monster-purpose-title">
                 <p>
                   感情が強いときは、「起きている反応」と「自分自身」が一体化しやすくなります。
                   ネガティブモンスターは、その反応に名前をつけて一度外に置き、次の行動を選びやすくするための仕組みです。
                 </p>
-              </div>
+              </ChapterHeader>
 
               <div className="monster-usage-steps">
                 {usageSteps.map((step) => (
-                  <article className="monster-usage-step" key={step.number}>
-                    <span className="monster-usage-number">{step.number}</span>
+                  <article className="monster-usage-step" key={step.title}>
                     <h3>{step.title}</h3>
                     <p>{step.text}</p>
                   </article>
@@ -197,12 +204,10 @@ function MonstersEditorial() {
               </div>
             </section>
 
-            <section className="monster-reactions" aria-labelledby="monster-reactions-title">
-              <div className="monster-section-heading compact-heading">
-                <span>02 / FOUR REACTIONS</span>
-                <h2 id="monster-reactions-title">反応は4つに整理しています</h2>
+            <section className="monster-reactions monster-chapter" aria-labelledby="monster-reactions-title">
+              <ChapterHeader number="02" label="FOUR REACTIONS" title="反応は4つに整理しています" titleId="monster-reactions-title">
                 <p>診断では、今の自分にどの反応が強く出やすいかを整理します。</p>
-              </div>
+              </ChapterHeader>
 
               <div className="monster-reaction-list">
                 {monsters.map((monster) => (
@@ -221,11 +226,10 @@ function MonstersEditorial() {
               </div>
             </section>
 
-            <section className="monster-example" aria-labelledby="monster-example-title">
-              <div className="monster-section-heading compact-heading">
-                <span>03 / HOW TO USE</span>
-                <h2 id="monster-example-title">たとえば、返信が来ないとき</h2>
-              </div>
+            <section className="monster-example monster-chapter" aria-labelledby="monster-example-title">
+              <ChapterHeader number="03" label="HOW TO USE" title="たとえば、返信が来ないとき" titleId="monster-example-title">
+                <p>反応と自分を切り分けると、同じ出来事でも次に選べる行動が変わります。</p>
+              </ChapterHeader>
 
               <div className="monster-example-flow">
                 <div className="monster-example-side">
