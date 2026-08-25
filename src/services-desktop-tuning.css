@@ -77,20 +77,19 @@
     display: none;
   }
 
-  /* Taller, lighter numerals like the translucent figures in the mock. */
+  /* Desktop was overriding the watermark-style numerals. Keep the wide layout,
+     but use the same pale/translucent character of the narrower layout. */
   .services-editorial-page .step-number {
-    color: rgba(119, 101, 183, 0.66);
-    font-family: "Bodoni 72", Didot, Baskerville, "Times New Roman", serif;
-    font-size: 44px;
-    font-weight: 300;
-    line-height: 0.94;
-    letter-spacing: 0.015em;
-    transform: scaleY(1.16);
-    transform-origin: left top;
+    color: rgba(159, 149, 207, 0.16);
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    transform: none;
   }
 
-  /* Every step heading starts from the same top axis. The base stylesheet centered
-     .step-intro vertically, which pushed 02/03 down when their item column was taller. */
+  /* Every step heading starts from the same top axis. */
   .services-editorial-page .step-intro {
     align-self: start;
     padding-top: 0;
@@ -124,5 +123,12 @@
   .services-editorial-page .service-entry-copy > p,
   .services-editorial-page .service-companion-copy > p {
     max-width: 440px;
+  }
+
+  /* The right-hand parallel track should terminate on the same bottom baseline
+     as the journey column instead of floating above it. */
+  .services-editorial-page .parallel-track {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
