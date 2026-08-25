@@ -1,0 +1,8 @@
+.services-editorial-page .services-editorial-section {
+  background: transparent;
+}
+
+.services-editorial-page .services-editorial-section::after {
+  content: none;
+  display: none;
+}
