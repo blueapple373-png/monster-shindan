@@ -110,6 +110,90 @@ main:has(.blog-content) .blog-content blockquote {
   background: #f8f6fc;
 }
 
+/* Desktop editorial alignment + services refinement */
+@media (min-width: 961px) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.content-layout .side-nav) .content-layout {
+    max-width: 1180px !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) > .section {
+    padding-top: 38px !important;
+    padding-bottom: 110px !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .card-grid.three {
+    max-width: 1180px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    column-gap: 38px !important;
+    row-gap: 34px !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card {
+    min-height: 280px !important;
+    padding: 28px 0 30px !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(157, 134, 111, 0.28) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .card-number {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 0 18px !important;
+    border-radius: 0 !important;
+    color: rgba(117, 93, 150, 0.82) !important;
+    background: transparent !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card h3 {
+    margin: 0 0 13px !important;
+    color: rgba(41, 37, 33, 0.94) !important;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card p {
+    margin: 0 !important;
+    color: rgba(52, 49, 46, 0.74) !important;
+    font-size: 14px !important;
+    line-height: 2 !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .status-label {
+    align-self: flex-start !important;
+    margin-top: 22px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: rgba(117, 93, 150, 0.72) !important;
+    background: transparent !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .text-link {
+    margin-top: 16px !important;
+    color: rgba(98, 77, 132, 0.86) !important;
+    font-family: var(--serif) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.055em !important;
+  }
+}
+
 @media (max-width: 640px) {
   main:has(.blog-content) > .page-hero.compact {
     padding: 34px 20px 30px;
