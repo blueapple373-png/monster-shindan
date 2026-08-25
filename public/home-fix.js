@@ -42,6 +42,121 @@
         margin-top: 16px !important;
       }
 
+      @media (min-width: 961px) {
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .section {
+          padding-top: 58px !important;
+          padding-bottom: 110px !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .content-layout {
+          max-width: 1120px !important;
+          grid-template-columns: 180px minmax(0, 760px) !important;
+          gap: 72px !important;
+          align-items: start !important;
+          justify-content: start !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .side-nav {
+          position: sticky !important;
+          top: 150px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .side-nav a {
+          padding: 14px 0 !important;
+          border-bottom: 1px solid rgba(157, 134, 111, 0.20) !important;
+          color: rgba(61, 49, 41, 0.72) !important;
+          font-family: var(--serif) !important;
+          font-size: 13px !important;
+          line-height: 1.7 !important;
+          letter-spacing: 0.07em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .side-nav a:first-child {
+          border-top: 1px solid rgba(157, 134, 111, 0.20) !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card {
+          max-width: 760px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card > section {
+          margin: 0 0 54px !important;
+          padding: 0 0 54px !important;
+          border-bottom: 1px solid rgba(157, 134, 111, 0.18) !important;
+          scroll-margin-top: 150px;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card > section:last-child {
+          margin-bottom: 0 !important;
+          padding-bottom: 0 !important;
+          border-bottom: 0 !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card .section-kicker {
+          margin-bottom: 15px !important;
+          color: rgba(117, 93, 150, 0.82) !important;
+          font-size: 11px !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.18em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card h2 {
+          max-width: 700px !important;
+          margin: 0 0 28px !important;
+          color: rgba(41, 37, 33, 0.94) !important;
+          font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
+          font-size: clamp(30px, 2.3vw, 36px) !important;
+          font-weight: 400 !important;
+          line-height: 1.62 !important;
+          letter-spacing: 0.035em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card h3 {
+          margin: 0 0 18px !important;
+          color: rgba(41, 37, 33, 0.90) !important;
+          font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
+          font-size: 22px !important;
+          font-weight: 500 !important;
+          line-height: 1.6 !important;
+          letter-spacing: 0.04em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card p,
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card li {
+          color: rgba(52, 49, 46, 0.82) !important;
+          font-size: 15px !important;
+          line-height: 2 !important;
+          letter-spacing: 0.035em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card p + p {
+          margin-top: 18px !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card ul {
+          margin: 8px 0 0 !important;
+          padding-left: 1.25em !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card li {
+          margin-bottom: 12px !important;
+        }
+
+        body:not(:has(.editorial-hero)) main:has(.content-layout .side-nav) .article-card strong {
+          font-weight: 600 !important;
+        }
+      }
+
       @media (max-width: 960px) {
         body:not(:has(.editorial-hero)) .page-hero.compact .page-home-rail {
           top: 34px !important;
@@ -71,6 +186,64 @@
         if (next !== node.textContent) node.textContent = next;
       }
     });
+  }
+
+  function normalizeAboutPage() {
+    if (location.pathname !== "/about") return;
+
+    const heroCopy = document.querySelector(".page-hero.compact .hero-copy");
+    if (heroCopy) {
+      heroCopy.textContent =
+        "不安や自己否定で、考えることや日常まで止まりそうになる。そんなとき、自分の中で起きている反応を知り、扱う方法をつくっています。";
+    }
+
+    const navLinks = document.querySelectorAll(".content-layout .side-nav a");
+    const navLabels = ["めざすこと", "扱うための3つのステップ", "取り組み", "安全方針"];
+    navLinks.forEach((link, index) => {
+      if (navLabels[index]) link.textContent = navLabels[index];
+    });
+
+    const mission = document.querySelector("#mission");
+    if (mission) {
+      const heading = mission.querySelector("h2");
+      const paragraphs = mission.querySelectorAll("p");
+      if (heading) heading.textContent = "止まりやすい日も、自分を責めずに扱えるように。";
+      if (paragraphs[0]) {
+        paragraphs[0].textContent =
+          "不安や自己否定が強くなると、目の前の家事や仕事、勉強、人との関わりまで止まることがあります。MINAMI MINDLABがめざすのは、感情を消したり、揺れない人になることではありません。";
+      }
+      if (paragraphs[1]) {
+        paragraphs[1].textContent =
+          "自分の中で起きている反応を、自分そのものと切り分けて知る。そのうえで、今の自分に使える小さな対処を選べるようにすることです。";
+      }
+    }
+
+    const approach = document.querySelector("#approach");
+    if (approach) {
+      const heading = approach.querySelector("h3");
+      if (heading) heading.textContent = "扱うための3つのステップ";
+      const items = approach.querySelectorAll("li");
+      const labels = [
+        ["知る：", "今どの反応が強く出ているのかを整理する"],
+        ["Treatする：", "感情を消そうとせず、今できる対処を選ぶ"],
+        ["再開する：", "完璧に落ち着く前でも、できることから日常を再開する"],
+      ];
+      items.forEach((item, index) => {
+        if (!labels[index]) return;
+        item.innerHTML = `<strong>${labels[index][0]}</strong>${labels[index][1]}`;
+      });
+    }
+
+    const scope = document.querySelector("#scope");
+    if (scope) {
+      const heading = scope.querySelector("h3");
+      const paragraph = scope.querySelector("p");
+      if (heading) heading.textContent = "考え方を、使える形にする";
+      if (paragraph) {
+        paragraph.textContent =
+          "この考え方を、モンスター診断、4週間プログラム、Treatアプリなどの形にしています。";
+      }
+    }
   }
 
   function ensureHomeRail() {
@@ -132,6 +305,7 @@
 
   function installGlobalPageFixes() {
     normalizeMissionCopy();
+    normalizeAboutPage();
     return isHome ? ensureHomeRail() : ensurePageHomeRails();
   }
 
