@@ -332,6 +332,39 @@
         letter-spacing: 0.06em !important;
       }
 
+      @media (min-width: 641px) {
+        .site-footer .footer-top {
+          grid-template-columns: 1.2fr 2fr !important;
+        }
+
+        .site-footer .footer-top > div:not(.footer-nav) {
+          display: block !important;
+        }
+
+        .site-footer .footer-nav > div:first-child strong::after {
+          content: none !important;
+          display: none !important;
+        }
+
+        .site-footer .footer-brand small {
+          display: none !important;
+        }
+
+        .site-footer .footer-copy {
+          margin-top: 16px !important;
+          font-size: 0 !important;
+        }
+
+        .site-footer .footer-copy::after {
+          content: "止まりやすい日を、扱える形にする。";
+          display: block;
+          color: rgba(255, 250, 241, 0.68);
+          font-size: 13px;
+          line-height: 1.9;
+          letter-spacing: 0.04em;
+        }
+      }
+
       @media (max-width: 960px) {
         .site-footer .footer-nav {
           grid-template-columns: 1fr !important;
@@ -410,6 +443,10 @@
       }
 
       @media (max-width: 640px) {
+        .site-footer .footer-top > div:not(.footer-nav) {
+          display: none !important;
+        }
+
         .site-header {
           z-index: 50;
         }
