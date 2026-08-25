@@ -1,8 +1,42 @@
 @media (min-width: 1241px) {
-  /* Match the other compact pages: SERVICES should not be smaller/lighter. */
+  /* Use the exact shared compact-page eyebrow treatment used by ABOUT, etc. */
   .services-editorial-page .services-page-hero .eyebrow {
+    padding: 0 0 0 13px;
+    border: 0;
+    border-left: 2px solid currentColor;
+    border-radius: 0;
+    color: var(--lavender-dark);
+    background: transparent;
     font-size: 12px;
     font-weight: 900;
+    line-height: 1.85;
+    letter-spacing: 0.12em;
+  }
+
+  .services-editorial-page .services-page-hero .eyebrow::before {
+    content: none;
+    display: none;
+  }
+
+  /* Match ABOUT's shared compact-page title exactly. */
+  .services-editorial-page .services-page-hero h1 {
+    margin: 0;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(34px, 4.4vw, 48px);
+    font-weight: 400;
+    line-height: 1.48;
+    letter-spacing: 0.06em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Match the other compact pages' lead copy without changing the raised content block below. */
+  .services-editorial-page .services-page-hero .hero-copy {
+    max-width: 760px;
+    margin-top: 18px;
+    color: rgba(104, 89, 76, 0.66) !important;
+    font-size: 16px !important;
+    line-height: 1.85;
+    letter-spacing: 0.12em !important;
   }
 
   /* Match the mock: keep the axis dot, but draw the horizontal rule as a true hairline. */
