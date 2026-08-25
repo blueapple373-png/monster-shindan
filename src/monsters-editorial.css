@@ -1,0 +1,313 @@
+.monsters-editorial-page main {
+  background:
+    radial-gradient(ellipse at 82% 16%, rgba(220, 122, 130, 0.08), transparent 31%),
+    radial-gradient(ellipse at 62% 26%, rgba(159, 149, 207, 0.08), transparent 36%),
+    #fffefa;
+}
+
+.monsters-editorial-page .monsters-page-hero {
+  background: transparent;
+}
+
+.monster-showcase-section {
+  padding: 18px 24px 76px;
+}
+
+.monster-showcase {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  border-top: 1px solid rgba(126, 113, 101, 0.13);
+  border-bottom: 1px solid rgba(126, 113, 101, 0.13);
+}
+
+.monster-showcase-item {
+  position: relative;
+  min-width: 0;
+  padding: 28px 26px 30px;
+  text-align: center;
+}
+
+.monster-showcase-item + .monster-showcase-item {
+  border-left: 1px solid rgba(126, 113, 101, 0.11);
+}
+
+.monster-showcase-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 164px;
+  height: 158px;
+  margin: 0 auto 13px;
+}
+
+.monster-showcase-halo {
+  position: absolute;
+  z-index: 0;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  opacity: 0.74;
+}
+
+.monster-showcase-item-1 .monster-showcase-halo { background: rgba(147, 146, 160, 0.15); }
+.monster-showcase-item-2 .monster-showcase-halo { background: rgba(230, 111, 123, 0.13); }
+.monster-showcase-item-3 .monster-showcase-halo { background: rgba(121, 167, 211, 0.14); }
+.monster-showcase-item-4 .monster-showcase-halo { background: rgba(122, 190, 153, 0.13); }
+
+.monster-showcase-visual img {
+  position: relative;
+  z-index: 1;
+  width: 142px;
+  height: 142px;
+  object-fit: contain;
+}
+
+.monster-showcase-english {
+  display: block;
+  margin-bottom: 4px;
+  color: #7c6fba;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+}
+
+.monsters-editorial-page .monster-showcase-item h2 {
+  margin: 0;
+  color: #252c40;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+}
+
+.monster-showcase-item strong {
+  display: block;
+  margin-top: 8px;
+  color: #373d50;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.monster-showcase-item p {
+  max-width: 210px;
+  margin: 15px auto 0;
+  color: rgba(75, 82, 101, 0.76);
+  font-size: 12px;
+  line-height: 1.9;
+  text-align: left;
+}
+
+.monster-meaning {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 760px);
+  gap: 20px;
+  align-items: start;
+  margin-top: 48px;
+  padding: 34px 8px 38px;
+  border-top: 1px solid rgba(126, 113, 101, 0.14);
+  border-bottom: 1px solid rgba(126, 113, 101, 0.14);
+}
+
+.monster-meaning-mark {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(142, 123, 108, 0.22);
+  border-radius: 50%;
+  color: rgba(142, 123, 108, 0.67);
+  font-size: 12px;
+}
+
+.monster-meaning-label,
+.monster-diagnosis-label {
+  display: block;
+  color: #7c6fba;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
+}
+
+.monsters-editorial-page .monster-meaning h2 {
+  margin: 6px 0 10px;
+  color: #252c40;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.045em;
+}
+
+.monster-meaning p {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(75, 82, 101, 0.76);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.monster-diagnosis-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 42px;
+  align-items: center;
+  margin-top: 32px;
+  padding: 32px 36px;
+  border: 1px solid rgba(134, 119, 188, 0.13);
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(159, 149, 207, 0.11), transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(220, 122, 130, 0.08), transparent 37%),
+    rgba(255, 255, 255, 0.5);
+}
+
+.monsters-editorial-page .monster-diagnosis-cta h2 {
+  margin: 6px 0 8px;
+  color: #252c40;
+  font-family: var(--serif);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.monster-diagnosis-cta p {
+  margin: 0;
+  color: rgba(75, 82, 101, 0.73);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.monster-diagnosis-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: #fff !important;
+  background: linear-gradient(110deg, #8e7bc5, #d97782);
+  box-shadow: 0 10px 22px rgba(76, 63, 118, 0.12);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.monster-diagnosis-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(76, 63, 118, 0.16);
+}
+
+@media (min-width: 961px) {
+  .monsters-editorial-page .monsters-page-hero {
+    padding: 138px 24px 30px;
+  }
+
+  .monsters-editorial-page .monsters-page-hero .hero-inner {
+    max-width: 1180px;
+  }
+
+  .monsters-editorial-page .monsters-page-hero .eyebrow {
+    padding: 0 0 0 13px;
+    border: 0;
+    border-left: 2px solid currentColor;
+    border-radius: 0;
+    color: var(--lavender-dark);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.85;
+    letter-spacing: 0.12em;
+  }
+
+  .monsters-editorial-page .monsters-page-hero h1 {
+    margin: 0;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(34px, 4.4vw, 48px);
+    font-weight: 400;
+    line-height: 1.48;
+    letter-spacing: 0.06em;
+  }
+
+  .monsters-editorial-page .monsters-page-hero .hero-copy {
+    max-width: 760px;
+    margin-top: 18px;
+    color: rgba(104, 89, 76, 0.66);
+    font-size: 16px;
+    line-height: 1.85;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 900px) {
+  .monster-showcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .monster-showcase-item:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(126, 113, 101, 0.11);
+  }
+
+  .monster-showcase-item:nth-child(4) {
+    border-top: 1px solid rgba(126, 113, 101, 0.11);
+  }
+
+  .monster-diagnosis-cta {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .monster-diagnosis-button {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .monster-showcase-section {
+    padding: 8px 20px 54px;
+  }
+
+  .monster-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .monster-showcase-item,
+  .monster-showcase-item + .monster-showcase-item,
+  .monster-showcase-item:nth-child(3),
+  .monster-showcase-item:nth-child(4) {
+    border-left: 0;
+    border-top: 1px solid rgba(126, 113, 101, 0.11);
+  }
+
+  .monster-showcase-item:first-child {
+    border-top: 0;
+  }
+
+  .monster-showcase-item p {
+    max-width: 260px;
+  }
+
+  .monster-meaning {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 32px;
+    padding: 28px 0 30px;
+  }
+
+  .monster-diagnosis-cta {
+    padding: 26px 22px;
+  }
+
+  .monster-diagnosis-button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
