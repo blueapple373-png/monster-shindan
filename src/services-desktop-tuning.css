@@ -89,6 +89,13 @@
     transform-origin: left top;
   }
 
+  /* Every step heading starts from the same top axis. The base stylesheet centered
+     .step-intro vertically, which pushed 02/03 down when their item column was taller. */
+  .services-editorial-page .step-intro {
+    align-self: start;
+    padding-top: 0;
+  }
+
   /* Give the step explanation enough room to stay on one line. */
   .services-editorial-page .service-step {
     grid-template-columns: 78px 260px minmax(0, 1fr);
