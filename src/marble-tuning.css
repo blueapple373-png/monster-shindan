@@ -1,30 +1,31 @@
-/* Shared marble tuning for MINAMI MINDLAB pages.
-   Keep the palette and placement, but raise contrast slightly so the marble reads on desktop. */
+/* Shared MINAMI MINDLAB marble.
+   Four soft fields borrow the monster palette: cloud-lavender, wound-pink,
+   self-negation blue and self-blame mint. Keep them concentrated at the
+   upper-right so the background reads as an intentional visual motif. */
 
+/* Keep the ordinary site background quiet; the visible marble belongs to the hero. */
 .mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) {
   background:
-    radial-gradient(circle at 8% 8%, rgba(167, 151, 207, 0.22), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(216, 117, 130, 0.20), transparent 28%),
-    radial-gradient(circle at 22% 82%, rgba(160, 198, 219, 0.19), transparent 30%),
     linear-gradient(180deg, #fffaf7 0%, #fbf8f4 42%, #fffafa 100%);
 }
 
-/* Standard inner-page heroes (ABOUT / APP / BUSINESS / PROFILE / NEWS / BLOG etc.).
-   HOME keeps its own editorial hero treatment. */
+/* Standard inner-page heroes (ABOUT / APP / BUSINESS / PROFILE / NEWS / BLOG etc.). */
 .mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact {
   background:
-    radial-gradient(circle at 10% 22%, rgba(167, 151, 207, 0.22), transparent 34%),
-    radial-gradient(circle at 86% 12%, rgba(216, 117, 130, 0.20), transparent 32%),
-    radial-gradient(circle at 82% 72%, rgba(190, 222, 209, 0.14), transparent 34%),
-    linear-gradient(135deg, #fffefd 0%, #f8f3fb 52%, #fff5f2 100%);
+    radial-gradient(circle 300px at 76% 5%, rgba(179, 171, 190, 0.26) 0%, rgba(179, 171, 190, 0.13) 38%, transparent 72%),
+    radial-gradient(circle 280px at 90% 7%, rgba(232, 102, 116, 0.23) 0%, rgba(232, 102, 116, 0.11) 38%, transparent 72%),
+    radial-gradient(circle 300px at 82% 23%, rgba(139, 178, 220, 0.24) 0%, rgba(139, 178, 220, 0.11) 40%, transparent 74%),
+    radial-gradient(circle 290px at 95% 22%, rgba(157, 205, 178, 0.23) 0%, rgba(157, 205, 178, 0.10) 40%, transparent 74%),
+    linear-gradient(135deg, #fffefd 0%, #fbf8f6 55%, #fffafa 100%);
 }
 
-/* Editorial service page: same marble language, slightly more visible than before. */
+/* SERVICES: same four-color cluster, scaled a little larger for the broad desktop canvas. */
 .services-editorial-page main {
   background:
-    radial-gradient(ellipse at 83% 27%, rgba(179, 216, 217, 0.14), transparent 31%),
-    radial-gradient(ellipse at 73% 39%, rgba(220, 157, 154, 0.12), transparent 34%),
-    radial-gradient(ellipse at 60% 27%, rgba(195, 182, 220, 0.10), transparent 36%),
+    radial-gradient(circle 360px at 76% 3%, rgba(179, 171, 190, 0.27) 0%, rgba(179, 171, 190, 0.13) 38%, transparent 72%),
+    radial-gradient(circle 330px at 89% 6%, rgba(232, 102, 116, 0.24) 0%, rgba(232, 102, 116, 0.11) 38%, transparent 72%),
+    radial-gradient(circle 360px at 81% 18%, rgba(139, 178, 220, 0.25) 0%, rgba(139, 178, 220, 0.11) 40%, transparent 74%),
+    radial-gradient(circle 340px at 95% 19%, rgba(157, 205, 178, 0.24) 0%, rgba(157, 205, 178, 0.10) 40%, transparent 74%),
     #fffefa;
 }
 
@@ -32,12 +33,13 @@
   background: transparent !important;
 }
 
-/* Monster explainer page: match the service page's restrained marble intensity. */
+/* MONSTERS: identical palette and placement so switching pages feels continuous. */
 .monsters-editorial-page main {
   background:
-    radial-gradient(ellipse at 83% 14%, rgba(220, 122, 130, 0.11), transparent 31%),
-    radial-gradient(ellipse at 61% 23%, rgba(159, 149, 207, 0.10), transparent 36%),
-    radial-gradient(ellipse at 86% 58%, rgba(190, 222, 209, 0.08), transparent 34%),
+    radial-gradient(circle 360px at 76% 3%, rgba(179, 171, 190, 0.27) 0%, rgba(179, 171, 190, 0.13) 38%, transparent 72%),
+    radial-gradient(circle 330px at 89% 6%, rgba(232, 102, 116, 0.24) 0%, rgba(232, 102, 116, 0.11) 38%, transparent 72%),
+    radial-gradient(circle 360px at 81% 18%, rgba(139, 178, 220, 0.25) 0%, rgba(139, 178, 220, 0.11) 40%, transparent 74%),
+    radial-gradient(circle 340px at 95% 19%, rgba(157, 205, 178, 0.24) 0%, rgba(157, 205, 178, 0.10) 40%, transparent 74%),
     #fffefa;
 }
 
@@ -46,27 +48,23 @@
 }
 
 @media (max-width: 640px) {
-  /* Mobile needs slightly less contrast because the fields occupy more of the viewport. */
+  /* On mobile the same cluster is smaller and softer so it does not dominate the copy. */
   .mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact {
     background:
-      radial-gradient(circle at 10% 22%, rgba(167, 151, 207, 0.18), transparent 36%),
-      radial-gradient(circle at 88% 12%, rgba(216, 117, 130, 0.16), transparent 34%),
-      radial-gradient(circle at 84% 76%, rgba(190, 222, 209, 0.11), transparent 36%),
-      linear-gradient(135deg, #fffefd 0%, #f9f5fb 52%, #fff6f3 100%);
+      radial-gradient(circle 190px at 70% 2%, rgba(179, 171, 190, 0.20) 0%, rgba(179, 171, 190, 0.09) 40%, transparent 74%),
+      radial-gradient(circle 180px at 94% 5%, rgba(232, 102, 116, 0.18) 0%, rgba(232, 102, 116, 0.08) 40%, transparent 74%),
+      radial-gradient(circle 195px at 78% 25%, rgba(139, 178, 220, 0.18) 0%, rgba(139, 178, 220, 0.08) 42%, transparent 76%),
+      radial-gradient(circle 180px at 101% 24%, rgba(157, 205, 178, 0.17) 0%, rgba(157, 205, 178, 0.07) 42%, transparent 76%),
+      linear-gradient(135deg, #fffefd 0%, #fbf8f6 55%, #fffafa 100%);
   }
 
-  .services-editorial-page main {
-    background:
-      radial-gradient(ellipse at 86% 22%, rgba(179, 216, 217, 0.11), transparent 34%),
-      radial-gradient(ellipse at 78% 43%, rgba(220, 157, 154, 0.10), transparent 37%),
-      radial-gradient(ellipse at 58% 26%, rgba(195, 182, 220, 0.08), transparent 39%),
-      #fffefa;
-  }
-
+  .services-editorial-page main,
   .monsters-editorial-page main {
     background:
-      radial-gradient(ellipse at 86% 12%, rgba(220, 122, 130, 0.09), transparent 34%),
-      radial-gradient(ellipse at 62% 24%, rgba(159, 149, 207, 0.08), transparent 38%),
+      radial-gradient(circle 210px at 70% 1%, rgba(179, 171, 190, 0.20) 0%, rgba(179, 171, 190, 0.09) 40%, transparent 74%),
+      radial-gradient(circle 195px at 95% 4%, rgba(232, 102, 116, 0.18) 0%, rgba(232, 102, 116, 0.08) 40%, transparent 74%),
+      radial-gradient(circle 215px at 79% 19%, rgba(139, 178, 220, 0.18) 0%, rgba(139, 178, 220, 0.08) 42%, transparent 76%),
+      radial-gradient(circle 200px at 102% 20%, rgba(157, 205, 178, 0.17) 0%, rgba(157, 205, 178, 0.07) 42%, transparent 76%),
       #fffefa;
   }
 }
