@@ -1,13 +1,12 @@
 @media (min-width: 961px) {
   .services-editorial-page {
-    --max: 1260px;
+    --max: 1180px;
     --services-ink: #273047;
     --services-copy: rgba(67, 72, 91, 0.72);
     --services-muted: rgba(112, 101, 93, 0.68);
     --services-accent: #7d70ba;
     --services-accent-soft: #8b7bc3;
     --services-rule: rgba(124, 112, 103, 0.16);
-    --services-rule-soft: rgba(124, 112, 103, 0.13);
   }
 
   .services-editorial-page main {
@@ -19,22 +18,17 @@
       #fffefa;
   }
 
+  /* Match the common compact-hero position used by the other pages. */
   .services-editorial-page .services-page-hero {
     position: relative;
-    padding: 145px 24px 22px !important;
+    padding: 138px 24px 62px !important;
     background: transparent !important;
   }
 
+  /* The extra services-only arc made the page feel offset from the rest. */
   .services-editorial-page .services-page-hero::after {
-    content: "";
-    position: absolute;
-    top: -128px;
-    right: -112px;
-    width: 640px;
-    height: 640px;
-    border: 1px solid rgba(190, 160, 126, 0.25);
-    border-radius: 50%;
-    pointer-events: none;
+    content: none;
+    display: none;
   }
 
   .services-editorial-page .services-page-hero .hero-inner {
@@ -75,22 +69,22 @@
   }
 
   .services-editorial-page .services-page-hero .hero-copy {
-    max-width: 640px;
-    margin-top: 22px;
-    color: rgba(112, 101, 93, 0.68) !important;
-    font-size: 12.5px !important;
-    line-height: 2.05;
-    letter-spacing: 0.095em !important;
+    max-width: 760px;
+    margin-top: 18px;
+    color: rgba(104, 89, 76, 0.66) !important;
+    font-size: 16px !important;
+    line-height: 1.9;
+    letter-spacing: 0.12em !important;
   }
 
   .services-editorial-page .services-editorial-section {
-    padding: 4px 24px 72px;
+    padding: 0 24px 72px;
   }
 
   .services-editorial-page .services-editorial-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 250px;
-    column-gap: 42px;
+    grid-template-columns: minmax(0, 1fr) 214px;
+    column-gap: 34px;
     align-items: stretch;
     width: 100%;
     max-width: var(--max);
@@ -111,10 +105,9 @@
   .services-editorial-page .service-step {
     position: relative;
     display: grid;
-    grid-template-columns: 78px 225px minmax(0, 1fr);
-    column-gap: 22px;
+    grid-template-columns: 72px 245px minmax(0, 1fr);
+    column-gap: 18px;
     align-items: start;
-    min-height: 0;
     padding: 20px 0 18px;
     border: 0;
   }
@@ -123,11 +116,12 @@
     padding-top: 12px;
   }
 
+  /* Horizontal rules begin on the same axis as the purple node. */
   .services-editorial-page .service-step + .service-step::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 49px;
+    left: 46px;
     right: 0;
     height: 1px;
     background: rgba(124, 112, 103, 0.14);
@@ -136,7 +130,7 @@
   .services-editorial-page .service-step:not(:last-child)::after {
     content: "";
     position: absolute;
-    top: 65px;
+    top: 64px;
     bottom: -1px;
     left: 23px;
     width: 1px;
@@ -147,20 +141,19 @@
     position: relative;
     z-index: 1;
     align-self: start;
-    color: #8172bc;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 43px;
+    color: rgba(129, 114, 188, 0.72);
+    font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+    font-size: 46px;
     font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    opacity: 1;
+    line-height: 0.96;
+    letter-spacing: 0.01em;
   }
 
   .services-editorial-page .step-number::after {
     content: "";
     position: absolute;
-    left: 21px;
-    top: 101px;
+    left: 22px;
+    top: 98px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -168,13 +161,11 @@
   }
 
   .services-editorial-page .service-step:last-child .step-number::after {
-    top: 84px;
+    top: 82px;
   }
 
   .services-editorial-page .step-intro {
-    align-self: start;
     min-width: 0;
-    padding-top: 0;
   }
 
   .services-editorial-page .step-intro h2 {
@@ -188,12 +179,12 @@
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 220px;
+    max-width: 240px;
     margin: 0;
     color: rgba(93, 91, 101, 0.70);
-    font-size: 11.5px;
+    font-size: 10.8px;
     line-height: 1.9;
-    letter-spacing: 0.055em;
+    letter-spacing: 0.03em;
   }
 
   .services-editorial-page .step-items {
@@ -209,17 +200,17 @@
     grid-template-columns: 52px minmax(0, 1fr);
     column-gap: 18px;
     align-items: start;
-    min-height: 0;
-    padding: 2px 0 8px;
+    padding: 2px 0 10px;
     border: 0;
   }
 
   .services-editorial-page .service-entry + .service-entry {
     margin-top: 1px;
-    padding-top: 9px;
+    padding-top: 10px;
   }
 
-  .services-editorial-page .service-entry-icon {
+  .services-editorial-page .service-entry-icon,
+  .services-editorial-page .service-companion-icon {
     display: grid;
     place-items: center;
     width: 47px;
@@ -238,23 +229,28 @@
     stroke-width: 1.35;
   }
 
-  .services-editorial-page .service-entry-copy {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 205px;
-    column-gap: 24px;
+  .services-editorial-page .service-companion-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* CTA is below the copy instead of consuming a separate right-hand column. */
+  .services-editorial-page .service-entry-copy,
+  .services-editorial-page .service-companion-copy {
+    display: block;
     min-width: 0;
   }
 
-  .services-editorial-page .service-entry-marker {
+  .services-editorial-page .service-entry-marker,
+  .services-editorial-page .service-companion-label,
+  .services-editorial-page .service-entry-status,
+  .services-editorial-page .service-companion-meta .service-entry-status,
+  .services-editorial-page .parallel-track-status {
     display: none;
   }
 
   .services-editorial-page .service-entry-copy h3,
-  .services-editorial-page .service-entry-copy > p {
-    grid-column: 1;
-  }
-
-  .services-editorial-page .service-entry-copy h3 {
+  .services-editorial-page .service-companion-copy h4 {
     margin: 0;
     color: #2b3347;
     font-size: 15.5px;
@@ -263,8 +259,9 @@
     letter-spacing: 0.045em;
   }
 
-  .services-editorial-page .service-entry-copy > p {
-    max-width: 410px;
+  .services-editorial-page .service-entry-copy > p,
+  .services-editorial-page .service-companion-copy > p {
+    max-width: 440px;
     margin: 5px 0 0;
     color: rgba(78, 82, 99, 0.72);
     font-size: 11.2px;
@@ -272,23 +269,13 @@
     letter-spacing: 0.025em;
   }
 
-  .services-editorial-page .service-entry-meta {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    justify-self: end;
+  .services-editorial-page .service-entry-meta,
+  .services-editorial-page .service-companion-meta {
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end;
-    gap: 0;
-    margin: 0;
+    justify-content: flex-start;
+    margin: 9px 0 0;
     white-space: nowrap;
-  }
-
-  .services-editorial-page .service-entry-status,
-  .services-editorial-page .service-companion-meta .service-entry-status {
-    display: none;
   }
 
   .services-editorial-page .service-entry-link,
@@ -306,7 +293,6 @@
   }
 
   .services-editorial-page .service-companion {
-    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 52px minmax(0, 1fr);
     column-gap: 18px;
@@ -321,77 +307,12 @@
     display: none;
   }
 
-  .services-editorial-page .service-companion-icon {
-    display: grid;
-    place-items: center;
-    width: 47px;
-    height: 47px;
-    margin: 0;
-    border: 1px solid rgba(135, 119, 188, 0.16);
-    border-radius: 50%;
-    color: #8170bd;
-    background: rgba(255, 255, 255, 0.38);
-  }
-
-  .services-editorial-page .service-companion-icon svg {
-    width: 17px;
-    height: 17px;
-  }
-
-  .services-editorial-page .service-companion-copy {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 205px;
-    column-gap: 24px;
-    min-width: 0;
-  }
-
-  .services-editorial-page .service-companion-label {
-    display: none;
-  }
-
-  .services-editorial-page .service-companion-copy h4,
-  .services-editorial-page .service-companion-copy > p {
-    grid-column: 1;
-  }
-
-  .services-editorial-page .service-companion-copy h4 {
-    margin: 0;
-    color: #2b3347;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 0.045em;
-  }
-
-  .services-editorial-page .service-companion-copy > p {
-    max-width: 405px;
-    margin: 5px 0 0;
-    color: rgba(78, 82, 99, 0.72);
-    font-size: 11.2px;
-    line-height: 1.82;
-    letter-spacing: 0.025em;
-  }
-
-  .services-editorial-page .service-companion-meta {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    justify-self: end;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0;
-    margin: 0;
-    white-space: nowrap;
-  }
-
   .services-editorial-page .parallel-track {
     position: relative;
     align-self: end;
     display: block;
     margin: 0 0 13px;
-    padding: 72px 0 8px 35px;
+    padding: 72px 0 8px 30px;
     border: 0;
     border-left: 1px solid rgba(157, 134, 111, 0.18);
   }
@@ -400,7 +321,7 @@
     content: "✦";
     position: absolute;
     top: 9px;
-    left: 34px;
+    left: 29px;
     display: grid;
     place-items: center;
     width: 35px;
@@ -432,7 +353,7 @@
   }
 
   .services-editorial-page .parallel-track p {
-    max-width: 205px;
+    max-width: 182px;
     margin: 0;
     color: rgba(93, 91, 101, 0.70);
     font-size: 11.5px;
@@ -445,25 +366,21 @@
     margin-top: 19px;
     padding: 0;
   }
-
-  .services-editorial-page .parallel-track-status {
-    display: none;
-  }
 }
 
-@media (min-width: 961px) and (max-width: 1240px) {
+@media (min-width: 961px) and (max-width: 1120px) {
   .services-editorial-page {
-    --max: 1120px;
+    --max: 1080px;
   }
 
   .services-editorial-page .services-editorial-inner {
-    grid-template-columns: minmax(0, 1fr) 220px;
-    column-gap: 28px;
+    grid-template-columns: minmax(0, 1fr) 196px;
+    column-gap: 24px;
   }
 
   .services-editorial-page .service-step {
-    grid-template-columns: 72px 185px minmax(0, 1fr);
-    column-gap: 16px;
+    grid-template-columns: 66px 220px minmax(0, 1fr);
+    column-gap: 15px;
   }
 
   .services-editorial-page .service-step + .service-step::before {
@@ -475,34 +392,33 @@
   }
 
   .services-editorial-page .step-number {
-    font-size: 39px;
+    font-size: 42px;
   }
 
   .services-editorial-page .step-intro h2 {
-    font-size: 27px;
+    font-size: 28px;
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 180px;
-    font-size: 11px;
-  }
-
-  .services-editorial-page .service-entry-copy,
-  .services-editorial-page .service-companion-copy {
-    grid-template-columns: minmax(0, 1fr) 170px;
-    column-gap: 16px;
+    max-width: 218px;
+    font-size: 10.6px;
   }
 
   .services-editorial-page .service-entry-copy > p,
   .services-editorial-page .service-companion-copy > p {
+    max-width: 390px;
     font-size: 10.8px;
   }
 
   .services-editorial-page .parallel-track {
-    padding-left: 28px;
+    padding-left: 24px;
   }
 
   .services-editorial-page .parallel-track::before {
-    left: 27px;
+    left: 23px;
+  }
+
+  .services-editorial-page .parallel-track p {
+    max-width: 165px;
   }
 }
