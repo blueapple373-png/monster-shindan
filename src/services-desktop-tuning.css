@@ -29,7 +29,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Match the other compact pages' lead copy without changing the raised content block below. */
   .services-editorial-page .services-page-hero .hero-copy {
     max-width: 760px;
     margin-top: 18px;
@@ -39,7 +38,41 @@
     letter-spacing: 0.12em !important;
   }
 
-  /* Match the mock: keep the axis dot, but draw the horizontal rule as a true hairline. */
+  /* Keep each step on the same top axis. */
+  .services-editorial-page .service-step {
+    grid-template-columns: 90px 248px minmax(0, 1fr);
+    column-gap: 18px;
+  }
+
+  .services-editorial-page .step-intro {
+    align-self: start;
+    padding-top: 0;
+  }
+
+  .services-editorial-page .step-intro p {
+    max-width: 248px;
+    font-size: 11px;
+    letter-spacing: 0.035em;
+    white-space: nowrap;
+  }
+
+  /* Use the watermark-style numerals at wide desktop sizes too. */
+  .services-editorial-page .step-number {
+    color: rgba(159, 149, 207, 0.15);
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    transform: none;
+  }
+
+  .services-editorial-page .step-number::after {
+    content: none;
+    display: none;
+  }
+
+  /* Divider = node + true hairline. */
   .services-editorial-page .service-step + .service-step::before,
   .services-editorial-page .service-step:last-child::before {
     content: none;
@@ -66,46 +99,10 @@
   }
 
   .services-editorial-page .service-step:not(:last-child)::after {
-    top: 64px;
+    top: 72px;
     bottom: 0;
     left: 25px;
     background: rgba(132, 115, 188, 0.25);
-  }
-
-  .services-editorial-page .step-number::after {
-    content: none;
-    display: none;
-  }
-
-  /* Desktop was overriding the watermark-style numerals. Keep the wide layout,
-     but use the same pale/translucent character of the narrower layout. */
-  .services-editorial-page .step-number {
-    color: rgba(159, 149, 207, 0.16);
-    font-family: var(--serif);
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    transform: none;
-  }
-
-  /* Every step heading starts from the same top axis. */
-  .services-editorial-page .step-intro {
-    align-self: start;
-    padding-top: 0;
-  }
-
-  /* Give the step explanation enough room to stay on one line. */
-  .services-editorial-page .service-step {
-    grid-template-columns: 78px 260px minmax(0, 1fr);
-    column-gap: 18px;
-  }
-
-  .services-editorial-page .step-intro p {
-    max-width: 260px;
-    font-size: 11px;
-    letter-spacing: 0.035em;
-    white-space: nowrap;
   }
 
   /* Keep CTA below the copy; do not recreate the old right-hand CTA rail. */
@@ -125,10 +122,20 @@
     max-width: 440px;
   }
 
-  /* The right-hand parallel track should terminate on the same bottom baseline
-     as the journey column instead of floating above it. */
+  /* Both columns share one grid row. The parallel track is anchored to the
+     journey's real bottom edge, so content changes do not require pixel nudges. */
+  .services-editorial-page .services-editorial-inner {
+    align-items: stretch;
+  }
+
+  .services-editorial-page .services-journey {
+    align-self: stretch;
+  }
+
   .services-editorial-page .parallel-track {
-    margin-bottom: 0;
+    align-self: end !important;
+    margin-top: 0;
+    margin-bottom: 0 !important;
     padding-bottom: 0;
   }
 }
