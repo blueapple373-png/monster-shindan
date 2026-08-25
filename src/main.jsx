@@ -4,7 +4,6 @@ import App from './App.jsx'
 import LP from './LP.jsx'
 import Site from './Site.jsx'
 import ServicesEditorial from './ServicesEditorial.jsx'
-import './services-atmosphere.css'
 import './services-desktop-overview.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
