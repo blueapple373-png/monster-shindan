@@ -21,7 +21,7 @@
   /* Match the common compact-hero position used by the other pages. */
   .services-editorial-page .services-page-hero {
     position: relative;
-    padding: 138px 24px 62px !important;
+    padding: 138px 24px 46px !important;
     background: transparent !important;
   }
 
@@ -123,8 +123,8 @@
     top: 0;
     left: 46px;
     right: 0;
-    height: 1px;
-    background: rgba(124, 112, 103, 0.14);
+    height: 0.5px;
+    background: rgba(124, 112, 103, 0.08);
   }
 
   .services-editorial-page .service-step:not(:last-child)::after {
