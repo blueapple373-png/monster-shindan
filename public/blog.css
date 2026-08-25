@@ -144,6 +144,28 @@ main:has(.blog-content) .blog-content blockquote {
     overflow: visible !important;
   }
 
+  /* Reset legacy card accents before reusing pseudo-elements as editorial labels. */
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card::after {
+    content: none !important;
+    display: none !important;
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1) {
     grid-column: 2 !important;
     grid-row: 1 !important;
@@ -235,10 +257,22 @@ main:has(.blog-content) .blog-content blockquote {
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::before,
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::before {
     position: absolute !important;
+    inset: auto !important;
     left: -234px !important;
     top: 24px !important;
     display: block !important;
     width: 170px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
     color: rgba(41, 37, 33, 0.90) !important;
     font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
     font-size: 29px !important;
@@ -251,10 +285,22 @@ main:has(.blog-content) .blog-content blockquote {
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::after,
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::after {
     position: absolute !important;
+    inset: auto !important;
     left: -234px !important;
     top: 76px !important;
     display: block !important;
     width: 178px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
     color: rgba(104, 89, 76, 0.66) !important;
     font-size: 11px !important;
     line-height: 1.85 !important;
@@ -287,8 +333,21 @@ main:has(.blog-content) .blog-content blockquote {
 
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(6)::before {
     content: "PARALLEL TRACK" !important;
+    position: static !important;
+    inset: auto !important;
     display: block !important;
-    margin-bottom: 13px !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 13px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
     color: rgba(117, 93, 150, 0.76) !important;
     font-size: 10px !important;
     font-weight: 700 !important;
