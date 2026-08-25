@@ -122,8 +122,8 @@
     max-width: 440px;
   }
 
-  /* Both columns share one grid row. Anchor structurally to the bottom, then
-     compensate for the link line-box so the visible baseline also lines up. */
+  /* Both columns share one grid row. Move the whole parallel-track block upward,
+     including its CTA, while preserving its internal spacing. */
   .services-editorial-page .services-editorial-inner {
     align-items: stretch;
   }
@@ -137,6 +137,6 @@
     margin-top: 0;
     margin-bottom: 0 !important;
     padding-bottom: 0;
-    transform: translateY(7px);
+    transform: translateY(-7px);
   }
 }
