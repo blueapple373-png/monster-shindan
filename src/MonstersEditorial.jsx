@@ -205,7 +205,7 @@ function MonstersEditorial() {
             </section>
 
             <section className="monster-reactions monster-chapter" aria-labelledby="monster-reactions-title">
-              <ChapterHeader number="02" label="FOUR REACTIONS" title="反応は4つに整理しています" titleId="monster-reactions-title">
+              <ChapterHeader number="02" label="REACTIONS" title="反応は4つに整理しています" titleId="monster-reactions-title">
                 <p>診断では、今の自分にどの反応が強く出やすいかを整理します。</p>
               </ChapterHeader>
 
