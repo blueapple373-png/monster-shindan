@@ -56,9 +56,9 @@
     white-space: nowrap;
   }
 
-  /* Use the watermark-style numerals at wide desktop sizes too. */
+  /* Keep the watermark feel, but raise contrast enough to read comfortably. */
   .services-editorial-page .step-number {
-    color: rgba(159, 149, 207, 0.15);
+    color: rgba(139, 126, 196, 0.25);
     font-family: var(--serif);
     font-size: 64px;
     font-weight: 400;
@@ -122,8 +122,8 @@
     max-width: 440px;
   }
 
-  /* Both columns share one grid row. The parallel track is anchored to the
-     journey's real bottom edge, so content changes do not require pixel nudges. */
+  /* Both columns share one grid row. Anchor structurally to the bottom, then
+     compensate for the link line-box so the visible baseline also lines up. */
   .services-editorial-page .services-editorial-inner {
     align-items: stretch;
   }
@@ -137,5 +137,6 @@
     margin-top: 0;
     margin-bottom: 0 !important;
     padding-bottom: 0;
+    transform: translateY(7px);
   }
 }
