@@ -110,32 +110,33 @@ main:has(.blog-content) .blog-content blockquote {
   background: #f8f6fc;
 }
 
-/* Desktop editorial alignment + guided Services journey */
+/* Desktop editorial alignment + Services layout based on the approved mockup */
 @media (min-width: 961px) {
   html body:not(:has(.editorial-hero)) .mindlab-site main:has(.content-layout .side-nav) .content-layout {
     max-width: 1180px !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) > .section {
-    padding-top: 46px !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) > .section {
+    padding-top: 34px !important;
     padding-bottom: 126px !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .card-grid.three {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .card-grid.three {
     position: relative !important;
     display: grid !important;
     max-width: 1180px !important;
-    grid-template-columns: 180px minmax(0, 650px) minmax(240px, 1fr) !important;
+    grid-template-columns: 190px minmax(0, 610px) minmax(0, 260px) !important;
     grid-template-rows: repeat(5, auto) !important;
-    column-gap: 54px !important;
+    column-gap: 46px !important;
     row-gap: 0 !important;
     align-items: start !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card {
     position: relative !important;
+    display: block !important;
     min-height: 0 !important;
-    padding: 26px 0 30px !important;
+    padding: 24px 150px 26px 72px !important;
     border: 0 !important;
     border-bottom: 1px solid rgba(157, 134, 111, 0.22) !important;
     border-radius: 0 !important;
@@ -144,220 +145,278 @@ main:has(.blog-content) .blog-content blockquote {
     overflow: visible !important;
   }
 
-  /* Reset legacy card accents before reusing pseudo-elements as editorial labels. */
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card::before,
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card::after {
-    content: none !important;
-    display: none !important;
-    position: static !important;
-    inset: auto !important;
-    width: auto !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    clip-path: none !important;
-    opacity: 1 !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) {
     grid-column: 2 !important;
     grid-row: 1 !important;
     border-top: 1px solid rgba(157, 134, 111, 0.26) !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) {
     grid-column: 2 !important;
     grid-row: 2 !important;
-    margin-top: 38px !important;
+    margin-top: 18px !important;
     border-top: 1px solid rgba(157, 134, 111, 0.26) !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(3) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(3) {
     grid-column: 2 !important;
     grid-row: 3 !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4) {
     grid-column: 2 !important;
     grid-row: 4 !important;
-    margin-top: 38px !important;
+    margin-top: 18px !important;
     border-top: 1px solid rgba(157, 134, 111, 0.26) !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(5) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(5) {
     grid-column: 2 !important;
     grid-row: 5 !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(6) {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6) {
     grid-column: 3 !important;
     grid-row: 2 / span 3 !important;
     align-self: start !important;
-    margin-top: 38px !important;
-    padding: 36px 0 36px 34px !important;
-    border-top: 1px solid rgba(157, 134, 111, 0.26) !important;
-    border-bottom: 0 !important;
+    margin-top: 18px !important;
+    padding: 74px 0 36px 36px !important;
+    border: 0 !important;
     border-left: 1px solid rgba(157, 134, 111, 0.22) !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .card-number {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card::after {
+    box-sizing: border-box !important;
+    background: none !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  /* Step number: 01 / 02 / 03 */
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .card-number {
     display: none !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card h3 {
-    margin: 0 0 12px !important;
-    color: rgba(41, 37, 33, 0.94) !important;
-    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
-    font-size: 22px !important;
-    font-weight: 500 !important;
-    line-height: 1.55 !important;
-    letter-spacing: 0.035em !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card p {
-    max-width: 520px !important;
-    margin: 0 !important;
-    color: rgba(52, 49, 46, 0.74) !important;
-    font-size: 14px !important;
-    line-height: 1.95 !important;
-    letter-spacing: 0.035em !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .status-label {
-    align-self: flex-start !important;
-    margin-top: 16px !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    color: rgba(117, 93, 150, 0.68) !important;
-    background: transparent !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    line-height: 1.5 !important;
-    letter-spacing: 0.07em !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .text-link {
-    margin-top: 12px !important;
-    color: rgba(98, 77, 132, 0.86) !important;
-    font-family: var(--serif) !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    line-height: 1.7 !important;
-    letter-spacing: 0.055em !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1)::before,
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::before,
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::before {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) .card-number,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) .card-number,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4) .card-number {
     position: absolute !important;
-    inset: auto !important;
-    left: -234px !important;
-    top: 24px !important;
+    left: -236px !important;
+    top: 18px !important;
     display: block !important;
-    width: 170px !important;
+    width: 58px !important;
     height: auto !important;
-    min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    clip-path: none !important;
-    opacity: 1 !important;
-    color: rgba(41, 37, 33, 0.90) !important;
+    color: transparent !important;
+    background: transparent !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) .card-number::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) .card-number::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4) .card-number::before {
+    display: block !important;
+    color: rgba(122, 105, 182, 0.88) !important;
+    font-family: "Times New Roman", Georgia, serif !important;
+    font-size: 46px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) .card-number::before { content: "01" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) .card-number::before { content: "02" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4) .card-number::before { content: "03" !important; }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) .card-number::after,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) .card-number::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 24px !important;
+    top: 58px !important;
+    display: block !important;
+    width: 1px !important;
+    background: rgba(157, 149, 207, 0.34) !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) .card-number::after { height: 118px !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) .card-number::after { height: 230px !important; }
+
+  /* Step titles and explanatory copy */
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1)::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2)::before,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4)::before {
+    position: absolute !important;
+    left: -134px !important;
+    top: 20px !important;
+    display: block !important;
+    width: 130px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: rgba(41, 37, 33, 0.92) !important;
     font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
     font-size: 29px !important;
     font-weight: 400 !important;
-    line-height: 1.4 !important;
+    line-height: 1.35 !important;
     letter-spacing: 0.08em !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1)::after,
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::after,
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::after {
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1)::after,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2)::after,
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4)::after {
     position: absolute !important;
-    inset: auto !important;
-    left: -234px !important;
-    top: 76px !important;
+    left: -134px !important;
+    top: 69px !important;
     display: block !important;
-    width: 178px !important;
-    height: auto !important;
-    min-height: 0 !important;
+    width: 132px !important;
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    border-radius: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    clip-path: none !important;
-    opacity: 1 !important;
     color: rgba(104, 89, 76, 0.66) !important;
     font-size: 11px !important;
-    line-height: 1.85 !important;
+    line-height: 1.9 !important;
     letter-spacing: 0.05em !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1)::before {
-    content: "知る" !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1)::before { content: "知る" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1)::after { content: "まずは、自分の反応のくせを知ることから。" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2)::before { content: "扱う" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2)::after { content: "日常の中で、感情とうまくつきあう練習を。" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4)::before { content: "続ける" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4)::after { content: "気づきを、習慣に。ひとりじゃない環境で。" !important; }
+
+  /* Service rows */
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card h3 {
+    position: relative !important;
+    margin: 0 0 8px !important;
+    color: rgba(41, 37, 33, 0.94) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.045em !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(1)::after {
-    content: "今の自分に、どんな反応が出やすいのかを知る。" !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:not(:nth-child(6)) h3::before {
+    position: absolute !important;
+    left: -72px !important;
+    top: -3px !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    border: 1px solid rgba(157, 149, 207, 0.30) !important;
+    border-radius: 50% !important;
+    color: rgba(122, 105, 182, 0.78) !important;
+    background: rgba(255, 254, 250, 0.54) !important;
+    font-family: Georgia, serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::before {
-    content: "扱う" !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(1) h3::before { content: "✧" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(2) h3::before { content: "▦" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(3) h3::before { content: "▯" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(4) h3::before { content: "▤" !important; }
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(5) h3::before { content: "⌁" !important; }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card p {
+    max-width: 390px !important;
+    margin: 0 !important;
+    color: rgba(52, 49, 46, 0.70) !important;
+    font-size: 12px !important;
+    line-height: 1.9 !important;
+    letter-spacing: 0.035em !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(2)::after {
-    content: "反応に飲み込まれたあと、自分を責め続けないための方法をつくる。" !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::before {
-    content: "続ける" !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(4)::after {
-    content: "気づきや対処を、一度きりで終わらせず日常の中で続ける。" !important;
-  }
-
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(6)::before {
-    content: "PARALLEL TRACK" !important;
-    position: static !important;
-    inset: auto !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .status-label {
     display: block !important;
-    width: auto !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: 0 0 13px !important;
+    width: fit-content !important;
+    margin-top: 9px !important;
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    clip-path: none !important;
-    opacity: 1 !important;
-    color: rgba(117, 93, 150, 0.76) !important;
+    color: rgba(117, 93, 150, 0.72) !important;
+    background: transparent !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .text-link {
+    position: absolute !important;
+    top: 50% !important;
+    right: 0 !important;
+    display: inline-flex !important;
+    max-width: 142px !important;
+    margin: 0 !important;
+    transform: translateY(-50%) !important;
+    color: rgba(98, 77, 132, 0.88) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.04em !important;
+    text-align: right !important;
+  }
+
+  /* Parallel track */
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6)::before {
+    content: "✦" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 36px !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    border: 1px solid rgba(157, 134, 111, 0.24) !important;
+    border-radius: 50% !important;
+    color: rgba(157, 134, 111, 0.72) !important;
+    font-size: 14px !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6)::after {
+    content: "PARALLEL TRACK" !important;
+    position: absolute !important;
+    top: 50px !important;
+    left: 36px !important;
+    display: block !important;
+    color: rgba(117, 93, 150, 0.78) !important;
     font-size: 10px !important;
     font-weight: 700 !important;
     line-height: 1 !important;
     letter-spacing: 0.18em !important;
   }
 
-  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card) .info-card:nth-child(6)::after {
-    content: none !important;
-    display: none !important;
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6) h3 {
+    margin-bottom: 15px !important;
+    font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6) p {
+    max-width: 205px !important;
+    font-size: 12px !important;
+    line-height: 1.9 !important;
+  }
+
+  html body:not(:has(.editorial-hero)) .mindlab-site main:has(.card-grid.three > .info-card:nth-child(6)) .info-card:nth-child(6) .text-link {
+    position: static !important;
+    margin-top: 17px !important;
+    transform: none !important;
+    text-align: left !important;
   }
 }
 
