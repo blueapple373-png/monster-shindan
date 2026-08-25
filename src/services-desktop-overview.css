@@ -10,8 +10,8 @@
   .services-editorial-page .services-editorial-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 232px;
-    column-gap: clamp(34px, 3.4vw, 52px);
-    align-items: start;
+    column-gap: clamp(36px, 3.8vw, 58px);
+    align-items: stretch;
     width: 100%;
     max-width: var(--max);
     margin: 0 auto;
@@ -23,16 +23,10 @@
     min-width: 0;
   }
 
-  /* One uninterrupted journey axis. No dots or junction markers. */
+  /* The axis connects the steps, but never runs through the numbers. */
   .services-editorial-page .services-journey::before {
-    content: "";
-    position: absolute;
-    top: 38px;
-    bottom: 42px;
-    left: 31px;
-    width: 1px;
-    background: rgba(159, 149, 207, 0.34);
-    filter: none;
+    content: none;
+    display: none;
   }
 
   .services-editorial-page .service-step {
@@ -47,34 +41,37 @@
 
   .services-editorial-page .service-step:first-child {
     padding-top: 14px;
-    border-top: 1px solid var(--services-rule-soft);
+    border: 0;
   }
 
-  /* Step separators begin at the service column so they never cut the axis. */
-  .services-editorial-page .service-step:not(:last-child)::after {
+  /* Only a clean connector between 01→02 and 02→03. */
+  .services-editorial-page .service-step:not(:last-child)::before {
     content: "";
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: calc(84px + 150px + 2 * clamp(18px, 1.8vw, 26px));
-    height: 1px;
-    background: var(--services-rule-soft);
+    z-index: 0;
+    top: 56px;
+    bottom: 14px;
+    left: 31px;
+    width: 1px;
+    background: rgba(147, 132, 205, 0.36);
   }
 
-  .services-editorial-page .service-step + .service-step::before {
-    content: none;
+  .services-editorial-page .service-step::after {
+    content: none !important;
+    display: none !important;
   }
 
   .services-editorial-page .step-number {
     position: relative;
     z-index: 1;
     align-self: start;
-    color: rgba(122, 105, 182, 0.86);
+    color: #887bc1;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 43px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.01em;
+    opacity: 1;
   }
 
   .services-editorial-page .step-intro {
@@ -114,17 +111,16 @@
   .services-editorial-page .service-entry,
   .services-editorial-page .service-entry.has-companion {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    column-gap: 16px;
+    grid-template-columns: 46px minmax(0, 1fr);
+    column-gap: 17px;
     align-items: start;
     min-height: 0;
-    padding: 7px 0 9px;
+    padding: 6px 0 10px;
     border: 0;
   }
 
-  /* No internal rules between services; the step itself owns the separator. */
   .services-editorial-page .service-entry + .service-entry {
-    margin-top: 3px;
+    margin-top: 4px;
     padding-top: 8px;
     border: 0;
   }
@@ -133,23 +129,31 @@
     border: 0;
   }
 
+  /* Softer, friendlier icon badges. */
   .services-editorial-page .service-entry-icon {
     display: grid;
     place-items: center;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     margin: 0;
-    border: 1px solid rgba(159, 149, 207, 0.28);
-    border-radius: 50%;
-    color: var(--services-accent);
-    background: rgba(255, 254, 250, 0.44);
+    border: 0;
+    border-radius: 48% 52% 46% 54% / 54% 47% 53% 46%;
+    color: #796bb4;
+    background: linear-gradient(145deg, rgba(238, 233, 250, 0.96), rgba(250, 243, 244, 0.86));
+    box-shadow: 0 7px 18px rgba(117, 107, 173, 0.08);
   }
 
-  /* Content stays left; status + action become one stable right-hand rail. */
+  .services-editorial-page .service-entry-icon svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 1.55;
+  }
+
+  /* Copy on the left, status/actions on one consistent right rail. */
   .services-editorial-page .service-entry-copy {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(176px, max-content);
-    column-gap: clamp(18px, 2vw, 30px);
+    grid-template-columns: minmax(0, 1fr) 220px;
+    column-gap: clamp(24px, 2.5vw, 38px);
     min-width: 0;
   }
 
@@ -171,7 +175,7 @@
   }
 
   .services-editorial-page .service-entry-copy > p {
-    max-width: 470px;
+    max-width: 465px;
     margin: 5px 0 0;
     font-size: 12.5px;
     line-height: 1.82;
@@ -181,7 +185,7 @@
     grid-column: 2;
     grid-row: 1 / span 4;
     align-self: center;
-    justify-self: end;
+    justify-self: stretch;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -193,25 +197,33 @@
 
   .services-editorial-page .service-entry-status {
     margin: 0;
+    color: var(--services-status);
     font-size: 10.5px;
   }
 
   .services-editorial-page .service-entry-link,
-  .services-editorial-page .service-companion-link {
+  .services-editorial-page .service-companion-link,
+  .services-editorial-page .parallel-track a {
     margin: 0;
-    font-size: 11.5px;
+    color: var(--services-accent) !important;
+    font-weight: 700;
     white-space: nowrap;
   }
 
-  /* Treat remains subordinate by scale/label only — no box, rule or side rail. */
+  .services-editorial-page .service-entry-link,
+  .services-editorial-page .service-companion-link {
+    font-size: 11.5px;
+  }
+
+  /* Treat stays subordinate, but shares the same visual axis as the other services. */
   .services-editorial-page .service-companion {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    column-gap: 16px;
-    width: calc(100% + 58px);
-    margin: 10px 0 0 -58px;
-    padding: 8px 0 0;
+    grid-template-columns: 46px minmax(0, 1fr);
+    column-gap: 17px;
+    width: calc(100% + 63px);
+    margin: 10px 0 0 -63px;
+    padding: 7px 0 0;
     border: 0;
   }
 
@@ -223,19 +235,24 @@
   .services-editorial-page .service-companion-icon {
     display: grid;
     place-items: center;
-    width: 30px;
-    height: 30px;
-    margin: 0 0 0 5px;
-    border: 1px solid rgba(159, 149, 207, 0.24);
-    border-radius: 50%;
-    color: rgba(122, 105, 182, 0.72);
-    background: transparent;
+    width: 32px;
+    height: 32px;
+    margin: 2px 0 0 5px;
+    border: 0;
+    border-radius: 48% 52% 46% 54% / 54% 47% 53% 46%;
+    color: rgba(117, 107, 173, 0.82);
+    background: rgba(241, 238, 251, 0.82);
+  }
+
+  .services-editorial-page .service-companion-icon svg {
+    width: 15px;
+    height: 15px;
   }
 
   .services-editorial-page .service-companion-copy {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(176px, max-content);
-    column-gap: clamp(18px, 2vw, 30px);
+    grid-template-columns: minmax(0, 1fr) 220px;
+    column-gap: clamp(24px, 2.5vw, 38px);
     min-width: 0;
   }
 
@@ -257,7 +274,7 @@
   }
 
   .services-editorial-page .service-companion-copy > p {
-    max-width: 450px;
+    max-width: 445px;
     margin: 4px 0 0;
     font-size: 11.5px;
     line-height: 1.78;
@@ -267,7 +284,7 @@
     grid-column: 2;
     grid-row: 1 / span 4;
     align-self: center;
-    justify-self: end;
+    justify-self: stretch;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -277,12 +294,13 @@
     white-space: nowrap;
   }
 
-  /* Parallel track sits lower, around the 02/03 zone, and does not compete with 01. */
+  /* The organization track closes at the same baseline as the individual journey. */
   .services-editorial-page .parallel-track {
     position: relative;
+    align-self: end;
     display: block;
-    margin-top: 214px;
-    padding: 54px 0 28px 28px;
+    margin: 0;
+    padding: 54px 0 12px 28px;
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
@@ -298,9 +316,9 @@
     place-items: center;
     width: 34px;
     height: 34px;
-    border: 1px solid rgba(157, 134, 111, 0.24);
+    border: 1px solid rgba(157, 134, 111, 0.22);
     border-radius: 50%;
-    color: rgba(157, 134, 111, 0.72);
+    color: rgba(157, 134, 111, 0.70);
     font-size: 12px;
   }
 
@@ -342,16 +360,12 @@
   }
 
   .services-editorial-page .service-step {
-    grid-template-columns: 76px 146px minmax(0, 1fr);
+    grid-template-columns: 76px 142px minmax(0, 1fr);
     column-gap: 18px;
   }
 
-  .services-editorial-page .services-journey::before {
-    left: 27px;
-  }
-
-  .services-editorial-page .service-step:not(:last-child)::after {
-    left: calc(76px + 146px + 36px);
+  .services-editorial-page .service-step:not(:last-child)::before {
+    left: 28px;
   }
 
   .services-editorial-page .step-number {
@@ -363,14 +377,14 @@
   }
 
   .services-editorial-page .step-intro p {
-    max-width: 146px;
+    max-width: 142px;
     font-size: 11.5px;
   }
 
   .services-editorial-page .service-entry-copy,
   .services-editorial-page .service-companion-copy {
-    grid-template-columns: minmax(0, 1fr) minmax(158px, max-content);
-    column-gap: 16px;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    column-gap: 18px;
   }
 
   .services-editorial-page .service-entry-copy > p {
@@ -387,7 +401,6 @@
   }
 
   .services-editorial-page .parallel-track {
-    margin-top: 196px;
     padding-left: 22px;
   }
 
