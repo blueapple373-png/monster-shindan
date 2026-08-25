@@ -24,28 +24,46 @@ const monsters = [
     label: "不安",
     english: "ANXIETY",
     image: "/FUAN.png",
-    description: "まだ起きていないことを繰り返し考え、不安に押しつぶされそうになる反応。",
+    description: "まだ起きていないことを繰り返し考え、悪い未来を先回りしてしまう反応。",
   },
   {
     name: "カコノキズ",
     label: "過去の傷",
     english: "PAST WOUNDS",
     image: "/KAKO.png",
-    description: "過去の傷が現在の出来事と重なり、再び痛みが広がる反応。",
+    description: "今の出来事に過去の痛みが重なり、当時の感覚まで強く戻ってくる反応。",
   },
   {
     name: "ジコヒテイ",
     label: "自己否定",
     english: "SELF-NEGATION",
     image: "/HITEI.png",
-    description: "失敗や欠点だけを見て、自分の良さや存在まで否定しようとする反応。",
+    description: "失敗や欠点から、自分の価値や存在そのものまで否定しようとする反応。",
   },
   {
     name: "ジセキン",
     label: "自責",
     english: "SELF-BLAME",
     image: "/JISEKI.png",
-    description: "起きたことをすべて自分の責任として引き受け、自分を責め続ける反応。",
+    description: "起きたことの責任を必要以上に自分へ集め、自分を責め続ける反応。",
+  },
+];
+
+const usageSteps = [
+  {
+    number: "01",
+    title: "気づく",
+    text: "まず、今どの反応が強くなっているのかを見つけます。",
+  },
+  {
+    number: "02",
+    title: "切り分ける",
+    text: "「私はダメ」ではなく、「今はこの反応が出ている」と自分全体から切り分けます。",
+  },
+  {
+    number: "03",
+    title: "扱う",
+    text: "反応に飲み込まれたまま結論を出さず、その場でできる小さな対処を選びます。",
   },
 ];
 
@@ -139,7 +157,7 @@ function Footer() {
 function MonstersEditorial() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "4体のネガティブモンスター｜MINAMI MINDLAB";
+    document.title = "ネガティブモンスターとは｜MINAMI MINDLAB";
   }, []);
 
   return (
@@ -149,45 +167,88 @@ function MonstersEditorial() {
         <section className="page-hero compact monsters-page-hero">
           <div className="hero-inner">
             <span className="eyebrow">NEGATIVE MONSTERS</span>
-            <h1>4体のネガティブモンスター</h1>
-            <p className="hero-copy">本人や人格ではなく、自動的に起きる反応を理解するための感情翻訳装置です。</p>
+            <h1>ネガティブモンスターとは</h1>
+            <p className="hero-copy">
+              強く出ている反応を、自分そのものから切り分けて扱うための名前です。
+            </p>
           </div>
         </section>
 
-        <section className="monster-showcase-section">
-          <div className="container">
-            <div className="monster-showcase" aria-label="4体のネガティブモンスター">
-              {monsters.map((monster, index) => (
-                <article className={`monster-showcase-item monster-showcase-item-${index + 1}`} key={monster.name}>
-                  <div className="monster-showcase-visual">
-                    <span className="monster-showcase-halo" aria-hidden="true" />
-                    <img src={monster.image} alt={monster.name} />
-                  </div>
-                  <span className="monster-showcase-english">{monster.english}</span>
-                  <h2>{monster.name}</h2>
-                  <strong>{monster.label}</strong>
-                  <p>{monster.description}</p>
-                </article>
-              ))}
-            </div>
-
-            <section className="monster-meaning" aria-labelledby="monster-meaning-title">
-              <div className="monster-meaning-mark" aria-hidden="true">✦</div>
-              <div>
-                <span className="monster-meaning-label">HOW TO READ</span>
-                <h2 id="monster-meaning-title">モンスターは、敵ではありません</h2>
+        <section className="monster-system-section">
+          <div className="container monsters-container">
+            <section className="monster-purpose" aria-labelledby="monster-purpose-title">
+              <div className="monster-section-heading">
+                <span>01 / PURPOSE</span>
+                <h2 id="monster-purpose-title">何に使うのか</h2>
                 <p>
-                  ネガティブモンスターは、悪者として倒すための存在ではありません。
-                  「今、自分の中でこの反応が強くなっている」と気づき、自分を責める代わりに、扱い方へ移るための目印です。
+                  感情が強いときは、「起きている反応」と「自分自身」が一体化しやすくなります。
+                  ネガティブモンスターは、その反応に名前をつけて一度外に置き、次の行動を選びやすくするための仕組みです。
                 </p>
               </div>
+
+              <div className="monster-usage-steps">
+                {usageSteps.map((step) => (
+                  <article className="monster-usage-step" key={step.number}>
+                    <span className="monster-usage-number">{step.number}</span>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="monster-reactions" aria-labelledby="monster-reactions-title">
+              <div className="monster-section-heading compact-heading">
+                <span>02 / FOUR REACTIONS</span>
+                <h2 id="monster-reactions-title">反応は4つに整理しています</h2>
+                <p>診断では、今の自分にどの反応が強く出やすいかを整理します。</p>
+              </div>
+
+              <div className="monster-reaction-list">
+                {monsters.map((monster) => (
+                  <article className="monster-reaction-item" key={monster.name}>
+                    <div className="monster-reaction-visual" aria-hidden="true">
+                      <img src={monster.image} alt="" />
+                    </div>
+                    <div className="monster-reaction-copy">
+                      <span>{monster.english}</span>
+                      <h3>{monster.label}</h3>
+                      <small>{monster.name}</small>
+                      <p>{monster.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="monster-example" aria-labelledby="monster-example-title">
+              <div className="monster-section-heading compact-heading">
+                <span>03 / HOW TO USE</span>
+                <h2 id="monster-example-title">たとえば、返信が来ないとき</h2>
+              </div>
+
+              <div className="monster-example-flow">
+                <div className="monster-example-side">
+                  <span>反応と自分が一体化していると</span>
+                  <p>「嫌われたのかもしれない。私に価値がないからだ」と、自分全体の問題として受け取りやすくなります。</p>
+                </div>
+                <div className="monster-example-arrow" aria-hidden="true">→</div>
+                <div className="monster-example-side">
+                  <span>モンスターとして切り分けると</span>
+                  <p>「今はフアンダーが強く出ている」と捉え、結論を急ぐ前に、今できる対処へ移れます。</p>
+                </div>
+              </div>
+
+              <p className="monster-example-note">
+                モンスターは倒したり消したりする対象ではありません。今起きている反応を、自分そのものと混同しないための目印です。
+              </p>
             </section>
 
             <section className="monster-diagnosis-cta" aria-labelledby="monster-diagnosis-title">
               <div>
                 <span className="monster-diagnosis-label">MONSTER DIAGNOSIS</span>
-                <h2 id="monster-diagnosis-title">今の自分に出やすいモンスターを知る</h2>
-                <p>4体のうち、今の自分に強く出やすい反応を無料で整理できます。</p>
+                <h2 id="monster-diagnosis-title">今の自分に強く出やすい反応を整理する</h2>
+                <p>4つの反応のうち、今の自分に強く出やすいものを無料診断で確認できます。</p>
               </div>
               <a className="monster-diagnosis-button" href={links.diagnosis}>
                 無料でモンスター診断を受ける <span aria-hidden="true">→</span>
