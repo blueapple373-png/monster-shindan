@@ -1,5 +1,11 @@
 @media (min-width: 1241px) {
-  /* Match the mock: the divider and axis dot are one continuous construction. */
+  /* Match the other compact pages: SERVICES should not be smaller/lighter. */
+  .services-editorial-page .services-page-hero .eyebrow {
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  /* Match the mock: keep the axis dot, but draw the horizontal rule as a true hairline. */
   .services-editorial-page .service-step + .service-step::before,
   .services-editorial-page .service-step:last-child::before {
     content: none;
@@ -18,7 +24,10 @@
     height: 5px;
     background:
       radial-gradient(circle at 2.5px 50%, #8878bd 0 2.4px, transparent 2.6px),
-      linear-gradient(to right, transparent 0 26px, rgba(124, 112, 103, 0.14) 26px 100%);
+      linear-gradient(to right, transparent 0 26px, rgba(124, 112, 103, 0.08) 26px 100%);
+    background-size: auto, 100% 1px;
+    background-position: center, center;
+    background-repeat: no-repeat;
     pointer-events: none;
   }
 
@@ -59,21 +68,20 @@
     white-space: nowrap;
   }
 
-  /* Pull the service copy and CTA rail closer together instead of wrapping the intro. */
+  /* Keep CTA below the copy; do not recreate the old right-hand CTA rail. */
   .services-editorial-page .service-entry-copy,
   .services-editorial-page .service-companion-copy {
-    grid-template-columns: minmax(0, 1fr) 160px;
-    column-gap: 16px;
+    display: block;
+    min-width: 0;
   }
 
   .services-editorial-page .service-entry-meta,
   .services-editorial-page .service-companion-meta {
-    justify-self: start;
     justify-content: flex-start;
   }
 
   .services-editorial-page .service-entry-copy > p,
   .services-editorial-page .service-companion-copy > p {
-    max-width: 390px;
+    max-width: 440px;
   }
 }
