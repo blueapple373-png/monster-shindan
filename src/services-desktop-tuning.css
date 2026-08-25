@@ -122,21 +122,20 @@
     max-width: 440px;
   }
 
-  /* Both columns share one grid row. Move the whole parallel-track block so its
-     visible bottom edge aligns with the Discord row's bottom edge. */
+  /* Main journey and parallel service track begin on the same top baseline.
+     Their bottoms are intentionally allowed to end at different heights. */
   .services-editorial-page .services-editorial-inner {
-    align-items: stretch;
+    align-items: start;
   }
 
   .services-editorial-page .services-journey {
-    align-self: stretch;
+    align-self: start;
   }
 
   .services-editorial-page .parallel-track {
-    align-self: end !important;
-    margin-top: 0;
+    align-self: start !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-bottom: 0;
-    transform: translateY(-48px);
+    transform: none;
   }
 }
