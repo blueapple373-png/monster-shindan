@@ -1,4 +1,12 @@
-.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) {
+/* Shared MINAMI MINDLAB marble for inner pages.
+   HOME is intentionally excluded: only pages containing .page-hero.compact
+   receive this layer. The marble lives on the page wrapper so it can dissolve
+   below the hero without being clipped by the hero boundary. */
+
+.mindlab-site:has(.page-hero.compact) {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
   background: linear-gradient(180deg, #fffaf7 0%, #fbf8f4 42%, #fffafa 100%);
 }
 
@@ -7,61 +15,67 @@
   background: #fffefa;
 }
 
-.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact,
+/* The hero itself stays neutral. */
+.mindlab-site:has(.page-hero.compact) .page-hero.compact,
 .services-editorial-page .services-page-hero,
 .monsters-editorial-page .monsters-page-hero {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
   background: linear-gradient(135deg, #fffefd 0%, #fbf8f6 54%, #fffafa 100%) !important;
 }
 
-.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact::after,
+/* Remove the old hero-bound marble so there is no hard cutoff at hero bottom. */
+.mindlab-site:has(.page-hero.compact) .page-hero.compact::after,
 .services-editorial-page .services-page-hero::after,
 .monsters-editorial-page .monsters-page-hero::after {
-  content: "" !important;
-  display: block !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* Page-level marble layer.
+   Inner side = pink + green. Outer/right side = purple + blue.
+   The larger canvas and longer fade make it read as atmosphere rather than a blob. */
+.mindlab-site:has(.page-hero.compact)::after {
+  content: "";
   position: absolute;
   z-index: 0;
-  top: -92px;
-  right: -24px;
-  width: 620px;
-  height: 438px;
-  border-radius: 46% 54% 43% 57% / 52% 43% 57% 48%;
+  top: -78px;
+  right: -96px;
+  width: 820px;
+  height: 620px;
+  border-radius: 48% 52% 45% 55% / 54% 45% 55% 46%;
   background:
-    radial-gradient(ellipse at 31% 29%, rgba(236, 91, 111, 0.49) 0 13%, rgba(236, 91, 111, 0.25) 25%, rgba(236, 91, 111, 0.07) 44%, transparent 64%),
-    radial-gradient(ellipse at 38% 69%, rgba(102, 190, 146, 0.46) 0 14%, rgba(102, 190, 146, 0.23) 27%, rgba(102, 190, 146, 0.07) 46%, transparent 65%),
-    radial-gradient(ellipse at 70% 27%, rgba(150, 126, 211, 0.50) 0 13%, rgba(150, 126, 211, 0.26) 25%, rgba(150, 126, 211, 0.08) 44%, transparent 64%),
-    radial-gradient(ellipse at 77% 68%, rgba(91, 153, 219, 0.46) 0 14%, rgba(91, 153, 219, 0.23) 27%, rgba(91, 153, 219, 0.07) 46%, transparent 65%),
-    radial-gradient(ellipse at 53% 50%, rgba(255, 255, 255, 0.28) 0 18%, transparent 52%);
-  filter: blur(32px) saturate(1.03);
-  opacity: 0.43;
-  transform: rotate(-6deg) scale(1.03);
-  transform-origin: 64% 46%;
+    radial-gradient(ellipse at 29% 28%, rgba(236, 91, 111, 0.47) 0 11%, rgba(236, 91, 111, 0.23) 24%, rgba(236, 91, 111, 0.07) 43%, transparent 70%),
+    radial-gradient(ellipse at 36% 67%, rgba(102, 190, 146, 0.44) 0 12%, rgba(102, 190, 146, 0.21) 26%, rgba(102, 190, 146, 0.065) 45%, transparent 72%),
+    radial-gradient(ellipse at 72% 27%, rgba(150, 126, 211, 0.47) 0 11%, rgba(150, 126, 211, 0.23) 24%, rgba(150, 126, 211, 0.07) 43%, transparent 70%),
+    radial-gradient(ellipse at 78% 67%, rgba(91, 153, 219, 0.43) 0 12%, rgba(91, 153, 219, 0.20) 26%, rgba(91, 153, 219, 0.06) 45%, transparent 72%),
+    radial-gradient(ellipse at 52% 49%, rgba(255, 255, 255, 0.28) 0 18%, transparent 56%);
+  filter: blur(44px) saturate(1.02);
+  opacity: 0.40;
+  transform: rotate(-5deg) scale(1.04);
+  transform-origin: 65% 45%;
   pointer-events: none;
 }
 
-.mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact .hero-inner,
-.services-editorial-page .services-page-hero .hero-inner,
-.monsters-editorial-page .monsters-page-hero .hero-inner {
+/* Keep all actual page UI above the decorative layer. */
+.mindlab-site:has(.page-hero.compact) > .site-header,
+.mindlab-site:has(.page-hero.compact) > main,
+.mindlab-site:has(.page-hero.compact) > .site-footer {
   position: relative;
   z-index: 1;
 }
 
 @media (max-width: 640px) {
-  .mindlab-site:not(.services-editorial-page):not(.monsters-editorial-page) .page-hero.compact::after,
-  .services-editorial-page .services-page-hero::after,
-  .monsters-editorial-page .monsters-page-hero::after {
-    top: -58px;
-    right: -118px;
-    width: 420px;
-    height: 322px;
+  .mindlab-site:has(.page-hero.compact)::after {
+    top: -46px;
+    right: -170px;
+    width: 560px;
+    height: 455px;
     background:
-      radial-gradient(ellipse at 29% 29%, rgba(236, 91, 111, 0.43) 0 13%, rgba(236, 91, 111, 0.21) 26%, transparent 64%),
-      radial-gradient(ellipse at 37% 69%, rgba(102, 190, 146, 0.40) 0 14%, rgba(102, 190, 146, 0.19) 28%, transparent 65%),
-      radial-gradient(ellipse at 69% 27%, rgba(150, 126, 211, 0.44) 0 13%, rgba(150, 126, 211, 0.22) 26%, transparent 64%),
-      radial-gradient(ellipse at 77% 68%, rgba(91, 153, 219, 0.40) 0 14%, rgba(91, 153, 219, 0.19) 28%, transparent 65%);
-    filter: blur(27px) saturate(1.02);
-    opacity: 0.37;
+      radial-gradient(ellipse at 29% 28%, rgba(236, 91, 111, 0.40) 0 11%, rgba(236, 91, 111, 0.18) 25%, rgba(236, 91, 111, 0.05) 45%, transparent 70%),
+      radial-gradient(ellipse at 36% 67%, rgba(102, 190, 146, 0.37) 0 12%, rgba(102, 190, 146, 0.17) 27%, rgba(102, 190, 146, 0.05) 47%, transparent 72%),
+      radial-gradient(ellipse at 72% 27%, rgba(150, 126, 211, 0.40) 0 11%, rgba(150, 126, 211, 0.18) 25%, rgba(150, 126, 211, 0.05) 45%, transparent 70%),
+      radial-gradient(ellipse at 78% 67%, rgba(91, 153, 219, 0.36) 0 12%, rgba(91, 153, 219, 0.16) 27%, rgba(91, 153, 219, 0.045) 47%, transparent 72%);
+    filter: blur(36px) saturate(1.01);
+    opacity: 0.34;
   }
 }
