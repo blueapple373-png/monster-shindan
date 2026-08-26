@@ -1,29 +1,36 @@
 /* Shared MINAMI MINDLAB marble for inner pages.
    HOME is intentionally excluded: only pages containing .page-hero.compact
-   receive this layer. The marble lives on the page wrapper so it can dissolve
-   below the hero without being clipped by the hero boundary. */
+   receive this treatment. The marble now lives inside main, not behind it,
+   so it stays in the hero area and can fade below the hero without clipping. */
 
 .mindlab-site:has(.page-hero.compact) {
   position: relative;
-  isolation: isolate;
   overflow-x: clip;
   background: linear-gradient(180deg, #fffaf7 0%, #fbf8f4 42%, #fffafa 100%);
 }
 
-.services-editorial-page main,
-.monsters-editorial-page main {
+/* main owns the decorative layer. This avoids the previous problem where the
+   page-level marble was hidden by main's opaque background and only appeared
+   behind the header. */
+.mindlab-site:has(.page-hero.compact) > main,
+.services-editorial-page > main,
+.monsters-editorial-page > main {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
   background: #fffefa;
 }
 
-/* The hero itself stays neutral. */
+/* Keep the inner-page hero transparent so the marble can show through it. */
 .mindlab-site:has(.page-hero.compact) .page-hero.compact,
 .services-editorial-page .services-page-hero,
 .monsters-editorial-page .monsters-page-hero {
   position: relative;
-  background: linear-gradient(135deg, #fffefd 0%, #fbf8f6 54%, #fffafa 100%) !important;
+  overflow: visible !important;
+  background: transparent !important;
 }
 
-/* Remove the old hero-bound marble so there is no hard cutoff at hero bottom. */
+/* Disable any older hero-bound marble layers. */
 .mindlab-site:has(.page-hero.compact) .page-hero.compact::after,
 .services-editorial-page .services-page-hero::after,
 .monsters-editorial-page .monsters-page-hero::after {
@@ -31,51 +38,56 @@
   display: none !important;
 }
 
-/* Page-level marble layer.
+/* One broad atmosphere layer at the top-right of main.
    Inner side = pink + green. Outer/right side = purple + blue.
-   The larger canvas and longer fade make it read as atmosphere rather than a blob. */
-.mindlab-site:has(.page-hero.compact)::after {
+   Its box extends well below the hero, while the gradients fade to fully
+   transparent before the box ends, so there is no horizontal cutoff. */
+.mindlab-site:has(.page-hero.compact) > main::before,
+.services-editorial-page > main::before,
+.monsters-editorial-page > main::before {
   content: "";
   position: absolute;
   z-index: 0;
-  top: -78px;
-  right: -96px;
-  width: 820px;
-  height: 620px;
-  border-radius: 48% 52% 45% 55% / 54% 45% 55% 46%;
+  top: -86px;
+  right: -150px;
+  width: 940px;
+  height: 760px;
+  border-radius: 49% 51% 46% 54% / 55% 44% 56% 45%;
   background:
-    radial-gradient(ellipse at 29% 28%, rgba(236, 91, 111, 0.47) 0 11%, rgba(236, 91, 111, 0.23) 24%, rgba(236, 91, 111, 0.07) 43%, transparent 70%),
-    radial-gradient(ellipse at 36% 67%, rgba(102, 190, 146, 0.44) 0 12%, rgba(102, 190, 146, 0.21) 26%, rgba(102, 190, 146, 0.065) 45%, transparent 72%),
-    radial-gradient(ellipse at 72% 27%, rgba(150, 126, 211, 0.47) 0 11%, rgba(150, 126, 211, 0.23) 24%, rgba(150, 126, 211, 0.07) 43%, transparent 70%),
-    radial-gradient(ellipse at 78% 67%, rgba(91, 153, 219, 0.43) 0 12%, rgba(91, 153, 219, 0.20) 26%, rgba(91, 153, 219, 0.06) 45%, transparent 72%),
-    radial-gradient(ellipse at 52% 49%, rgba(255, 255, 255, 0.28) 0 18%, transparent 56%);
-  filter: blur(44px) saturate(1.02);
-  opacity: 0.40;
-  transform: rotate(-5deg) scale(1.04);
-  transform-origin: 65% 45%;
+    radial-gradient(ellipse at 29% 27%, rgba(236, 91, 111, 0.45) 0 10%, rgba(236, 91, 111, 0.21) 23%, rgba(236, 91, 111, 0.06) 42%, transparent 72%),
+    radial-gradient(ellipse at 35% 64%, rgba(102, 190, 146, 0.42) 0 11%, rgba(102, 190, 146, 0.19) 25%, rgba(102, 190, 146, 0.055) 44%, transparent 74%),
+    radial-gradient(ellipse at 71% 26%, rgba(150, 126, 211, 0.44) 0 10%, rgba(150, 126, 211, 0.20) 23%, rgba(150, 126, 211, 0.06) 42%, transparent 72%),
+    radial-gradient(ellipse at 77% 63%, rgba(91, 153, 219, 0.40) 0 11%, rgba(91, 153, 219, 0.18) 25%, rgba(91, 153, 219, 0.05) 44%, transparent 74%),
+    radial-gradient(ellipse at 52% 48%, rgba(255, 255, 255, 0.32) 0 17%, transparent 58%);
+  filter: blur(54px) saturate(1.015);
+  opacity: 0.38;
+  transform: rotate(-4deg) scale(1.04);
+  transform-origin: 66% 44%;
   pointer-events: none;
 }
 
-/* Keep all actual page UI above the decorative layer. */
-.mindlab-site:has(.page-hero.compact) > .site-header,
-.mindlab-site:has(.page-hero.compact) > main,
-.mindlab-site:has(.page-hero.compact) > .site-footer {
+/* Actual page content sits above the decorative field. */
+.mindlab-site:has(.page-hero.compact) > main > *,
+.services-editorial-page > main > *,
+.monsters-editorial-page > main > * {
   position: relative;
   z-index: 1;
 }
 
 @media (max-width: 640px) {
-  .mindlab-site:has(.page-hero.compact)::after {
-    top: -46px;
-    right: -170px;
-    width: 560px;
-    height: 455px;
+  .mindlab-site:has(.page-hero.compact) > main::before,
+  .services-editorial-page > main::before,
+  .monsters-editorial-page > main::before {
+    top: -52px;
+    right: -220px;
+    width: 650px;
+    height: 560px;
     background:
-      radial-gradient(ellipse at 29% 28%, rgba(236, 91, 111, 0.40) 0 11%, rgba(236, 91, 111, 0.18) 25%, rgba(236, 91, 111, 0.05) 45%, transparent 70%),
-      radial-gradient(ellipse at 36% 67%, rgba(102, 190, 146, 0.37) 0 12%, rgba(102, 190, 146, 0.17) 27%, rgba(102, 190, 146, 0.05) 47%, transparent 72%),
-      radial-gradient(ellipse at 72% 27%, rgba(150, 126, 211, 0.40) 0 11%, rgba(150, 126, 211, 0.18) 25%, rgba(150, 126, 211, 0.05) 45%, transparent 70%),
-      radial-gradient(ellipse at 78% 67%, rgba(91, 153, 219, 0.36) 0 12%, rgba(91, 153, 219, 0.16) 27%, rgba(91, 153, 219, 0.045) 47%, transparent 72%);
-    filter: blur(36px) saturate(1.01);
-    opacity: 0.34;
+      radial-gradient(ellipse at 29% 27%, rgba(236, 91, 111, 0.38) 0 10%, rgba(236, 91, 111, 0.16) 24%, rgba(236, 91, 111, 0.045) 44%, transparent 72%),
+      radial-gradient(ellipse at 35% 64%, rgba(102, 190, 146, 0.35) 0 11%, rgba(102, 190, 146, 0.15) 26%, rgba(102, 190, 146, 0.04) 46%, transparent 74%),
+      radial-gradient(ellipse at 71% 26%, rgba(150, 126, 211, 0.37) 0 10%, rgba(150, 126, 211, 0.16) 24%, rgba(150, 126, 211, 0.045) 44%, transparent 72%),
+      radial-gradient(ellipse at 77% 63%, rgba(91, 153, 219, 0.34) 0 11%, rgba(91, 153, 219, 0.14) 26%, rgba(91, 153, 219, 0.038) 46%, transparent 74%);
+    filter: blur(44px) saturate(1.01);
+    opacity: 0.32;
   }
 }
