@@ -178,7 +178,7 @@ function AppEditorial() {
                     <div className="app-phone-mockup">
                       <div className="app-phone-screen">
                         <div className="app-phone-label">今日のマイモンスター</div>
-                        <img src="/FUAN-Treat.png" alt="Treat後のフアンダー" />
+                        <img src="/KAKO-Treat2.svg" alt="Treat後のカコノキズ" />
                         <div className="app-cookie-button">クッキーをあげる</div>
                       </div>
                     </div>
