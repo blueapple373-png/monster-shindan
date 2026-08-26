@@ -5,6 +5,7 @@ import LP from './LP.jsx'
 import Site from './Site.jsx'
 import ServicesEditorial from './ServicesEditorial.jsx'
 import MonstersEditorial from './MonstersEditorial.jsx'
+import AppEditorial from './AppEditorial.jsx'
 import './services-desktop-overview.css'
 import './services-desktop-tuning.css'
 import './monsters-simplify.css'
@@ -21,6 +22,8 @@ if (path === '/lp') {
   Page = ServicesEditorial
 } else if (path === '/monsters') {
   Page = MonstersEditorial
+} else if (path === '/app') {
+  Page = AppEditorial
 } else {
   Page = () => <Site path={path} />
 }
