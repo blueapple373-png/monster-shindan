@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./site.css";
 import "./app-editorial.css";
+import "./app-phone-real.css";
 
 const links = {
   home: "/",
@@ -175,11 +176,27 @@ function AppEditorial() {
               <div className="app-entry-grid">
                 <article className="app-entry app-treat-entry">
                   <div className="app-entry-visual app-phone-stage" aria-label="Treat機能の画面イメージ">
-                    <div className="app-phone-mockup">
-                      <div className="app-phone-screen">
-                        <div className="app-phone-label">今日のマイモンスター</div>
-                        <img src="/KAKO-Treat2.svg" alt="Treat後のカコノキズ" />
-                        <div className="app-cookie-button">クッキーをあげる</div>
+                    <div className="app-phone-mockup app-phone-real">
+                      <div className="app-phone-screen app-phone-real-screen">
+                        <div className="app-real-topbar">
+                          <div className="app-real-user">
+                            <strong>MINAMI MINDLAB</strong>
+                            <span>MINAMIさん</span>
+                          </div>
+                          <div className="app-real-actions" aria-hidden="true">
+                            <span>設定</span>
+                            <span>取扱説明書</span>
+                          </div>
+                        </div>
+
+                        <div className="app-real-monster-circle">
+                          <img src="/KAKO-Treat2.svg" alt="Treat後のカコノキズ" />
+                        </div>
+                        <div className="app-real-monster-name">カコ</div>
+                        <div className="app-real-cookie-count">今日のクッキー：0回</div>
+                        <div className="app-real-cookie-button">🍪 クッキーをあげる</div>
+                        <div className="app-real-subbutton">今週を振り返る</div>
+                        <div className="app-real-subbutton app-real-subbutton-outline">モンスターマップを作る</div>
                       </div>
                     </div>
                   </div>
