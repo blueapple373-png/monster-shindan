@@ -138,8 +138,48 @@
   box-shadow: none;
 }
 
+/* Flow section: these are selectable tools, not a required sequence. */
+.app-editorial-page .app-chapter-copy p {
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.app-editorial-page .app-flow-step > span {
+  display: none;
+}
+
+.app-editorial-page .app-flow-step {
+  padding-top: 27px;
+  padding-bottom: 29px;
+}
+
+.app-editorial-page .app-flow-step h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.app-editorial-page .app-flow-step p {
+  font-size: 13.5px;
+  line-height: 1.9;
+}
+
 @media (max-width: 720px) {
   .app-editorial-page .app-phone-stage {
     min-height: 430px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-editorial-page .app-chapter-copy p {
+    font-size: 13px;
+  }
+
+  .app-editorial-page .app-flow-step h3 {
+    font-size: 15px;
+  }
+
+  .app-editorial-page .app-flow-step p {
+    font-size: 13px;
   }
 }
