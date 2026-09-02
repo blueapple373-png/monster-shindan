@@ -1,0 +1,160 @@
+/* Canonical styling for legal / policy pages. Content remains in Site.jsx. */
+
+/* Privacy policy: long-form reading layout without a card shell. */
+.mindlab-site main:has(.article-card.standalone > h2:nth-of-type(5)) > .section {
+  padding-top: 54px;
+  padding-bottom: 112px;
+  background: transparent !important;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) > p:first-child {
+  margin-bottom: 42px;
+  color: rgba(104, 89, 76, 0.68);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) h2 {
+  margin: 0 0 18px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(157, 134, 111, 0.20);
+  color: rgba(41, 37, 33, 0.94);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.035em;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) h2:not(:first-of-type) {
+  margin-top: 48px;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) h3 {
+  margin: 28px 0 10px;
+  color: rgba(41, 37, 33, 0.88);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) p,
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) li {
+  color: rgba(52, 49, 46, 0.78);
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.025em;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) p {
+  margin-bottom: 16px;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) ul {
+  margin: 10px 0 0;
+  padding-left: 1.4em;
+}
+
+.mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) li {
+  margin-bottom: 8px;
+}
+
+/* Specified Commercial Transactions Act: editorial table, not a boxed form. */
+.mindlab-site main:has(.legal-table) > .section {
+  padding-top: 54px;
+  padding-bottom: 112px;
+  background: transparent !important;
+}
+
+.mindlab-site main:has(.legal-table) .table-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.mindlab-site main:has(.legal-table) .legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.mindlab-site main:has(.legal-table) .legal-table tr {
+  border-bottom: 1px solid rgba(157, 134, 111, 0.20);
+}
+
+.mindlab-site main:has(.legal-table) .legal-table tr:first-child {
+  border-top: 1px solid rgba(157, 134, 111, 0.20);
+}
+
+.mindlab-site main:has(.legal-table) .legal-table th,
+.mindlab-site main:has(.legal-table) .legal-table td {
+  padding: 24px 0;
+  border: 0;
+  vertical-align: top;
+  text-align: left;
+  background: transparent;
+}
+
+.mindlab-site main:has(.legal-table) .legal-table th {
+  width: 230px;
+  padding-right: 38px;
+  color: rgba(41, 37, 33, 0.84);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+.mindlab-site main:has(.legal-table) .legal-table td {
+  color: rgba(52, 49, 46, 0.78);
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.025em;
+}
+
+@media (max-width: 640px) {
+  .mindlab-site main:has(.article-card.standalone > h2:nth-of-type(5)) > .section,
+  .mindlab-site main:has(.legal-table) > .section {
+    padding: 38px 20px 72px;
+  }
+
+  .mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) > p:first-child {
+    margin-bottom: 32px;
+  }
+
+  .mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) h2 {
+    padding-top: 25px;
+    font-size: 20px;
+  }
+
+  .mindlab-site .article-card.standalone:has(> h2:nth-of-type(5)) h2:not(:first-of-type) {
+    margin-top: 38px;
+  }
+
+  .mindlab-site main:has(.legal-table) .legal-table tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 22px 0;
+  }
+
+  .mindlab-site main:has(.legal-table) .legal-table th,
+  .mindlab-site main:has(.legal-table) .legal-table td {
+    width: auto;
+    padding: 0;
+  }
+
+  .mindlab-site main:has(.legal-table) .legal-table th {
+    padding-right: 0;
+  }
+}
