@@ -1,0 +1,40 @@
+.profile-detail {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 38px;
+  align-items: center;
+}
+
+.profile-detail .article-card {
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.profile-detail .article-card h2 {
+  margin-top: 0;
+}
+
+.profile-detail .profile-placeholder {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background:
+    radial-gradient(circle at 30% 28%, rgba(167, 151, 207, 0.22), transparent 35%),
+    radial-gradient(circle at 70% 68%, rgba(216, 117, 130, 0.18), transparent 36%);
+}
+
+@media (max-width: 960px) {
+  .profile-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-detail .profile-placeholder {
+    width: min(240px, 60vw);
+    margin: 0 auto;
+  }
+}
