@@ -183,39 +183,42 @@
     letter-spacing: 0.12em !important;
   }
 
-  /* Keep the footer in the phone reading order instead of the desktop split. */
-  .site-footer {
-    padding: 36px 28px 24px;
+  /* Keep the footer in the phone reading order instead of the desktop split.
+     The extra .mindlab-site specificity intentionally wins over the legacy
+     min-width:641px !important rules still present in index.html. */
+  .mindlab-site .site-footer {
+    padding: 36px 28px 24px !important;
   }
 
-  .site-footer .footer-top {
+  .mindlab-site .site-footer .footer-top {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
-    padding-bottom: 26px;
+    padding-bottom: 26px !important;
   }
 
-  .site-footer .footer-top > div:not(.footer-nav) {
+  .mindlab-site .site-footer .footer-top > div:not(.footer-nav) {
     display: none !important;
   }
 
-  .site-footer .footer-nav {
+  .mindlab-site .site-footer .footer-nav {
     grid-template-columns: 1fr !important;
     gap: 22px !important;
+    width: 100% !important;
   }
 
-  .site-footer .footer-nav strong {
-    margin-bottom: 10px;
-    font-size: 15px;
+  .mindlab-site .site-footer .footer-nav strong {
+    margin-bottom: 10px !important;
+    font-size: 15px !important;
   }
 
-  .site-footer .footer-nav a {
-    margin: 6px 0;
-    font-size: 12px;
-    line-height: 1.75;
+  .mindlab-site .site-footer .footer-nav a {
+    margin: 6px 0 !important;
+    font-size: 12px !important;
+    line-height: 1.75 !important;
   }
 
-  .footer-bottom {
-    padding-top: 18px;
-    font-size: 11px;
+  .mindlab-site .site-footer .footer-bottom {
+    padding-top: 18px !important;
+    font-size: 11px !important;
   }
 }
