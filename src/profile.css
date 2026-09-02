@@ -17,6 +17,16 @@
 
 .profile-detail .article-card h2 {
   margin-top: 0;
+  font-size: 0;
+  line-height: 1;
+}
+
+.profile-detail .article-card h2::after {
+  content: "MINAMI";
+  display: block;
+  color: var(--ink);
+  font-size: clamp(29px, 4vw, 42px);
+  line-height: 1.45;
 }
 
 .profile-detail .profile-placeholder {
