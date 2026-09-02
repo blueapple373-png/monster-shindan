@@ -1,0 +1,192 @@
+.about-page {
+  background: transparent;
+}
+
+.about-page > main > .about-hero {
+  background: transparent;
+}
+
+.about-content-section {
+  padding: 58px 24px 110px;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.about-content-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 760px);
+  gap: 72px;
+  align-items: start;
+  justify-content: start;
+  max-width: 1180px;
+}
+
+.about-side-nav {
+  position: sticky;
+  top: 150px;
+  align-self: start;
+}
+
+.about-side-nav a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(157, 134, 111, 0.20);
+  color: rgba(61, 49, 41, 0.72);
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.07em;
+}
+
+.about-side-nav a:first-child {
+  border-top: 1px solid rgba(157, 134, 111, 0.20);
+}
+
+.about-article {
+  max-width: 760px;
+}
+
+.about-article > section {
+  margin: 0 0 54px;
+  padding: 0 0 54px;
+  border-bottom: 1px solid rgba(157, 134, 111, 0.18);
+  scroll-margin-top: 150px;
+}
+
+.about-article > section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.about-kicker {
+  margin-bottom: 15px;
+  color: rgba(117, 93, 150, 0.82);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.about-page .about-article h2 {
+  max-width: 700px;
+  margin: 0 0 28px;
+  color: rgba(41, 37, 33, 0.94);
+  font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(30px, 2.3vw, 36px);
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: 0.035em;
+}
+
+.about-page .about-article h3 {
+  margin: 0 0 18px;
+  color: rgba(41, 37, 33, 0.90);
+  font-family: "Yu Mincho Light", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.about-article p,
+.about-article li {
+  color: rgba(52, 49, 46, 0.82);
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.035em;
+}
+
+.about-article p {
+  margin-bottom: 0;
+}
+
+.about-article p + p {
+  margin-top: 18px;
+}
+
+.about-article ul {
+  margin: 8px 0 0;
+  padding-left: 1.25em;
+}
+
+.about-article li {
+  margin-bottom: 12px;
+}
+
+.about-article li:last-child {
+  margin-bottom: 0;
+}
+
+.about-article strong {
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .about-content-section {
+    padding-top: 44px;
+    padding-bottom: 76px;
+  }
+
+  .about-content-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .about-side-nav {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+
+  .about-side-nav a:nth-child(-n + 2) {
+    border-top: 1px solid rgba(157, 134, 111, 0.20);
+  }
+
+  .about-article {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-content-section {
+    padding: 34px 20px 58px;
+  }
+
+  .about-content-layout {
+    gap: 34px;
+  }
+
+  .about-side-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .about-side-nav a {
+    padding: 12px 0;
+    font-size: 12px;
+  }
+
+  .about-side-nav a:nth-child(2) {
+    border-top: 0;
+  }
+
+  .about-article > section {
+    margin-bottom: 38px;
+    padding-bottom: 38px;
+    scroll-margin-top: 92px;
+  }
+
+  .about-page .about-article h2 {
+    font-size: 28px;
+    line-height: 1.6;
+  }
+
+  .about-page .about-article h3 {
+    font-size: 20px;
+  }
+
+  .about-article p,
+  .about-article li {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+}
