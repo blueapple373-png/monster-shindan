@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./site.css";
+import "./business.css";
 import { SiteHeader, SiteFooter, siteLinks } from "./SiteChrome.jsx";
 
 function Layout({ children }) {
@@ -138,52 +139,89 @@ function AboutPage() {
   );
 }
 
+function BusinessChapterHeader({ number, label, title, children }) {
+  return (
+    <div className="business-chapter-head">
+      <div className="business-chapter-number" aria-hidden="true">{number}</div>
+      <div className="business-chapter-intro">
+        <span>{label}</span>
+        <h2>{title}</h2>
+      </div>
+      <div className="business-chapter-copy">{children}</div>
+    </div>
+  );
+}
+
 function BusinessPage() {
   return (
     <Layout>
-      <main>
+      <main className="business-page">
         <Hero eyebrow="FOR ORGANIZATIONS" title="法人・団体・提携事業者の皆さまへ">
           <p className="hero-copy">
             福利厚生、試験導入、共同検証、研修、取材、掲載・提携について個別にご相談いただけます。
           </p>
         </Hero>
-        <section className="section white">
-          <div className="container">
-            <div className="card-grid three">
-              <article className="info-card">
-                <div className="card-number">A</div>
-                <h3>福利厚生・試験導入</h3>
-                <p>対象人数、実施期間、利用方法を伺い、現在提供できる範囲を整理します。</p>
-              </article>
-              <article className="info-card">
-                <div className="card-number">B</div>
-                <h3>研修・ワークショップ</h3>
-                <p>自動反応の外在化、止まったあとの立て直し方などを扱うオンライン形式を検討します。</p>
-              </article>
-              <article className="info-card">
-                <div className="card-number">C</div>
-                <h3>共同検証・事業連携</h3>
-                <p>アプリ、学習プログラム、コミュニティの試験運用や共同検証について相談できます。</p>
-              </article>
-            </div>
-            <article className="article-card standalone wide">
-              <h2>現在の提供方針</h2>
-              <p>
-                法人向けサービスを一律の完成パッケージとして販売しているわけではありません。
-                目的、対象者、人数、実施時期を伺い、現在提供できる内容と、
-                追加開発が必要な内容を区別してお伝えします。
-              </p>
-              <h3>個人情報について</h3>
-              <p>
-                利用者個人の相談内容、診断結果、選択したモンスター、Treat記録などを、
-                所属企業へ個人単位で提供することは想定していません。
-              </p>
-              <div className="hero-actions">
-                <a className="button primary" href={siteLinks.contact}>
-                  法人・提携について問い合わせる
+
+        <section className="business-system-section">
+          <div className="container business-container">
+            <section className="business-chapter">
+              <BusinessChapterHeader number="01" label="OPTIONS" title="相談できること">
+                <p>
+                  導入目的や対象に合わせて、現在提供できる範囲を個別に整理します。
+                </p>
+              </BusinessChapterHeader>
+
+              <div className="business-options">
+                <article className="business-option">
+                  <span className="business-option-label">A</span>
+                  <h3>福利厚生・試験導入</h3>
+                  <p>対象人数、実施期間、利用方法を伺い、現在提供できる範囲を整理します。</p>
+                </article>
+                <article className="business-option">
+                  <span className="business-option-label">B</span>
+                  <h3>研修・ワークショップ</h3>
+                  <p>自動反応の外在化、止まったあとの立て直し方などを扱うオンライン形式を検討します。</p>
+                </article>
+                <article className="business-option">
+                  <span className="business-option-label">C</span>
+                  <h3>共同検証・事業連携</h3>
+                  <p>アプリ、学習プログラム、コミュニティの試験運用や共同検証について相談できます。</p>
+                </article>
+              </div>
+            </section>
+
+            <section className="business-chapter">
+              <BusinessChapterHeader number="02" label="APPROACH" title="目的に合わせて、提供範囲を整理します">
+                <p>
+                  法人向けサービスを一律の完成パッケージとして販売しているわけではありません。
+                  目的、対象者、人数、実施時期を伺い、現在提供できる内容と、追加開発が必要な内容を区別してお伝えします。
+                </p>
+              </BusinessChapterHeader>
+
+              <div className="business-detail">
+                <div className="business-detail-facts" aria-label="ご相談時に確認する内容">
+                  <span>目的</span>
+                  <span>対象者・人数</span>
+                  <span>実施時期</span>
+                  <span>必要な提供範囲</span>
+                </div>
+              </div>
+            </section>
+
+            <section className="business-chapter">
+              <BusinessChapterHeader number="03" label="PRIVACY" title="個人情報について">
+                <p>
+                  利用者個人の相談内容、診断結果、選択したモンスター、Treat記録などを、
+                  所属企業へ個人単位で提供することは想定していません。
+                </p>
+              </BusinessChapterHeader>
+
+              <div className="business-detail">
+                <a className="business-contact-link" href={siteLinks.contact}>
+                  法人・提携について問い合わせる <span aria-hidden="true">→</span>
                 </a>
               </div>
-            </article>
+            </section>
           </div>
         </section>
       </main>
