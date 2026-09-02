@@ -9,8 +9,10 @@ import MonstersEditorial from './MonstersEditorial.jsx'
 import AppEditorial from './AppEditorial.jsx'
 import './marble-tuning.css'
 import './profile.css'
+import './contact.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
+const showBlogHomeRail = path === '/blog' || path.startsWith('/blog/')
 
 let Page
 if (path === '/lp') {
@@ -29,4 +31,15 @@ if (path === '/lp') {
   Page = () => <Site path={path} />
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Page />)
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
+    <Page />
+    {showBlogHomeRail && (
+      <a className="hero-rail-link page-home-rail blog-home-rail" href="/" aria-label="ホームへ戻る">
+        <span>00</span>
+        <i aria-hidden="true" />
+        <strong>Home</strong>
+      </a>
+    )}
+  </>
+)
