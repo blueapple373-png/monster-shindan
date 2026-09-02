@@ -7,6 +7,7 @@ import ServicesEditorial from './ServicesEditorial.jsx'
 import MonstersEditorial from './MonstersEditorial.jsx'
 import AppEditorial from './AppEditorial.jsx'
 import './marble-tuning.css'
+import './profile.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 
