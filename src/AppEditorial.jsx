@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./site.css";
 import "./app-editorial.css";
-
-const links = {
-  home: "/",
-  about: "/about",
-  services: "/services",
-  monsters: "/monsters",
-  app: "/app",
-  business: "/business",
-  profile: "/profile",
-  news: "/news",
-  blog: "/blog",
-  contact: "/contact",
-  privacy: "/privacy",
-  tokushoho: "/tokushoho",
-  diagnosis: "/diagnosis",
-};
+import { SiteLayout, siteLinks } from "./SiteChrome.jsx";
 
 const flowSteps = [
   {
@@ -41,93 +26,6 @@ const flowSteps = [
   },
 ];
 
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <header className="site-header">
-      <div className="header-inner">
-        <a className="brand" href={links.home}>
-          MINAMI MINDLAB
-          <small className="brand-credit">
-            <span>operated by</span>
-            <img src="/cache-cache-mark.svg" alt="" aria-hidden="true" />
-            <span>CACHE-CACHE</span>
-          </small>
-        </a>
-        <nav className="desktop-nav" aria-label="メインナビゲーション">
-          <a href={links.services}>サービス</a>
-          <a href={links.blog}>ブログ</a>
-          <a href={links.about}>MINAMI MINDLABとは</a>
-          <a className="header-cta" href={links.diagnosis}>無料診断</a>
-        </nav>
-        <button
-          className="menu-button"
-          type="button"
-          aria-expanded={menuOpen}
-          aria-label="メニューを開く"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? "×" : "☰"}
-        </button>
-      </div>
-      <nav className={`mobile-nav ${menuOpen ? "open" : ""}`} aria-label="モバイルナビゲーション">
-        <a href={links.about}>MINAMI MINDLABとは</a>
-        <a href={links.services}>サービス</a>
-        <a href={links.monsters}>モンスター</a>
-        <a href={links.app}>Treatアプリ</a>
-        <a href={links.business}>法人・提携</a>
-        <a href={links.profile}>運営者</a>
-        <a href={links.news}>お知らせ</a>
-        <a href={links.blog}>ブログ</a>
-        <a href={links.contact}>お問い合わせ</a>
-      </nav>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-top">
-          <div>
-            <div className="footer-brand">
-              MINAMI MINDLAB
-              <small>operated by CACHE-CACHE</small>
-            </div>
-            <p className="footer-copy">感情をなくすのではなく、起きている反応を知り、扱える形にする。</p>
-          </div>
-          <div className="footer-nav">
-            <div>
-              <strong>MINAMI MINDLAB</strong>
-              <a href={links.about}>私たちについて</a>
-              <a href={links.monsters}>ネガティブモンスター</a>
-              <a href={links.app}>Treatアプリ</a>
-            </div>
-            <div>
-              <strong>サービス</strong>
-              <a href={links.services}>サービス一覧</a>
-              <a href={links.diagnosis}>モンスター診断</a>
-              <a href={links.business}>法人・団体向け</a>
-            </div>
-            <div>
-              <strong>運営情報</strong>
-              <a href={links.profile}>運営者について</a>
-              <a href={links.news}>お知らせ</a>
-              <a href={links.blog}>ブログ</a>
-              <a href={links.contact}>お問い合わせ</a>
-              <a href={links.privacy}>プライバシーポリシー</a>
-              <a href={links.tokushoho}>特定商取引法に基づく表記</a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">© CACHE-CACHE / MINAMI MINDLAB</div>
-      </div>
-    </footer>
-  );
-}
-
 function ChapterHeader({ number, label, title, titleId, children }) {
   return (
     <div className="app-chapter-head">
@@ -148,8 +46,7 @@ function AppEditorial() {
   }, []);
 
   return (
-    <div className="mindlab-site app-editorial-page">
-      <Header />
+    <SiteLayout pageClass="app-editorial-page">
       <main>
         <section className="page-hero compact app-page-hero">
           <div className="hero-inner">
@@ -274,7 +171,7 @@ function AppEditorial() {
                     Treatアプリは、無料診断後に案内する4週間プログラム内で利用する設計です。
                     チャット機能は現在開発・検証中で、試験提供や安全性の確認に応じて仕様を調整します。
                   </p>
-                  <a className="app-access-link" href={links.diagnosis}>
+                  <a className="app-access-link" href={siteLinks.diagnosis}>
                     まず無料でモンスター診断を受ける <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -283,8 +180,7 @@ function AppEditorial() {
           </div>
         </section>
       </main>
-      <Footer />
-    </div>
+    </SiteLayout>
   );
 }
 
