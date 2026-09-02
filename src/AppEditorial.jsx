@@ -251,9 +251,8 @@ function AppEditorial() {
               </ChapterHeader>
 
               <div className="app-flow-list">
-                {flowSteps.map((step, index) => (
+                {flowSteps.map((step) => (
                   <article className="app-flow-step" key={step.title}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
                     <h3>{step.title}</h3>
                     <p>{step.text}</p>
                   </article>
@@ -262,7 +261,7 @@ function AppEditorial() {
             </section>
 
             <section className="app-chapter app-access" aria-labelledby="app-access-title">
-              <ChapterHeader number="03" label="ACCESS" title="無料診断とは役割が違います" titleId="app-access-title">
+              <ChapterHeader number="03" label="ACCESS" title="診断とアプリは、役割が違います" titleId="app-access-title">
                 <p>
                   無料のモンスター診断は、今の自分にどの反応が強く出やすいかを知る入口です。
                   Treatアプリは、実際に何かが起きたその場で使うためのツールです。
@@ -270,16 +269,16 @@ function AppEditorial() {
               </ChapterHeader>
 
               <div className="app-access-row">
-                <div>
-                  <span className="app-access-label">ABOUT ACCESS</span>
+                <div className="app-access-copy">
+                  <h3>利用について</h3>
                   <p>
                     Treatアプリは、無料診断後に案内する4週間プログラム内で利用する設計です。
                     チャット機能は現在開発・検証中で、試験提供や安全性の確認に応じて仕様を調整します。
                   </p>
+                  <a className="app-access-link" href={links.diagnosis}>
+                    まず無料でモンスター診断を受ける <span aria-hidden="true">→</span>
+                  </a>
                 </div>
-                <a className="app-access-link" href={links.diagnosis}>
-                  まず無料でモンスター診断を受ける <span aria-hidden="true">→</span>
-                </a>
               </div>
             </section>
           </div>
