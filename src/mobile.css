@@ -2,37 +2,70 @@
    Portrait phone styles remain in the existing base rules for now.
    This file closes mobile-specific gaps without changing desktop layouts. */
 
-/* SERVICES: large chapter numerals compete with the step titles on phones.
-   Keep the journey line as a quiet guide, but remove the decorative numerals. */
+/* SERVICES: keep the desktop hierarchy on phones at a smaller scale.
+   Number and intro stay side by side; the journey line begins below the number. */
 @media (max-width: 640px) {
-  .services-editorial-page .step-number {
+  .services-editorial-page .services-journey::before {
     display: none !important;
   }
 
-  .services-editorial-page .services-journey::before {
-    left: 22px !important;
-    width: 1px !important;
-    background: rgba(132, 115, 188, 0.18) !important;
-    filter: none !important;
-  }
-
   .services-editorial-page .service-step {
-    grid-template-columns: 56px minmax(0, 1fr) !important;
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+    padding: 42px 0 38px !important;
   }
 
-  /* The hidden number was the first grid item. Keep the intro in column 2
-     instead of letting CSS Grid auto-place it into the narrow number column. */
-  .services-editorial-page .step-intro {
-    grid-column: 2 !important;
+  .services-editorial-page .service-step:first-child {
+    padding-top: 20px !important;
   }
 
   .services-editorial-page .service-step + .service-step::before {
-    left: 56px !important;
+    left: 64px !important;
+  }
+
+  .services-editorial-page .service-step:not(:last-child)::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 92px !important;
+    bottom: -1px !important;
+    left: 20px !important;
+    width: 1px !important;
+    background: rgba(132, 115, 188, 0.20) !important;
+  }
+
+  .services-editorial-page .step-number {
+    display: block !important;
+    grid-column: 1 !important;
+    align-self: start !important;
+    color: rgba(129, 114, 188, 0.62) !important;
+    font-family: "Bodoni 72", Didot, "Times New Roman", serif !important;
+    font-size: 38px !important;
+    font-weight: 400 !important;
+    line-height: 0.98 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .services-editorial-page .step-intro {
+    grid-column: 2 !important;
+    align-self: start !important;
+    padding-top: 0 !important;
+  }
+
+  .services-editorial-page .step-intro h2 {
+    font-size: 26px !important;
+  }
+
+  .services-editorial-page .step-intro p {
+    max-width: none !important;
+    margin-top: 7px !important;
+    font-size: 13px !important;
   }
 
   .services-editorial-page .step-items {
-    grid-column: 1 / -1 !important;
-    padding-left: 14px !important;
+    grid-column: 2 !important;
+    width: 100% !important;
+    margin-top: 24px !important;
+    padding-left: 0 !important;
   }
 }
 
@@ -217,34 +250,46 @@
     letter-spacing: 0.12em !important;
   }
 
-  /* SERVICES: landscape phones use the same quiet step treatment. */
-  .services-editorial-page .step-number {
+  /* SERVICES: landscape phones keep the same desktop-like hierarchy. */
+  .services-editorial-page .services-journey::before {
     display: none !important;
   }
 
-  .services-editorial-page .services-journey::before {
-    left: 22px !important;
-    width: 1px !important;
-    background: rgba(132, 115, 188, 0.18) !important;
-    filter: none !important;
+  .services-editorial-page .service-step {
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
   }
 
-  .services-editorial-page .service-step {
-    grid-template-columns: 56px minmax(0, 1fr) !important;
-    column-gap: 0 !important;
+  .services-editorial-page .service-step + .service-step::before {
+    left: 70px !important;
+  }
+
+  .services-editorial-page .service-step:not(:last-child)::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 80px !important;
+    bottom: -1px !important;
+    left: 21px !important;
+    width: 1px !important;
+    background: rgba(132, 115, 188, 0.20) !important;
+  }
+
+  .services-editorial-page .step-number {
+    display: block !important;
+    grid-column: 1 !important;
+    color: rgba(129, 114, 188, 0.62) !important;
+    font-family: "Bodoni 72", Didot, "Times New Roman", serif !important;
+    font-size: 40px !important;
+    line-height: 0.98 !important;
   }
 
   .services-editorial-page .step-intro {
     grid-column: 2 !important;
   }
 
-  .services-editorial-page .service-step + .service-step::before {
-    left: 56px !important;
-  }
-
   .services-editorial-page .step-items {
-    grid-column: 1 / -1 !important;
-    padding-left: 14px !important;
+    grid-column: 2 !important;
+    padding-left: 0 !important;
   }
 
   /* Keep the footer in the phone reading order instead of the desktop split.
