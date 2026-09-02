@@ -1,0 +1,130 @@
+main:has(.contact-form) > .section.white {
+  padding-top: 48px;
+  padding-bottom: 92px;
+}
+
+main:has(.contact-form) .article-card.standalone {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+main:has(.contact-form) .contact-form {
+  display: grid;
+  gap: 0;
+}
+
+main:has(.contact-form) .contact-form label {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid rgba(157, 134, 111, 0.18);
+}
+
+main:has(.contact-form) .contact-form label:last-of-type {
+  border-bottom: 1px solid rgba(157, 134, 111, 0.18);
+}
+
+main:has(.contact-form) .contact-form label > span {
+  padding-top: 13px;
+  color: rgba(41, 37, 33, 0.88);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+main:has(.contact-form) .contact-form input,
+main:has(.contact-form) .contact-form select,
+main:has(.contact-form) .contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(103, 91, 137, 0.18);
+  border-radius: 7px;
+  color: #2f3444;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: none;
+  font: inherit;
+}
+
+main:has(.contact-form) .contact-form input,
+main:has(.contact-form) .contact-form select {
+  min-height: 52px;
+  padding: 0 15px;
+}
+
+main:has(.contact-form) .contact-form textarea {
+  min-height: 176px;
+  padding: 14px 15px;
+  resize: vertical;
+}
+
+main:has(.contact-form) .contact-form input:focus,
+main:has(.contact-form) .contact-form select:focus,
+main:has(.contact-form) .contact-form textarea:focus {
+  outline: 1px solid rgba(124, 111, 186, 0.42);
+  outline-offset: 1px;
+  border-color: rgba(124, 111, 186, 0.34);
+}
+
+main:has(.contact-form) .form-notice {
+  margin: 22px 0 0 198px;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(157, 134, 111, 0.16);
+  border-radius: 0;
+  color: rgba(104, 89, 76, 0.68);
+  background: transparent;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+main:has(.contact-form) .contact-form .button.primary {
+  justify-self: start;
+  min-width: 176px;
+  width: auto;
+  min-height: 48px;
+  margin: 24px 0 0 198px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: #d87582;
+  box-shadow: none;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+main:has(.contact-form) .contact-form .button.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(100, 72, 76, 0.10);
+}
+
+@media (max-width: 760px) {
+  main:has(.contact-form) > .section.white {
+    padding-top: 34px;
+    padding-bottom: 64px;
+  }
+
+  main:has(.contact-form) .contact-form label {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px 0;
+  }
+
+  main:has(.contact-form) .contact-form label > span {
+    padding-top: 0;
+  }
+
+  main:has(.contact-form) .form-notice,
+  main:has(.contact-form) .contact-form .button.primary {
+    margin-left: 0;
+  }
+
+  main:has(.contact-form) .contact-form .button.primary {
+    width: 100%;
+  }
+}
