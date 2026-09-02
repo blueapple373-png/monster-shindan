@@ -1,201 +1,6 @@
 import { useEffect, useState } from "react";
 import "./site.css";
-
-const BASE = "";
-
-const siteLinks = {
-  home: "/",
-  about: `${BASE}/about`,
-  services: `${BASE}/services`,
-  monsters: `${BASE}/monsters`,
-  app: `${BASE}/app`,
-  business: `${BASE}/business`,
-  profile: `${BASE}/profile`,
-  news: `${BASE}/news`,
-  blog: `${BASE}/blog`,
-  contact: `${BASE}/contact`,
-  privacy: `${BASE}/privacy`,
-  tokushoho: `${BASE}/tokushoho`,
-  diagnosis: "/diagnosis",
-};
-
-const monsterData = [
-  {
-    name: "フアンダー",
-    label: "不安",
-    english: "ANXIETY",
-    image: "/FUAN.png",
-    description:
-      "まだ起きていないことを繰り返し考え、不安に押しつぶされそうになる反応。",
-  },
-  {
-    name: "カコノキズ",
-    label: "過去の傷",
-    english: "PAST WOUNDS",
-    image: "/KAKO.png",
-    description:
-      "過去の傷が現在の出来事と重なり、再び痛みが広がる反応。",
-  },
-  {
-    name: "ジコヒテイ",
-    label: "自己否定",
-    english: "SELF-NEGATION",
-    image: "/HITEI.png",
-    description:
-      "失敗や欠点だけを見て、自分の良さや存在まで否定しようとする反応。",
-  },
-  {
-    name: "ジセキン",
-    label: "自責",
-    english: "SELF-BLAME",
-    image: "/JISEKI.png",
-    description:
-      "起きたことをすべて自分の責任として引き受け、自分を責め続ける反応。",
-  },
-];
-
-const serviceCards = [
-  {
-    number: "01",
-    title: "モンスター診断",
-    text: "不安・過去の傷・自己否定・自責のうち、今の自分に強く出やすい反応を整理します。",
-    status: "公開中",
-    href: siteLinks.diagnosis,
-    cta: "無料で診断を受ける",
-  },
-  {
-    number: "02",
-    title: "4週間プログラム",
-    text: "実生活を材料に、感情に飲み込まれたあと自分を責め続けないための練習をします。",
-    status: "診断結果からご案内",
-    href: siteLinks.diagnosis,
-    cta: "まずモンスター診断を受ける",
-  },
-  {
-    number: "03",
-    title: "Treatアプリ",
-    text: "診断で見えた反応を、日常の中で扱うためのサポート機能です。",
-    status: "プログラム内で提供",
-    href: siteLinks.app,
-    cta: "Treatアプリを見る",
-  },
-  {
-    number: "04",
-    title: "学習コンテンツ",
-    text: "感情が強くなる仕組み、境界線、セルフケアなどを短く学ぶ形式です。",
-    status: "再設計中",
-  },
-  {
-    number: "05",
-    title: "Discordコミュニティ",
-    text: "アウトプット、定型チェックイン、雑談、日常の小さな出来事を共有する場です。",
-    status: "試験運用に向けて調整中",
-  },
-  {
-    number: "06",
-    title: "法人・団体向け",
-    text: "福利厚生、少人数導入、研修、共同検証、掲載・提携などを個別に相談できます。",
-    status: "個別相談",
-    href: siteLinks.business,
-    cta: "法人向けを見る",
-  },
-];
-
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <>
-      <header className="site-header">
-        <div className="header-inner">
-          <a className="brand" href={siteLinks.home}>
-            MINAMI MINDLAB
-            <small className="brand-credit">
-              <span>operated by</span>
-              <img src="/cache-cache-mark.svg" alt="" aria-hidden="true" />
-              <span>CACHE-CACHE</span>
-            </small>
-          </a>
-          <nav className="desktop-nav" aria-label="メインナビゲーション">
-            <a href={siteLinks.services}>サービス</a>
-            <a href={siteLinks.blog}>ブログ</a>
-            <a href={siteLinks.about}>MINAMI MINDLABとは</a>
-            <a className="header-cta" href={siteLinks.diagnosis}>
-              無料診断
-            </a>
-          </nav>
-          <button
-            className="menu-button"
-            type="button"
-            aria-expanded={menuOpen}
-            aria-label="メニューを開く"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? "×" : "☰"}
-          </button>
-        </div>
-        <nav
-          className={`mobile-nav ${menuOpen ? "open" : ""}`}
-          aria-label="モバイルナビゲーション"
-        >
-          <a href={siteLinks.about}>MINAMI MINDLABとは</a>
-          <a href={siteLinks.services}>サービス</a>
-          <a href={siteLinks.monsters}>モンスター</a>
-          <a href={siteLinks.app}>Treatアプリ</a>
-          <a href={siteLinks.business}>法人・提携</a>
-          <a href={siteLinks.profile}>運営者</a>
-          <a href={siteLinks.news}>お知らせ</a>
-          <a href={siteLinks.blog}>ブログ</a>
-          <a href={siteLinks.contact}>お問い合わせ</a>
-        </nav>
-      </header>
-    </>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-top">
-          <div>
-            <div className="footer-brand">
-              MINAMI MINDLAB
-              <small>operated by CACHE-CACHE</small>
-            </div>
-            <p className="footer-copy">
-              感情をなくすのではなく、起きている反応を知り、扱える形にする。
-            </p>
-          </div>
-          <div className="footer-nav">
-            <div>
-              <strong>MINAMI MINDLAB</strong>
-              <a href={siteLinks.about}>私たちについて</a>
-              <a href={siteLinks.monsters}>ネガティブモンスター</a>
-              <a href={siteLinks.app}>Treatアプリ</a>
-            </div>
-            <div>
-              <strong>サービス</strong>
-              <a href={siteLinks.services}>サービス一覧</a>
-              <a href={siteLinks.diagnosis}>モンスター診断</a>
-              <a href={siteLinks.business}>法人・団体向け</a>
-            </div>
-            <div>
-              <strong>運営情報</strong>
-              <a href={siteLinks.profile}>運営者について</a>
-              <a href={siteLinks.news}>お知らせ</a>
-              <a href={siteLinks.blog}>ブログ</a>
-              <a href={siteLinks.contact}>お問い合わせ</a>
-              <a href={siteLinks.privacy}>プライバシーポリシー</a>
-              <a href={siteLinks.tokushoho}>特定商取引法に基づく表記</a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">© CACHE-CACHE / MINAMI MINDLAB</div>
-      </div>
-    </footer>
-  );
-}
+import { SiteHeader, SiteFooter, siteLinks } from "./SiteChrome.jsx";
 
 function Layout({ children }) {
   useEffect(() => {
@@ -204,9 +9,9 @@ function Layout({ children }) {
 
   return (
     <div className="mindlab-site">
-      <Header />
+      <SiteHeader />
       {children}
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }
@@ -326,130 +131,6 @@ function AboutPage() {
                 </p>
               </section>
             </article>
-          </div>
-        </section>
-      </main>
-    </Layout>
-  );
-}
-
-function ServicesPage() {
-  return (
-    <Layout>
-      <main>
-        <Hero eyebrow="SERVICES" title="サービス・取り組み">
-          <p className="hero-copy">
-            無料診断を入口に、個人向けプログラム、Treatアプリ、
-            学習コンテンツ、法人・提携向けの取り組みをご案内します。
-          </p>
-        </Hero>
-        <section className="section white">
-          <div className="container card-grid three">
-            {serviceCards.map((service) => (
-              <article className="info-card" key={service.title}>
-                <div className="card-number">{service.number}</div>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-                <span className="status-label">{service.status}</span>
-                {service.href && (
-                  <a className="text-link" href={service.href}>
-                    {service.cta} →
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
-      </main>
-    </Layout>
-  );
-}
-
-function MonstersPage() {
-  return (
-    <Layout>
-      <main>
-        <Hero eyebrow="NEGATIVE MONSTERS" title="4体のネガティブモンスター">
-          <p className="hero-copy">
-            本人や人格ではなく、自動的に起きる反応を理解するための感情翻訳装置です。
-          </p>
-        </Hero>
-        <section className="section white">
-          <div className="container">
-            <div className="monster-grid detailed">
-              {monsterData.map((monster) => (
-                <article className="monster-card" key={monster.name}>
-                  <div className="monster-image-wrap">
-                    <img src={monster.image} alt={monster.name} />
-                  </div>
-                  <span className="monster-english">{monster.english}</span>
-                  <h3>{monster.name}</h3>
-                  <strong>{monster.label}</strong>
-                  <p>{monster.description}</p>
-                </article>
-              ))}
-            </div>
-            <article className="article-card standalone wide">
-              <h2>倒すためのキャラクターではありません</h2>
-              <p>
-                ネガティブモンスターは、悪者や敵として扱うものではありません。
-                「今、この反応が強くなっている」と気づき、自分への攻撃を止め、
-                Treatへ移るために使います。
-              </p>
-            </article>
-          </div>
-        </section>
-      </main>
-    </Layout>
-  );
-}
-
-function AppPage() {
-  return (
-    <Layout>
-      <main>
-        <Hero eyebrow="TREAT APP" title="感情が強くなった、その場で使う。">
-          <p className="hero-copy">
-            診断で見えたマイモンスターを通して、今起きている反応に気づき、
-            自分を責め続ける前に小さな対処を選ぶためのアプリです。
-          </p>
-        </Hero>
-        <section className="section white">
-          <div className="container split">
-            <div className="phone-mockup">
-              <div className="phone-screen">
-                <div className="phone-label">今日のマイモンスター</div>
-                <img src="/FUAN-Treat.png" alt="Treat後のフアンダー" />
-                <div className="cookie-button">クッキーをあげる</div>
-              </div>
-            </div>
-            <div>
-              <div className="section-kicker">CORE EXPERIENCE</div>
-              <h2>暴走状態から、少し落ち着いた状態へ。</h2>
-              <p className="lead">
-                Treatアプリを開くと、選択中のマイモンスターが反応の高ぶった状態で
-                表示されます。クッキーをあげると、同じモンスターが少し落ち着いた
-                状態へ変化します。これは感情を消すためではなく、次の小さな行動へ
-                移るための体験です。
-              </p>
-              <ul className="feature-list">
-                <li>現在の反応に気づく</li>
-                <li>マイモンスターをTreatする</li>
-                <li>自分にできるTreatを選ぶ</li>
-                <li>次の行動を決める</li>
-                <li>Treat記録を残す</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section className="section lavender">
-          <div className="container article-card standalone">
-            <h2>Treatアプリの利用について</h2>
-            <p>
-              Treatアプリは、無料診断後に案内するプログラム内で利用できます。
-              診断だけで終わらせず、日常の中で反応を扱う練習につなげるための
-              サポート機能です。
-            </p>
           </div>
         </section>
       </main>
@@ -587,100 +268,6 @@ function NewsList({ compact = false }) {
     </div>
   );
 }
-function HomeBlogPreview() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    async function loadLatestPosts() {
-      try {
-        const response = await fetch("/api/blogs");
-
-        if (!response.ok) {
-          throw new Error("ブログ記事を取得できませんでした。");
-        }
-
-        const data = await response.json();
-        setPosts((data.contents || []).slice(0, 3));
-      } catch (err) {
-        console.error(err);
-        setError("最新記事を読み込めませんでした。");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadLatestPosts();
-  }, []);
-
-  return (
-    <section className="section rose blog-home-section">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="section-kicker">BLOG</div>
-            <h2>止まったあとを扱うヒント</h2>
-            <p className="lead">
-              不安や自己否定で目の前のことが手につかなくなったときに、
-              自分を責め続けず、次の小さな行動を選ぶための考え方を掲載しています。
-            </p>
-          </div>
-          <a className="text-link" href={siteLinks.blog}>
-            ブログ一覧を見る →
-          </a>
-        </div>
-
-        {loading && (
-          <p className="blog-preview-status">最新記事を読み込んでいます...</p>
-        )}
-
-        {error && (
-          <div className="blog-preview-status">
-            <p>{error}</p>
-            <a className="text-link" href={siteLinks.blog}>
-              ブログ一覧を見る →
-            </a>
-          </div>
-        )}
-
-        {!loading && !error && posts.length === 0 && (
-          <div className="blog-preview-status">
-            <p>記事を準備中です。</p>
-            <a className="text-link" href={siteLinks.blog}>
-              ブログ一覧を見る →
-            </a>
-          </div>
-        )}
-
-        {!loading && !error && posts.length > 0 && (
-          <div className="blog-preview-grid">
-            {posts.map((post) => (
-              <article className="blog-preview-card" key={post.id}>
-                <div className="blog-preview-meta">
-                  <span className="blog-preview-date">
-                    {post.publishedAt
-                      ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
-                      : ""}
-                  </span>
-                  {post.category?.name && (
-                    <span className="news-category">{post.category.name}</span>
-                  )}
-                </div>
-                <h3>
-                  <a href={`/blog/${post.id}`}>{post.title}</a>
-                </h3>
-                <a className="text-link" href={`/blog/${post.id}`}>
-                  記事を読む →
-                </a>
-              </article>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
@@ -711,7 +298,6 @@ function BlogPage() {
 
   return (
     <Layout>
-
       <main>
         <Hero eyebrow="BLOG" title="ブログ">
           <p className="hero-copy">
@@ -722,9 +308,7 @@ function BlogPage() {
         <section className="section white">
           <div className="container">
             {loading && <p>記事を読み込んでいます...</p>}
-
             {error && <p>{error}</p>}
-
             {!loading && !error && posts.length === 0 && (
               <p>まだ記事はありません。</p>
             )}
@@ -863,7 +447,6 @@ function BlogArticlePage({ id }) {
 
   return (
     <Layout>
-
       <main>
         <Hero eyebrow="BLOG" title={post.title}>
           <p className="hero-copy">
@@ -1169,78 +752,78 @@ function TokushohoPage() {
         <Hero eyebrow="LEGAL" title="特定商取引法に基づく表記" />
         <section className="section white">
           <div className="container">
-           <div className="table-wrap">
-  <table className="legal-table">
-    <tbody>
-      <tr>
-        <th>販売事業者</th>
-        <td>岡本 南美（屋号：CACHE-CACHE）</td>
-      </tr>
-      <tr>
-        <th>運営責任者</th>
-        <td>岡本 南美</td>
-      </tr>
-      <tr>
-        <th>所在地・電話番号</th>
-        <td>
-          お客様からご請求があった場合、申込みの意思決定前に遅滞なく
-          電子メールで開示いたします。お問い合わせフォームよりご請求ください。
-        </td>
-      </tr>
-      <tr>
-        <th>連絡先</th>
-        <td>blueapple373@gmail.com</td>
-      </tr>
-      <tr>
-        <th>販売価格</th>
-        <td>
-          各サービス紹介ページまたは申込ページに、消費税込みの価格を表示します。
-        </td>
-      </tr>
-      <tr>
-        <th>販売価格以外の必要料金</th>
-        <td>
-          商品代金以外に、当方へお支払いいただく追加料金はありません。
-          インターネット接続料金、通信料金等はお客様のご負担となります。
-        </td>
-      </tr>
-      <tr>
-        <th>支払方法</th>
-        <td>Stripeによるクレジットカード決済</td>
-      </tr>
-      <tr>
-        <th>支払時期</th>
-        <td>
-          お申込み時に決済されます。
-          定期購入サービスは、各申込ページに表示された周期で決済されます。
-        </td>
-      </tr>
-      <tr>
-        <th>サービスの提供時期</th>
-        <td>
-          原則として決済完了後、直ちに提供を開始します。
-          開始日が定められているサービスは、各サービス紹介ページまたは
-          申込ページに表示します。
-        </td>
-      </tr>
-      <tr>
-        <th>キャンセル・返金</th>
-        <td>
-          サービスの性質上、提供開始後のお客様都合によるキャンセル・返金は
-          お受けしておりません。当方の責めに帰すべき事由がある場合を除きます。
-          定期購入サービスの解約方法、申出期限、更新条件は、
-          各サービス紹介ページおよび申込時の最終確認画面に表示します。
-        </td>
-      </tr>
-      <tr>
-        <th>申込期間</th>
-        <td>
-          申込期間を設ける場合は、各サービス紹介ページまたは申込ページに表示します。
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            <div className="table-wrap">
+              <table className="legal-table">
+                <tbody>
+                  <tr>
+                    <th>販売事業者</th>
+                    <td>岡本 南美（屋号：CACHE-CACHE）</td>
+                  </tr>
+                  <tr>
+                    <th>運営責任者</th>
+                    <td>岡本 南美</td>
+                  </tr>
+                  <tr>
+                    <th>所在地・電話番号</th>
+                    <td>
+                      お客様からご請求があった場合、申込みの意思決定前に遅滞なく
+                      電子メールで開示いたします。お問い合わせフォームよりご請求ください。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>連絡先</th>
+                    <td>blueapple373@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <th>販売価格</th>
+                    <td>
+                      各サービス紹介ページまたは申込ページに、消費税込みの価格を表示します。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>販売価格以外の必要料金</th>
+                    <td>
+                      商品代金以外に、当方へお支払いいただく追加料金はありません。
+                      インターネット接続料金、通信料金等はお客様のご負担となります。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>支払方法</th>
+                    <td>Stripeによるクレジットカード決済</td>
+                  </tr>
+                  <tr>
+                    <th>支払時期</th>
+                    <td>
+                      お申込み時に決済されます。
+                      定期購入サービスは、各申込ページに表示された周期で決済されます。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>サービスの提供時期</th>
+                    <td>
+                      原則として決済完了後、直ちに提供を開始します。
+                      開始日が定められているサービスは、各サービス紹介ページまたは
+                      申込ページに表示します。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>キャンセル・返金</th>
+                    <td>
+                      サービスの性質上、提供開始後のお客様都合によるキャンセル・返金は
+                      お受けしておりません。当方の責めに帰すべき事由がある場合を除きます。
+                      定期購入サービスの解約方法、申出期限、更新条件は、
+                      各サービス紹介ページおよび申込時の最終確認画面に表示します。
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>申込期間</th>
+                    <td>
+                      申込期間を設ける場合は、各サービス紹介ページまたは申込ページに表示します。
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       </main>
@@ -1259,24 +842,6 @@ const pageMeta = {
     title: "MINAMI MINDLABとは｜MINAMI MINDLAB",
     description:
       "感情をなくすのではなく、反応を理解し、Treatし、日常を止めすぎないMINAMI MINDLABの活動方針をご紹介します。",
-    robots: "index, follow",
-  },
-  "/services": {
-    title: "サービス・取り組み｜MINAMI MINDLAB",
-    description:
-      "モンスター診断、4週間プログラム、Treatアプリなど、MINAMI MINDLABのサービスをご案内します。",
-    robots: "index, follow",
-  },
-  "/monsters": {
-    title: "4体のネガティブモンスター｜MINAMI MINDLAB",
-    description:
-      "不安、過去の傷、自己否定、自責という4つの反応を、ネガティブモンスターとして理解するためのページです。",
-    robots: "index, follow",
-  },
-  "/app": {
-    title: "Treatアプリ｜MINAMI MINDLAB",
-    description:
-      "感情が強くなったその場で開き、自分を責める前に小さなTreatを選ぶためのアプリです。",
     robots: "index, follow",
   },
   "/business": {
@@ -1298,11 +863,11 @@ const pageMeta = {
     robots: "index, follow",
   },
   "/blog": {
-  title: "ブログ｜MINAMI MINDLAB",
-  description:
-    "不安や自己否定などで日常が止まりそうなときに、自分を責めず、次の小さな行動を選ぶための考え方やヒントを掲載しています。",
-  robots: "index, follow",
-},
+    title: "ブログ｜MINAMI MINDLAB",
+    description:
+      "不安や自己否定などで日常が止まりそうなときに、自分を責めず、次の小さな行動を選ぶための考え方やヒントを掲載しています。",
+    robots: "index, follow",
+  },
   "/contact": {
     title: "お問い合わせ｜MINAMI MINDLAB",
     description:
@@ -1334,9 +899,6 @@ export default function Site({ path }) {
   const routes = {
     "/": HomePage,
     "/about": AboutPage,
-    "/services": ServicesPage,
-    "/monsters": MonstersPage,
-    "/app": AppPage,
     "/business": BusinessPage,
     "/profile": ProfilePage,
     "/news": NewsPage,
@@ -1347,15 +909,15 @@ export default function Site({ path }) {
     "/tokushoho": TokushohoPage,
   };
 
- const blogArticleMatch = normalized.match(
-  /^\/blog\/([A-Za-z0-9_-]+)$/
-);
+  const blogArticleMatch = normalized.match(
+    /^\/blog\/([A-Za-z0-9_-]+)$/
+  );
 
-const Page = routes[normalized] || HomePage;
+  const Page = routes[normalized] || HomePage;
 
-const meta = blogArticleMatch
-  ? pageMeta["/blog"]
-  : pageMeta[normalized] || pageMeta["/"];
+  const meta = blogArticleMatch
+    ? pageMeta["/blog"]
+    : pageMeta[normalized] || pageMeta["/"];
 
   useEffect(() => {
     document.title = meta.title;
@@ -1390,9 +952,9 @@ const meta = blogArticleMatch
     );
   }, [normalized, meta.title, meta.description, meta.robots]);
 
-if (blogArticleMatch) {
-  return <BlogArticlePage id={blogArticleMatch[1]} />;
-}
+  if (blogArticleMatch) {
+    return <BlogArticlePage id={blogArticleMatch[1]} />;
+  }
 
-return <Page />;
+  return <Page />;
 }
