@@ -20,6 +20,12 @@
     grid-template-columns: 56px minmax(0, 1fr) !important;
   }
 
+  /* The hidden number was the first grid item. Keep the intro in column 2
+     instead of letting CSS Grid auto-place it into the narrow number column. */
+  .services-editorial-page .step-intro {
+    grid-column: 2 !important;
+  }
+
   .services-editorial-page .service-step + .service-step::before {
     left: 56px !important;
   }
@@ -226,6 +232,10 @@
   .services-editorial-page .service-step {
     grid-template-columns: 56px minmax(0, 1fr) !important;
     column-gap: 0 !important;
+  }
+
+  .services-editorial-page .step-intro {
+    grid-column: 2 !important;
   }
 
   .services-editorial-page .service-step + .service-step::before {
