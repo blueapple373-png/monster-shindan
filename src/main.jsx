@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import LP from './LP.jsx'
 import Site from './Site.jsx'
+import AboutEditorial from './AboutEditorial.jsx'
 import ServicesEditorial from './ServicesEditorial.jsx'
 import MonstersEditorial from './MonstersEditorial.jsx'
 import AppEditorial from './AppEditorial.jsx'
@@ -16,6 +17,8 @@ if (path === '/lp') {
   Page = LP
 } else if (path === '/diagnosis') {
   Page = App
+} else if (path === '/about') {
+  Page = AboutEditorial
 } else if (path === '/services') {
   Page = ServicesEditorial
 } else if (path === '/monsters') {
