@@ -7,7 +7,7 @@
 }
 
 .business-system-section {
-  padding: 10px 24px 82px;
+  padding: 10px 24px 58px;
 }
 
 .business-container {
@@ -19,11 +19,19 @@
   border-top: 1px solid rgba(126, 113, 101, 0.13);
 }
 
+.business-chapter:last-child {
+  padding-bottom: 26px;
+}
+
 .business-chapter-head {
   display: grid;
   grid-template-columns: 90px minmax(0, 365px) minmax(0, 1fr);
   column-gap: 20px;
   align-items: start;
+}
+
+.business-chapter:nth-child(2) .business-chapter-intro {
+  max-width: 320px;
 }
 
 .business-chapter-number {
@@ -137,11 +145,17 @@
   letter-spacing: 0.05em;
 }
 
+.business-chapter:last-child .business-detail {
+  margin-top: 12px;
+  margin-left: 495px;
+  padding-top: 0;
+}
+
 .business-contact-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 0;
   padding: 0 0 7px;
   border-bottom: 1px solid rgba(124, 111, 186, 0.42);
   color: #7468ad !important;
@@ -178,6 +192,10 @@
     margin-left: 94px;
   }
 
+  .business-chapter:last-child .business-detail {
+    margin-left: 444px;
+  }
+
   .business-option {
     padding-left: 22px;
     padding-right: 22px;
@@ -188,6 +206,10 @@
   .business-chapter-head {
     grid-template-columns: 64px minmax(0, 1fr);
     row-gap: 10px;
+  }
+
+  .business-chapter:nth-child(2) .business-chapter-intro {
+    max-width: none;
   }
 
   .business-chapter-number {
@@ -205,7 +227,8 @@
   }
 
   .business-options,
-  .business-detail {
+  .business-detail,
+  .business-chapter:last-child .business-detail {
     margin-left: 82px;
   }
 
@@ -225,11 +248,15 @@
 
 @media (max-width: 640px) {
   .business-system-section {
-    padding: 4px 18px 58px;
+    padding: 4px 18px 46px;
   }
 
   .business-chapter {
     padding: 28px 0 32px;
+  }
+
+  .business-chapter:last-child {
+    padding-bottom: 20px;
   }
 
   .business-chapter-head {
@@ -250,7 +277,8 @@
   }
 
   .business-options,
-  .business-detail {
+  .business-detail,
+  .business-chapter:last-child .business-detail {
     margin-left: 0;
   }
 
@@ -267,7 +295,8 @@
     font-size: 13px;
   }
 
-  .business-detail {
+  .business-detail,
+  .business-chapter:last-child .business-detail {
     margin-top: 18px;
     padding-top: 16px;
   }
