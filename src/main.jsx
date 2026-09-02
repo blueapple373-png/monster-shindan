@@ -10,6 +10,7 @@ import AppEditorial from './AppEditorial.jsx'
 import './marble-tuning.css'
 import './profile.css'
 import './contact.css'
+import './legal.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 const showBlogHomeRail = path === '/blog' || path.startsWith('/blog/')
