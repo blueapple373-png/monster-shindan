@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import LP from './LP.jsx'
@@ -13,6 +13,44 @@ import './contact.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 const showBlogHomeRail = path === '/blog' || path.startsWith('/blog/')
+
+function BlogHomeRail() {
+  useEffect(() => {
+    let frame
+    let attempts = 0
+
+    const install = () => {
+      const hero = document.querySelector('.page-hero.compact')
+
+      if (!hero) {
+        if (attempts < 180) {
+          attempts += 1
+          frame = requestAnimationFrame(install)
+        }
+        return
+      }
+
+      hero.querySelectorAll('.page-home-rail').forEach((rail) => rail.remove())
+      document.querySelectorAll('.blog-home-rail').forEach((rail) => rail.remove())
+
+      const rail = document.createElement('a')
+      rail.className = 'hero-rail-link page-home-rail blog-home-rail'
+      rail.href = '/'
+      rail.setAttribute('aria-label', 'ホームへ戻る')
+      rail.innerHTML = '<span>00</span><i aria-hidden="true"></i><strong>Home</strong>'
+      hero.appendChild(rail)
+    }
+
+    frame = requestAnimationFrame(install)
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame)
+      document.querySelectorAll('.blog-home-rail').forEach((rail) => rail.remove())
+    }
+  }, [])
+
+  return null
+}
 
 let Page
 if (path === '/lp') {
@@ -34,12 +72,6 @@ if (path === '/lp') {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <Page />
-    {showBlogHomeRail && (
-      <a className="hero-rail-link page-home-rail blog-home-rail" href="/" aria-label="ホームへ戻る">
-        <span>00</span>
-        <i aria-hidden="true" />
-        <strong>Home</strong>
-      </a>
-    )}
+    {showBlogHomeRail && <BlogHomeRail />}
   </>
 )
