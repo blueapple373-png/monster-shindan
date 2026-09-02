@@ -1,0 +1,221 @@
+/* Canonical shared mobile adjustments.
+   Portrait phone styles remain in the existing base rules for now.
+   This file first closes the gap where landscape phones were treated as desktop. */
+
+@media (min-width: 641px) and (max-width: 960px) and (max-height: 600px) and (pointer: coarse) {
+  .site-header {
+    z-index: 50;
+  }
+
+  .header-inner,
+  body:not(:has(.editorial-hero)) .header-inner {
+    min-height: 78px;
+    padding: 0 22px;
+    align-items: center;
+  }
+
+  .brand {
+    max-width: 230px;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+  }
+
+  .brand small {
+    margin-top: 7px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .brand-credit {
+    gap: 6px;
+  }
+
+  .brand-credit img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .menu-button,
+  body:not(:has(.editorial-hero)) .menu-button {
+    width: 36px;
+    height: 32px;
+    flex: 0 0 auto;
+    transform: none;
+  }
+
+  .mobile-nav {
+    top: 70px;
+    right: 18px;
+    width: min(300px, calc(100vw - 36px));
+    padding: 18px 20px;
+  }
+
+  .mobile-nav a {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+
+  /* HOME: use the same compact reading flow as portrait phones. */
+  .editorial-hero {
+    min-height: auto !important;
+    padding: 0 28px 32px !important;
+    overflow: hidden;
+  }
+
+  .editorial-hero-inner {
+    min-height: auto !important;
+    padding: 112px 0 0 !important;
+  }
+
+  .editorial-hero h1 {
+    max-width: 560px;
+    font-size: clamp(28px, 4.4vw, 36px);
+    line-height: 1.62;
+    letter-spacing: 0.045em;
+    white-space: normal;
+  }
+
+  .hero-copy {
+    max-width: 500px;
+    margin-top: 22px;
+    font-size: 13px !important;
+    line-height: 1.9 !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .hero-text-link,
+  .hero-rail-link {
+    display: none !important;
+  }
+
+  .editorial-hero::after {
+    display: none !important;
+  }
+
+  .hero-mobile-links,
+  .mindlab-injected-links {
+    display: grid !important;
+    gap: 14px !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-top: 26px !important;
+  }
+
+  .hero-mobile-links a,
+  .mindlab-injected-links a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 26px !important;
+    padding: 0 0 5px !important;
+    border-bottom: 1px solid rgba(139, 116, 94, 0.44) !important;
+    color: rgba(41, 37, 33, 0.76) !important;
+    font-family: var(--serif) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .hero-mobile-links a::after,
+  .mindlab-injected-links a::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .home-journal,
+  .mindlab-injected-journal {
+    display: block !important;
+    position: relative !important;
+    margin-top: 0 !important;
+    padding: 26px 28px 38px !important;
+    background: transparent !important;
+  }
+
+  .home-journal-inner {
+    width: 100% !important;
+  }
+
+  .home-journal-kicker {
+    color: rgba(157, 134, 111, 0.78) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .home-journal-list {
+    margin-top: 15px !important;
+    border-top: 1px solid rgba(157, 134, 111, 0.2) !important;
+  }
+
+  .home-journal-item {
+    display: grid !important;
+    grid-template-columns: 88px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(157, 134, 111, 0.16) !important;
+    color: rgba(41, 37, 33, 0.82) !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+  }
+
+  .home-journal-item time {
+    color: rgba(139, 116, 94, 0.72) !important;
+    font-family: var(--serif) !important;
+  }
+
+  .home-journal-item span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .home-journal-more {
+    display: inline-flex !important;
+    margin-top: 16px !important;
+    padding-bottom: 4px !important;
+    border-bottom: 1px solid rgba(139, 116, 94, 0.44) !important;
+    color: rgba(41, 37, 33, 0.78) !important;
+    font-family: var(--serif) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  /* Keep the footer in the phone reading order instead of the desktop split. */
+  .site-footer {
+    padding: 36px 28px 24px;
+  }
+
+  .site-footer .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-bottom: 26px;
+  }
+
+  .site-footer .footer-top > div:not(.footer-nav) {
+    display: none !important;
+  }
+
+  .site-footer .footer-nav {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  .site-footer .footer-nav strong {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .site-footer .footer-nav a {
+    margin: 6px 0;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .footer-bottom {
+    padding-top: 18px;
+    font-size: 11px;
+  }
+}
