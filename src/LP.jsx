@@ -6,6 +6,7 @@ const STRIPE_URLS = {
   founding: "https://buy.stripe.com/28E5kE1ftdtL5Ongyd4wM05",
   general: "https://buy.stripe.com/fZubJ2gancpH4Kj1Dj4wM06",
 };
+const OFFICIAL_LINE_URL = "https://line.me/R/ti/p/@418enrnz";
 const OFFER_CONFIG = {
   founding: {
     badge: "第1期・創設メンバー5名限定",
@@ -767,7 +768,7 @@ export default function LP() {
             そんな方と、止まった場面を一緒に扱える形にしたいと思っています。
           </p>
           <PriceBlock offer={offer} dark />
-          <BuyButton offer={offer} />
+          <BuyButton offer={offer} dark />
           <p
             style={{
               fontSize: 12,
@@ -911,13 +912,13 @@ function PriceBlock({ offer, dark = false }) {
     </div>
   );
 }
-function BuyButton({ offer }) {
+function BuyButton({ offer, dark = false }) {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 12,
+        gap: 10,
         maxWidth: 400,
         margin: "0 auto",
       }}
@@ -941,6 +942,46 @@ function BuyButton({ offer }) {
       >
         {offer.ctaLabel} →
       </a>
+      <p
+        style={{
+          fontSize: 13,
+          color: dark ? "#D8D2EA" : "#6B6B80",
+          lineHeight: 1.7,
+          margin: "4px 0 0",
+        }}
+      >
+        申し込む前に、確認しておきたいことがある方へ
+      </p>
+      <a
+        href={OFFICIAL_LINE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LINEで申込前チェックをする（友だち追加ページが開きます）"
+        style={{
+          display: "block",
+          background: dark ? "rgba(255,255,255,0.06)" : "white",
+          color: "#06C755",
+          border: "1px solid #06C755",
+          borderRadius: 50,
+          padding: "13px 24px",
+          fontSize: 14,
+          fontWeight: 700,
+          textDecoration: "none",
+          textAlign: "center",
+        }}
+      >
+        LINEで申込前チェックをする →
+      </a>
+      <p
+        style={{
+          fontSize: 12,
+          color: dark ? "#B7B0CA" : "#8A8A98",
+          lineHeight: 1.7,
+          margin: "-2px 0 0",
+        }}
+      >
+        よくある不安や講座・料金を確認できます。友だち追加だけで購入にはなりません。
+      </p>
     </div>
   );
 }
