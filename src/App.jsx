@@ -149,6 +149,7 @@ export default function App() {
           const isMild = resultLevel === "mild";
           const tops = getTopMonsters(scores);
           const isMultiple = tops.length > 1;
+          const topNames = tops.map(key => monsters[key].name);
 
           if (isMinimal) {
             return (
@@ -209,6 +210,13 @@ export default function App() {
                         ? "いくつかの反応が、同じくらい少し見られました"
                         : "複数のモンスターが同じくらい活発です"}
                     </div>
+                    {isMild && (
+                      <p style={{ fontSize:13, color:"#6B6B80", lineHeight:1.8, margin:"10px auto 0", maxWidth:420 }}>
+                        {tops.length === 2
+                          ? `最近1か月では、${topNames[0]}と${topNames[1]}のどちらか一つが強く出ているというより、両方の反応が少しずつ見られました。`
+                          : `最近1か月では、${topNames.join("・")}のどれか一つが強く出ているというより、それぞれの反応が少しずつ見られました。`}
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <div>
@@ -286,7 +294,11 @@ export default function App() {
 
           {(() => {
             const primary = monsters[tops[0]];
-            const bridgeText = getBridgeText(tops);
+            const bridgeText = isMild
+              ? (isMultiple
+                ? "反応が一つに決まらないこともあります。似た揺れが繰り返されるときは、どの反応がどんな場面で出やすいかを、もう少し詳しく整理できます。"
+                : "今は強い反応ではなくても、似た揺れが繰り返されるときは、反応の重なり方や戻り方をもう少し詳しく整理できます。")
+              : getBridgeText(tops);
             return (
               <div style={{
                 background: primary.bg,
