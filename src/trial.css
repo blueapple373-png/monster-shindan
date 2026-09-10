@@ -1,0 +1,373 @@
+.trial-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #2d2d3a;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+}
+
+.trial-topbar {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.trial-brand,
+.trial-back,
+.trial-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.trial-brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.trial-back {
+  font-size: 12px;
+  color: #777485;
+}
+
+.trial-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #f1edf0;
+  border-bottom: 1px solid #f3edef;
+}
+
+.trial-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 48px, 860px);
+  margin: 0 auto;
+  padding: 92px 0 84px;
+}
+
+.trial-glow {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  right: -120px;
+  bottom: -250px;
+  border-radius: 42% 58% 54% 46% / 46% 42% 58% 54%;
+  background:
+    radial-gradient(circle at 28% 38%, rgba(232, 140, 146, .26), transparent 34%),
+    radial-gradient(circle at 62% 30%, rgba(210, 186, 222, .28), transparent 36%),
+    radial-gradient(circle at 54% 68%, rgba(242, 209, 181, .34), transparent 38%);
+  filter: blur(12px);
+  transform: rotate(-10deg);
+}
+
+.trial-eyebrow,
+.trial-section-label {
+  margin: 0 0 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: #b1545b;
+}
+
+.trial-hero h1 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 1.38;
+  letter-spacing: -.035em;
+  font-weight: 800;
+}
+
+.trial-lead {
+  max-width: 660px;
+  margin: 30px 0 0;
+  font-size: 16px;
+  line-height: 2;
+  color: #595765;
+}
+
+.trial-primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  background: #bd555d;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(189, 85, 93, .18);
+}
+
+.trial-hero-note {
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: #817e89;
+}
+
+.trial-section {
+  padding: 84px 24px;
+}
+
+.trial-soft {
+  background: #fbf9fa;
+}
+
+.trial-caution {
+  background: #fff8f7;
+}
+
+.trial-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.trial-narrow {
+  max-width: 720px;
+}
+
+.trial-content h2 {
+  margin: 0 0 28px;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.5;
+  letter-spacing: -.02em;
+}
+
+.trial-content > p:not(.trial-section-label) {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 2;
+  color: #575461;
+}
+
+.trial-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.trial-steps article {
+  background: #fff;
+  border: 1px solid #eee9eb;
+  border-radius: 22px;
+  padding: 28px;
+}
+
+.trial-steps article > span {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: #b1545b;
+}
+
+.trial-steps h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.trial-steps p,
+.trial-note-list p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #62606c;
+}
+
+.trial-inline-note {
+  margin: 24px 0 0 !important;
+  padding: 18px 20px;
+  border-left: 3px solid #c86c72;
+  background: #fff;
+  font-size: 13px !important;
+}
+
+.trial-note-list {
+  display: grid;
+  gap: 12px;
+}
+
+.trial-note-list p {
+  padding: 16px 18px;
+  background: #fbf9fa;
+  border-radius: 14px;
+}
+
+.trial-apply {
+  background: #f8f5f6;
+}
+
+.trial-form-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.trial-form-copy {
+  position: sticky;
+  top: 24px;
+}
+
+.trial-form-copy h2 {
+  margin-bottom: 18px;
+}
+
+.trial-form-copy p:last-child {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #66636e;
+}
+
+.trial-form {
+  display: grid;
+  gap: 18px;
+  padding: 30px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #ebe5e7;
+  box-shadow: 0 14px 40px rgba(44, 35, 39, .06);
+}
+
+.trial-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.trial-form label span {
+  color: #3f3c45;
+}
+
+.trial-form label small {
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #85818b;
+}
+
+.trial-form input,
+.trial-form textarea,
+.trial-form select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dcd6d9;
+  border-radius: 12px;
+  background: #fff;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: #302e35;
+  outline: none;
+}
+
+.trial-form textarea {
+  resize: vertical;
+  min-height: 128px;
+  line-height: 1.7;
+}
+
+.trial-form input:focus,
+.trial-form textarea:focus,
+.trial-form select:focus {
+  border-color: #bd777c;
+  box-shadow: 0 0 0 3px rgba(189, 119, 124, .11);
+}
+
+.trial-form button {
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 20px;
+  background: #bd555d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.trial-form-footnote {
+  margin: -4px 0 0 !important;
+  text-align: center;
+  font-size: 11px !important;
+  color: #85818b !important;
+}
+
+.trial-honey {
+  display: none;
+}
+
+.trial-footer {
+  padding: 28px 24px 34px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #eee9eb;
+  font-size: 11px;
+  color: #7b7781;
+}
+
+.trial-footer p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .trial-topbar {
+    padding: 18px 18px;
+  }
+
+  .trial-hero {
+    min-height: auto;
+  }
+
+  .trial-hero-inner {
+    width: min(100% - 36px, 860px);
+    padding: 70px 0 64px;
+  }
+
+  .trial-glow {
+    width: 430px;
+    height: 430px;
+    right: -220px;
+    bottom: -190px;
+  }
+
+  .trial-lead {
+    font-size: 15px;
+  }
+
+  .trial-section {
+    padding: 64px 18px;
+  }
+
+  .trial-steps,
+  .trial-form-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .trial-form-wrap {
+    gap: 28px;
+  }
+
+  .trial-form-copy {
+    position: static;
+  }
+
+  .trial-form {
+    padding: 22px 18px;
+  }
+
+  .trial-footer {
+    flex-direction: column;
+  }
+}
