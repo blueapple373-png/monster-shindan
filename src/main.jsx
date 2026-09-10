@@ -7,6 +7,7 @@ import AboutEditorial from './AboutEditorial.jsx'
 import ServicesEditorial from './ServicesEditorial.jsx'
 import MonstersEditorial from './MonstersEditorial.jsx'
 import AppEditorial from './AppEditorial.jsx'
+import TrialPage from './TrialPage.jsx'
 import './marble-tuning.css'
 import './profile.css'
 import './contact.css'
@@ -59,6 +60,8 @@ if (path === '/lp') {
   Page = LP
 } else if (path === '/diagnosis') {
   Page = App
+} else if (path === '/trial') {
+  Page = TrialPage
 } else if (path === '/about') {
   Page = AboutEditorial
 } else if (path === '/services') {
