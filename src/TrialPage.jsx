@@ -137,11 +137,6 @@ export default function TrialPage() {
               <input type="hidden" name="_subject" value="MINAMI MINDLAB Treat無料体験への応募" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_next" value="https://monster-shindan.vercel.app/trial-thanks" />
-              <input
-                type="hidden"
-                name="_autoresponse"
-                value="MINAMI MINDLAB Treat無料体験へのご応募ありがとうございます。内容を確認のうえ、参加方法についてご連絡します。"
-              />
               <input type="text" name="_honey" tabIndex="-1" autoComplete="off" className="trial-honey" />
 
               <label>
