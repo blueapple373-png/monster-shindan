@@ -6,6 +6,7 @@ export const siteLinks = {
   services: "/services",
   monsters: "/monsters",
   app: "/app",
+  trial: "/trial",
   business: "/business",
   profile: "/profile",
   news: "/news",
@@ -31,7 +32,7 @@ export function SiteHeader() {
           </small>
         </a>
         <nav className="desktop-nav" aria-label="メインナビゲーション">
-          <a href={siteLinks.services}>サービス</a>
+          <a href={siteLinks.trial}>無料体験</a>
           <a href={siteLinks.blog}>ブログ</a>
           <a href={siteLinks.about}>MINAMI MINDLABとは</a>
           <a className="header-cta" href={siteLinks.diagnosis}>無料診断</a>
@@ -48,9 +49,8 @@ export function SiteHeader() {
       </div>
       <nav className={`mobile-nav ${menuOpen ? "open" : ""}`} aria-label="モバイルナビゲーション">
         <a href={siteLinks.about}>MINAMI MINDLABとは</a>
-        <a href={siteLinks.services}>サービス</a>
         <a href={siteLinks.monsters}>モンスター</a>
-        <a href={siteLinks.app}>Treatアプリ</a>
+        <a href={siteLinks.trial}>Treat無料体験</a>
         <a href={siteLinks.business}>法人・提携</a>
         <a href={siteLinks.profile}>運営者</a>
         <a href={siteLinks.news}>お知らせ</a>
@@ -78,12 +78,12 @@ export function SiteFooter() {
               <strong>MINAMI MINDLAB</strong>
               <a href={siteLinks.about}>私たちについて</a>
               <a href={siteLinks.monsters}>ネガティブモンスター</a>
-              <a href={siteLinks.app}>Treatアプリ</a>
+              <a href={siteLinks.trial}>Treat無料体験</a>
             </div>
             <div>
               <strong>サービス</strong>
-              <a href={siteLinks.services}>サービス一覧</a>
               <a href={siteLinks.diagnosis}>モンスター診断</a>
+              <a href={siteLinks.trial}>無料体験者募集</a>
               <a href={siteLinks.business}>法人・団体向け</a>
             </div>
             <div>
