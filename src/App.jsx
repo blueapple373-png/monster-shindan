@@ -20,34 +20,11 @@ const questions = [
 ];
 
 const monsters = {
-  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", imgTreat:"/FUAN-Treat.png",num: "/01.png",desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を向ける練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。", bridge: "フアンダーが暴走すると、何かが起きる前から動けなくなります。4週間プログラムでは、不安が立ち上がる兆候と、その手前で踏みとどまる方法を一緒に整理します。" },
-  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", imgTreat:"/KAKO-Treat2.svg",num: "/02.png",desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。", bridge: "カコノキズが反応すると、今の出来事のはずなのに過去の痛みごと呼び起こされます。4週間プログラムでは、その混同が起きる瞬間を見分け、今の状況と切り分ける手がかりを作ります。" },
-  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", imgTreat:"/HITEI-Treat.png",num: "/03.png",desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。", bridge: "ジコヒテイが強く出ると、できなかったことばかりが目に入り、止まった自分をさらに責めてしまいます。4週間プログラムでは、その悪循環を断ち切る最初の一歩を一緒に探します。" },
-  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png",imgTreat:"/JISEKI-Treat.png",num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。", bridge: "ジセキンが強いと、自分の範囲を超えたことまで背負い込み、身動きが取れなくなります。4週間プログラムでは、責任の境界線を一緒に引き直していきます。" },
+  fuander:  { name: "フアンダー",  sub: "不安モンスター",    color: "#9B8EC4", bg: "#F0EDFB", img: "/FUAN.png", imgTreat:"/FUAN-Treat.png",num: "/01.png",desc: "まだ起きていない未来を心配するモンスター。あなたの見張り番として働いているけれど、時々暴走して、今ここにいることを難しくさせます。", treat: "「今この瞬間」に意識を向ける練習が効きます。深呼吸、五感への集中、「今日起きたいいこと1つ」を見つける習慣。" },
+  kako:     { name: "カコノキズ",  sub: "過去の傷モンスター", color: "#E07070", bg: "#FDF0F0", img: "/KAKO.png", imgTreat:"/KAKO-Treat2.svg",num: "/02.png",desc: "過去の痛みを忘れないモンスター。二度と傷つかないよう守ろうとするけれど、過去と今を混同させてしまうことがあります。", treat: "今の状況と過去の状況を「分けて見る」練習が効きます。「これは今のこと？昔のこと？」と自分に問いかける習慣。" },
+  jiko:     { name: "ジコヒテイ",  sub: "自己否定モンスター", color: "#6BAE8E", bg: "#EDF7F2", img: "/HITEI.png", imgTreat:"/HITEI-Treat.png",num: "/03.png",desc: "自分の価値を否定するモンスター。完璧でなければと追い込んでくる。でも実は、あなたに高い基準を持ってほしいという願いから生まれています。", treat: "「できたこと」を記録する習慣が効きます。小さいことでいい。歯磨きできた、それだけで充分。" },
+  jisekin:  { name: "ジセキン",    sub: "自責モンスター",    color: "#6BAEC4", bg: "#EDF4F7", img: "/JISEKI.png",imgTreat:"/JISEKI-Treat.png",num: "/04.png", desc: "全部自分のせいにするモンスター。責任感の強さから生まれているけれど、本来あなたのせいではないことまで背負わせてしまいます。", treat: "「これは自分の責任？相手の責任？」と境界線を引く練習が効きます。責任の範囲を小さく限定する習慣。" },
 };
-
-// 同率2体の組み合わせごとの橋渡し文（順不同で引けるよう両方向のキーを用意）
-const comboBridges = {
-  "fuander,kako": "フアンダーが未来を心配し始めると、カコノキズが過去の痛みを呼び起こし、今のことなのか過去のことなのか分からないまま不安だけが膨らみます。4週間プログラムでは、この連鎖がどこから始まるのかを一緒に見分けます。",
-  "fuander,jiko": "フアンダーが不安を強めると、ジコヒテイが「だからお前はダメなんだ」と追い打ちをかけ、動けない時間が長引きやすくなります。4週間プログラムでは、その連鎖が始まる瞬間を見分け、早い段階で抜け出すルートを一緒に作ります。",
-  "fuander,jisekin": "フアンダーが心配を始めると、ジセキンが「全部自分のせいだ」と引き取り、身動きが取れなくなります。4週間プログラムでは、不安と自責が連動する手前で踏みとどまる方法を整理します。",
-  "kako,jiko": "カコノキズが過去の痛みを呼び起こすと、ジコヒテイがそれを「今のあなたの欠陥」として責め立て、二重に苦しくなります。4週間プログラムでは、過去と評価を切り離す練習をします。",
-  "kako,jisekin": "カコノキズが過去を呼び起こすと、ジセキンがその痛みまで自分の責任として背負い込んでしまいます。4週間プログラムでは、過去の出来事と今の責任を分けて見る練習をします。",
-  "jiko,jisekin": "ジコヒテイが自分を否定し、ジセキンがすべてを背負い込むと、抜け出し口のない自己批判が続きます。4週間プログラムでは、その連鎖を断ち切る最初の一歩を一緒に探します。",
-};
-
-function getBridgeText(tops) {
-  if (tops.length === 1) return monsters[tops[0]].bridge;
-  if (tops.length === 2) {
-    const key1 = tops.join(",");
-    const key2 = [...tops].reverse().join(",");
-    if (comboBridges[key1]) return comboBridges[key1];
-    if (comboBridges[key2]) return comboBridges[key2];
-  }
-  // 3体以上同率、またはペア未定義時の汎用フォールバック
-  const names = tops.map(k => monsters[k].name).join("・");
-  return `${names}が同時に動くと、原因も止まり方も入り混じり、自分でも何が起きているのか分かりにくくなります。4週間プログラムでは、それぞれの動き方を切り分けて、自分専用の立て直しルートを一緒に整理します。`;
-}
 
 const ORDER = ["fuander", "kako", "jiko", "jisekin"];
 
@@ -292,47 +269,39 @@ export default function App() {
 
               <button onClick={resetDiagnosis} style={{ width:"100%", background:"linear-gradient(135deg,#9B8EC4,#E07070)", color:"white", border:"none", borderRadius:50, padding:"16px", fontSize:15, fontWeight:700, cursor:"pointer", marginTop:8 }}>もう一度診断する</button>
 
-          {(() => {
-            const primary = monsters[tops[0]];
-            const bridgeText = isMild
-              ? (isMultiple
-                ? "反応が一つに決まらないこともあります。似た揺れが繰り返されるときは、どの反応がどんな場面で出やすいかを、もう少し詳しく整理できます。"
-                : "今は強い反応ではなくても、似た揺れが繰り返されるときは、反応の重なり方や戻り方をもう少し詳しく整理できます。")
-              : getBridgeText(tops);
-            return (
               <div style={{
-                background: primary.bg,
-                border: `2px solid ${primary.color}30`,
+                background: "white",
+                border: "1px solid #E8E8F0",
                 borderRadius: 20,
                 padding: 24,
                 marginTop: 20,
+                boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
               }}>
-                <div style={{ fontSize:13, fontWeight:700, color:primary.color, marginBottom:10 }}>
-                  診断結果からのご案内
+                <div style={{ fontSize:16, fontWeight:800, color:"#2D2D3A", marginBottom:10, lineHeight:1.6 }}>
+                  気持ちが動いた場面で、Treatを試してみませんか
                 </div>
-                <p style={{ fontSize:14, lineHeight:1.9, color:"#2D2D3A", margin:0 }}>
-                  {bridgeText}
+                <p style={{ fontSize:14, lineHeight:1.9, color:"#4A4A5A", margin:0 }}>
+                  Treatが実際の生活の中で思い出して使えるものになるかを確かめるため、少人数の無料体験に協力してくれる方を募集しています。
                 </p>
               </div>
-            );
-          })()}
 
-          <a href="/lp" style={{
-  display:"block",
-  width:"calc(100% - 32px)",
-  background:"linear-gradient(135deg,#9B8EC4,#E07070)",
-  color:"white",
-  border:"none",
-  borderRadius:50,
-  padding:"16px",
-  fontSize:15,
-  fontWeight:700,
-  textAlign:"center",
-  textDecoration:"none",
-  marginTop:12,
-}}>
-  4週間プログラムの詳細を見る →
-</a>  </div>
+              <a href="/trial" style={{
+                display:"block",
+                width:"calc(100% - 32px)",
+                background:"linear-gradient(135deg,#9B8EC4,#E07070)",
+                color:"white",
+                border:"none",
+                borderRadius:50,
+                padding:"16px",
+                fontSize:15,
+                fontWeight:700,
+                textAlign:"center",
+                textDecoration:"none",
+                marginTop:12,
+              }}>
+                無料体験について見る →
+              </a>
+            </div>
           );
         })()}
       </div>
