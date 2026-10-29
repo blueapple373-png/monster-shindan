@@ -68,7 +68,8 @@ export default function TrialPage() {
                 <h3>思い出したらTreat</h3>
                 <p>
                   不安や傷つき、自分を責めるなどの反応が起きたとき、
-                  Treatを思い出したらアプリで使ってみてもらいます。
+                  思い出したらアプリで今のモンスターに気づき、クッキーをあげる（Treat）操作を試してみてください。
+                  必要なら、その後にできる小さな行動を一つ選びます。
                 </p>
               </article>
               <article>
@@ -82,7 +83,10 @@ export default function TrialPage() {
               <article>
                 <span>04</span>
                 <h3>週1回の短い振り返り</h3>
-                <p>週に1回程度、数問の簡単な振り返りにお答えいただきます。</p>
+                <p>
+                  週に1回程度、数問の簡単な振り返りにお答えいただきます。
+                  観察期間中の定期面談は原則ありません。観察終了後、確認のために1回15〜20分程度のインタビューを予定しています。
+                </p>
               </article>
             </div>
             <p className="trial-inline-note">
@@ -96,6 +100,8 @@ export default function TrialPage() {
             <p className="trial-section-label">BEFORE YOU JOIN</p>
             <h2>現在は、正式サービス提供前の検証段階です。</h2>
             <div className="trial-note-list">
+              <p>参加が決まった方には、Treat利用のためDiscordアカウントをご用意いただき、運営者が利用資格を個別に付与します。公式LINE登録は参加条件ではありません。</p>
+              <p>観察終了後は、最終確認を行ったうえで無料体験用のDiscordロールとアプリ利用資格を解除します。</p>
               <p>利用状況や週次振り返り、感想を運営者が確認します。</p>
               <p>今後、仕様や内容が変わる可能性があります。</p>
               <p>料金は発生しません。</p>
