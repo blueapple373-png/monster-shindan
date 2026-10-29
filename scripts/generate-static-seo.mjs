@@ -75,9 +75,8 @@ const diagnosisStaticBody = `
 
   <nav class="seo-static-links" aria-label="関連ページ">
     <a href="/">MINAMI MINDLAB公式サイト</a>
-    <a href="/services">サービス・取り組み</a>
+    <a href="/trial">Treat無料体験について</a>
     <a href="/monsters">ネガティブモンスター</a>
-    <a href="/app">Treatアプリ</a>
   </nav>
 </main>`;
 
@@ -94,8 +93,26 @@ const pages = [
     title: "サービス・取り組み｜MINAMI MINDLAB",
     description:
       "モンスター診断、4週間プログラム、Treatアプリなど、MINAMI MINDLABのサービスをご案内します。",
-    robots: "index, follow",
+    robots: "noindex, follow",
     staticBody: servicesStaticBody,
+  },
+  {
+    path: "/lp",
+    title: "過去の募集ページ｜MINAMI MINDLAB",
+    description: "現在の募集条件ではありません。",
+    robots: "noindex, follow",
+  },
+  {
+    path: "/trial",
+    title: "Treat無料体験｜MINAMI MINDLAB",
+    description: "Treat無料体験の募集案内です。",
+    robots: "noindex, follow",
+  },
+  {
+    path: "/trial-thanks",
+    title: "応募受付｜MINAMI MINDLAB",
+    description: "無料体験の応募受付ページです。",
+    robots: "noindex, follow",
   },
   {
     path: "/monsters",
@@ -109,7 +126,7 @@ const pages = [
     title: "Treatアプリ｜MINAMI MINDLAB",
     description:
       "感情が大きく動いたときに、今の反応を整理し、次にできる小さな対処を選ぶためのTreatアプリをご紹介します。",
-    robots: "index, follow",
+    robots: "noindex, follow",
   },
   {
     path: "/business",
