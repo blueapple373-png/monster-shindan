@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import LP from './LP.jsx'
+import ArchivedOfferPage from './ArchivedOfferPage.jsx'
 import Site from './Site.jsx'
 import AboutEditorial from './AboutEditorial.jsx'
 import ServicesEditorial from './ServicesEditorial.jsx'
@@ -66,7 +66,7 @@ function BlogHomeRail() {
 
 let Page
 if (path === '/lp') {
-  Page = LP
+  Page = ArchivedOfferPage
 } else if (path === '/diagnosis') {
   Page = App
 } else if (path === '/trial') {
