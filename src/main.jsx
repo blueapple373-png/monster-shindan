@@ -16,6 +16,14 @@ import './legal.css'
 import './mobile.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
+// Keep pre-launch and archived offer routes out of search even if the SPA fallback is served.
+const noindexPaths = new Set(['/services', '/app', '/lp', '/trial', '/trial-thanks']);
+if (noindexPaths.has(path)) {
+  const robotsMeta = document.querySelector('meta[name="robots"]') || document.createElement('meta');
+  robotsMeta.setAttribute('name', 'robots');
+  robotsMeta.setAttribute('content', 'noindex, follow');
+  if (!robotsMeta.parentNode) document.head.appendChild(robotsMeta);
+}
 const showBlogHomeRail = path === '/blog' || path.startsWith('/blog/')
 
 function BlogHomeRail() {
