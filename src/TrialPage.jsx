@@ -21,13 +21,14 @@ export default function TrialPage() {
           <div className="trial-hero-inner">
             <p className="trial-eyebrow">TREAT PILOT</p>
             <h1>
-              実際の生活の中で、
+              不安や自責で、頭がいっぱいになるとき。
               <br />
-              Treatは思い出して使えるのか。
+              その瞬間に試せる、小さな対処。
             </h1>
             <p className="trial-lead">
-              Treatが、実際に気持ちが動いた場面で思い出して使えるものになるかを確かめるため、
-              少人数の無料体験に協力してくれる方を募集しています。
+              気持ちが大きく動いた場面で、今の反応に気づき、クッキーをあげる（Treat）操作を試します。
+              必要なら、次にできる小さな行動を一つ選びます。
+              実生活で思い出して使えるかを確かめるため、少人数の無料体験者を募集しています。
             </p>
             <a className="trial-primary-link" href="#apply">無料体験に応募する</a>
             <p className="trial-hero-note">正式提供前の検証です。料金は発生しません。</p>
@@ -38,10 +39,11 @@ export default function TrialPage() {
         <section className="trial-section">
           <div className="trial-content trial-narrow">
             <p className="trial-section-label">ABOUT</p>
-            <h2>その瞬間に、使えるものを作るために。</h2>
+            <h2>考え続けて動けない、その手前で。</h2>
             <p>
-              不安になったとき、傷ついたとき、自分を責めてしまうとき。
-              頭では分かっていても、その瞬間に対処できないことがあります。
+              相手の返信が気になって、別のことが手につかない。
+              仕事の失敗を思い出して、自分を責め続けてしまう。
+              頭では分かっていても、その瞬間に対処するのは難しいことがあります。
             </p>
             <p>
               MINAMI MINDLABは、そうした瞬間に実際に使える「Treat」という仕組みを作っています。
