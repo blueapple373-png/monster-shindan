@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import SwitchPage from './SwitchPage.jsx'
 import ArchivedOfferPage from './ArchivedOfferPage.jsx'
 import Site from './Site.jsx'
 import AboutEditorial from './AboutEditorial.jsx'
@@ -17,7 +18,7 @@ import './mobile.css'
 
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 // Keep pre-launch and archived offer routes out of search even if the SPA fallback is served.
-const noindexPaths = new Set(['/services', '/app', '/lp', '/trial', '/trial-thanks']);
+const noindexPaths = new Set(['/services', '/app', '/lp', '/trial', '/trial-thanks', '/switch']);
 if (noindexPaths.has(path)) {
   const robotsMeta = document.querySelector('meta[name="robots"]') || document.createElement('meta');
   robotsMeta.setAttribute('name', 'robots');
@@ -69,6 +70,8 @@ if (path === '/lp') {
   Page = ArchivedOfferPage
 } else if (path === '/diagnosis') {
   Page = App
+} else if (path === '/switch') {
+  Page = SwitchPage
 } else if (path === '/trial') {
   Page = TrialPage
 } else if (path === '/trial-thanks') {

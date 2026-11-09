@@ -1,0 +1,31 @@
+name: SWITCH MVP verification
+on:
+  push:
+    branches: [feat/mindlab-switch-mvp-20261109]
+  pull_request:
+    paths:
+      - 'src/SwitchPage.jsx'
+      - 'src/switch.css'
+      - 'src/switch-logic.mjs'
+      - 'src/main.jsx'
+      - 'test/switch-logic.test.mjs'
+      - 'vercel.json'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node --test test/switch-logic.test.mjs
+      # Blog generation needs MICROCMS_API_KEY and is validated by the connected Vercel build.
+      # Do not copy production CMS credentials into this PR test workflow.
+      - run: npx vite build
+      - run: node scripts/generate-static-seo.mjs

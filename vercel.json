@@ -50,6 +50,15 @@
           "value": "noindex, follow"
         }
       ]
+    },
+    {
+      "source": "/switch",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
     }
   ]
 }
