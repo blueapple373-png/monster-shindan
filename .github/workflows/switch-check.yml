@@ -25,4 +25,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --test test/switch-logic.test.mjs
-      - run: npm run build
+      # Blog generation needs MICROCMS_API_KEY and is validated by the connected Vercel build.
+      # Do not copy production CMS credentials into this PR test workflow.
+      - run: npx vite build
+      - run: node scripts/generate-static-seo.mjs
