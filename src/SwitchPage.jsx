@@ -3,6 +3,7 @@ import {
   BLOCKERS, cleanText, suggestActions, createRecord, startRecord,
   finishRecord, readRecords, writeRecords, remainingSeconds
 } from "./switch-logic.mjs";
+import { GUIDED_GOALS, getGuidedGoal, getGuidedPlan } from "./switch-guide.mjs";
 import "./switch.css";
 
 function safeStorage() {
@@ -20,6 +21,9 @@ function StatusMark({ status }) {
 export default function SwitchPage() {
   const [records, setRecords] = useState(() => readRecords(safeStorage()));
   const [screen, setScreen] = useState("capture");
+  const [entryMode, setEntryMode] = useState("guide");
+  const [goalArea, setGoalArea] = useState("business");
+  const [goalStage, setGoalStage] = useState("unsure");
   const [task, setTask] = useState("");
   const [blocker, setBlocker] = useState("unclear");
   const [action, setAction] = useState("");
@@ -29,7 +33,9 @@ export default function SwitchPage() {
   const [error, setError] = useState("");
   const [showCompleted, setShowCompleted] = useState(false);
   const active = records.find((item) => item.id === activeId);
-  const suggestions = useMemo(() => suggestActions(task, blocker), [task, blocker]);
+  const goal = getGuidedGoal(goalArea);
+  const guidedPlan = getGuidedPlan(goalArea, goalStage);
+  const suggestions = useMemo(() => entryMode === "guide" ? getGuidedPlan(goalArea, goalStage).actions : suggestActions(task, blocker), [entryMode, goalArea, goalStage, task, blocker]);
   const remaining = remainingSeconds(active, clock);
   const inProgress = records.filter((r) => r.status !== "done");
   const completed = records.filter((r) => r.status === "done");
@@ -59,6 +65,20 @@ export default function SwitchPage() {
     setAction(suggestions[0] || "");
     setScreen("choose");
   }
+  function chooseGuidedStep() {
+    const plan = getGuidedPlan(goalArea, goalStage);
+    setTask(plan.task);
+    setBlocker("unclear");
+    setAction(plan.actions[0]);
+    setScreen("choose");
+    setError("");
+  }
+  function changeGoalArea(id) {
+    const next = getGuidedGoal(id);
+    setGoalArea(next.id);
+    setGoalStage(next.stages[0].id);
+    setError("");
+  }
   function saveStep() {
     try {
       const newRecord = createRecord({ task, blocker, action });
@@ -87,12 +107,14 @@ export default function SwitchPage() {
     setAction("");
     setBlocker("unclear");
     setScreen("capture");
+    setEntryMode("guide");
     setError("");
   }
   function createNext() {
     const lastTask = active?.task || "";
     returnHome();
     setTask(lastTask);
+    setEntryMode("manual");
   }
   function removeRecord(id) {
     if (!window.confirm("この記録を削除しますか？ この操作は取り消せません。")) return;
@@ -117,7 +139,7 @@ export default function SwitchPage() {
           <div className="sw-layout">
             <section className="sw-card sw-work" aria-label="行動再開ツール">
               <div className="sw-flowtop">
-                <span className="sw-section-label">{screen === "capture" ? "01 / やること" : screen === "choose" ? "02 / 最初の一歩" : "03 / 行動する"}</span>
+                <span className="sw-section-label">{screen === "capture" ? "01 / 現在地" : screen === "choose" ? "02 / 最初の一歩" : "03 / 行動する"}</span>
                 <span className="sw-stepcount">{screen === "capture" ? "入力" : screen === "choose" ? "選択" : "実行"}</span>
               </div>
               <div className="sw-track" aria-hidden="true">
@@ -127,7 +149,40 @@ export default function SwitchPage() {
               </div>
 
               {screen === "capture" && (
-                <form onSubmit={(event) => { event.preventDefault(); chooseStep(); }}>
+                <div>
+                  <div className="sw-mode-tabs" role="group" aria-label="始め方を選ぶ">
+                    <button type="button" aria-pressed={entryMode === "guide"} className={"sw-mode-button" + (entryMode === "guide" ? " is-selected" : "")} onClick={() => { setEntryMode("guide"); setError(""); }}>何をすればいいか分からない</button>
+                    <button type="button" aria-pressed={entryMode === "manual"} className={"sw-mode-button" + (entryMode === "manual" ? " is-selected" : "")} onClick={() => { setEntryMode("manual"); setError(""); }}>やることは決まっている</button>
+                  </div>
+                  {entryMode === "guide" ? (
+                    <div>
+                      <h2>今の状況を選ぶだけ。</h2>
+                      <p className="sw-lead">やることを文章で考えなくても大丈夫。今の段階に近いものを選ぶと、最初の一歩の候補を表示します。</p>
+                      <span className="sw-label" id="sw-goal-label">進めたい分野</span>
+                      <div className="sw-guide-areas" role="group" aria-labelledby="sw-goal-label">
+                        {GUIDED_GOALS.map((item) => (
+                          <button key={item.id} type="button" aria-pressed={goalArea === item.id}
+                            className={"sw-guide-chip" + (goalArea === item.id ? " is-selected" : "")}
+                            onClick={() => changeGoalArea(item.id)}>{item.label}</button>
+                        ))}
+                      </div>
+                      <span className="sw-label" id="sw-stage-label">今、どんなところで止まっている？</span>
+                      <div className="sw-guide-stages" role="group" aria-labelledby="sw-stage-label">
+                        {goal.stages.map((stage) => (
+                          <button key={stage.id} type="button" aria-pressed={goalStage === stage.id}
+                            className={"sw-guide-stage" + (goalStage === stage.id ? " is-selected" : "")}
+                            onClick={() => { setGoalStage(stage.id); setError(""); }}>{stage.label}</button>
+                        ))}
+                      </div>
+                      <div className="sw-guide-preview">
+                        <span className="sw-mini-label">最初の目標の例</span>
+                        <strong>{guidedPlan.task}</strong>
+                        <small>選んだ段階に基づく一般的な候補です。状況をAIが分析した結果ではありません。</small>
+                      </div>
+                      <button className="sw-button sw-primary" type="button" onClick={chooseGuidedStep}>入力せずに一歩を見つける →</button>
+                    </div>
+                  ) : (
+                  <form onSubmit={(event) => { event.preventDefault(); chooseStep(); }}>
                   <h2>何を進めたい？</h2>
                   <p className="sw-lead">大きな目標のままで大丈夫。まずは一つだけ書いてみて。</p>
                   <label className="sw-label" htmlFor="sw-task">今、止まっていること</label>
@@ -141,12 +196,14 @@ export default function SwitchPage() {
                   {error && <p className="sw-error" role="alert">{error}</p>}
                   <button className="sw-button sw-primary" type="submit">最初の一歩を選ぶ <span aria-hidden="true">→</span></button>
                 </form>
+                  )}
+                </div>
               )}
 
               {screen === "choose" && (
                 <div>
                   <h2>今できることを、1つだけ。</h2>
-                  <p className="sw-lead">おすすめは固定ルールによる候補です。自分に合う言葉へ書き換えてもOK。</p>
+                  <p className="sw-lead">固定ルールに基づく候補です。今の状況と違うときは、別の案を選んだり、自分の言葉に変えたりできます。</p>
                   <div className="sw-taskquote">{task}</div>
                   <div className="sw-choices" role="group" aria-label="最初の一歩の候補">
                     {suggestions.map((item, index) => (
@@ -158,7 +215,7 @@ export default function SwitchPage() {
                       </button>
                     ))}
                   </div>
-                  <label htmlFor="sw-action" className="sw-label">自分の言葉に調整する</label>
+                  <label htmlFor="sw-action" className="sw-label">必要な場合だけ、行動を修正する</label>
                   <input id="sw-action" className="sw-input" maxLength={140} value={action}
                     onChange={(event) => setAction(event.target.value)} />
                   {error && <p className="sw-error" role="alert">{error}</p>}
